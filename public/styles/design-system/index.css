@@ -27,10 +27,10 @@
   --font-family: "Poppins", sans-serif;
 
   /* font-size */
-  --font-size-sm: 12px;
-  --font-size-md: 14px;
-  --font-size-lg: 16px;
-  --font-size-xl: 20px;
+  --font-size-sm: 17px;
+  --font-size-md: 20px;
+  --font-size-lg: 24px;
+  --font-size-xl: 30px;
 
   /* font-weight*/
   --font-weight-light: 400; 
