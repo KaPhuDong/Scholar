@@ -17,6 +17,7 @@
 .left-header .logo {
     height: 81px;
     width: 81px;
+    object-fit: cover;
     cursor: pointer;
 }
 
