@@ -1,5 +1,5 @@
 <?php
-class Writes extends Controller
+class Gears extends Controller
 {
     function default()
     {
@@ -8,7 +8,7 @@ class Writes extends Controller
 
         //View
         $this->view("main", [
-            "Page" => "writes",
+            "Page" => "gears",
             "Products" => $products->getProducts()
         ]);
     }

@@ -1,7 +1,7 @@
 .card {
     box-shadow: 0px 10px 5px var(--shadow-color);
     border: 2px solid var(--shadow-color);
-    max-width: 300px;
+    max-width: 281px;
     min-height: 340px;
     display: flex;
     flex-direction: column;
