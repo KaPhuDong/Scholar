@@ -12,7 +12,7 @@
     <div>
         <?php require_once "./app/views/layout/header.php" ?>
     </div>
-    <div>
+    <div class="body">
         <?php require_once "./app/views/pages/" . $data["Page"] . ".php" ?>
     </div>
     <div>

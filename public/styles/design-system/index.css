@@ -11,8 +11,10 @@
   --text-color-dark: var(--dark);
 
   --bg-color-primary: var(--primary);
-  --bg-color-secondary: #f8f3ed;
+  --bg-color-secondary: var(--secondary);
   --border-color: var(--primary);
+
+  --shadow-color: #d0cfcf;
 
   /* Radii */
   --border-radius-sm: 5px;
