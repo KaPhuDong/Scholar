@@ -10,7 +10,7 @@
 <body>
     <header class="header">
         <div class="left-header">
-            <img src="./public/assets/images/logo.jpg" alt="logo" class="logo">
+            <img src="./public/assets/images/logo.png" alt="logo" class="logo">
             <div class="search">
                 <input class="search-input" placeholder="Search product">
                 <div class="search-icon">
