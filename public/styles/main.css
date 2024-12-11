@@ -12,3 +12,6 @@
 
 /* Sections styles */
 @import './sections/index.css';
+
+/* Pages styles */
+@import './pages/index.css';
