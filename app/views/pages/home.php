@@ -8,12 +8,14 @@
 </head>
 
 <body>
-    <h1>Trang chủ</h1>
-    <?php
-    while ($row = mysqli_fetch_array($data["Products"])) {
-        echo $row["name"];
-    }
-    ?>
+    <div class="card">
+        <img src="https://www.shutterstock.com/image-vector/cute-cat-wear-dino-costume-600nw-2457633459.jpg" alt="product" class="img">
+        <div class="content">
+            <div class="product-name">Write</div>
+            <div class="product-price">$56.00</div>
+        </div>
+    </div>
+
 </body>
 
 </html>
