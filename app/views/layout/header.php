@@ -19,9 +19,10 @@
             </div>
         </div>
         <div class="category">
-            <div class="category-item"><a href="#" class="link">Writes</a></div>
-            <div class="category-item"><a href="#" class="link">Notes</a></div>
-            <div class="category-item"><a href="#" class="link">Gears</a></div>
+            <div class="category-item"><a href="/Scholar/Home" class="link">Home</a></div>
+            <div class="category-item"><a href="/Scholar/Writes" class="link">Writes</a></div>
+            <div class="category-item"><a href="/Scholar/Notes" class="link">Notes</a></div>
+            <div class="category-item"><a href="/Scholar/Gears" class="link">Gears</a></div>
         </div>
         <div class="right-header">
             <img src="./public/assets/icons/Cart.svg" alt="cart" class="cart">
