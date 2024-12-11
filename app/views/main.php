@@ -5,21 +5,19 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Main</title>
-    <style>
-        .header,
-        .footer {
-            height: 30px;
-            background-color: red;
-        }
-    </style>
+    <link rel="stylesheet" href="./public/styles/main.css">
 </head>
 
 <body>
-    <div class="header"></div>
+    <div class="header">
+        <?php require_once "./app/views/layout/header.php" ?>
+    </div>
     <div class="body">
         <?php require_once "./app/views/pages/" . $data["Page"] . ".php" ?>
     </div>
-    <div class="footer"></div>
+    <div class="footer">
+        <?php require_once "./app/views/layout/footer.php" ?>
+    </div>
 </body>
 
 </html>

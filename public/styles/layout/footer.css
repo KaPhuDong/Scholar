@@ -1,0 +1,17 @@
+.footer {
+    height: 300px;
+    background-color: #76C1E1;
+    display: flex;
+    gap: 20px;
+    padding: 58px 70px;  
+}
+
+.footer .scholar, 
+.footer .writes,
+.footer .notes,
+.footer .gears,
+.footer .more {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}

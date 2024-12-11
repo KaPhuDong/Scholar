@@ -1,26 +1,26 @@
 <?php
 class Home extends Controller
 {
-    function demo()
+    function default()
     {
+        //Model
+        $products = $this->model("ProductsModel");
+
         //View
         $this->view("main", [
-            "Number" => 5,
-            "Page" => "writes",
-            "SoThich" => ["A", "B", "C"],
+            "Page" => "home",
+            "Products" => $products->getProducts()
         ]);
     }
 
     function getProducts($params)
     {
-        //Model (gọi model và hàm trong model đó, nhớ gắn vào var)
+        //Model
         $products = $this->model("ProductsModel");
 
         //View
         $this->view("main", [
-            "Number" => 5,
             "Page" => $params,
-            "SoThich" => ["A", "B", "C"],
             "Products" => $products->getProducts()
         ]);
     }

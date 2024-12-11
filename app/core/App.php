@@ -3,7 +3,7 @@ class App
 {
 
     protected $controller = "Home";
-    protected $action = "demo";
+    protected $action = "default";
     protected $params = [];
 
     function __construct()
