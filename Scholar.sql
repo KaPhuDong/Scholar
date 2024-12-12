@@ -89,6 +89,21 @@ INSERT INTO products (name, description, price, stock, category_id) VALUES
 ('Brush Pen', 'A pen with a brush tip', 45.00, 70, 2),
 ('Calligraphy Pen', 'A pen for calligraphy', 35.00, 40, 2),
 ('3D Printing Pen', 'A pen for creating 3D objects', 25.00, 20, 2);
+('Notebook for Notes', 'Compact notebook, easy to carry, anti-glare paper', 15.00, 120, 1),
+('Yellow Sticky Notes', 'Yellow sticky notes, easy to write on and stick anywhere', 5.00, 300, 1),
+('Multicolor Sticky Notes', 'Multicolor sticky notes, ideal for highlighting important details', 7.00, 250, 1),
+('Heart-shaped Sticky Notes', 'Decorative sticky notes, heart-shaped design', 6.50, 200, 1),
+('Spiral Notebook A5', 'A5-sized spiral notebook, 200 pages, convenient to use', 20.00, 100, 1),
+('Vintage Notebook', 'Classic-style notebook with a luxurious leather cover', 50.00, 50, 1),
+('Waterproof Sticky Notes', 'Sticky notes made with special waterproof material', 10.00, 180, 1),
+('Sticky Notes with Adhesive', 'Sticky notes with adhesive, perfect for sticking on any surface', 8.00, 250, 1),
+('Student Notebook B5', 'B5-sized notebook, durable paper, perfect for studying', 18.00, 150, 1),
+('Capybara-themed Sticky Notes', 'Sticky notes with cute animal designs like capybara, cats, and bears', 9.00, 200, 1),
+('Hardcover Notebook', 'Hardcover notebook, A6 size, premium paper quality', 12.00, 140, 1),
+('Creative Sticky Notes', 'Sticky notes with creative designs, perfect for decoration', 7.50, 180, 1),
+('Business Notebook', 'Elegant notebook for professionals, with soft leather cover', 60.00, 40, 1),
+('Bordered Sticky Notes', 'Sticky notes with beautiful decorative borders', 6.00, 250, 1),
+('Plastic Cover Notebook', 'Notebook with transparent plastic cover, waterproof and durable', 22.00, 90, 1);
 
 -- Chèn dữ liệu vào bảng product_images
 INSERT INTO product_images (product_id, image_url) VALUES
@@ -128,6 +143,47 @@ INSERT INTO product_images (product_id, image_url) VALUES
 (12, 'https://i.pinimg.com/236x/c8/36/98/c8369893d1110574d70463877f1558ed.jpg'),
 (12, 'https://i.pinimg.com/236x/c8/36/98/c8369893d1110574d70463877f1558ed.jpg'),
 (12, 'https://i.pinimg.com/236x/c8/36/98/c8369893d1110574d70463877f1558ed.jpg');
+(13, 'https://down-vn.img.susercontent.com/file/vn-11134207-7r98o-ll0uals5ifgr23.webp'),
+(13, 'https://down-vn.img.susercontent.com/file/vn-11134207-7r98o-ll0ualp3oatn9f.webp'),
+(13, 'https://down-vn.img.susercontent.com/file/vn-11134207-7r98o-ll0ualpxn2yz76.webp'),
+(14, 'https://down-vn.img.susercontent.com/file/vn-11134211-7r98o-lov9hlg5mjbve9.webp'),
+(14, 'https://down-vn.img.susercontent.com/file/vn-11134211-7r98o-lov9hlg5wdaz6e.webp'),
+(14, 'https://down-vn.img.susercontent.com/file/vn-11134211-7r98o-lov9hlg5tk6377.webp'),
+(15, 'https://down-vn.img.susercontent.com/file/vn-11134207-7r98o-lz3omnx9600x42.webp'),
+(15, 'https://down-vn.img.susercontent.com/file/vn-11134207-7r98o-lz3omnx8yz6p82.webp'),
+(15, 'https://down-vn.img.susercontent.com/file/vn-11134207-7r98o-lz3pbpcdruzl7f.webp'),
+(16, 'https://down-vn.img.susercontent.com/file/7fc77e02a7d757562c7ac865a03b0184.webp'),
+(16, 'https://down-vn.img.susercontent.com/file/7f3925f88317af34453ba288c89e6d3f.webp'),
+(16, 'https://down-vn.img.susercontent.com/file/2c543a98af6e0808bcb11c691d79e746.webp'),
+(17, 'https://down-vn.img.susercontent.com/file/vn-11134207-7r98o-lla6k0hauo5293.webp'),
+(17, 'https://down-vn.img.susercontent.com/file/vn-11134207-7r98o-lla6k0hannau90.webp'),
+(17, 'https://down-vn.img.susercontent.com/file/vn-11134207-7r98o-lla6k0h9pxhk39.webp'),
+(18, 'https://down-vn.img.susercontent.com/file/vn-11134207-7qukw-li0dm4uvaldt87.webp'),
+(18, 'https://down-vn.img.susercontent.com/file/vn-11134207-7qukw-li0dm4uv7s8xce.webp'),
+(18, 'https://down-vn.img.susercontent.com/file/vn-11134207-7r98o-loey5zgz627rb7.webp'),
+(19, 'https://down-vn.img.susercontent.com/file/093c6589733850731e2ec9351c5efdc8.webp'),
+(19, 'https://down-vn.img.susercontent.com/file/cn-11134207-7r98o-ltw4teijk8gtd9.webp'),
+(19, 'https://down-vn.img.susercontent.com/file/cn-11134207-7r98o-ltw5d1hsqyu5e6.webp'),
+(20, 'https://down-vn.img.susercontent.com/file/vn-11134207-7r98o-lnx15lvgrfcq69.webp'),
+(20, 'https://down-vn.img.susercontent.com/file/vn-11134207-7r98o-lnx15lvgrffx68.webp'),
+(20, 'https://down-vn.img.susercontent.com/file/vn-11134207-7r98o-lnx15lvhmbuif0.webp'),
+(21, 'https://down-vn.img.susercontent.com/file/sg-11134201-7rbk9-lpc0xjf632f271.webp'),
+(21, 'https://down-vn.img.susercontent.com/file/sg-11134201-7rbld-lpc0xk4f24mr25.webp'),
+(21, 'https://down-vn.img.susercontent.com/file/sg-11134201-7rbmu-lpc0xkqw583q92.webp'),
+(22, 'https://down-vn.img.susercontent.com/file/cn-11134207-7ras8-m0shsq6j28qv4e.webp'),
+(22, 'https://down-vn.img.susercontent.com/file/cn-11134207-7ras8-m0shsvp6zirr86.webp'),
+(22, 'https://down-vn.img.susercontent.com/file/cn-11134207-7ras8-m0shsshhothq63.webp'),
+(23, 'https://down-vn.img.susercontent.com/file/vn-11134207-7qukw-lgvspjw14ttfb3.webp'),
+(23, 'https://down-vn.img.susercontent.com/file/vn-11134207-7qukw-lgvspjw0pdkj10.webp'),
+(23, 'https://down-vn.img.susercontent.com/file/vn-11134207-7qukw-lgvspjw13f3mc2.webp'),
+(24, 'https://down-vn.img.susercontent.com/file/vn-11134211-7r98o-llnhcwbtf2d86c.webp'),
+(24, 'https://down-vn.img.susercontent.com/file/vn-11134211-7r98o-llnhcwbthvi4e2.webp'),
+(24, 'https://down-vn.img.susercontent.com/file/vn-11134211-7r98o-llnhcwbtkon0bf.webp'),
+(25, 'https://down-vn.img.susercontent.com/file/vn-11134207-7ras8-m2j1e3jpra2cbb.webp'),
+(25, 'https://down-vn.img.susercontent.com/file/vn-11134207-7ras8-m2j1exkzsyicc8.webp'),
+(25, 'https://down-vn.img.susercontent.com/file/vn-11134207-7ras8-m2j1f84kdi2a67.webp');
+
+
 
 -- Chèn dữ liệu vào bảng carts
 INSERT INTO carts (user_id, product_id, quantity) VALUES
