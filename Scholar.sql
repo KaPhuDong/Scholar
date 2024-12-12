@@ -61,14 +61,6 @@ CREATE TABLE  order_items (
     FOREIGN KEY (product_id) REFERENCES products(product_id) ON DELETE CASCADE
 );
 
--- Chèn dữ liệu vào bảng users
-INSERT INTO users (name, email, password, phone_number, address, role) VALUES
-('Nguyễn Văn A', 'nguyenvana@example.com', 'password123', '0123456789', 'Hà Nội, Việt Nam', 'customer'),
-('Trần Thị B', 'tranthib@example.com', 'password123', '0987654321', 'Hồ Chí Minh, Việt Nam', 'customer'),
-('Lê Minh C', 'leminhc@example.com', 'password123', '0912345678', 'Đà Nẵng, Việt Nam', 'customer'),
-('Phạm Quang D', 'phamquangd@example.com', 'password123', '0932123456', 'Hải Phòng, Việt Nam', 'customer'),
-('Vũ Ngọc E', 'vungoce@example.com', 'password123', '0901234567', 'Cần Thơ, Việt Nam', 'admin');
-
 -- Chèn dữ liệu vào bảng categories
 INSERT INTO categories (name) VALUES
 ('Note'),
@@ -88,7 +80,7 @@ INSERT INTO products (name, description, price, stock, category_id) VALUES
 ('Erasable Pen', 'A pen with erasable ink', 25.75, 90, 2),
 ('Brush Pen', 'A pen with a brush tip', 45.00, 70, 2),
 ('Calligraphy Pen', 'A pen for calligraphy', 35.00, 40, 2),
-('3D Printing Pen', 'A pen for creating 3D objects', 25.00, 20, 2);
+('3D Printing Pen', 'A pen for creating 3D objects', 25.00, 20, 2),
 ('Notebook for Notes', 'Compact notebook, easy to carry, anti-glare paper', 15.00, 120, 1),
 ('Yellow Sticky Notes', 'Yellow sticky notes, easy to write on and stick anywhere', 5.00, 300, 1),
 ('Multicolor Sticky Notes', 'Multicolor sticky notes, ideal for highlighting important details', 7.00, 250, 1),
@@ -103,7 +95,25 @@ INSERT INTO products (name, description, price, stock, category_id) VALUES
 ('Creative Sticky Notes', 'Sticky notes with creative designs, perfect for decoration', 7.50, 180, 1),
 ('Business Notebook', 'Elegant notebook for professionals, with soft leather cover', 60.00, 40, 1),
 ('Bordered Sticky Notes', 'Sticky notes with beautiful decorative borders', 6.00, 250, 1),
-('Plastic Cover Notebook', 'Notebook with transparent plastic cover, waterproof and durable', 22.00, 90, 1);
+('Plastic Cover Notebook', 'Notebook with transparent plastic cover, waterproof and durable', 22.00, 90, 1),
+('Backpack', 'A spacious backpack for carrying books and supplies', 45.00, 100, 1),
+('Scissors', 'Durable scissors for cutting paper and crafts', 10.00, 200, 1),
+('Ruler', 'A 12-inch ruler for measurements', 5.00, 150, 1),
+('Stapler', 'A mini stapler with staples included', 7.00, 120, 1),
+('Paper Clips', 'A pack of 100 metal paper clips', 3.50, 300, 1),
+('Pencil Case', 'A stylish case for storing pencils and pens', 12.50, 150, 1),
+('Tape Dispenser', 'A handy dispenser with clear tape', 10.00, 140, 1),
+('Eraser', 'A soft eraser for clean corrections', 1.50, 500, 1),
+('Sharpener', 'A compact pencil sharpener', 2.00, 400, 1),
+('Geometry Set', 'A set including compass, protractor, and ruler', 12.00, 100, 1),
+('Desk Organizer', 'A multi-section organizer for study supplies', 18.00, 80, 1),
+('Calculator', 'A basic calculator for math operations', 20.00, 90, 1),
+('Compass', 'A metal compass for geometry', 12.00, 150, 1),
+('Binder Clips', 'A set of 12 medium binder clips', 5.00, 200, 1),
+('Hole Puncher', 'A metal hole puncher for paper', 15.00, 100, 1),
+('Whiteboard Eraser', 'A soft eraser for whiteboard cleaning', 8.00, 150, 1),
+('Clipboard', 'A sturdy clipboard for holding papers', 12.00, 120, 1),
+('File Folder', 'A set of 5 folders for organizing documents', 10.00, 180, 1);
 
 -- Chèn dữ liệu vào bảng product_images
 INSERT INTO product_images (product_id, image_url) VALUES
@@ -142,7 +152,7 @@ INSERT INTO product_images (product_id, image_url) VALUES
 (11, 'https://i.pinimg.com/736x/62/3b/f1/623bf1ca5f9b8107924d6c3cf18d5df3.jpg'),
 (12, 'https://i.pinimg.com/236x/c8/36/98/c8369893d1110574d70463877f1558ed.jpg'),
 (12, 'https://i.pinimg.com/236x/c8/36/98/c8369893d1110574d70463877f1558ed.jpg'),
-(12, 'https://i.pinimg.com/236x/c8/36/98/c8369893d1110574d70463877f1558ed.jpg');
+(12, 'https://i.pinimg.com/236x/c8/36/98/c8369893d1110574d70463877f1558ed.jpg'),
 (13, 'https://down-vn.img.susercontent.com/file/vn-11134207-7r98o-ll0uals5ifgr23.webp'),
 (13, 'https://down-vn.img.susercontent.com/file/vn-11134207-7r98o-ll0ualp3oatn9f.webp'),
 (13, 'https://down-vn.img.susercontent.com/file/vn-11134207-7r98o-ll0ualpxn2yz76.webp'),
@@ -181,33 +191,66 @@ INSERT INTO product_images (product_id, image_url) VALUES
 (24, 'https://down-vn.img.susercontent.com/file/vn-11134211-7r98o-llnhcwbtkon0bf.webp'),
 (25, 'https://down-vn.img.susercontent.com/file/vn-11134207-7ras8-m2j1e3jpra2cbb.webp'),
 (25, 'https://down-vn.img.susercontent.com/file/vn-11134207-7ras8-m2j1exkzsyicc8.webp'),
-(25, 'https://down-vn.img.susercontent.com/file/vn-11134207-7ras8-m2j1f84kdi2a67.webp');
+(25, 'https://down-vn.img.susercontent.com/file/vn-11134207-7ras8-m2j1f84kdi2a67.webp'),
+(26, 'https://down-vn.img.susercontent.com/file/vn-11134207-7ras8-m30egqfe1cqi97.webp'),
+(26,'https://down-vn.img.susercontent.com/file/vn-11134207-7ras8-m30egqfe1czq3e.webp'),
+(26,'https://down-vn.img.susercontent.com/file/vn-11134207-7ras8-m30egqfe2rk6a8.webp'),
+(27,'https://down-vn.img.susercontent.com/file/db48893d5ac40b65327f98b048ed4342.webp'),
+(27,'https://down-vn.img.susercontent.com/file/c9ab37478ac71d6b7eebc6c7eb2de924.webp'),
+(27,'https://down-vn.img.susercontent.com/file/e4e53a5380844373b5aa0a7f2cc05a24.webp'),
+(28,'https://down-vn.img.susercontent.com/file/sg-11134201-7rdwx-lz74z00ls5yg75@resize_w450_nl.webp'),
+(28,'https://down-vn.img.susercontent.com/file/sg-11134201-7rdw9-lz74yye24fjre1.webp'),
+(28,'https://down-vn.img.susercontent.com/file/sg-11134201-7rdvn-lz74yziui5ay89.webp'),
+(29,'https://down-vn.img.susercontent.com/file/sg-11134201-7rdx4-ly41lfz2e8kza4.webp'),
+(29,'https://down-vn.img.susercontent.com/file/sg-11134201-7rdxg-ly431y2igw6v6d.webp'),
+(29,'https://down-vn.img.susercontent.com/file/sg-11134201-7rdws-ly41lggto8z4e4.webp'),
+(30,'https://down-vn.img.susercontent.com/file/sg-11134201-7rd5q-ludbbojn4dgaaa.webp'),
+(30,'https://down-vn.img.susercontent.com/file/sg-11134201-7rd46-ludbbmz1f7ks4b.webp'),
+(30,'https://down-vn.img.susercontent.com/file/sg-11134201-7rd4g-ludbbm6qkmkn11.webp'),
+(31,'https://down-vn.img.susercontent.com/file/ba318876939d1c2927eadc0d604c62bd.webp'),
+(31,'https://down-vn.img.susercontent.com/file/58ee88e211c2daf712dec1309fe48cef.webp'),
+(31,'https://down-vn.img.susercontent.com/file/f7762a312117d503294b23d42e145840.webp'),
+(32,'https://down-vn.img.susercontent.com/file/cn-11134207-7qukw-ljy2lbnjit4kfa.webp'),
+(32,'https://down-vn.img.susercontent.com/file/cn-11134207-7qukw-ljy2lbnjfzzobb.webp'),
+(32,'https://down-vn.img.susercontent.com/file/cn-11134207-7qukw-ljy2lbnjlm9gdc.webp'),
+(33,'https://down-vn.img.susercontent.com/file/sg-11134201-7rbmf-lpy1q4vinzjee1.webp'),
+(33,'https://down-vn.img.susercontent.com/file/sg-11134201-7rblc-lpy10fvcarmo5e.webp'),
+(33,'https://down-vn.img.susercontent.com/file/sg-11134201-7rbmb-lpy10dknp6fy3e.webp'),
+(34,'https://down-vn.img.susercontent.com/file/sg-11134201-7rdwg-lxcwyzalxaw03b.webp'),
+(34,'https://down-vn.img.susercontent.com/file/sg-11134201-7rdxq-lxc2d9g88ax862.webp'),
+(34,'https://down-vn.img.susercontent.com/file/sg-11134201-7rdyk-lxcbk26r9xbd7d.webp'),
+(35,'https://down-vn.img.susercontent.com/file/19633b0de405c1df066ada54727d299b.webp'),
+(35,'https://down-vn.img.susercontent.com/file/27fa5be36e17b308d1510792b27f5044.webp'),
+(35,'https://down-vn.img.susercontent.com/file/54f627b466af66ba472cb14398609313.webp'),
+(36,'https://ph-live-02.slatic.net/p/032002bcafd0615b842f6a67be84f363.jpg'),
+(36,'https://m.media-amazon.com/images/S/aplus-media/sc/dd99b10b-2367-433a-9e07-a4b8ab8cc64f.__CR0,0,300,300_PT0_SX300_V1___.jpg'),
+(36,'https://img.lazcdn.com/g/p/38b933645c80ecd6cfceeca8579ed1d1.jpg_960x960q80.jpg_.webp'),
+(37,'https://down-vn.img.susercontent.com/file/vn-11134207-7r98o-m0ck1br3jij3ae.webp'),
+(37,'https://down-vn.img.susercontent.com/file/vn-11134207-7r98o-m0ck1br3i3ynea.webp'),
+(37,'https://down-vn.img.susercontent.com/file/vn-11134207-7r98o-m0ck1bqtjwtpfa.webp'),
+(38,'https://down-vn.img.susercontent.com/file/sg-11134201-7qvf4-lk3n7mtc9hxhc8.webp'),
+(38,'https://down-vn.img.susercontent.com/file/sg-11134201-7qvfw-lk3n7nop10xq90.webp'),
+(38,'https://down-vn.img.susercontent.com/file/sg-11134201-7qven-lk3n7luxmg0ne0.webp'),
+(39,'https://down-vn.img.susercontent.com/file/vn-11134207-7qukw-ljzh0rtgnflg47.webp'),
+(39,'https://down-vn.img.susercontent.com/file/vn-11134207-7qukw-ljzh0rtgq8qcda.webp'),
+(39,'https://down-vn.img.susercontent.com/file/vn-11134207-7qukw-ljzh0rtgx9kk45.webp'),
+(40,'https://down-vn.img.susercontent.com/file/dd7dda3aeb5c5c3ab5a7d519b5bddf30.webp'),
+(40,'https://down-vn.img.susercontent.com/file/613c529ebed59ebfa9bd09168f11e876.webp'),
+(40,'https://down-vn.img.susercontent.com/file/1930ce5ee2152cb8e533784d89d659b2.webp'),
+(41,'https://down-vn.img.susercontent.com/file/sg-11134201-7qve8-lgmjuyot6p5793.webp'),
+(41,'https://down-vn.img.susercontent.com/file/sg-11134201-7qvcy-lgmjv00j621m75.webp'),
+(41,'https://down-vn.img.susercontent.com/file/sg-11134201-7qvdo-lgmlge1xrqai5d.webp'),
+(42,'https://down-vn.img.susercontent.com/file/669644e753cedcb5f3f6eeef5e85b1f9.webp'),
+(42,'https://down-vn.img.susercontent.com/file/76151d0af34969dde9fd5f34bd73346e.webp'),
+(42,'https://down-vn.img.susercontent.com/file/fe2076edc1e2372e9d5069ac32a7940b.webp'),
+(43,'https://down-vn.img.susercontent.com/file/sg-11134201-7rdwv-lylbdha8mtzuce.webp'),
+(43,'https://down-vn.img.susercontent.com/file/sg-11134201-7rdvh-lylbdi33gljab6.webp'),
+(43,'https://down-vn.img.susercontent.com/file/sg-11134201-7rdyj-lylbj52oeue2f5.webp'),
+(44,'https://down-vn.img.susercontent.com/file/sg-11134201-7qvfq-lhrxnwpzjzg780.webp'),
+(44,'https://down-vn.img.susercontent.com/file/sg-11134201-7qvcq-lhrxo4is52rb70.webp'),
+(44,'https://down-vn.img.susercontent.com/file/sg-11134201-7qvec-lhrxo3q7cat45b.webp');
 
 
-
--- Chèn dữ liệu vào bảng carts
-INSERT INTO carts (user_id, product_id, quantity) VALUES
-(1, 1, 1),
-(2, 3, 1),
-(3, 2, 1),
-(1, 3, 1),
-(1, 2, 1);
-
--- Chèn dữ liệu vào bảng orders
-INSERT INTO orders (user_id, total_amount, status) VALUES
-(1, 60.00, 'Pending'),
-(2, 100.00, 'Processing'),
-(3, 30.00, 'Completed'),
-(4, 150.00, 'Pending'),
-(5, 400.00, 'Completed');
-
--- Chèn dữ liệu vào bảng order_items
-INSERT INTO order_items (order_id, product_id, quantity, price) VALUES
-(1, 1, 2, 25.00),
-(2, 3, 1, 50.00),
-(3, 2, 3, 10.00),
-(4, 4, 1, 150.00),
-(5, 5, 5, 80.00);
 
 
 
