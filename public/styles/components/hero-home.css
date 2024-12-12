@@ -13,11 +13,11 @@
     justify-content: center;
 }
 .content .heading{ 
-    font-size: 62px;
-    font-weight: var(--font-weight-bold);
+    font-size:var(--font-size-xxl);
+    font-weight:var(--font-weight-bold);
     color: var(--primary);
 }
 .content .description{
+    font-size:var(--font-size-xl);
     margin-top: 45px;
-    font-size: 48px;
 }
