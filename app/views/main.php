@@ -9,16 +9,16 @@
 </head>
 
 <body>
-    <div class="container">
-        <div>
-            <?php require_once "./app/views/layout/header.php" ?>
-        </div>
-        <div class="body">
-            <?php require_once "./app/views/pages/" . $data["Page"] . ".php" ?>
-        </div>
-        <div>
-            <?php require_once "./app/views/layout/footer.php" ?>
-        </div>
+    <div id="header">
+        <?php require_once "./app/views/layout/header.php" ?>
+    </div>
+
+    <div id="body">
+        <?php require_once "./app/views/pages/" . $data["Page"] . ".php" ?>
+    </div>
+
+    <div id="footer">
+        <?php require_once "./app/views/layout/footer.php" ?>
     </div>
 
     <script src="./public/script/main.js"></script>
