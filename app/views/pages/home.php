@@ -8,6 +8,32 @@
 </head>
 
 <body>
+<!-- Hero -->
+    <div class="hero">
+        <div class="content">
+            <div class="heading">Scholar</div>
+            <div class="description">School Supplies</div>
+        </div>
+        <img src="https://img.freepik.com/premium-photo/school-supplies-grey-background_78621-574.jpg?w=826" alt="" class="img-hero">  
+    </div> 
+
+<!-- Category -->
+    <div class="category-cards">
+        <a href="/Scholar/Writes" class="category-card">
+            <img src="./public/assets/images/Write.jpg" alt="Writes" class="img-item">
+            <div class="text">Writes</div>
+        </a>
+        <a href="/Scholar/Notes" class="category-card">
+            <img src="./public/assets/images/Note.jpg" alt="Notes" class="img-item">
+            <div class="text">Notes</div>
+        </a>
+        <a href="/Scholar/Gears" class="category-card">
+            <img src="./public/assets/images/Gear.jpg" alt="Gears" class="img-item">
+            <div class="text">Gears</div>
+        </a>
+    </div>
+
+<!-- Card -->
     <div class="cards extra-cards">
         <?php
         $products = array_slice($data["Products"], 0, 3);
@@ -23,9 +49,6 @@
             </div>
         <?php endforeach; ?>
     </div>
-
-
-
     <div class="cards extra-cards">
         <?php
         $products = array_slice($data["Products"], 3, 9);
@@ -41,7 +64,8 @@
             </div>
         <?php endforeach; ?>
     </div>
-    <!-- Slider -->
+    
+<!-- Slider -->
     <div class="home-slider">
         <div class="slides">
             <div class="slide"><img src="https://i.pinimg.com/736x/2c/37/c6/2c37c6df47e05a3c75e6e7d7fbfbafeb.jpg" alt="Slide 1"></div>
