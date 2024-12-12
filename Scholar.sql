@@ -77,19 +77,57 @@ INSERT INTO categories (name) VALUES
 
 -- Chèn dữ liệu vào bảng products
 INSERT INTO products (name, description, price, stock, category_id) VALUES
-('Vở học sinh A5', 'Vở học sinh A5, 200 trang, giấy trắng', 25.00, 100, 1),
-('Bút bi Xịn', 'Bút bi màu đen, mực lâu khô', 10.00, 200, 2),
-('Bảng học sinh mini', 'Bảng học sinh mini cho việc học nhóm', 50.00, 50, 3),
-('Cặp sách học sinh', 'Cặp sách đẹp, chống gù lưng', 150.00, 30, 1),
-('Sách Giáo Khoa Toán', 'Sách giáo khoa môn Toán lớp 10', 80.00, 80, 2);
+('Ballpoint Pen', 'A smooth writing ballpoint pen', 15.50, 100, 2),
+('Gel Pen', 'A pen with gel-based ink', 20.00, 200, 2),
+('Fountain Pen', 'A classic fountain pen', 10.00, 50, 2),
+('Marker Pen', 'A marker for highlighting', 15.75, 150, 2),
+('Rollerball Pen', 'A pen with a rolling ball tip', 35.50, 80, 2),
+('Mechanical Pencil', 'A pencil with a mechanical mechanism', 25.25, 120, 2),
+('Stylus Pen', 'A pen for touchscreen devices', 55.00, 60, 2),
+('Highlighter Pen', 'A pen for highlighting text', 15.25, 140, 2),
+('Erasable Pen', 'A pen with erasable ink', 25.75, 90, 2),
+('Brush Pen', 'A pen with a brush tip', 45.00, 70, 2),
+('Calligraphy Pen', 'A pen for calligraphy', 35.00, 40, 2),
+('3D Printing Pen', 'A pen for creating 3D objects', 25.00, 20, 2);
 
 -- Chèn dữ liệu vào bảng product_images
 INSERT INTO product_images (product_id, image_url) VALUES
-(1, 'images/vo_hocsinh_a5.jpg'),
-(2, 'images/but_bi_xin.jpg'),
-(3, 'images/bang_hocsinh_mini.jpg'),
-(1, 'images/cap_sach_hocsinh.jpg'),
-(3, 'images/sach_giaokhoa_toan.jpg');
+(1, 'https://i.pinimg.com/236x/db/65/55/db6555de65fd3f903b7ece9540087a4f.jpg'),
+(1, 'https://i.pinimg.com/236x/db/65/55/db6555de65fd3f903b7ece9540087a4f.jpg'),
+(1, 'https://i.pinimg.com/236x/db/65/55/db6555de65fd3f903b7ece9540087a4f.jpg'),
+(2, 'https://i.pinimg.com/236x/a0/86/22/a0862237e2483d1a16d072c84ba35ae6.jpg'),
+(2, 'https://i.pinimg.com/236x/a0/86/22/a0862237e2483d1a16d072c84ba35ae6.jpg'),
+(2, 'https://i.pinimg.com/236x/a0/86/22/a0862237e2483d1a16d072c84ba35ae6.jpg'),
+(3, 'https://i.pinimg.com/474x/a1/e8/94/a1e89403401d2823e70f80eb4f78f963.jpg'),
+(3, 'https://i.pinimg.com/474x/a1/e8/94/a1e89403401d2823e70f80eb4f78f963.jpg'),
+(3, 'https://i.pinimg.com/474x/a1/e8/94/a1e89403401d2823e70f80eb4f78f963.jpg'),
+(4, 'https://i.pinimg.com/236x/74/b7/54/74b754b6531ece6d96f8761b9d833adb.jpg'),
+(4, 'https://i.pinimg.com/236x/74/b7/54/74b754b6531ece6d96f8761b9d833adb.jpg'),
+(4, 'https://i.pinimg.com/236x/74/b7/54/74b754b6531ece6d96f8761b9d833adb.jpg'),
+(5, 'https://i.pinimg.com/236x/90/15/80/901580ebb23ca7065c5edec6b4e84b73.jpg'),
+(5, 'https://i.pinimg.com/236x/90/15/80/901580ebb23ca7065c5edec6b4e84b73.jpg'),
+(5, 'https://i.pinimg.com/236x/90/15/80/901580ebb23ca7065c5edec6b4e84b73.jpg'),
+(6, 'https://i.pinimg.com/474x/05/c8/1d/05c81d4d80f1e644c36d9116e76ff89d.jpg'),
+(6, 'https://i.pinimg.com/474x/05/c8/1d/05c81d4d80f1e644c36d9116e76ff89d.jpg'),
+(6, 'https://i.pinimg.com/474x/05/c8/1d/05c81d4d80f1e644c36d9116e76ff89d.jpg'),
+(7, 'https://i.pinimg.com/474x/61/52/26/6152261ed5a1e69481db73b2d15459d6.jpg'),
+(7, 'https://i.pinimg.com/474x/61/52/26/6152261ed5a1e69481db73b2d15459d6.jpg'),
+(7, 'https://i.pinimg.com/474x/61/52/26/6152261ed5a1e69481db73b2d15459d6.jpg'),
+(8, 'https://i.pinimg.com/474x/2d/65/75/2d6575ede39cec451f0dec98e899539b.jpg'),
+(8, 'https://i.pinimg.com/474x/2d/65/75/2d6575ede39cec451f0dec98e899539b.jpg'),
+(8, 'https://i.pinimg.com/474x/2d/65/75/2d6575ede39cec451f0dec98e899539b.jpg'),
+(9, 'https://i.pinimg.com/236x/a0/86/22/a0862237e2483d1a16d072c84ba35ae6.jpg'),
+(9, 'https://i.pinimg.com/236x/a0/86/22/a0862237e2483d1a16d072c84ba35ae6.jpg'),
+(9, 'https://i.pinimg.com/236x/a0/86/22/a0862237e2483d1a16d072c84ba35ae6.jpg'),
+(10, 'https://i.pinimg.com/736x/9e/10/63/9e1063b6269e7f1571238adce4dd9a7a.jpg'),
+(10, 'https://i.pinimg.com/736x/9e/10/63/9e1063b6269e7f1571238adce4dd9a7a.jpg'),
+(10, 'https://i.pinimg.com/736x/9e/10/63/9e1063b6269e7f1571238adce4dd9a7a.jpg'),
+(11, 'https://i.pinimg.com/736x/62/3b/f1/623bf1ca5f9b8107924d6c3cf18d5df3.jpg'),
+(11, 'https://i.pinimg.com/736x/62/3b/f1/623bf1ca5f9b8107924d6c3cf18d5df3.jpg'),
+(11, 'https://i.pinimg.com/736x/62/3b/f1/623bf1ca5f9b8107924d6c3cf18d5df3.jpg'),
+(12, 'https://i.pinimg.com/236x/c8/36/98/c8369893d1110574d70463877f1558ed.jpg'),
+(12, 'https://i.pinimg.com/236x/c8/36/98/c8369893d1110574d70463877f1558ed.jpg'),
+(12, 'https://i.pinimg.com/236x/c8/36/98/c8369893d1110574d70463877f1558ed.jpg');
 
 -- Chèn dữ liệu vào bảng carts
 INSERT INTO carts (user_id, product_id, quantity) VALUES
