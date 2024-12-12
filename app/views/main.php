@@ -20,6 +20,8 @@
             <?php require_once "./app/views/layout/footer.php" ?>
         </div>
     </div>
+
+    <script src="./public/script/main.js"></script>
 </body>
 
 </html>
