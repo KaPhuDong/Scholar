@@ -1,0 +1,23 @@
+.hero {
+    display: flex; 
+    justify-content: space-between; 
+    margin: 60px 0px;
+}
+.hero .img-hero {
+    max-width: 630px;
+    height: 410px;
+}
+.hero .content{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+.content .heading{ 
+    font-size: 62px;
+    font-weight: var(--font-weight-bold);
+    color: var(--primary);
+}
+.content .description{
+    margin-top: 45px;
+    font-size: 48px;
+}

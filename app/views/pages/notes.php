@@ -4,54 +4,61 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Home page</title>
+    <title>Note page</title>
 </head>
 
 <body>
-    <div class="hero">
-        <div class="content">
-            <div class="heading">Scholar</div>
-            <div class="description">School Supplies</div>
-        </div>
-        <img src="https://img.freepik.com/premium-photo/school-supplies-grey-background_78621-574.jpg?w=826" alt="" class="img-hero">  
-    </div> 
-    <div class="cards extra-cards">
-        <div class="card extra-card">
+    <div class="cards">
+        <div class="card">
             <img src="https://www.shutterstock.com/image-vector/cute-cat-wear-dino-costume-600nw-2457633459.jpg" alt="product" class="img">
             <div class="content">
                 <div class="product-name">Write</div>
                 <div class="product-price">$56.00</div>
             </div>
         </div>
-        <div class="card extra-card">
+        <div class="card">
             <img src="https://www.shutterstock.com/image-vector/cute-cat-wear-dino-costume-600nw-2457633459.jpg" alt="product" class="img">
             <div class="content">
                 <div class="product-name">Write</div>
                 <div class="product-price">$56.00</div>
             </div>
         </div>
-        <div class="card extra-card">
+        <div class="card">
             <img src="https://www.shutterstock.com/image-vector/cute-cat-wear-dino-costume-600nw-2457633459.jpg" alt="product" class="img">
             <div class="content">
                 <div class="product-name">Write</div>
                 <div class="product-price">$56.00</div>
             </div>
         </div>
-        <div class="card extra-card">
+        <div class="card">
             <img src="https://www.shutterstock.com/image-vector/cute-cat-wear-dino-costume-600nw-2457633459.jpg" alt="product" class="img">
             <div class="content">
                 <div class="product-name">Write</div>
                 <div class="product-price">$56.00</div>
             </div>
         </div>
-        <div class="card extra-card">
+        <div class="card">
             <img src="https://www.shutterstock.com/image-vector/cute-cat-wear-dino-costume-600nw-2457633459.jpg" alt="product" class="img">
             <div class="content">
                 <div class="product-name">Write</div>
                 <div class="product-price">$56.00</div>
             </div>
         </div>
-        <div class="card extra-card">
+        <div class="card">
+            <img src="https://www.shutterstock.com/image-vector/cute-cat-wear-dino-costume-600nw-2457633459.jpg" alt="product" class="img">
+            <div class="content">
+                <div class="product-name">Write</div>
+                <div class="product-price">$56.00</div>
+            </div>
+        </div>
+        <div class="card">
+            <img src="https://www.shutterstock.com/image-vector/cute-cat-wear-dino-costume-600nw-2457633459.jpg" alt="product" class="img">
+            <div class="content">
+                <div class="product-name">Write</div>
+                <div class="product-price">$56.00</div>
+            </div>
+        </div>
+        <div class="card">
             <img src="https://www.shutterstock.com/image-vector/cute-cat-wear-dino-costume-600nw-2457633459.jpg" alt="product" class="img">
             <div class="content">
                 <div class="product-name">Write</div>

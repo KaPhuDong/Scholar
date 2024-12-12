@@ -1,6 +1,6 @@
-.footer footer {
-    height: 300px;
-    background-color: #76C1E1;
+.footer {
+    max-height: 250px;
+    background-color: var(--bg-color-primary);
     display: flex;
     gap: 20px;
     padding: 58px 70px;  
