@@ -9,48 +9,37 @@
 
 <body>
     <div class="cards extra-cards">
-        <div class="card extra-card">
-            <img src="https://www.shutterstock.com/image-vector/cute-cat-wear-dino-costume-600nw-2457633459.jpg" alt="product" class="img">
-            <div class="content">
-                <div class="product-name">Write</div>
-                <div class="product-price">$56.00</div>
+        <?php
+        $products = array_slice($data["Products"], 0, 3);
+        ?>
+
+        <?php foreach ($products as $product): ?>
+            <div class="card extra-card">
+                <img src="<?php echo $product['images'][0]['image_url'] ?>" alt="product" class="img">
+                <div class="content">
+                    <div class="product-name"><?php echo htmlspecialchars($product['name']); ?></div>
+                    <div class="product-price">$<?php echo number_format($product['price'], 2); ?></div>
+                </div>
             </div>
-        </div>
-        <div class="card extra-card">
-            <img src="https://www.shutterstock.com/image-vector/cute-cat-wear-dino-costume-600nw-2457633459.jpg" alt="product" class="img">
-            <div class="content">
-                <div class="product-name">Write</div>
-                <div class="product-price">$56.00</div>
+        <?php endforeach; ?>
+    </div>
+
+
+
+    <div class="cards extra-cards">
+        <?php
+        $products = array_slice($data["Products"], 3, 9);
+        ?>
+
+        <?php foreach ($products as $product): ?>
+            <div class="card extra-card">
+                <img src="<?php echo $product['images'][0]['image_url'] ?>" alt="product" class="img">
+                <div class="content">
+                    <div class="product-name"><?php echo htmlspecialchars($product['name']); ?></div>
+                    <div class="product-price">$<?php echo number_format($product['price'], 2); ?></div>
+                </div>
             </div>
-        </div>
-        <div class="card extra-card">
-            <img src="https://www.shutterstock.com/image-vector/cute-cat-wear-dino-costume-600nw-2457633459.jpg" alt="product" class="img">
-            <div class="content">
-                <div class="product-name">Write</div>
-                <div class="product-price">$56.00</div>
-            </div>
-        </div>
-        <div class="card extra-card">
-            <img src="https://www.shutterstock.com/image-vector/cute-cat-wear-dino-costume-600nw-2457633459.jpg" alt="product" class="img">
-            <div class="content">
-                <div class="product-name">Write</div>
-                <div class="product-price">$56.00</div>
-            </div>
-        </div>
-        <div class="card extra-card">
-            <img src="https://www.shutterstock.com/image-vector/cute-cat-wear-dino-costume-600nw-2457633459.jpg" alt="product" class="img">
-            <div class="content">
-                <div class="product-name">Write</div>
-                <div class="product-price">$56.00</div>
-            </div>
-        </div>
-        <div class="card extra-card">
-            <img src="https://www.shutterstock.com/image-vector/cute-cat-wear-dino-costume-600nw-2457633459.jpg" alt="product" class="img">
-            <div class="content">
-                <div class="product-name">Write</div>
-                <div class="product-price">$56.00</div>
-            </div>
-        </div>
+        <?php endforeach; ?>
     </div>
 </body>
 
