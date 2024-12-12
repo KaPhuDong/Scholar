@@ -10,10 +10,10 @@
 <body>
     <header class="header">
         <div class="left-header">
-            <div class="logo">
+            <a class="logo" href="/Scholar/Home">
                 <img src="./public/assets/images/logo.png" alt="logo" class="logo-img">
                 <h1 class="logo-name">Scholar</h1>
-            </div>
+            </a>
             <div class="search">
                 <input class="search-input" placeholder="Search product">
                 <div class="search-icon">
