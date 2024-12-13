@@ -37,11 +37,12 @@
 }
 
 .content .product-name {
-    font-weight: var(--font-weight-bold);
-    font-size: var(--font-size-md);
+    font-size: var(--font-size-sm);
+    line-height: var(--line-height);
 }
 
 .content .product-price {
     color: var(--text-color-primary);
+    font-weight: var(--font-weight-bold);
 }
 

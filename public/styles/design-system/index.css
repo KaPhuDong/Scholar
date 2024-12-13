@@ -37,5 +37,8 @@
   --font-weight-light: 400; 
   --font-weight-normal: 500;
   --font-weight-bold: 600;
+
+  /* line-height */
+  --line-height: 140%;
    
 }

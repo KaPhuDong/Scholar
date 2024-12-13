@@ -26,7 +26,7 @@
 <!-- Card -->
 <a href="#" class="cards">
     <?php
-    $products = array_slice($data["Products"], 0, 4);
+    $products = array_slice($data["Products"], 13, 4);
     ?>
 
     <?php foreach ($products as $product): ?>
@@ -51,7 +51,23 @@
 
 <a href="#" class="cards">
     <?php
-    $products = array_slice($data["Products"], 3, 8);
+    $products = array_slice($data["Products"], 8, 4);
+    ?>
+
+    <?php foreach ($products as $product): ?>
+        <div class="card">
+            <img src="<?php echo $product['images'][0]['image_url'] ?>" alt="product" class="img">
+            <div class="content">
+                <div class="product-name"><?php echo htmlspecialchars($product['name']); ?></div>
+                <div class="product-price">$<?php echo number_format($product['price'], 2); ?></div>
+            </div>
+        </div>
+    <?php endforeach; ?>
+</a>
+
+<a href="#" class="cards">
+    <?php
+    $products = array_slice($data["Products"], 30, 4);
     ?>
 
     <?php foreach ($products as $product): ?>
