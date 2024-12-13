@@ -3,13 +3,23 @@ class Notes extends Controller
 {
     function default()
     {
-        //Model
-        $products = $this->model("ProductsModel");
+        $categoryID = 1;
+        // Model
+        $productsModel = $this->model("ProductsModel");
+        $imagesModel = $this->model("ImagesModel");
 
-        //View
+        $products = $productsModel->getProductsByCategory($categoryID);
+
+        // Lấy ảnh cho từng sản phẩm
+        foreach ($products as $index => $product) {
+            $productId = $product['product_id'];
+            $images = $imagesModel->getImagesByProduct($productId);
+            $products[$index]['images'] = $images;
+        }
+
         $this->view("main", [
             "Page" => "notes",
-            "Products" => $products->getProducts()
+            "Products" => $products
         ]);
     }
 
