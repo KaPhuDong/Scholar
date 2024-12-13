@@ -1,3 +1,4 @@
+<!-- Hero -->
 <div class="hero-note">
     <div class="left-content">
         <div class="title-hero">
@@ -32,6 +33,27 @@
     </div>
 </div>
 
+<!-- Slider -->
+<div class="slider-container">
+    <div class="note-slider">
+        <div class="slides">
+            <div class="slide"><img src="./public/assets/images/note-slide-1.png" alt="Slide 1"></div>
+            <div class="slide"><img src="./public/assets/images/note-slide-1.png" alt="Slide 2"></div>
+            <div class="slide"><img src="./public/assets/images/note-slide-1.png" alt="Slide 3"></div>
+            <div class="slide"><img src="./public/assets/images/note-slide-1.png" alt="Slide 1"></div>
+        </div>
+    </div>
+    <div class="note-slider">
+        <div class="slides">
+            <div class="slide"><img src="./public/assets/images/note-slide-2.png" alt="Slide 1"></div>
+            <div class="slide"><img src="./public/assets/images/note-slide-2.png" alt="Slide 2"></div>
+            <div class="slide"><img src="./public/assets/images/note-slide-2.png" alt="Slide 3"></div>
+            <div class="slide"><img src="./public/assets/images/note-slide-2.png" alt="Slide 1"></div>
+        </div>
+    </div>
+</div>
+
+<!-- Note Products -->
 <div class="cards">
     <div class="card">
         <img src="https://www.shutterstock.com/image-vector/cute-cat-wear-dino-costume-600nw-2457633459.jpg" alt="product" class="img">
