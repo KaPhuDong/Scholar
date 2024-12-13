@@ -34,3 +34,13 @@
         </div>
     <?php endforeach; ?>
 </a>
+
+<!-- Slider -->
+<div class="home-slider">
+    <div class="slides">
+        <div class="slide"><img src="./public/assets/images/home-slider.png" alt="Slide 1"></div>
+        <div class="slide"><img src="./public/assets/images/home-slider.png" alt="Slide 2"></div>
+        <div class="slide"><img src="./public/assets/images/home-slider.png" alt="Slide 3"></div>
+        <div class="slide"><img src="./public/assets/images/home-slider.png" alt="Slide 1"></div>
+    </div>
+</div>
