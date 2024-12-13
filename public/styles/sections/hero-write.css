@@ -1,7 +1,6 @@
 .hero-write {
     display: flex;
     justify-content: space-between;
-    margin-block: 60px;
 
 }
 .hero-write .left-content {

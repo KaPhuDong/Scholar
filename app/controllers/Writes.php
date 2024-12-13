@@ -12,16 +12,4 @@ class Writes extends Controller
             "Products" => $products->getProducts()
         ]);
     }
-
-    function getProducts($params)
-    {
-        //Model
-        $products = $this->model("ProductsModel");
-
-        //View
-        $this->view("main", [
-            "Page" => $params,
-            "Products" => $products->getProducts()
-        ]);
-    }
 }
