@@ -24,7 +24,7 @@
 
 .category-cards{
     display: flex;
-    justify-content: space-between;
+    justify-content: space-around;
     margin-block: 60px;
 }
 .category-cards .category-card{
