@@ -21,4 +21,48 @@ class Home extends Controller
             "Products" => $products
         ]);
     }
+
+    function getWrites($categoryID)
+    {
+        $categoryID = 1;
+        // Model
+        $productsModel = $this->model("ProductsModel");
+        $imagesModel = $this->model("ImagesModel");
+
+        $products = $productsModel->getProductsByCategory($categoryID);
+
+        // Lấy ảnh cho từng sản phẩm
+        foreach ($products as $index => $product) {
+            $productId = $product['product_id'];
+            $images = $imagesModel->getImagesByProduct($productId);
+            $products[$index]['images'] = $images;
+        }
+
+        $this->view("main", [
+            "Page" => "home",
+            "Products" => $products
+        ]);
+    }
+
+    function getGears($categoryID)
+    {
+        $categoryID = 1;
+        // Model
+        $productsModel = $this->model("ProductsModel");
+        $imagesModel = $this->model("ImagesModel");
+
+        $products = $productsModel->getProductsByCategory($categoryID);
+
+        // Lấy ảnh cho từng sản phẩm
+        foreach ($products as $index => $product) {
+            $productId = $product['product_id'];
+            $images = $imagesModel->getImagesByProduct($productId);
+            $products[$index]['images'] = $images;
+        }
+
+        $this->view("main", [
+            "Page" => "home",
+            "Products" => $products
+        ]);
+    }
 }
