@@ -1,3 +1,4 @@
+<!-- Hero -->
 <div class="hero-write">
     <div class="left-content">
         <div class="content-title">
@@ -16,3 +17,47 @@
         <img src="https://i.pinimg.com/736x/2d/be/ea/2dbeeab9a026621cd7505387d5ac4e6a.jpg" alt="" class="img-write">
     </div>
 </div>
+
+<!-- Write-Product -->
+<a href="#" class="cards">
+    <?php
+    $products = array_slice($data["Products"], 0, 4);
+    ?>
+
+    <?php foreach ($products as $product): ?>
+        <div class="card ">
+            <img src="<?php echo $product['images'][0]['image_url'] ?>" alt="product" class="img">
+            <div class="content">
+                <div class="product-name"><?php echo htmlspecialchars($product['name']); ?></div>
+                <div class="product-price">$<?php echo number_format($product['price'], 2); ?></div>
+            </div>
+        </div>
+    <?php endforeach; ?>
+</a>
+
+<!-- Slider -->
+<div class="home-slider">
+    <div class="slides">
+        <div class="slide"><img src="./public/assets/images/home-slider.png" alt="Slide 1"></div>
+        <div class="slide"><img src="./public/assets/images/home-slider.png" alt="Slide 2"></div>
+        <div class="slide"><img src="./public/assets/images/home-slider.png" alt="Slide 3"></div>
+        <div class="slide"><img src="./public/assets/images/home-slider.png" alt="Slide 1"></div>
+    </div>
+</div>
+
+<!-- Write-Product -->
+<a href="#" class="cards">
+    <?php
+    $products = array_slice($data["Products"], 4, 4);
+    ?>
+
+    <?php foreach ($products as $product): ?>
+        <div class="card ">
+            <img src="<?php echo $product['images'][0]['image_url'] ?>" alt="product" class="img">
+            <div class="content">
+                <div class="product-name"><?php echo htmlspecialchars($product['name']); ?></div>
+                <div class="product-price">$<?php echo number_format($product['price'], 2); ?></div>
+            </div>
+        </div>
+    <?php endforeach; ?>
+</a>
