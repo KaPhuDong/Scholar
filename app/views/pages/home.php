@@ -47,7 +47,7 @@
         ?>
         <?php foreach ($products as $product): ?>
         <a href="#" class="slide">
-            <img  src="<?php echo htmlspecialchars($product['images'][0]['image_url']); ?>" alt="<?php echo htmlspecialchars($product['name']); ?>">
+            <img  src="<?php echo $product['images'][0]['image_url']; ?>" alt="<?php echo $product['name']; ?>">
         </a>
         <?php endforeach; ?>
     </div>
