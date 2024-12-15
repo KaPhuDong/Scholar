@@ -24,8 +24,7 @@
     </div>
 </div>
 <!-- Slider -->
-<div class="slider-container">
-    <!-- Slider 1  -->
+<div class="slider-2">
     <div class="note-slider">
         <div class="slides">
             <?php
