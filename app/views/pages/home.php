@@ -28,7 +28,6 @@
     <?php
     $products = array_slice($data["Products"], 13, 4);
     ?>
-
     <?php foreach ($products as $product): ?>
         <div class="card ">
             <img src="<?php echo $product['images'][0]['image_url'] ?>" alt="product" class="img">
@@ -43,13 +42,18 @@
 <!-- slider -->
 <div class="home-slider">
     <div class="slides">
-        <div class="slide"><img src="./public/assets/images/home-slider.png" alt="Slide 1"></div>
-        <div class="slide"><img src="./public/assets/images/home-slider.png" alt="Slide 2"></div>
-        <div class="slide"><img src="./public/assets/images/home-slider.png" alt="Slide 3"></div>
-        <div class="slide"><img src="./public/assets/images/home-slider.png" alt="Slide 1"></div>
+        <?php
+            $products = array_slice($data["Products"], 8, 4);
+        ?>
+        <?php foreach ($products as $product): ?>
+        <a href="#" class="slide">
+            <img  src="<?php echo htmlspecialchars($product['images'][0]['image_url']); ?>" alt="<?php echo htmlspecialchars($product['name']); ?>">
+        </a>
+        <?php endforeach; ?>
     </div>
 </div>
 
+<!-- Card -->
 <a href="#" class="cards">
     <?php
     $products = array_slice($data["Products"], 8, 4);
