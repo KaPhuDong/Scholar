@@ -34,7 +34,7 @@
 </div>
 
 <!-- Slider -->
-<div class="slider-container">
+<div class="slider-2">
     <div class="note-slider">
         <div class="slides">
             <div class="slide"><img src="./public/assets/images/note-slide-1.png" alt="Slide 1"></div>

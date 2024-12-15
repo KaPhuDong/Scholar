@@ -40,7 +40,7 @@
 </a>
 
 <!-- slider -->
-<div class="home-slider">
+<div class="slider-1">
     <div class="slides">
         <?php
             $products = array_slice($data["Products"], 8, 4);
