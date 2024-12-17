@@ -12,3 +12,9 @@
     flex-direction: column;
     gap: 100px;
 }
+
+/* authentication */
+
+.container {
+    background-color: var(--bg-color-primary);
+}
