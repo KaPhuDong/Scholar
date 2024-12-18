@@ -18,7 +18,7 @@
         <div class="category-item"><a href="/Scholar/Gears" class="link">Gears</a></div>
     </div>
     <div class="right-header">
-        <img src="./public/assets/icons/Cart.svg" alt="cart" class="cart">
+        <a href="/Scholar/Cart"><img src="./public/assets/icons/Cart.svg" alt="cart" class="cart"></a>
         <div class="authentication">
             <div class="sign-in">Sign up</div>
             <div class="log-in">Log in</div>
