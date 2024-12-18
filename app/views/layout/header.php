@@ -20,8 +20,8 @@
     <div class="right-header">
         <img src="./public/assets/icons/Cart.svg" alt="cart" class="cart">
         <div class="authentication">
-            <div class="sign-in">Sign up</div>
-            <div class="log-in">Log in</div>
+            <a href="/Scholar/Register" class="sign-in">Sign up</a>
+            <a href="/Scholar/Login" class="log-in">Log in</a>
         </div>
     </div>
 </header>
