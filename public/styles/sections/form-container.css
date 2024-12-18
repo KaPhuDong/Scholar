@@ -17,9 +17,6 @@
 }
 
 .form-container .form-header {
-    display: flex;
-    flex-direction: column;
-    gap: 15px;
     text-align: center;
 }
 
@@ -35,10 +32,17 @@
     width: 100%;
 }
 
-.form-container .form-footer {
+.form-register .btn-signin-submit {
     border-radius: var(--border-radius-lg);
     background-color: var(--primary);
     font-weight: var(--font-weight-bold);
     height: 45px;
     width: 200px;
+    margin-top:10px;
+    margin-inline: auto;
+}
+
+.form-register .btn-signin-submit:hover {
+    cursor: pointer;
+    background-color: var();
 }
