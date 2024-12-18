@@ -9,8 +9,8 @@
         $index = 1; 
         ?>
         <?php foreach ($products as $product): ?>
-            <a href="#" class="img-hero-<?php echo $index; ?>">
-                <img src="<?php echo $product['images'][0]['image_url']; ?>" alt="Product <?php echo $index; ?>" class="img-hero-<?php echo $index; ?>">
+            <a href="#" class="hero-link img-hero-<?php echo $index; ?>">
+                <img src="<?php echo $product['images'][0]['image_url']; ?>" alt="Product">
             </a>
             <?php $index++; ?>
         <?php endforeach; ?>
