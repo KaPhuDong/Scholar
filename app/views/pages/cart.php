@@ -1,6 +1,7 @@
 <!-- cart-item -->
 <div class="cart-item">
         <div class="content-left-item">
+            <input type="checkbox">
             <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRuKcK7CImaEUSdJUC6UKsfbdc_reX25EX8lg&s" alt="Product Image" class="image-item">
             <div class="product-name">Giấy note Kitty</div>
         </div> 

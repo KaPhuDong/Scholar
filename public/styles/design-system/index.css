@@ -14,6 +14,7 @@
   --bg-color-secondary: var(--secondary);
   --border-color: var(--primary);
 
+  --hover-color: #4194b8;
   --shadow-color: #d0cfcf;
 
   /* Radii */

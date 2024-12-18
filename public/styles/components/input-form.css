@@ -1,0 +1,15 @@
+.form-field {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+
+.form-field .input-form {
+    border: 1px solid var(--dark);
+    border-radius: var(--border-radius-lg);
+    height: 35px;
+    width: 100%;
+    padding: 10px 20px;
+    box-sizing: border-box;
+}
