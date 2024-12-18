@@ -1,71 +1,71 @@
-<!DOCTYPE html>
-<html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Note page</title>
-</head>
-
-<body>
-    <div class="cards">
-        <div class="card">
-            <img src="https://www.shutterstock.com/image-vector/cute-cat-wear-dino-costume-600nw-2457633459.jpg" alt="product" class="img">
-            <div class="content">
-                <div class="product-name">Write</div>
-                <div class="product-price">$56.00</div>
-            </div>
+<!-- Hero -->
+<div class="hero-note">
+    <div class="left-content">
+        <div class="title-hero">
+            Best Selling Notes
         </div>
-        <div class="card">
-            <img src="https://www.shutterstock.com/image-vector/cute-cat-wear-dino-costume-600nw-2457633459.jpg" alt="product" class="img">
-            <div class="content">
-                <div class="product-name">Write</div>
-                <div class="product-price">$56.00</div>
-            </div>
-        </div>
-        <div class="card">
-            <img src="https://www.shutterstock.com/image-vector/cute-cat-wear-dino-costume-600nw-2457633459.jpg" alt="product" class="img">
-            <div class="content">
-                <div class="product-name">Write</div>
-                <div class="product-price">$56.00</div>
-            </div>
-        </div>
-        <div class="card">
-            <img src="https://www.shutterstock.com/image-vector/cute-cat-wear-dino-costume-600nw-2457633459.jpg" alt="product" class="img">
-            <div class="content">
-                <div class="product-name">Write</div>
-                <div class="product-price">$56.00</div>
-            </div>
-        </div>
-        <div class="card">
-            <img src="https://www.shutterstock.com/image-vector/cute-cat-wear-dino-costume-600nw-2457633459.jpg" alt="product" class="img">
-            <div class="content">
-                <div class="product-name">Write</div>
-                <div class="product-price">$56.00</div>
-            </div>
-        </div>
-        <div class="card">
-            <img src="https://www.shutterstock.com/image-vector/cute-cat-wear-dino-costume-600nw-2457633459.jpg" alt="product" class="img">
-            <div class="content">
-                <div class="product-name">Write</div>
-                <div class="product-price">$56.00</div>
-            </div>
-        </div>
-        <div class="card">
-            <img src="https://www.shutterstock.com/image-vector/cute-cat-wear-dino-costume-600nw-2457633459.jpg" alt="product" class="img">
-            <div class="content">
-                <div class="product-name">Write</div>
-                <div class="product-price">$56.00</div>
-            </div>
-        </div>
-        <div class="card">
-            <img src="https://www.shutterstock.com/image-vector/cute-cat-wear-dino-costume-600nw-2457633459.jpg" alt="product" class="img">
-            <div class="content">
-                <div class="product-name">Write</div>
-                <div class="product-price">$56.00</div>
-            </div>
+        <div class="description">
+            The easiest way to feel happy is to buy the notebooks you love
         </div>
     </div>
-</body>
+    <div class="right-content">
+        <?php
+        $products = array_slice($data["Products"], 8, 3);
+        ?>
+        <?php foreach ($products as $product): ?>
+        <div class="card-note">
+            <a href="#" class="card-link">
+                <img src="<?php echo $product['images'][0]['image_url'] ?>" alt="Notebook" class="img-note">
+                <div class="name"><?php echo($product['name']); ?></div>
+                <div class="price">$<?php echo number_format($product['price'], 2); ?></div>
+            </a>
+        </div>
+        <?php endforeach; ?>
+    </div>
+</div>
+<!-- Slider -->
+<div class="slider-2">
+    <div class="note-slider">
+        <div class="slides">
+            <?php
+            $products = array_slice($data["Products"], 8, 4);
+            ?>
+            <?php foreach ($products as $product): ?>
+                <a href="#" class="slide">
+                    <img src="<?php echo($product['images'][0]['image_url']); ?>" alt="<?php echo($product['name']); ?>">
+                </a>
+            <?php endforeach; ?>
+        </div>
+    </div>
+    <!-- Slider 2 -->
+    <div class="note-slider">
+        <div class="slides">
+            <?php
+            $products = array_slice($data["Products"], 2, 4);
+            ?>
+            <?php foreach ($products as $product): ?>
+                <a href="#" class="slide">
+                    <img src="<?php echo($product['images'][0]['image_url']); ?>" alt="<?php echo($product['name']); ?>">
+                </a>
+            <?php endforeach; ?>
+        </div>
+    </div>
+</div>
 
-</html>
+
+<!-- Note Products -->
+<a href="#" class="cards">
+    <?php
+    $products = array_slice($data["Products"], 0, 8);
+    ?>
+
+    <?php foreach ($products as $product): ?>
+        <div class="card">
+            <img src="<?php echo $product['images'][0]['image_url'] ?>" alt="product" class="img">
+            <div class="content">
+                <div class="product-name"><?php echo($product['name']); ?></div>
+                <div class="product-price">$<?php echo number_format($product['price'], 2); ?></div>
+            </div>
+        </div>
+    <?php endforeach; ?>
+</a>

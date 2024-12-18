@@ -4,24 +4,14 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Main</title>
+    <title>Authentication</title>
     <link rel="stylesheet" href="./public/styles/main.css">
 </head>
 
-<body>
-    <div id="header">
-        <?php require_once "./app/views/layout/header.php" ?>
-    </div>
-
-    <div id="body">
+<body class="container">
+    <div>
         <?php require_once "./app/views/pages/" . $data["Page"] . ".php" ?>
     </div>
-
-    <div id="footer">
-        <?php require_once "./app/views/layout/footer.php" ?>
-    </div>
-
-    <script src="./public/script/main.js"></script>
 </body>
 
 </html>

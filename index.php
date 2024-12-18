@@ -1,4 +1,6 @@
 <?php
 session_start();
-require_once "./app/Bridge.php";
+require_once "./app/core/App.php";
+require_once "./app/core/Controller.php";
+require_once "./app/core/Database.php";
 $myApp = new App();
