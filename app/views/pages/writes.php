@@ -2,7 +2,7 @@
 <div class="hero-write">
     <div class="left-content">
         <div class="content-title">
-            <span class="highlight">Empower</span><br><br>
+            <span class="highlight">Empower</span>
             Your Learning Journey!
         </div>
         <div class="content-description">

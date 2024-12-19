@@ -21,13 +21,7 @@
         <?php require_once "./app/views/layout/footer.php" ?>
     </div>
 
-    <script src="./public/script/main.js"></script>
+    <script src="./public/script/main.js" type="module"></script>
 </body>
 
 </html>
-
-<?php
-echo '<pre>';
-print_r($_SESSION);
-echo '</pre>';
-?>
