@@ -1,0 +1,124 @@
+.detail-page {
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+}
+.box-detail {
+    max-width: 1300px;
+    min-height: 765px;
+    border: 2px solid var(--border-color);
+    border-radius: var(--border-radius-lg); 
+}
+
+/* Detail */
+.detail {
+    display: flex;
+    gap: 35px;
+    margin: 35px;
+}
+
+.img-product-detail {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.main-product {
+    width: 620px;
+    height: 460px;
+    object-fit: cover;
+}
+
+.recommend-product-detail {
+    display: flex;
+    gap: 10px;
+}
+
+.recommend-product {
+    width: 200px;
+    height: 200px;
+}
+
+/* Information Product */
+.infor-detail {
+    width: 572px;
+    min-height: 676px;
+    display: flex;
+    flex-direction: column;
+    gap: 50px;
+}
+
+/* Content */
+.title-detail {
+    font-size: var(--font-size-lg); 
+    font-weight: var(--font-weight-bold);
+}
+
+.des-detail {
+    font-size: var(--font-size-lg);
+}
+
+.price-detail {
+    font-size: var(--font-size-xxl); 
+    font-weight: var(--font-weight-bold);
+    color: var(--text-color-primary);
+}
+
+.underline-detail {
+    border: 1px solid var(--primary);
+}
+
+/* Quantity */
+.quantity {
+    font-size: var(--font-size-lg); 
+    font-weight: var(--font-weight-bold);
+}
+
+.button-quantity {
+    display: flex;
+    gap: 30px;
+}
+
+.button-quantity .btn-quantity,
+.button-quantity .btn-number-quantity {
+    height: 40px;
+    border: 1px solid var(--border-color);
+    border-radius: var(--border-radius-md); 
+    font-size: var(--font-size-sm); 
+}
+
+.btn-quantity {
+    width: 40px;
+}
+
+.btn-number-quantity {
+    width: 60px;
+}
+
+/* Button */
+.button-detail {
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+    align-items: flex-end;
+}
+
+.button-detail .btn-add-to-cart,
+.button-detail .btn-buy-now {
+    width: 390px;
+    height: 60px;
+    border: 2px solid var(--border-color);
+    border-radius: var(--border-radius-sm); 
+    font-size: var(--font-size-lg); 
+}
+
+.button-detail .btn-add-to-cart:hover,
+.button-detail .btn-buy-now:hover {
+    background-color: var(--bg-color-primary);
+    color: white;
+}
+
+/* Product Benefits */
+.product-benefits {
+    list-style-type: none;
+}
