@@ -103,9 +103,6 @@ INSERT INTO products (name, description, price, stock, category_id) VALUES
 ('Creative Sticky Notes', 'Sticky notes with creative designs, perfect for decoration', 7.50, 180, 1),
 ('Business Notebook', 'Elegant notebook for professionals, with soft leather cover', 60.00, 40, 1),
 ('Bordered Sticky Notes', 'Sticky notes with beautiful decorative borders', 6.00, 250, 1),
-<<<<<<< HEAD
-('Plastic Cover Notebook', 'Notebook with transparent plastic cover, waterproof and durable', 22.00, 90, 1);
-=======
 ('Plastic Cover Notebook', 'Notebook with transparent plastic cover, waterproof and durable', 22.00, 90, 3),
 ('Backpack', 'A spacious backpack for carrying books and supplies', 45.00, 100, 3),
 ('Scissors', 'Durable scissors for cutting paper and crafts', 10.00, 200, 3),
@@ -125,7 +122,6 @@ INSERT INTO products (name, description, price, stock, category_id) VALUES
 ('Whiteboard Eraser', 'A soft eraser for whiteboard cleaning', 8.00, 150, 3),
 ('Clipboard', 'A sturdy clipboard for holding papers', 12.00, 120, 3),
 ('File Folder', 'A set of 5 folders for organizing documents', 10.00, 180, 3);
->>>>>>> 417c9cd13a90b63f16e34e36b6e61147da297e8f
 
 -- Chèn dữ liệu vào bảng product_images
 INSERT INTO product_images (product_id, image_url) VALUES

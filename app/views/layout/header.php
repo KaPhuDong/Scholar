@@ -18,10 +18,24 @@
         <div class="category-item"><a href="/Scholar/Gears" class="link">Gears</a></div>
     </div>
     <div class="right-header">
-        <a href="/Scholar/Cart"><img src="./public/assets/icons/Cart.svg" alt="cart" class="cart"></a>
-        <div class="authentication">
-            <a href="/Scholar/Register" class="sign-in">Sign up</a>
-            <a href="/Scholar/Login" class="log-in">Log in</a>
-        </div>
+        <a href="/Scholar/Cart" class="cart"><img src="./public/assets/icons/Cart.svg" alt="cart"></a>
+
+        <?php if (isset($_SESSION['user'])): ?>
+            <div class="account" id="account">
+                <button class="account-icon" id="account-icon"><img src="./public/assets/icons/Account.svg" alt="icon-account"></button>
+                <div class="dropdown-menu" id="dropdownMenu" style="display: none;">
+                    <ul>
+                        <!-- <li onclick="window.location.href = '/profile'">View Profile</li>
+                        <li onclick="window.location.href = '/order'">History Order</li> -->
+                        <li><a href="/Scholar/Login/logout">Log out</a></li>
+                    </ul>
+                </div>
+            </div>
+        <?php else: ?>
+            <div class="authentication" id="authentication">
+                <a href="/Scholar/Register" class="sign-in">Sign up</a>
+                <a href="/Scholar/Login" class="log-in">Log in</a>
+            </div>
+        <?php endif; ?>
     </div>
 </header>
