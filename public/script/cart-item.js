@@ -1,4 +1,3 @@
-
 // Get all cart items
 const cartItems = document.querySelectorAll('.cart-item');
 

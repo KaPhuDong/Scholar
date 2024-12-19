@@ -13,14 +13,13 @@
     gap: 15px;
 }
 
-.content-left-item input[type="checkbox"] {
-    border: 2px solid var(--primary);
-    border-radius: var(--border-radius-sm);
+.cart-item .check-box {
+    accent-color: var(--primary); 
     width: 25px;
     height: 25px;
     cursor: pointer;
-}
-
+} 
+  
 .content-left-item .image-item {
     border-radius: var(--border-radius-md);
     object-fit: cover;
@@ -42,7 +41,6 @@
 .cart-item .remove {
     cursor: pointer;
 }
-
 .cart-item .quantity {
     margin-left: 25px;
 }
