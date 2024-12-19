@@ -12,9 +12,16 @@ class Login extends Controller
             $user = $usersModel->checkLogin($email, $password);
 
             if ($user) {
-                echo "<script>alert('Login successful!');</script>";
-                header('Location: /Scholar/Home');
+                $_SESSION['user'] = [
+                    'id' => $user['user_id'],
+                    'name' => $user['name'],
+                    'email' => $user['email']
+                ];
 
+                echo "<script>
+                    alert('Login successful!');
+                    window.location.href = '/Scholar/Home';
+                </script>";
                 exit;
             } else {
                 echo "<script>alert('Invalid email or password.');</script>";

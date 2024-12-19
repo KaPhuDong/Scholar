@@ -19,9 +19,19 @@
     </div>
     <div class="right-header">
         <img src="./public/assets/icons/Cart.svg" alt="cart" class="cart">
-        <div class="authentication">
+        <div class="authentication" id="authentication">
             <a href="/Scholar/Register" class="sign-in">Sign up</a>
             <a href="/Scholar/Login" class="log-in">Log in</a>
+        </div>
+        <div class="account" id="account" style="display: none;">
+            <button><img src="./public/assets/icons/Account.svg" alt=""></button>
+            <div class="dropdown-menu" id="dropdownMenu" style="display: none;">
+                <ul>
+                    <li onclick="{window.location.href = '/profile'}">View Profile</a></li>
+                    <li onclick="{window.location.href = '/booking'}">History Tour</li>
+                    <li onclick="{window.location.href = '/api/logout'}">Logout</li>
+                </ul>
+            </div>
         </div>
     </div>
 </header>
