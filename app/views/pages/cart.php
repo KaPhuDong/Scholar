@@ -1,3 +1,4 @@
+
 <!-- shopping-cart layout -->
 <div class="shopping-cart">
     <div class="cart-title">Shopping Cart</div>

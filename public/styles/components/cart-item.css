@@ -6,11 +6,13 @@
     padding: 10px;
     gap: 20px;
 }
+
 .cart-item .content-left-item{
     display: flex;
     align-items: center;
     gap: 15px;
 }
+
 .content-left-item input[type="checkbox"] {
     border: 2px solid var(--primary);
     border-radius: var(--border-radius-sm);
@@ -18,40 +20,47 @@
     height: 25px;
     cursor: pointer;
 }
+
 .content-left-item .image-item {
     border-radius: var(--border-radius-md);
     object-fit: cover;
     width: 80px;
     height: 80px;
 }
+
 .content-left-item .product-name {
     font-size: 16px;
 }
+
 .cart-item .content-right-item{
     display: flex;
     justify-content: space-between;
     align-items: center;
     margin-right: 10px;
 }
+
 .cart-item .remove {
     cursor: pointer;
 }
+
 .cart-item .quantity {
     margin-left: 25px;
 }
+
 .content-right-item .price {
     font-size: 16px;
     color: var(--primary);
 }
+
 .content-right-item .quantity {
     display: flex;
     align-items: center;
     gap: 5px;
 }
+
 .quantity button {
     border: 1px solid var(--primary);
     border-radius: var(--border-radius-sm);
-    /* background: transparent; */
     color: var(--primary);
     width: 30px;
     height: 30px;
@@ -59,10 +68,12 @@
     cursor: pointer;
     transition: all 0.3s ease;
 }
+
 .quantity button:hover {
     background-color: var(--primary);
     color: var(--light);
 }
+
 .quantity .number {
     border: 1px solid var(--primary);
     border-radius: var(--border-radius-md);
