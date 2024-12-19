@@ -71,10 +71,6 @@
     text-align: center;
 }
 
-.category .category-item:hover {
-    border-bottom: 1px solid #F0EFEF;
-}
-
 .category-item .link {
     color: #000;
     text-decoration: none;
@@ -83,7 +79,7 @@
 }
 
 .category-item:hover > .link {
-    color: #F0EFEF; 
+    color: var(--text-color-light); 
 }
 
 .header .right-header {

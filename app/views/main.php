@@ -21,6 +21,9 @@
         <?php require_once "./app/views/layout/footer.php" ?>
     </div>
 
+    <script>
+        const currentPage = "<?php echo $data['Page']; ?>";
+    </script>
     <script src="./public/script/main.js" type="module"></script>
 </body>
 
