@@ -1,15 +1,22 @@
-// Get elements
-const decreaseBtn = document.querySelector('.decrease');
-const increaseBtn = document.querySelector('.increase');
-const quantityInput = document.querySelector('.quantity .number');
 
-// Event listeners
-decreaseBtn.addEventListener('click', () => {
-    if (quantityInput.value > 1) {
-        quantityInput.value--;
-    }
+// Get all cart items
+const cartItems = document.querySelectorAll('.cart-item');
+
+// Loop through each cart item
+cartItems.forEach((item) => {
+    const decreaseBtn = item.querySelector('.decrease');
+    const increaseBtn = item.querySelector('.increase');
+    const quantityInput = item.querySelector('.quantity .number');
+
+    // Event listeners
+    decreaseBtn.addEventListener('click', () => {
+        if (quantityInput.value > 1) {
+            quantityInput.value--;
+        }
+    });
+
+    increaseBtn.addEventListener('click', () => {
+        quantityInput.value++;
+    });
 });
 
-increaseBtn.addEventListener('click', () => {
-    quantityInput.value++;
-});

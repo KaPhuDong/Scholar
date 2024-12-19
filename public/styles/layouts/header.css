@@ -79,6 +79,7 @@
     color: #000;
     text-decoration: none;
     line-height: 30px;
+    transition: all 0.3s ease; 
 }
 
 .category-item:hover > .link {
@@ -109,6 +110,7 @@
     text-align: center;
     line-height: 50px;
     cursor: pointer;
+    transition: all 0.3s ease; 
 }
 
 .authentication .log-in {
