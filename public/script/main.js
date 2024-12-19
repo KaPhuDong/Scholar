@@ -1,3 +1,6 @@
-import './header.js';
-import './slider.js';
-import './cart-item.js';
+import('./header.js');
+if (currentPage === "cart") {
+    import('./cart-item.js');
+} else {
+    import('./slider.js');
+}
