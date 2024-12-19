@@ -1,7 +1,7 @@
 .hero-write {
     display: flex;
     justify-content: space-between;
-
+    padding-top: 30px;
 }
 .hero-write .left-content {
     display: flex;
