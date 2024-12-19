@@ -18,16 +18,16 @@
         <div class="category-item"><a href="/Scholar/Gears" class="link">Gears</a></div>
     </div>
     <div class="right-header">
-        <a href="/Scholar/Cart"><img src="./public/assets/icons/Cart.svg" alt="cart" class="cart"></a>
+        <a href="/Scholar/Cart" class="cart"><img src="./public/assets/icons/Cart.svg" alt="cart"></a>
 
         <?php if (isset($_SESSION['user'])): ?>
             <div class="account" id="account">
-                <button><img src="./public/assets/icons/Account.svg" alt="icon-account"></button>
+                <button class="account-icon" id="account-icon"><img src="./public/assets/icons/Account.svg" alt="icon-account"></button>
                 <div class="dropdown-menu" id="dropdownMenu" style="display: none;">
                     <ul>
-                        <li onclick="window.location.href = '/profile'">View Profile</li>
-                        <li onclick="window.location.href = '/order'">History Order</li>
-                        <li onclick="window.location.href = '/api/logout'">Logout</li>
+                        <!-- <li onclick="window.location.href = '/profile'">View Profile</li>
+                        <li onclick="window.location.href = '/order'">History Order</li> -->
+                        <li><a href="/Scholar/Login/logout">Log out</a></li>
                     </ul>
                 </div>
             </div>

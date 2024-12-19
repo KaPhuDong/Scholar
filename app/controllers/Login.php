@@ -32,4 +32,16 @@ class Login extends Controller
             "Page" => "login"
         ]);
     }
+
+    public function logout()
+    {
+        session_unset();
+        session_destroy();
+
+        echo "<script>
+            alert('You have been logged out successfully.');
+            window.location.href = '/Scholar/Home';
+        </script>";
+        exit;
+    }
 }
