@@ -13,8 +13,11 @@ class Register extends Controller
             $confirm_password = $_POST['confirm-password'] ?? '';
 
             if ($password !== $confirm_password) {
-                echo "<script>alert('Passwords do not match. Please try again.');</script>";
-                return;
+                echo "<script>
+                    alert('Passwords do not match!');
+                    window.location.href = '/Scholar/Register';
+                </script>";
+                exit;
             }
 
             // Model
@@ -22,18 +25,28 @@ class Register extends Controller
 
             $existingUser = $usersModel->getUserByEmail($email);
             if (!empty($existingUser)) {
-                echo "<script>alert('Email already exists. Please use a different one.');</script>";
-                return;
+                echo "<script>
+                    alert('Email already exists. Please use a different one.');
+                    window.location.href = '/Scholar/Register';
+                </script>";
+                exit;
             }
 
             $hashed_password = md5($password);
             $insertSuccess = $usersModel->insertUser($full_name, $phone_number, $email, $address, $hashed_password);
 
             if ($insertSuccess) {
-                echo "<script>alert('Registration successful!');</script>";
-                header('Location: /Scholar/Login');
+                echo "<script>
+                    alert('Registration successful!');
+                    window.location.href = '/Scholar/Home';
+                </script>";
+                exit;
             } else {
-                echo "<script>alert('Failed to register. Please try again later.');</script>";
+                echo "<script>
+                    alert('Failed to register. Please try again later.');
+                    window.location.href = '/Scholar/Register';
+                </script>";
+                exit;
             }
         }
 
