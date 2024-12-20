@@ -2,7 +2,7 @@
     display: flex;
     justify-content: space-between;
     gap: 30px;
-    padding-top: 30px;
+    height: 431px;
 }
 
 .hero-note .left-content {
