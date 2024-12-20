@@ -1,29 +1,34 @@
-let currentIndex = 0;
+// Dùng querySelectorAll để lấy tất cả slider
+const sliders = document.querySelectorAll('.slides');
 
-// Slider 1
-function moveSlide1() {
-    const slides = document.querySelector('.slides');
-    const totalSlides = document.querySelectorAll('.slide').length;
+sliders.forEach((slider, index) => {
+    let currentIndex = 0;
+    const slides = slider.children; // Lấy các slide bên trong slider hiện tại
+    const totalSlides = slides.length;
 
-    currentIndex++;
+    function moveSlide() {
+        currentIndex++;
+        
+        if (currentIndex >= totalSlides) {
+            slider.style.transition = 'none';
+            slider.style.transform = 'translateX(0)';
+            currentIndex = 0;
 
-    if (currentIndex >= totalSlides - 1) {
-        slides.style.transition = 'none';
-        slides.style.transform = 'translateX(0)';
-        currentIndex = 0;
-
-        setTimeout(() => {
-            slides.style.transition = 'transform 1.5s ease';
-            moveSlide1();
-        }, 50);
-    } else {
-        const offset = -currentIndex * 100;
-        slides.style.transform = `translateX(${offset}%)`;
+            setTimeout(() => {
+                slider.style.transition = 'transform 1.5s ease';
+                moveSlide();
+            }, 50);
+        } else {
+            const offset = -currentIndex * 100;
+            slider.style.transform = `translateX(${offset}%)`;
+        }
     }
-}
-setInterval(() => {
-    moveSlide1();
-}, 2000);
+
+    // Tự động chạy slider
+    setInterval(() => {
+        moveSlide();
+    }, 2000);
+});
 
 // Slider 2
 function moveSlide2() {
