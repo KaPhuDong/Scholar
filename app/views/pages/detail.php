@@ -25,12 +25,13 @@ $product = $data["Product"];
 
                 <div class="quantity-detail">
                     <div class="underline-detail"></div>
-                    <p class="quantity">Quantity:</p>
-                    <div class="button-quantity">
-                        <button type="button" class="btn-quantity" id="decrease">-</button>
-                        <input type="number" value="1" min="1" id="quantity" class="btn-number-quantity">
-                        <button type="button" class="btn-quantity" id="increase">+</button>
+                    <p class="title-quantity">Quantity:</p>
+                    <div class="quantity">
+                        <button class="decrease">-</button>
+                        <input class="number" type="number" value="1"></input>
+                        <button class="increase">+</button>
                     </div>
+                </>
                 </div>
 
                 <div class="button-detail">

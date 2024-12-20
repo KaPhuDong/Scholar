@@ -1,17 +1,21 @@
-const quantityInput = document.getElementById('quantity');
-const increaseButton = document.getElementById('increase');
-const decreaseButton = document.getElementById('decrease');
+// Get all cart items
+const quantityDetail = document.querySelectorAll('.quantity-detail');
 
-increaseButton.addEventListener('click', function() {
-    let currentValue = parseInt(quantityInput.value);
-    if (currentValue < quantityInput.max) {
-        quantityInput.value = currentValue + 1;
-    }
+// Loop through each cart item
+quantityDetail.forEach((quantity) => {
+    const decreaseBtn = quantity.querySelector('.decrease');
+    const increaseBtn = quantity.querySelector('.increase');
+    const quantityInput = quantity.querySelector('.quantity .number');
+
+    // Event listeners
+    decreaseBtn.addEventListener('click', () => {
+        if (quantityInput.value > 1) {
+            quantityInput.value--;
+        }
+    });
+
+    increaseBtn.addEventListener('click', () => {
+        quantityInput.value++;
+    });
 });
 
-decreaseButton.addEventListener('click', function() {
-    let currentValue = parseInt(quantityInput.value);
-    if (currentValue > quantityInput.min) {
-        quantityInput.value = currentValue - 1;
-    }
-});
