@@ -5,7 +5,7 @@
 .hero-write .left-content {
     display: flex;
     flex-direction: column;
-    gap: 50px;
+    gap: 25px;
 }
 .left-content .content-title {
     font-size:var( --font-size-xxl);
