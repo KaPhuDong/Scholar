@@ -49,3 +49,37 @@ $product = $data["Product"];
         </ul>
     </div>
 </div>
+
+<div class="cards">
+
+    <?php
+    $relatedProducts = array_slice($data["relatedProducts"], 1, 4);
+    ?>
+
+    <?php foreach ($relatedProducts as $relatedProduct): ?>
+        <a href="/Scholar/Detail/getProduct/<?php echo $relatedProduct['product_id']; ?>" class="card">
+            <img src="<?php echo $relatedProduct['images'][0]['image_url'] ?>" alt="product" class="img">
+            <div class="content">
+                <div class="product-name"><?php echo ($relatedProduct['name']); ?></div>
+                <div class="product-price">$<?php echo number_format($relatedProduct['price'], 2); ?></div>
+            </div>
+        </a>
+    <?php endforeach; ?>
+</div>
+
+<div class="cards">
+
+    <?php
+    $relatedProducts = array_slice($data["relatedProducts"], 5, 4);
+    ?>
+
+    <?php foreach ($relatedProducts as $relatedProduct): ?>
+        <a href="/Scholar/Detail/getProduct/<?php echo $relatedProduct['product_id']; ?>" class="card">
+            <img src="<?php echo $relatedProduct['images'][0]['image_url'] ?>" alt="product" class="img">
+            <div class="content">
+                <div class="product-name"><?php echo ($relatedProduct['name']); ?></div>
+                <div class="product-price">$<?php echo number_format($relatedProduct['price'], 2); ?></div>
+            </div>
+        </a>
+    <?php endforeach; ?>
+</div>

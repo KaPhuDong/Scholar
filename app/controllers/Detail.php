@@ -9,15 +9,23 @@ class Detail extends Controller
 
         $product = $productsModel->getProductById($productId);
 
-        // Lấy ảnh cho từng sản phẩm
+        $categoryId = $product['category_id'];
+        $relatedProducts = $productsModel->getProductsByCategory($categoryId);
 
-        $productId = $product['product_id'];
+        // Lấy ảnh cho sản phẩm
         $images = $imagesModel->getImagesByProduct($productId);
         $product['images'] = $images;
 
+        foreach ($relatedProducts as $index => $relatedProduct) {
+            $productId = $relatedProduct['product_id'];
+            $images = $imagesModel->getImagesByProduct($productId);
+            $relatedProducts[$index]['images'] = $images;
+        }
+
         $this->view("main", [
             "Page" => "detail",
-            "Product" => $product
+            "Product" => $product,
+            "relatedProducts" => $relatedProducts
         ]);
     }
 }
