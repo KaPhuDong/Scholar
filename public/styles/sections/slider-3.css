@@ -1,0 +1,16 @@
+.slider-3 {
+    max-width: 670px;
+    overflow: hidden;
+    margin: 30px 0px;
+}
+.slides {
+    display: flex;
+}
+.slide {
+    min-width: 100%;
+}
+.slide img {
+    width: 100%;
+    height: 450px;
+    object-fit: cover;
+}
