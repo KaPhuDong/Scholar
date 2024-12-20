@@ -1,25 +1,46 @@
 <?php
-class Details extends Controller
-{
-    function default()
-    {
-        $categoryID = 3;
-        //Model    
-        $productsModel = $this->model("ProductsModel");
-        $imagesModel = $this->model("ImagesModel");
+require_once 'C:\xampp\htdocs\Scholar\app\models\ImagesModel.php';
+require_once 'C:\xampp\htdocs\Scholar\app\models\ProductsModel.php';
+class Details extends Controller {
+    public $ProductsModel;
 
-        $products = $productsModel->getProductsByCategory($categoryID);
+    public function default() {
+        $productModel = new ProductsModel();
+        $products = $productModel->getProducts();  
 
-        // Lấy ảnh cho từng sản phẩm
-        foreach ($products as $index => $product) {
-            $productId = $product['product_id'];
-            $images = $imagesModel->getImagesByProduct($productId);
-            $products[$index]['images'] = $images;
+        $imagesModel = new ImagesModel();
+        $images = []; 
+
+        foreach ($products as $product) {
+            $images[$product['product_id']] = $imagesModel->getImagesByProduct($product['product_id']);
         }
-        //View
         $this->view("main", [
             "Page" => "details",
-            "Products" => $products
+            "Product" => $products,
+            "Images" => $images
+        ]);
+    }
+    public function detail($productId) {
+        $productModel = new ProductsModel();
+        $product = $productModel->getProductById($productId);  
+
+        if (!$product) {
+            die("Sản phẩm không tồn tại");
+        }
+
+        $relatedProducts = $productModel->getProductCategory($product['category_id']);
+
+        $imagesModel = new ImagesModel();
+        $images = $imagesModel->getImagesByProduct($productId);
+
+        var_dump($product);  
+        var_dump($images);  
+
+        $this->view("main", [
+            "Page" => "details",
+            "Product" => $product,
+            "ProductImages" => $images,
+            "RelatedProducts" => $relatedProducts
         ]);
     }
 }
