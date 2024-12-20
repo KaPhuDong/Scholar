@@ -20,7 +20,7 @@ $product = $data["Product"];
                 <div class="content-detail">
                     <p class="title-detail"><?php echo $product['name']; ?></p>
                     <p class="des-detail">Available: <?php echo $product['stock']; ?> quantities in stock</p>
-                    <p class="price-detail"><?php echo $product['price']; ?> đ</p>
+                    <p class="price-detail"><?php echo $product['price']; ?> $</p>
                 </div>
 
                 <div class="quantity-detail">
