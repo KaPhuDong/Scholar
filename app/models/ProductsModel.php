@@ -17,4 +17,12 @@ class ProductsModel extends Database
 
         return mysqli_fetch_all($result, MYSQLI_ASSOC);
     }
+
+    public function getProductById($productId)
+    {
+        $qr = "SELECT * FROM products WHERE product_id = $productId";
+        $result = mysqli_query($this->con, $qr);
+
+        return mysqli_fetch_assoc($result);
+    }
 }
