@@ -11,11 +11,11 @@ class App
         $arr = $this->UrlProcess();
 
         // Controller
-        if (file_exists("./app/controllers/" . $arr[0] . ".php")) {
+        if (file_exists("./app/controllers/" . $arr[0] . "Controller.php")) {
             $this->controller = $arr[0];
             unset($arr[0]);
         }
-        require_once "./app/controllers/" . $this->controller . ".php";
+        require_once "./app/controllers/" . $this->controller . "Controller.php";
         $this->controller = new $this->controller;
 
         // Action

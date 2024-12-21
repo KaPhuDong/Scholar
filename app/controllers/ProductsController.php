@@ -1,7 +1,7 @@
 <?php
-class Detail extends Controller
+class Products extends Controller
 {
-    function getProduct($productId)
+    function getProductInformation($productId)
     {
         // Model
         $productsModel = $this->model("ProductsModel");
@@ -22,8 +22,8 @@ class Detail extends Controller
             $relatedProducts[$index]['images'] = $images;
         }
 
-        $this->view("main", [
-            "Page" => "detail",
+        $this->view("user/main", [
+            "Page" => "products/detail",
             "Product" => $product,
             "relatedProducts" => $relatedProducts
         ]);

@@ -6,7 +6,7 @@
     <div class="content-right">
         <?php
         $products = array_slice($data["Products"], 1, 4);
-        $index = 1; 
+        $index = 1;
         ?>
         <?php foreach ($products as $product): ?>
             <a href="#" class="hero-link img-hero-<?php echo $index; ?>">
@@ -21,12 +21,12 @@
 <div class="slider-1">
     <div class="slides">
         <?php
-            $products = array_slice($data["Products"], 5, 4);
+        $products = array_slice($data["Products"], 5, 4);
         ?>
         <?php foreach ($products as $product): ?>
-        <a href="#" class="slide">
-            <img  src="<?php echo $product['images'][0]['image_url']; ?>" alt="<?php echo $product['name']; ?>">
-        </a>
+            <a href="#" class="slide">
+                <img src="<?php echo $product['images'][0]['image_url']; ?>" alt="<?php echo $product['name']; ?>">
+            </a>
         <?php endforeach; ?>
     </div>
 </div>
@@ -40,7 +40,7 @@
         <div class="card">
             <img src="<?php echo $product['images'][0]['image_url'] ?>" alt="product" class="img">
             <div class="content">
-                <div class="product-name"><?php echo($product['name']); ?></div>
+                <div class="product-name"><?php echo ($product['name']); ?></div>
                 <div class="product-price">$<?php echo number_format($product['price'], 2); ?></div>
             </div>
         </div>
