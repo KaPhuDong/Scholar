@@ -27,14 +27,14 @@
                     <ul>
                         <!-- <li onclick="window.location.href = '/profile'">View Profile</li>
                         <li onclick="window.location.href = '/order'">History Order</li> -->
-                        <li><a href="/Scholar/Login/logout">Log out</a></li>
+                        <li><a href="/Scholar/User/logout">Log out</a></li>
                     </ul>
                 </div>
             </div>
         <?php else: ?>
             <div class="authentication" id="authentication">
-                <a href="/Scholar/Register" class="sign-in">Sign up</a>
-                <a href="/Scholar/Login" class="log-in">Log in</a>
+                <a href="/Scholar/User/register" class="sign-in">Sign up</a>
+                <a href="/Scholar/User/login" class="log-in">Log in</a>
             </div>
         <?php endif; ?>
     </div>

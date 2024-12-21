@@ -3,7 +3,7 @@
         <h1 class="heading">Log in</h1>
         <p class="description">Begin your journey with us today</p>
     </div>
-    <form action="/Scholar/Login" method="post" class="form-register">
+    <form action="/Scholar/User/login" method="post" class="form-register">
 
         <!-- Email -->
         <div class="email form-field">

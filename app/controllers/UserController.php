@@ -15,7 +15,7 @@ class User extends Controller
             if ($password !== $confirm_password) {
                 echo "<script>
                     alert('Passwords do not match!');
-                    window.location.href = '/Scholar/Register';
+                    window.location.href = '/Scholar/User/register';
                 </script>";
                 exit;
             }
@@ -27,7 +27,7 @@ class User extends Controller
             if (!empty($existingUser)) {
                 echo "<script>
                     alert('Email already exists. Please use a different one.');
-                    window.location.href = '/Scholar/Register';
+                    window.location.href = '/Scholar/User/register';
                 </script>";
                 exit;
             }
@@ -44,7 +44,7 @@ class User extends Controller
             } else {
                 echo "<script>
                     alert('Failed to register. Please try again later.');
-                    window.location.href = '/Scholar/Register';
+                    window.location.href = '/Scholar/User/register';
                 </script>";
                 exit;
             }
