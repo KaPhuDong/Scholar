@@ -8,12 +8,12 @@
     gap: 25px;
 }
 .left-content .content-title {
-    font-size:var( --font-size-xxl);
+    font-size:var( --font-size-xl);
     display: flex;
     flex-direction: column;
 }
 .content-title .highlight {
-    font-size: 60px;
+    font-size: var(--font-size-xxl);
     font-weight:var(--font-weight-bold);
     color:var(--primary) ;
     margin-top:20px;
