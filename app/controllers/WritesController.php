@@ -1,9 +1,9 @@
 <?php
-class Cart extends Controller
+class Writes extends Controller
 {
     function default()
     {
-        $categoryID = 1;
+        $categoryID = 2;
         //Model    
         $productsModel = $this->model("ProductsModel");
         $imagesModel = $this->model("ImagesModel");
@@ -17,8 +17,8 @@ class Cart extends Controller
             $products[$index]['images'] = $images;
         }
         //View
-        $this->view("main", [
-            "Page" => "cart",
+        $this->view("user/main", [
+            "Page" => "products/writes",
             "Products" => $products
         ]);
     }

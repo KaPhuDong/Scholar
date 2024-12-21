@@ -31,7 +31,7 @@ $product = $data["Product"];
                         <input class="number" type="number" value="1"></input>
                         <button class="increase">+</button>
                     </div>
-                </>
+                    </>
                 </div>
 
                 <div class="button-detail">
@@ -58,7 +58,7 @@ $product = $data["Product"];
     ?>
 
     <?php foreach ($relatedProducts as $relatedProduct): ?>
-        <a href="/Scholar/Detail/getProduct/<?php echo $relatedProduct['product_id']; ?>" class="card">
+        <a href="/Scholar/Products/getProductInformation/<?php echo $relatedProduct['product_id']; ?>" class="card">
             <img src="<?php echo $relatedProduct['images'][0]['image_url'] ?>" alt="product" class="img">
             <div class="content">
                 <div class="product-name"><?php echo ($relatedProduct['name']); ?></div>
@@ -75,7 +75,7 @@ $product = $data["Product"];
     ?>
 
     <?php foreach ($relatedProducts as $relatedProduct): ?>
-        <a href="/Scholar/Detail/getProduct/<?php echo $relatedProduct['product_id']; ?>" class="card">
+        <a href="/Scholar/Products/getProductInformation/<?php echo $relatedProduct['product_id']; ?>" class="card">
             <img src="<?php echo $relatedProduct['images'][0]['image_url'] ?>" alt="product" class="img">
             <div class="content">
                 <div class="product-name"><?php echo ($relatedProduct['name']); ?></div>

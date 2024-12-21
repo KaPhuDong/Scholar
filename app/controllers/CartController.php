@@ -1,10 +1,10 @@
 <?php
-class Notes extends Controller
+class Cart extends Controller
 {
     function default()
     {
         $categoryID = 1;
-        // Model
+        //Model    
         $productsModel = $this->model("ProductsModel");
         $imagesModel = $this->model("ImagesModel");
 
@@ -16,9 +16,9 @@ class Notes extends Controller
             $images = $imagesModel->getImagesByProduct($productId);
             $products[$index]['images'] = $images;
         }
-
-        $this->view("main", [
-            "Page" => "notes",
+        //View
+        $this->view("user/main", [
+            "Page" => "cart",
             "Products" => $products
         ]);
     }

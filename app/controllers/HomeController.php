@@ -16,7 +16,7 @@ class Home extends Controller
             $products[$index]['images'] = $images;
         }
 
-        $this->view("main", [
+        $this->view("user/main", [
             "Page" => "home",
             "Products" => $products
         ]);

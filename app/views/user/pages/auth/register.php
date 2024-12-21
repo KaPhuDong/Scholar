@@ -3,7 +3,7 @@
         <h1 class="heading">Register Yourself</h1>
         <p class="description">Begin your journey with us today</p>
     </div>
-    <form action="/Scholar/Register" method="post" class="form-register">
+    <form action="/Scholar/User/register" method="post" class="form-register">
         <!-- Full Name -->
         <div class="name form-field">
             <p class="title">Full name</p>
