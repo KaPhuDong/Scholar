@@ -20,7 +20,7 @@ $product = $data["Product"];
                 <div class="content-detail">
                     <p class="title-detail"><?php echo $product['name']; ?></p>
                     <p class="des-detail">Available: <?php echo $product['stock']; ?> quantities in stock</p>
-                    <p class="price-detail"><?php echo $product['price']; ?> $</p>
+                    <p class="price-detail">$<?php echo $product['price']; ?></p>
                 </div>
 
                 <div class="quantity-detail">
@@ -49,10 +49,9 @@ $product = $data["Product"];
             <li><?php echo $product['description']; ?></li>
         </ul>
     </div>
-</div>
 
-<div class="cards">
-
+    <!-- cards -->
+    <div class="cards">
     <?php
     $relatedProducts = array_slice($data["relatedProducts"], 1, 4);
     ?>
@@ -66,10 +65,10 @@ $product = $data["Product"];
             </div>
         </a>
     <?php endforeach; ?>
-</div>
+    </div>
 
-<div class="cards">
-
+    <!-- cards -->
+    <div class="cards">
     <?php
     $relatedProducts = array_slice($data["relatedProducts"], 5, 4);
     ?>
@@ -83,4 +82,9 @@ $product = $data["Product"];
             </div>
         </a>
     <?php endforeach; ?>
+    </div>
 </div>
+
+
+
+    
