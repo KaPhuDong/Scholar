@@ -11,12 +11,12 @@ CREATE TABLE users (
     role ENUM('customer', 'admin') DEFAULT 'customer'
 );
 
-CREATE TABLE  categories (
+CREATE TABLE categories (
     category_id INT AUTO_INCREMENT PRIMARY KEY,
     name VARCHAR(100) NOT NULL
 );
 
-CREATE TABLE  products (
+CREATE TABLE products (
     product_id INT AUTO_INCREMENT PRIMARY KEY,
     name VARCHAR(100) NOT NULL,
     description TEXT,
@@ -26,23 +26,14 @@ CREATE TABLE  products (
     FOREIGN KEY (category_id) REFERENCES categories(category_id) ON DELETE SET NULL
 );
 
-CREATE TABLE  product_images (
+CREATE TABLE product_images (
     image_id INT AUTO_INCREMENT PRIMARY KEY,
     product_id INT NOT NULL,
     image_url VARCHAR(255) NOT NULL,
     FOREIGN KEY (product_id) REFERENCES products(product_id) ON DELETE CASCADE
 );
 
-CREATE TABLE  carts (
-    cart_id INT AUTO_INCREMENT PRIMARY KEY,
-    user_id INT NOT NULL,
-    product_id INT NOT NULL,
-    quantity INT DEFAULT 1,
-    FOREIGN KEY (user_id) REFERENCES users(user_id) ON DELETE CASCADE,
-    FOREIGN KEY (product_id) REFERENCES products(product_id) ON DELETE CASCADE
-);
-
-CREATE TABLE  orders (
+CREATE TABLE orders (
     order_id INT AUTO_INCREMENT PRIMARY KEY,
     user_id INT NOT NULL,
     order_date TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
@@ -51,17 +42,17 @@ CREATE TABLE  orders (
     FOREIGN KEY (user_id) REFERENCES users(user_id) ON DELETE CASCADE
 );
 
-CREATE TABLE  order_items (
-    order_item_id INT AUTO_INCREMENT PRIMARY KEY,
+CREATE TABLE order_detail (
+    order_detail_id INT AUTO_INCREMENT PRIMARY KEY,
     order_id INT NOT NULL,
     product_id INT NOT NULL,
     quantity INT NOT NULL,
-    price DECIMAL(10, 2) NOT NULL,
     FOREIGN KEY (order_id) REFERENCES orders(order_id) ON DELETE CASCADE,
     FOREIGN KEY (product_id) REFERENCES products(product_id) ON DELETE CASCADE
 );
 
--- Chèn dữ liệu vào bảng users
+
+-- Insert data into users
 INSERT INTO users (name, email, password, phone_number, address, role) VALUES
 ('Nguyễn Văn A', 'nguyenvana@example.com', 'password123', '0123456789', 'Hà Nội, Việt Nam', 'customer'),
 ('Trần Thị B', 'tranthib@example.com', 'password123', '0987654321', 'Hồ Chí Minh, Việt Nam', 'customer'),
@@ -69,13 +60,13 @@ INSERT INTO users (name, email, password, phone_number, address, role) VALUES
 ('Phạm Quang D', 'phamquangd@example.com', 'password123', '0932123456', 'Hải Phòng, Việt Nam', 'customer'),
 ('Vũ Ngọc E', 'vungoce@example.com', 'password123', '0901234567', 'Cần Thơ, Việt Nam', 'admin');
 
--- Chèn dữ liệu vào bảng categories
+-- Insert data into categories
 INSERT INTO categories (name) VALUES
 ('Note'),
 ('Write'),
 ('Gear');
 
--- Chèn dữ liệu vào bảng products
+-- Insert data into products
 INSERT INTO products (name, description, price, stock, category_id) VALUES
 ('Ballpoint Pen', 'A smooth writing ballpoint pen', 15.50, 100, 2),
 ('Gel Pen', 'A pen with gel-based ink', 20.00, 200, 2),
@@ -88,7 +79,7 @@ INSERT INTO products (name, description, price, stock, category_id) VALUES
 ('Erasable Pen', 'A pen with erasable ink', 25.75, 90, 2),
 ('Brush Pen', 'A pen with a brush tip', 45.00, 70, 2),
 ('Calligraphy Pen', 'A pen for calligraphy', 35.00, 40, 2),
-('3D Printing Pen', 'A pen for creating 3D objects', 25.00, 20, 2);
+('3D Printing Pen', 'A pen for creating 3D objects', 25.00, 20, 2),
 ('Notebook for Notes', 'Compact notebook, easy to carry, anti-glare paper', 15.00, 120, 1),
 ('Yellow Sticky Notes', 'Yellow sticky notes, easy to write on and stick anywhere', 5.00, 300, 1),
 ('Multicolor Sticky Notes', 'Multicolor sticky notes, ideal for highlighting important details', 7.00, 250, 1),
@@ -123,7 +114,7 @@ INSERT INTO products (name, description, price, stock, category_id) VALUES
 ('Clipboard', 'A sturdy clipboard for holding papers', 12.00, 120, 3),
 ('File Folder', 'A set of 5 folders for organizing documents', 10.00, 180, 3);
 
--- Chèn dữ liệu vào bảng product_images
+-- Insert data into product_images
 INSERT INTO product_images (product_id, image_url) VALUES
 (1, 'https://i.pinimg.com/236x/db/65/55/db6555de65fd3f903b7ece9540087a4f.jpg'),
 (1, 'https://i.pinimg.com/236x/db/65/55/db6555de65fd3f903b7ece9540087a4f.jpg'),
@@ -160,7 +151,7 @@ INSERT INTO product_images (product_id, image_url) VALUES
 (11, 'https://i.pinimg.com/736x/62/3b/f1/623bf1ca5f9b8107924d6c3cf18d5df3.jpg'),
 (12, 'https://i.pinimg.com/236x/c8/36/98/c8369893d1110574d70463877f1558ed.jpg'),
 (12, 'https://i.pinimg.com/236x/c8/36/98/c8369893d1110574d70463877f1558ed.jpg'),
-(12, 'https://i.pinimg.com/236x/c8/36/98/c8369893d1110574d70463877f1558ed.jpg');
+(12, 'https://i.pinimg.com/236x/c8/36/98/c8369893d1110574d70463877f1558ed.jpg'),
 (13, 'https://down-vn.img.susercontent.com/file/vn-11134207-7r98o-ll0uals5ifgr23.webp'),
 (13, 'https://down-vn.img.susercontent.com/file/vn-11134207-7r98o-ll0ualp3oatn9f.webp'),
 (13, 'https://down-vn.img.susercontent.com/file/vn-11134207-7r98o-ll0ualpxn2yz76.webp'),
@@ -201,31 +192,20 @@ INSERT INTO product_images (product_id, image_url) VALUES
 (25, 'https://down-vn.img.susercontent.com/file/vn-11134207-7ras8-m2j1exkzsyicc8.webp'),
 (25, 'https://down-vn.img.susercontent.com/file/vn-11134207-7ras8-m2j1f84kdi2a67.webp');
 
-
-
--- Chèn dữ liệu vào bảng carts
-INSERT INTO carts (user_id, product_id, quantity) VALUES
-(1, 1, 1),
-(2, 3, 1),
-(3, 2, 1),
-(1, 3, 1),
-(1, 2, 1);
-
--- Chèn dữ liệu vào bảng orders
+-- Insert data into orders
 INSERT INTO orders (user_id, total_amount, status) VALUES
-(1, 60.00, 'Pending'),
-(2, 100.00, 'Processing'),
-(3, 30.00, 'Completed'),
-(4, 150.00, 'Pending'),
-(5, 400.00, 'Completed');
+(1, 150.00, 'Pending'),
+(2, 300.50, 'Processing'),
+(3, 450.75, 'Completed');
 
--- Chèn dữ liệu vào bảng order_items
-INSERT INTO order_items (order_id, product_id, quantity, price) VALUES
-(1, 1, 2, 25.00),
-(2, 3, 1, 50.00),
-(3, 2, 3, 10.00),
-(4, 4, 1, 150.00),
-(5, 5, 5, 80.00);
+-- Insert data into order_detail
+INSERT INTO order_detail (order_id, product_id, quantity) VALUES
+(1, 1, 2), 
+(1, 2, 1),
+(2, 1, 3), 
+(2, 3, 1), 
+(3, 2, 4);
+
 
 
 

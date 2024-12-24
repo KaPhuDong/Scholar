@@ -1,25 +1,38 @@
 <?php
-class Cart extends Controller
+class OrderDetail extends Controller
 {
-    function default()
+    public function addToOrderDetail()
     {
-        $categoryID = 1;
-        //Model    
-        $productsModel = $this->model("ProductsModel");
-        $imagesModel = $this->model("ImagesModel");
-
-        $products = $productsModel->getProductsByCategory($categoryID);
-
-        // Lấy ảnh cho từng sản phẩm
-        foreach ($products as $index => $product) {
-            $productId = $product['product_id'];
-            $images = $imagesModel->getImagesByProduct($productId);
-            $products[$index]['images'] = $images;
+        if (!isset($_SESSION['user'])) {
+            echo "<script>
+                alert('Please log in to add items to your OrderDetail.');
+            </script>";
+            exit;
         }
-        //View
-        $this->view("user/main", [
-            "Page" => "cart",
-            "Products" => $products
-        ]);
+
+        // window.location.href = '/Scholar/User/login';
+
+        $user_id = $_SESSION['user']['id'];
+        $product_id = $_POST['product_id'];
+        $quantity = $_POST['quantity'];
+
+        // Model
+        // $productModel = $this->model("ProductsModel");
+        // $product = $productModel->getProductById($product_id);
+
+        $orderDetailModel = $this->model("OrderDetailModel");
+        $existingOrderDetail = $orderDetailModel->getOrderDetail($user_id, $product_id);
+
+        if ($existingOrderDetail) {
+            $newQuantity = $existingOrderDetail['quantity'] + $quantity;
+            $orderDetailModel->updateOrderDetailQuantity($user_id, $product_id, $newQuantity);
+        } else {
+            $orderDetailModel->insertOrderDetailItem($user_id, $product_id, $quantity);
+        }
+
+        echo "<script>
+            alert('Product added to OrderDetail successfully!');
+            window.location.href = '/Scholar/Home';
+        </script>";
     }
 }
