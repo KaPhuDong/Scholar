@@ -5,12 +5,12 @@
             <h1 class="logo-name">Scholar</h1>
         </a>
         <div class="search">
-            <input class="search-input" placeholder="Search product">
-            <div class="search-icon">
-                <img src="./public/assets/icons/search.svg" alt="icon-search" class="search-icon-img">
-            </div>
+            <form action="/Scholar/Search/searchProductbyName" method="get">
+                <input type="text" name="keyword" placeholder="Search for products..." required>
+                <button type="submit">Search</button>
+            </form>
         </div>
-    </div>
+
     <div class="category">
         <div class="category-item"><a href="/Scholar/Home" class="link">Home</a></div>
         <div class="category-item"><a href="/Scholar/Writes" class="link">Writes</a></div>
