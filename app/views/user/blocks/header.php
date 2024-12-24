@@ -5,10 +5,11 @@
             <h1 class="logo-name">Scholar</h1>
         </a>
         <div class="search">
-            <form action="/Scholar/Search/searchProductbyName" method="get">
-                <input type="text" name="keyword" placeholder="Search for products..." required>
-                <button type="submit">Search</button>
-            </form>
+        <form action="/Scholar/Search/searchProductbyName" method="get">
+    <input type="text" name="keyword" placeholder="Search for products...">
+    <button type="submit">Search</button>
+</form>
+
         </div>
 
     <div class="category">

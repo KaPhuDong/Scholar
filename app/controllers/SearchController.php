@@ -5,7 +5,6 @@ class Search extends Controller
     {
         // Lấy từ khóa tìm kiếm (nếu không có từ khóa, gán chuỗi rỗng)
         $searchKeyword = isset($_GET['keyword']) ? trim($_GET['keyword']) : '';
-
         
         // Tải model sản phẩm và hình ảnh
         $productsModel = $this->model("ProductsModel");

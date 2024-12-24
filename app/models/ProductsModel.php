@@ -29,18 +29,17 @@ class ProductsModel extends Database
     // ProductsModel.php
     public function searchProductsByKeyword($searchKeyword)
     {
-        // Thêm dấu phần trăm vào từ khóa tìm kiếm
-        $searchTerm = "%" . mysqli_real_escape_string($this->con, $searchKeyword) . "%";
-    
-        // Tạo câu truy vấn
+        $searchTerm = "%$searchKeyword%";
         $qr = "SELECT * FROM products WHERE name LIKE '$searchTerm' OR description LIKE '$searchTerm'";
-    
-        // Thực thi truy vấn
         $result = mysqli_query($this->con, $qr);
     
-        // Kiểm tra kết quả và trả về
-        return $result ? mysqli_fetch_all($result, MYSQLI_ASSOC) : [];
+        if (!$result) {
+            die('MySQL Error: ' . mysqli_error($this->con));
+        }
+    
+        return mysqli_fetch_all($result, MYSQLI_ASSOC);
     }
+    
     
     
 }
