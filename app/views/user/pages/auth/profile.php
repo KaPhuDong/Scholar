@@ -1,7 +1,10 @@
+<?php
+$userData = $data["userData"];
+?>
 <div class="container-profile">
     <div class="user-infor">
         <div class="box">
-            <img class="avatar-user" alt="Profile image" src="./public/assets/images/<?php echo $userData['avatar']; ?>"> 
+            <img class="avatar-user" alt="Profile image" src="./public/assets/images/<?php echo $userData['avatar']; ?>">
             <div class="user-content">
                 <h2 class="user-name"><?php echo $userData['name']; ?></h2>
                 <p class="user-email"><?php echo $userData['email']; ?></p>
@@ -18,7 +21,7 @@
 
     <div class="profile-page">
         <form action="" method="POST" enctype="multipart/form-data" class="profile">
-            
+
             <div class="form-infor">
                 <h1 class="my-profile">My profile</h1>
                 <div class="form-group">
@@ -38,16 +41,16 @@
                     <input type="text" name="address" value="<?php echo $userData['address']; ?>" placeholder="enter address">
                 </div>
                 <div class="form-group">
-                    <button class="save-changes" name="update">Save Changes</button>   
+                    <button class="save-changes" name="update">Save Changes</button>
                 </div>
             </div>
 
-            <div class="form-user-avatar">   
+            <div class="form-user-avatar">
                 <div><img class="avatar-preview" alt="Profile image" src=""></div>
                 <div><input type="file" class="update-image" value="Choose image"></div>
                 <button class="save-changes" name="update">Cancel</button>
             </div>
-        
+
         </form>
     </div>
 </div>
