@@ -1,12 +1,12 @@
 <div class="container-profile">
     <div class="user-infor">
         <div class="box">
-            <img class="avatar-user" alt="Profile image" src=""> 
+            <img class="avatar-user" alt="Profile image" src="./public/assets/images/<?php echo $userData['avatar']; ?>"> 
             <div class="user-content">
-                <h2 class="user-name">Son Tung</h2>
-                <p class="user-email">tung@gmail.com</p>
-                <p class="user-phone">0123456789</p>
-                <p class="user-address">Da Nang</p>
+                <h2 class="user-name"><?php echo $userData['name']; ?></h2>
+                <p class="user-email"><?php echo $userData['email']; ?></p>
+                <p class="user-phone"><?php echo $userData['phone_number']; ?></p>
+                <p class="user-address"><?php echo $userData['address']; ?></p>
             </div>
             <div class="menu-profile">
                 <a href=""><img src="./public/assets/icons/Account.svg" alt="icon-account" class="icon">My profile</a>
@@ -22,20 +22,20 @@
             <div class="form-infor">
                 <h1 class="my-profile">My profile</h1>
                 <div class="form-group">
-                    <label for="">User name</label>
-                    <input type="text" name="username" value="" placeholder="enter username">
+                    <label for="username">User name</label>
+                    <input type="text" name="username" value="<?php echo $userData['name']; ?>" placeholder="enter username">
                 </div>
                 <div class="form-group">
-                    <label for="">Phone number</label>
-                    <input type="text" name="phonenumber" value="" placeholder="enter phone number">
+                    <label for="phonenumber">Phone number</label>
+                    <input type="text" name="phonenumber" value="<?php echo $userData['phone_number']; ?>" placeholder="enter phone number">
                 </div>
                 <div class="form-group">
-                    <label for="">Email</label>
-                    <input type="text" name="email" value="" placeholder="enter email">
+                    <label for="email">Email</label>
+                    <input type="text" name="email" value="<?php echo $userData['email']; ?>" placeholder="enter email">
                 </div>
                 <div class="form-group">
-                    <label for="">Address</label>
-                    <input type="text" name="address" value="" placeholder="enter address">
+                    <label for="address">Address</label>
+                    <input type="text" name="address" value="<?php echo $userData['address']; ?>" placeholder="enter address">
                 </div>
                 <div class="form-group">
                     <button class="save-changes" name="update">Save Changes</button>   
