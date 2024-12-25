@@ -4,13 +4,17 @@
             <img src="./public/assets/images/logo.png" alt="logo" class="logo-img">
             <h1 class="logo-name">Scholar</h1>
         </a>
-        <div class="search">
-        <form action="/Scholar/Search/searchProductbyName" method="get">
-    <input type="text" name="keyword" placeholder="Search for products...">
-    <button type="submit">Search</button>
-</form>
 
+        <div class="search">
+            <form action="/Scholar/Search/searchProductbyName" method="get">
+                <input name="keyword" class="search-input" placeholder="Search product">
+            </form>
+            <div class="search-icon">
+                <img src="./public/assets/icons/search.svg" alt="icon-search" class="search-icon-img">
+            </div>
+            
         </div>
+    </div>
 
     <div class="category">
         <div class="category-item"><a href="/Scholar/Home" class="link">Home</a></div>
@@ -26,8 +30,8 @@
                 <button class="account-icon" id="account-icon"><img src="./public/assets/icons/Account.svg" alt="icon-account"></button>
                 <div class="dropdown-menu" id="dropdownMenu" style="display: none;">
                     <ul>
-                        <!-- <li onclick="window.location.href = '/profile'">View Profile</li>
-                        <li onclick="window.location.href = '/order'">History Order</li> -->
+                        <li onclick="window.location.href = '/Scholar/User/profile'">View Profile</li>
+                        <!-- <li onclick="window.location.href = '/order'">History Order</li> -->
                         <li><a href="/Scholar/User/logout">Log out</a></li>
                     </ul>
                 </div>

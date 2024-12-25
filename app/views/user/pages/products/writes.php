@@ -29,21 +29,22 @@
 </div>
 
 <!-- Write-Product -->
-<a href="#" class="cards">
+<div class="cards">
     <?php
     $products = array_slice($data["Products"], 0, 4);
     ?>
-
     <?php foreach ($products as $product): ?>
-        <div class="card ">
-            <img src="<?php echo $product['images'][0]['image_url'] ?>" alt="product" class="img">
-            <div class="content">
-                <div class="product-name"><?php echo htmlspecialchars($product['name']); ?></div>
-                <div class="product-price">$<?php echo number_format($product['price'], 2); ?></div>
+        <a href="/Scholar/Products/getProductInformation/<?php echo $product['product_id']; ?>">
+            <div class="card">
+                <img src="<?php echo $product['images'][0]['image_url']; ?>" alt="product" class="img">
+                <div class="content">
+                    <div class="product-name"><?php echo $product['name']; ?></div>
+                    <div class="product-price">$<?php echo number_format($product['price'], 2); ?></div>
+                </div>
             </div>
-        </div>
+        </a>
     <?php endforeach; ?>
-</a>
+</div>
 
 <!-- Slider -->
 <div class="slider-1">
@@ -60,18 +61,19 @@
 </div>
 
 <!-- Write-Product -->
-<a href="#" class="cards">
+<div class="cards">
     <?php
     $products = array_slice($data["Products"], 4, 4);
     ?>
-
     <?php foreach ($products as $product): ?>
-        <div class="card ">
-            <img src="<?php echo $product['images'][0]['image_url'] ?>" alt="product" class="img">
-            <div class="content">
-                <div class="product-name"><?php echo($product['name']); ?></div>
-                <div class="product-price">$<?php echo number_format($product['price'], 2); ?></div>
+        <a href="/Scholar/Products/getProductInformation/<?php echo $product['product_id']; ?>">
+            <div class="card">
+                <img src="<?php echo $product['images'][0]['image_url']; ?>" alt="product" class="img">
+                <div class="content">
+                    <div class="product-name"><?php echo $product['name']; ?></div>
+                    <div class="product-price">$<?php echo number_format($product['price'], 2); ?></div>
+                </div>
             </div>
-        </div>
+        </a>
     <?php endforeach; ?>
-</a>
+</div>
