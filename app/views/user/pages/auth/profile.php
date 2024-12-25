@@ -46,11 +46,12 @@ $userData = $data["userData"];
             </div>
 
             <div class="form-user-avatar">
-                <div class="upload-image">Choose image</div>
+                <label class="upload-image" for="chooseImage">Choose image</label>
                 <img class="avatar-preview" alt="Profile image" src="/public/assets/images/<?php echo $userData["avatar"]?>">
-                <input type="file" class="update-image" value="Choose image">
+                <input id="choose-image" type="file" class="update-image" accept="image/*" onchange="Avatar(event)">
                 <button class="save-changes" name="update">Cancel</button>
             </div>
+
         </form>
     </div>
 </div>
