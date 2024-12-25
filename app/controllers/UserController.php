@@ -105,7 +105,7 @@ class User extends Controller
         $usersModel = $this->model("UsersModel");
         $userData = $usersModel->getUserById($userId);
 
-        $this->view("user/authentication", [
+        $this->view("user/main", [
             "Page" => "auth/profile",
             "userData" => $userData
         ]);
@@ -141,7 +141,7 @@ class User extends Controller
         }
 
         $this->view("user/main", [
-            "Page" => "user/pages/auth/profile",
+            "Page" => "auth/profile",
             "userData" => $userData
         ]);
     }

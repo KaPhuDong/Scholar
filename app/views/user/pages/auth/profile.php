@@ -12,7 +12,7 @@ $userData = $data["userData"];
                 <p class="user-address"><?php echo $userData['address']; ?></p>
             </div>
             <div class="menu-profile">
-                <a href=""><img src="./public/assets/icons/Account.svg" alt="icon-account" class="icon">My profile</a>
+                <a href="/Scholar/User/profile"><img src="./public/assets/icons/Account.svg" alt="icon-account" class="icon">My profile</a>
                 <a href="/Scholar/Cart"><img src="./public/assets/icons/Cart.svg" alt="icon-cart" class="icon">My shopping cart</a>
                 <a href=""><img src="./public/assets/icons/Order.svg" alt="icon-order" class="icon">My order</a>
             </div>
@@ -40,14 +40,15 @@ $userData = $data["userData"];
                     <label for="address">Address</label>
                     <input type="text" name="address" value="<?php echo $userData['address']; ?>" placeholder="enter address">
                 </div>
-                <div class="form-group">
+                <div class="form-group-btn">
                     <button class="save-changes" name="update">Save Changes</button>
                 </div>
             </div>
 
             <div class="form-user-avatar">
-                <div><img class="avatar-preview" alt="Profile image" src=""></div>
-                <div><input type="file" class="update-image" value="Choose image"></div>
+                <label class="upload-image" for="chooseImage">Choose image</label>
+                <img class="avatar-preview" alt="Profile image" src="/public/assets/images/<?php echo $userData["avatar"]?>">
+                <input id="choose-image" type="file" class="update-image" accept="image/*" onchange="Avatar(event)">
                 <button class="save-changes" name="update">Cancel</button>
             </div>
 
