@@ -124,6 +124,18 @@ h1.my-profile {
     /* justify-content: space-around; */
 }
 
+.form-user-avatar .upload-image {
+    position: absolute;
+    margin-top: 245px;
+    color: var(--primary);
+    font-weight: var(--font-weight-bold);
+}
+.form-user-avatar .upload-image:hover {
+    transform: scale(1.01);
+}
+
+
+
 .form-user-avatar .avatar-preview {
     position: absolute;
     border-radius: var(--border-radius-full);
@@ -140,5 +152,5 @@ h1.my-profile {
     /* display: none; */
 }
 .form-user-avatar .save-changes {
-    margin-top: 80px;
+    margin-top: 105px;
 }
