@@ -9,7 +9,7 @@
         $index = 1;
         ?>
         <?php foreach ($products as $product): ?>
-            <a href="#" class="hero-link img-hero-<?php echo $index; ?>">
+            <a href="/Scholar/Products/getProductInformation/<?php echo $product['product_id']; ?>" class="hero-link img-hero-<?php echo $index; ?>">
                 <img src="<?php echo $product['images'][0]['image_url']; ?>" alt="Product">
             </a>
             <?php $index++; ?>
@@ -24,25 +24,42 @@
         $products = array_slice($data["Products"], 5, 4);
         ?>
         <?php foreach ($products as $product): ?>
-            <a href="#" class="slide">
+            <a href="/Scholar/Products/getProductInformation/<?php echo $product['product_id']; ?>" class="slide">
                 <img src="<?php echo $product['images'][0]['image_url']; ?>" alt="<?php echo $product['name']; ?>">
             </a>
         <?php endforeach; ?>
     </div>
 </div>
+
 <!-- Card -->
-<a href="#" class="cards">
+<div class="cards">
     <?php
-    $products = array_slice($data["Products"], 8, 8);
+    $products = array_slice($data["Products"], 6, 4);
     ?>
 
     <?php foreach ($products as $product): ?>
-        <div class="card">
+        <a href="/Scholar/Products/getProductInformation/<?php echo $product['product_id']; ?>" class="card">
             <img src="<?php echo $product['images'][0]['image_url'] ?>" alt="product" class="img">
             <div class="content">
                 <div class="product-name"><?php echo ($product['name']); ?></div>
                 <div class="product-price">$<?php echo number_format($product['price'], 2); ?></div>
             </div>
-        </div>
+        </a>
     <?php endforeach; ?>
-</a>
+</div>
+
+<div class="cards">
+    <?php
+    $products = array_slice($data["Products"], 11, 4);
+    ?>
+
+    <?php foreach ($products as $product): ?>
+        <a href="/Scholar/Products/getProductInformation/<?php echo $product['product_id']; ?>" class="card">
+            <img src="<?php echo $product['images'][0]['image_url'] ?>" alt="product" class="img">
+            <div class="content">
+                <div class="product-name"><?php echo ($product['name']); ?></div>
+                <div class="product-price">$<?php echo number_format($product['price'], 2); ?></div>
+            </div>
+        </a>
+    <?php endforeach; ?>
+</div>
