@@ -40,17 +40,17 @@ $userData = $data["userData"];
                     <label for="address">Address</label>
                     <input type="text" name="address" value="<?php echo $userData['address']; ?>" placeholder="enter address">
                 </div>
-                <div class="form-group">
+                <div class="form-group-btn">
                     <button class="save-changes" name="update">Save Changes</button>
                 </div>
             </div>
 
             <div class="form-user-avatar">
-                <div><img class="avatar-preview" alt="Profile image" src=""></div>
-                <div><input type="file" class="update-image" value="Choose image"></div>
+                <div class="upload-image">Choose image</div>
+                <img class="avatar-preview" alt="Profile image" src="/public/assets/images/<?php echo $userData["avatar"]?>">
+                <input type="file" class="update-image" value="Choose image">
                 <button class="save-changes" name="update">Cancel</button>
             </div>
-
         </form>
     </div>
 </div>

@@ -11,7 +11,7 @@
 
 .box {
     width: 400px;
-    height: 550px;
+    height: 505px;
     /* background: var(--primary); */
     display: flex;
     flex-direction: column;
@@ -32,13 +32,13 @@
 .user-content {
     display: flex;
     flex-direction: column;
-    gap: 45px;
+    gap: 35px;
     margin-left: 30px; 
 }
 
 .user-content h2 {
     color: var(--light);
-    margin-top: 180px;
+    margin-top: 55px;
     font-size: var(--font-size-md)
 }
 
@@ -50,7 +50,7 @@
 .menu-profile {
     display: flex;
     flex-direction: column;
-    gap: 25px;
+    gap: 15px;
     margin-left: 30px;
     margin-top: 15px;
 }
@@ -59,7 +59,7 @@
     color: var(--light);
     text-decoration: none;
 }
-img .icon {
+img.icon {
     margin-right: 10px;           
 }
 
@@ -67,7 +67,7 @@ img .icon {
 
 .profile-page {
     width: 720px;
-    height: 550px;
+    height: 505px;
     border: 2px solid var(--primary);
     border-radius: var(--border-radius-lg);
 }
@@ -77,7 +77,6 @@ img .icon {
     display: flex;
     gap: 100px;
 }
-
 .form-infor {
     display: flex;
     flex-direction: column;
@@ -104,12 +103,7 @@ h1.my-profile {
     border-radius: var(--border-radius-sm);
     font-size: 16px;
 }
-.form-group-btn {
-    display: flex;
-    gap: 30px;
-    margin-bottom: 5px;
-}
-.form-group .save-changes,
+.form-group-btn .save-changes,
 .form-user-avatar .save-changes {
     width: 185px;
     padding: 5px;
@@ -142,8 +136,9 @@ h1.my-profile {
     margin-top: 405px;
 }
 .form-user-avatar input[type="file"] {
+    margin-top: 145px;
     /* display: none; */
 }
 .form-user-avatar .save-changes {
-    margin-top: 20px;
+    margin-top: 80px;
 }
