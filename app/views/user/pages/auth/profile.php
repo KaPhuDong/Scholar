@@ -12,7 +12,7 @@ $userData = $data["userData"];
                 <p class="user-address"><?php echo $userData['address']; ?></p>
             </div>
             <div class="menu-profile">
-                <a href=""><img src="./public/assets/icons/Account.svg" alt="icon-account" class="icon">My profile</a>
+                <a href="/Scholar/User/profile"><img src="./public/assets/icons/Account.svg" alt="icon-account" class="icon">My profile</a>
                 <a href="/Scholar/Cart"><img src="./public/assets/icons/Cart.svg" alt="icon-cart" class="icon">My shopping cart</a>
                 <a href=""><img src="./public/assets/icons/Order.svg" alt="icon-order" class="icon">My order</a>
             </div>
