@@ -98,4 +98,51 @@ class User extends Controller
         </script>";
         exit;
     }
+
+    public function profile()
+    {
+        $userId =  $_SESSION['user']['id'];
+        $usersModel = $this->model("UsersModel");
+        $userData = $usersModel->getUserById($userId);
+
+        $this->view("user/authentication", [
+            "Page" => "auth/profile",
+            "userData" => $userData
+        ]);
+    }
+
+    public function updateProfile()
+    {
+        $userId = $_SESSION['user']['id'];
+        $usersModel = $this->model("UsersModel");
+        return $usersModel->getUserById($userId);
+
+        if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+            $name = $_POST['username'] ?? '';
+            $phone_number = $_POST['phonenumber'] ?? '';
+            $email = $_POST['email'] ?? '';
+            $address = $_POST['address'] ?? '';
+
+            $usersModel = $this->model("UsersModel");
+
+            $updateSuccess = $usersModel->updateUser($userData['user_id'], $name, $phone_number, $email, $address);
+
+            if ($updateSuccess) {
+                echo "<script>
+                        alert('Profile updated successfully!');
+                        window.location.href = '/Scholar/User/profile';
+                      </script>";
+                exit;
+            } else {
+                echo "<script>
+                        alert('Failed to update profile. Please try again later.');
+                      </script>";
+            }
+        }
+
+        $this->view("user/main", [
+            "Page" => "user/pages/auth/profile",
+            "userData" => $userData
+        ]);
+    }
 }

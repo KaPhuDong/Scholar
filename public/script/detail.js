@@ -1,11 +1,11 @@
 // Get all cart items
-const quantityDetail = document.querySelectorAll('.quantity-detail');
+const quantityDetail = document.querySelectorAll('#quantity-detail');
 
 // Loop through each cart item
 quantityDetail.forEach((quantity) => {
-    const decreaseBtn = quantity.querySelector('.decrease');
-    const increaseBtn = quantity.querySelector('.increase');
-    const quantityInput = quantity.querySelector('.quantity .number');
+    const decreaseBtn = quantity.querySelector('#decrease');
+    const increaseBtn = quantity.querySelector('#increase');
+    const quantityInput = quantity.querySelector('#quantity #number');
 
     // Event listeners
     decreaseBtn.addEventListener('click', () => {
