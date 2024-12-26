@@ -34,6 +34,7 @@
     flex-direction: column;
     gap: 35px;
     margin-left: 30px; 
+    margin-top: 130px;
 }
 
 .user-content h2 {
@@ -52,7 +53,7 @@
     flex-direction: column;
     gap: 15px;
     margin-left: 30px;
-    margin-top: 15px;
+    margin-top: 5px;
 }
 
 .menu-profile a {
@@ -105,7 +106,8 @@ h1.my-profile {
     font-size: 16px;
 }
 .form-group-btn .save-changes,
-.form-user-avatar .save-changes {
+.form-user-avatar .save-changes,
+.form-user-avatar .upload-image {
     width: 185px;
     padding: 5px;
     font-size: var(--font-size-sm);
@@ -129,17 +131,7 @@ h1.my-profile {
     position: absolute;
     margin-top: 270px;
     margin-left: 40px;
-    width: 185px;
-    padding: 5px;
-    font-size: var(--font-size-sm);
-    border: 2px solid var(--primary);
-    border-radius: var(--border-radius-md);
-    background-color: var(--primary);
-    color: var(--light);
     text-align: center;
-    font-weight: var(--font-weight-bold);
-    cursor: pointer;
-    
 }
 
 .form-user-avatar .upload-image:hover {
@@ -159,6 +151,6 @@ h1.my-profile {
     display: none; 
 }
 .form-user-avatar .save-changes {
-    margin-top: 270px;
+    margin-top: 395px;
     margin-left: 45px;
 }
