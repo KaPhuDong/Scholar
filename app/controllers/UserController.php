@@ -123,7 +123,7 @@ class User extends Controller
             $email = $_POST['email'] ?? $userData['email'];
             $address = $_POST['address'] ?? $userData['address'];
 
-            $avatar = $userData['avatar'];
+            $avatar = $userData['avatar'];  
             if (isset($_FILES['avatar']) && $_FILES['avatar']['error'] === UPLOAD_ERR_OK) {
                 $avatar = $_FILES['avatar']['name'];
                 $targetDir = $_SERVER['DOCUMENT_ROOT'] . '/public/assets/images/';
@@ -141,7 +141,7 @@ class User extends Controller
                 exit;
             } else {
                 echo "<script>
-                        alert('Failed to update profile. Please try again later.');
+                        alert('Failed to update profile.');
                     </script>";
             }
         }
@@ -151,5 +151,6 @@ class User extends Controller
             "userData" => $userData
         ]);
     }
+
 
 }

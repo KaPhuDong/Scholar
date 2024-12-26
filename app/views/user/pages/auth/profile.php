@@ -21,7 +21,6 @@ $userData = $data["userData"];
 
     <div class="profile-page">
         <form action="/Scholar/User/updateProfile" method="POST" enctype="multipart/form-data" class="profile">
-
             <div class="form-infor">
                 <h1 class="my-profile">My profile</h1>
                 <div class="form-group">
@@ -50,30 +49,28 @@ $userData = $data["userData"];
                 <img class="avatar-preview" alt="Profile image" src="/public/assets/images/<?php echo $userData["avatar"]?>">
                 <input id="choose-image" name="avatar" type="file" class="update-image" accept="image/*" onchange="Avatar(event)">
                 <button class="save-changes" type="button" name="update" onclick="cancelChanges()">Cancel</button>
-
             </div>
-
         </form>
     </div>
 </div>
 
 <script>
     function Avatar(event) {
-    var reader = new FileReader();
-    reader.onload = function() {
-        var output = document.querySelector('.avatar-preview');
-        output.src = reader.result;
-
-        var userAvatar = document.querySelector('.avatar-user');
-        if (userAvatar) {
-            userAvatar.src = reader.result; 
+        var reader = new FileReader();
+        reader.onload = function() {
+            var output = document.querySelector('.avatar-preview');
+            output.src = reader.result;  
+            
+            var userAvatar = document.querySelector('.avatar-user');
+            if (userAvatar) {
+                userAvatar.src = reader.result; 
+            }
+        };
+        reader.readAsDataURL(event.target.files[0]);
         }
-    };
-    reader.readAsDataURL(event.target.files[0]);
-    }
 
-    document.querySelector('.upload-image').addEventListener('click', function() {
-        document.querySelector('.update-image').click(); 
+        document.querySelector('.upload-image').addEventListener('click', function() {
+            document.querySelector('.update-image').click(); 
     });
 
     function cancelChanges() {
