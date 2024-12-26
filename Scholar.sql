@@ -8,7 +8,8 @@ CREATE TABLE users (
     password VARCHAR(255) NOT NULL,
     phone_number VARCHAR(15),
     address TEXT,
-    role ENUM('customer', 'admin') DEFAULT 'customer'
+    role ENUM('customer', 'admin') DEFAULT 'customer',
+    avatar varchar(200) DEFAULT NULL
 );
 
 CREATE TABLE  categories (
@@ -62,12 +63,12 @@ CREATE TABLE  order_items (
 );
 
 -- Chèn dữ liệu vào bảng users
-INSERT INTO users (name, email, password, phone_number, address, role) VALUES
-('Nguyễn Văn A', 'nguyenvana@example.com', 'password123', '0123456789', 'Hà Nội, Việt Nam', 'customer'),
-('Trần Thị B', 'tranthib@example.com', 'password123', '0987654321', 'Hồ Chí Minh, Việt Nam', 'customer'),
-('Lê Minh C', 'leminhc@example.com', 'password123', '0912345678', 'Đà Nẵng, Việt Nam', 'customer'),
-('Phạm Quang D', 'phamquangd@example.com', 'password123', '0932123456', 'Hải Phòng, Việt Nam', 'customer'),
-('Vũ Ngọc E', 'vungoce@example.com', 'password123', '0901234567', 'Cần Thơ, Việt Nam', 'admin');
+INSERT INTO users (name, email, password, phone_number, address, role, avatar) VALUES
+('Nguyễn Văn A', 'nguyenvana@example.com', 'password123', '0123456789', 'Hà Nội, Việt Nam', 'customer', null),
+('Trần Thị B', 'tranthib@example.com', 'password123', '0987654321', 'Hồ Chí Minh, Việt Nam', 'customer', null),
+('Lê Minh C', 'leminhc@example.com', 'password123', '0912345678', 'Đà Nẵng, Việt Nam', 'customer', null),
+('Phạm Quang D', 'phamquangd@example.com', 'password123', '0932123456', 'Hải Phòng, Việt Nam', 'customer', null),
+('Vũ Ngọc E', 'vungoce@example.com', 'password123', '0901234567', 'Cần Thơ, Việt Nam', 'admin', null);
 
 -- Chèn dữ liệu vào bảng categories
 INSERT INTO categories (name) VALUES
@@ -88,7 +89,7 @@ INSERT INTO products (name, description, price, stock, category_id) VALUES
 ('Erasable Pen', 'A pen with erasable ink', 25.75, 90, 2),
 ('Brush Pen', 'A pen with a brush tip', 45.00, 70, 2),
 ('Calligraphy Pen', 'A pen for calligraphy', 35.00, 40, 2),
-('3D Printing Pen', 'A pen for creating 3D objects', 25.00, 20, 2);
+('3D Printing Pen', 'A pen for creating 3D objects', 25.00, 20, 2),
 ('Notebook for Notes', 'Compact notebook, easy to carry, anti-glare paper', 15.00, 120, 1),
 ('Yellow Sticky Notes', 'Yellow sticky notes, easy to write on and stick anywhere', 5.00, 300, 1),
 ('Multicolor Sticky Notes', 'Multicolor sticky notes, ideal for highlighting important details', 7.00, 250, 1),
@@ -160,7 +161,7 @@ INSERT INTO product_images (product_id, image_url) VALUES
 (11, 'https://i.pinimg.com/736x/62/3b/f1/623bf1ca5f9b8107924d6c3cf18d5df3.jpg'),
 (12, 'https://i.pinimg.com/236x/c8/36/98/c8369893d1110574d70463877f1558ed.jpg'),
 (12, 'https://i.pinimg.com/236x/c8/36/98/c8369893d1110574d70463877f1558ed.jpg'),
-(12, 'https://i.pinimg.com/236x/c8/36/98/c8369893d1110574d70463877f1558ed.jpg');
+(12, 'https://i.pinimg.com/236x/c8/36/98/c8369893d1110574d70463877f1558ed.jpg'),
 (13, 'https://down-vn.img.susercontent.com/file/vn-11134207-7r98o-ll0uals5ifgr23.webp'),
 (13, 'https://down-vn.img.susercontent.com/file/vn-11134207-7r98o-ll0ualp3oatn9f.webp'),
 (13, 'https://down-vn.img.susercontent.com/file/vn-11134207-7r98o-ll0ualpxn2yz76.webp'),
