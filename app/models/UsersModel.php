@@ -32,10 +32,23 @@ class UsersModel extends Database
         return mysqli_fetch_assoc($result);
     }
 
-    public function updateUser($userId, $name, $phone_number, $email, $address) {
-        $qr = "UPDATE users 
-               SET name = '$name', phone_number = '$phone_number', email = '$email', address = '$address' 
-               WHERE user_id = '$userId'";
-        return mysqli_query($this->con, $qr);
+
+
+    public function updateUser($userId, $name, $phone_number, $email, $address, $avatar) {
+        if ($avatar) {
+            $qr = "
+                UPDATE users 
+                SET name = '$name', phone_number = '$phone_number', email = '$email', address = '$address', avatar = '$avatar'
+                WHERE user_id = $userId
+            ";
+            return mysqli_query($this->con, $qr);
+        } else {
+            $qr = "
+                UPDATE users 
+                SET name = '$name', phone_number = '$phone_number', email = '$email', address = '$address' 
+                WHERE user_id = $userId
+            ";
+            return mysqli_query($this->con, $qr);
+        }
     }
 }
