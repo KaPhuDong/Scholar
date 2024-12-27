@@ -4,7 +4,7 @@ $userData = $data["userData"];
 <div class="container-profile">
     <div class="user-infor">
         <div class="box">
-            <img class="avatar-user" alt="Profile image" src="/public/assets/images/<?php echo $userData["avatar"]?>">
+            <img class="avatar-user" alt="Profile image" src="/public/assets/images/<?php echo $userData["avatar"] ?>">
             <div class="user-content">
                 <h2 class="user-name"><?php echo $userData['name']; ?></h2>
                 <p class="user-email"><?php echo $userData['email']; ?></p>
@@ -13,7 +13,7 @@ $userData = $data["userData"];
             </div>
             <div class="menu-profile">
                 <a href="/Scholar/User/profile"><img src="./public/assets/icons/Account.svg" alt="icon-account" class="icon">My profile</a>
-                <a href="/Scholar/Cart"><img src="./public/assets/icons/Cart.svg" alt="icon-cart" class="icon">My shopping cart</a>
+                <a href="/Scholar/Orders/viewCart"><img src="./public/assets/icons/Cart.svg" alt="icon-cart" class="icon">My shopping cart</a>
                 <a href=""><img src="./public/assets/icons/Order.svg" alt="icon-order" class="icon">My order</a>
             </div>
         </div>
@@ -46,7 +46,7 @@ $userData = $data["userData"];
 
             <div class="form-user-avatar">
                 <label class="upload-image" for="chooseImage">Choose image</label>
-                <img class="avatar-preview" alt="Profile image" src="/public/assets/images/<?php echo $userData["avatar"]?>">
+                <img class="avatar-preview" alt="Profile image" src="/public/assets/images/<?php echo $userData["avatar"] ?>">
                 <input id="choose-image" name="avatar" type="file" class="update-image" accept="image/*" onchange="Avatar(event)">
                 <button class="save-changes" type="button" name="update" onclick="cancelChanges()">Cancel</button>
             </div>
@@ -59,32 +59,31 @@ $userData = $data["userData"];
         var reader = new FileReader();
         reader.onload = function() {
             var output = document.querySelector('.avatar-preview');
-            output.src = reader.result;  
-            
+            output.src = reader.result;
+
             var userAvatar = document.querySelector('.avatar-user');
             if (userAvatar) {
-                userAvatar.src = reader.result; 
+                userAvatar.src = reader.result;
             }
         };
         reader.readAsDataURL(event.target.files[0]);
-        }
+    }
 
-        document.querySelector('.upload-image').addEventListener('click', function() {
-            document.querySelector('.update-image').click(); 
+    document.querySelector('.upload-image').addEventListener('click', function() {
+        document.querySelector('.update-image').click();
     });
 
     function cancelChanges() {
 
-    var originalAvatar = "/public/assets/images/<?php echo $userData["avatar"]?>"; 
-    document.querySelector('.avatar-preview').src = originalAvatar;  
-    document.querySelector('.avatar-user').src = originalAvatar;     
+        var originalAvatar = "/public/assets/images/<?php echo $userData["avatar"] ?>";
+        document.querySelector('.avatar-preview').src = originalAvatar;
+        document.querySelector('.avatar-user').src = originalAvatar;
 
-    document.querySelector('input[name="username"]').value = "<?php echo $userData['name']; ?>";
-    document.querySelector('input[name="phonenumber"]').value = "<?php echo $userData['phone_number']; ?>";
-    document.querySelector('input[name="email"]').value = "<?php echo $userData['email']; ?>";
-    document.querySelector('input[name="address"]').value = "<?php echo $userData['address']; ?>";
+        document.querySelector('input[name="username"]').value = "<?php echo $userData['name']; ?>";
+        document.querySelector('input[name="phonenumber"]').value = "<?php echo $userData['phone_number']; ?>";
+        document.querySelector('input[name="email"]').value = "<?php echo $userData['email']; ?>";
+        document.querySelector('input[name="address"]').value = "<?php echo $userData['address']; ?>";
 
-    document.querySelector('#choose-image').value = ''; 
+        document.querySelector('#choose-image').value = '';
     }
-
 </script>
