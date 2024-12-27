@@ -20,7 +20,7 @@ class Search extends Controller
         }
 
         // Truyền dữ liệu vào view
-        $this->view("user/main", [
+        $this->view("main", [
             "Page" => "products/search",
             "Products" => $matchingProducts,
             "SearchKeyword" => $searchKeyword,

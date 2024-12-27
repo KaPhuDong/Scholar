@@ -49,8 +49,6 @@
         </div>
 
         <!-- Submit Button -->
-        <button type="submit" class="btn btn-signin-submit" name="signin-submit">
-            SIGN IN
-        </button>
+        <button type="submit" class="btn btn-signin-submit" name="signin-submit">SIGN IN</button>
     </form>
 </div>

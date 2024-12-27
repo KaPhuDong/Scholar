@@ -12,12 +12,12 @@ CREATE TABLE users (
     avatar varchar(200) DEFAULT NULL
 );
 
-CREATE TABLE  categories (
+CREATE TABLE categories (
     category_id INT AUTO_INCREMENT PRIMARY KEY,
     name VARCHAR(100) NOT NULL
 );
 
-CREATE TABLE  products (
+CREATE TABLE products (
     product_id INT AUTO_INCREMENT PRIMARY KEY,
     name VARCHAR(100) NOT NULL,
     description TEXT,
@@ -27,23 +27,14 @@ CREATE TABLE  products (
     FOREIGN KEY (category_id) REFERENCES categories(category_id) ON DELETE SET NULL
 );
 
-CREATE TABLE  product_images (
+CREATE TABLE product_images (
     image_id INT AUTO_INCREMENT PRIMARY KEY,
     product_id INT NOT NULL,
     image_url VARCHAR(255) NOT NULL,
     FOREIGN KEY (product_id) REFERENCES products(product_id) ON DELETE CASCADE
 );
 
-CREATE TABLE  carts (
-    cart_id INT AUTO_INCREMENT PRIMARY KEY,
-    user_id INT NOT NULL,
-    product_id INT NOT NULL,
-    quantity INT DEFAULT 1,
-    FOREIGN KEY (user_id) REFERENCES users(user_id) ON DELETE CASCADE,
-    FOREIGN KEY (product_id) REFERENCES products(product_id) ON DELETE CASCADE
-);
-
-CREATE TABLE  orders (
+CREATE TABLE orders (
     order_id INT AUTO_INCREMENT PRIMARY KEY,
     user_id INT NOT NULL,
     order_date TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
@@ -52,31 +43,22 @@ CREATE TABLE  orders (
     FOREIGN KEY (user_id) REFERENCES users(user_id) ON DELETE CASCADE
 );
 
-CREATE TABLE  order_items (
-    order_item_id INT AUTO_INCREMENT PRIMARY KEY,
+CREATE TABLE order_detail (
+    order_detail_id INT AUTO_INCREMENT PRIMARY KEY,
     order_id INT NOT NULL,
     product_id INT NOT NULL,
     quantity INT NOT NULL,
-    price DECIMAL(10, 2) NOT NULL,
     FOREIGN KEY (order_id) REFERENCES orders(order_id) ON DELETE CASCADE,
     FOREIGN KEY (product_id) REFERENCES products(product_id) ON DELETE CASCADE
 );
 
--- Chèn dữ liệu vào bảng users
-INSERT INTO users (name, email, password, phone_number, address, role, avatar) VALUES
-('Nguyễn Văn A', 'nguyenvana@example.com', 'password123', '0123456789', 'Hà Nội, Việt Nam', 'customer', null),
-('Trần Thị B', 'tranthib@example.com', 'password123', '0987654321', 'Hồ Chí Minh, Việt Nam', 'customer', null),
-('Lê Minh C', 'leminhc@example.com', 'password123', '0912345678', 'Đà Nẵng, Việt Nam', 'customer', null),
-('Phạm Quang D', 'phamquangd@example.com', 'password123', '0932123456', 'Hải Phòng, Việt Nam', 'customer', null),
-('Vũ Ngọc E', 'vungoce@example.com', 'password123', '0901234567', 'Cần Thơ, Việt Nam', 'admin', null);
-
--- Chèn dữ liệu vào bảng categories
+-- Insert data into categories
 INSERT INTO categories (name) VALUES
 ('Note'),
 ('Write'),
 ('Gear');
 
--- Chèn dữ liệu vào bảng products
+-- Insert data into products
 INSERT INTO products (name, description, price, stock, category_id) VALUES
 ('Ballpoint Pen', 'A smooth writing ballpoint pen', 15.50, 100, 2),
 ('Gel Pen', 'A pen with gel-based ink', 20.00, 200, 2),
@@ -124,7 +106,7 @@ INSERT INTO products (name, description, price, stock, category_id) VALUES
 ('Clipboard', 'A sturdy clipboard for holding papers', 12.00, 120, 3),
 ('File Folder', 'A set of 5 folders for organizing documents', 10.00, 180, 3);
 
--- Chèn dữ liệu vào bảng product_images
+-- Insert data into product_images
 INSERT INTO product_images (product_id, image_url) VALUES
 (1, 'https://i.pinimg.com/236x/db/65/55/db6555de65fd3f903b7ece9540087a4f.jpg'),
 (1, 'https://i.pinimg.com/236x/db/65/55/db6555de65fd3f903b7ece9540087a4f.jpg'),
@@ -200,33 +182,66 @@ INSERT INTO product_images (product_id, image_url) VALUES
 (24, 'https://down-vn.img.susercontent.com/file/vn-11134211-7r98o-llnhcwbtkon0bf.webp'),
 (25, 'https://down-vn.img.susercontent.com/file/vn-11134207-7ras8-m2j1e3jpra2cbb.webp'),
 (25, 'https://down-vn.img.susercontent.com/file/vn-11134207-7ras8-m2j1exkzsyicc8.webp'),
-(25, 'https://down-vn.img.susercontent.com/file/vn-11134207-7ras8-m2j1f84kdi2a67.webp');
+(25, 'https://down-vn.img.susercontent.com/file/vn-11134207-7ras8-m2j1f84kdi2a67.webp'),
+(26, 'https://down-vn.img.susercontent.com/file/vn-11134207-7ras8-m30egqfe1cqi97.webp'),
+(26,'https://down-vn.img.susercontent.com/file/vn-11134207-7ras8-m30egqfe1czq3e.webp'),
+(26,'https://down-vn.img.susercontent.com/file/vn-11134207-7ras8-m30egqfe2rk6a8.webp'),
+(27,'https://down-vn.img.susercontent.com/file/db48893d5ac40b65327f98b048ed4342.webp'),
+(27,'https://down-vn.img.susercontent.com/file/c9ab37478ac71d6b7eebc6c7eb2de924.webp'),
+(27,'https://down-vn.img.susercontent.com/file/e4e53a5380844373b5aa0a7f2cc05a24.webp'),
+(28,'https://down-vn.img.susercontent.com/file/sg-11134201-7rdwx-lz74z00ls5yg75@resize_w450_nl.webp'),
+(28,'https://down-vn.img.susercontent.com/file/sg-11134201-7rdw9-lz74yye24fjre1.webp'),
+(28,'https://down-vn.img.susercontent.com/file/sg-11134201-7rdvn-lz74yziui5ay89.webp'),
+(29,'https://down-vn.img.susercontent.com/file/sg-11134201-7rdx4-ly41lfz2e8kza4.webp'),
+(29,'https://down-vn.img.susercontent.com/file/sg-11134201-7rdxg-ly431y2igw6v6d.webp'),
+(29,'https://down-vn.img.susercontent.com/file/sg-11134201-7rdws-ly41lggto8z4e4.webp'),
+(30,'https://down-vn.img.susercontent.com/file/sg-11134201-7rd5q-ludbbojn4dgaaa.webp'),
+(30,'https://down-vn.img.susercontent.com/file/sg-11134201-7rd46-ludbbmz1f7ks4b.webp'),
+(30,'https://down-vn.img.susercontent.com/file/sg-11134201-7rd4g-ludbbm6qkmkn11.webp'),
+(31,'https://down-vn.img.susercontent.com/file/ba318876939d1c2927eadc0d604c62bd.webp'),
+(31,'https://down-vn.img.susercontent.com/file/58ee88e211c2daf712dec1309fe48cef.webp'),
+(31,'https://down-vn.img.susercontent.com/file/f7762a312117d503294b23d42e145840.webp'),
+(32,'https://down-vn.img.susercontent.com/file/cn-11134207-7qukw-ljy2lbnjit4kfa.webp'),
+(32,'https://down-vn.img.susercontent.com/file/cn-11134207-7qukw-ljy2lbnjfzzobb.webp'),
+(32,'https://down-vn.img.susercontent.com/file/cn-11134207-7qukw-ljy2lbnjlm9gdc.webp'),
+(33,'https://down-vn.img.susercontent.com/file/sg-11134201-7rbmf-lpy1q4vinzjee1.webp'),
+(33,'https://down-vn.img.susercontent.com/file/sg-11134201-7rblc-lpy10fvcarmo5e.webp'),
+(33,'https://down-vn.img.susercontent.com/file/sg-11134201-7rbmb-lpy10dknp6fy3e.webp'),
+(34,'https://down-vn.img.susercontent.com/file/sg-11134201-7rdwg-lxcwyzalxaw03b.webp'),
+(34,'https://down-vn.img.susercontent.com/file/sg-11134201-7rdxq-lxc2d9g88ax862.webp'),
+(34,'https://down-vn.img.susercontent.com/file/sg-11134201-7rdyk-lxcbk26r9xbd7d.webp'),
+(35,'https://down-vn.img.susercontent.com/file/19633b0de405c1df066ada54727d299b.webp'),
+(35,'https://down-vn.img.susercontent.com/file/27fa5be36e17b308d1510792b27f5044.webp'),
+(35,'https://down-vn.img.susercontent.com/file/54f627b466af66ba472cb14398609313.webp'),
+(36,'https://ph-live-02.slatic.net/p/032002bcafd0615b842f6a67be84f363.jpg'),
+(36,'https://m.media-amazon.com/images/S/aplus-media/sc/dd99b10b-2367-433a-9e07-a4b8ab8cc64f.__CR0,0,300,300_PT0_SX300_V1___.jpg'),
+(36,'https://img.lazcdn.com/g/p/38b933645c80ecd6cfceeca8579ed1d1.jpg_960x960q80.jpg_.webp'),
+(37,'https://down-vn.img.susercontent.com/file/vn-11134207-7r98o-m0ck1br3jij3ae.webp'),
+(37,'https://down-vn.img.susercontent.com/file/vn-11134207-7r98o-m0ck1br3i3ynea.webp'),
+(37,'https://down-vn.img.susercontent.com/file/vn-11134207-7r98o-m0ck1bqtjwtpfa.webp'),
+(38,'https://down-vn.img.susercontent.com/file/sg-11134201-7qvf4-lk3n7mtc9hxhc8.webp'),
+(38,'https://down-vn.img.susercontent.com/file/sg-11134201-7qvfw-lk3n7nop10xq90.webp'),
+(38,'https://down-vn.img.susercontent.com/file/sg-11134201-7qven-lk3n7luxmg0ne0.webp'),
+(39,'https://down-vn.img.susercontent.com/file/vn-11134207-7qukw-ljzh0rtgnflg47.webp'),
+(39,'https://down-vn.img.susercontent.com/file/vn-11134207-7qukw-ljzh0rtgq8qcda.webp'),
+(39,'https://down-vn.img.susercontent.com/file/vn-11134207-7qukw-ljzh0rtgx9kk45.webp'),
+(40,'https://down-vn.img.susercontent.com/file/dd7dda3aeb5c5c3ab5a7d519b5bddf30.webp'),
+(40,'https://down-vn.img.susercontent.com/file/613c529ebed59ebfa9bd09168f11e876.webp'),
+(40,'https://down-vn.img.susercontent.com/file/1930ce5ee2152cb8e533784d89d659b2.webp'),
+(41,'https://down-vn.img.susercontent.com/file/sg-11134201-7qve8-lgmjuyot6p5793.webp'),
+(41,'https://down-vn.img.susercontent.com/file/sg-11134201-7qvcy-lgmjv00j621m75.webp'),
+(41,'https://down-vn.img.susercontent.com/file/sg-11134201-7qvdo-lgmlge1xrqai5d.webp'),
+(42,'https://down-vn.img.susercontent.com/file/669644e753cedcb5f3f6eeef5e85b1f9.webp'),
+(42,'https://down-vn.img.susercontent.com/file/76151d0af34969dde9fd5f34bd73346e.webp'),
+(42,'https://down-vn.img.susercontent.com/file/fe2076edc1e2372e9d5069ac32a7940b.webp'),
+(43,'https://down-vn.img.susercontent.com/file/sg-11134201-7rdwv-lylbdha8mtzuce.webp'),
+(43,'https://down-vn.img.susercontent.com/file/sg-11134201-7rdvh-lylbdi33gljab6.webp'),
+(43,'https://down-vn.img.susercontent.com/file/sg-11134201-7rdyj-lylbj52oeue2f5.webp'),
+(44,'https://down-vn.img.susercontent.com/file/sg-11134201-7qvfq-lhrxnwpzjzg780.webp'),
+(44,'https://down-vn.img.susercontent.com/file/sg-11134201-7qvcq-lhrxo4is52rb70.webp'),
+(44,'https://down-vn.img.susercontent.com/file/sg-11134201-7qvec-lhrxo3q7cat45b.webp');
 
 
-
--- Chèn dữ liệu vào bảng carts
-INSERT INTO carts (user_id, product_id, quantity) VALUES
-(1, 1, 1),
-(2, 3, 1),
-(3, 2, 1),
-(1, 3, 1),
-(1, 2, 1);
-
--- Chèn dữ liệu vào bảng orders
-INSERT INTO orders (user_id, total_amount, status) VALUES
-(1, 60.00, 'Pending'),
-(2, 100.00, 'Processing'),
-(3, 30.00, 'Completed'),
-(4, 150.00, 'Pending'),
-(5, 400.00, 'Completed');
-
--- Chèn dữ liệu vào bảng order_items
-INSERT INTO order_items (order_id, product_id, quantity, price) VALUES
-(1, 1, 2, 25.00),
-(2, 3, 1, 50.00),
-(3, 2, 3, 10.00),
-(4, 4, 1, 150.00),
-(5, 5, 5, 80.00);
 
 
 

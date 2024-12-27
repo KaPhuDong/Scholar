@@ -11,7 +11,7 @@
 
 <body class="container">
     <div>
-        <?php require_once "./app/views/user/pages/" . $data["Page"] . ".php" ?>
+        <?php require_once "./app/views/pages/" . $data["Page"] . ".php" ?>
     </div>
 </body>
 

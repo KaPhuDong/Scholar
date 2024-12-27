@@ -15,7 +15,7 @@ class User extends Controller
             if ($password !== $confirm_password) {
                 echo "<script>
                     alert('Passwords do not match!');
-                    window.location.href = '/Scholar/User/register';
+                    window.location.href = '/Scholar/register';
                 </script>";
                 exit;
             }
@@ -27,7 +27,7 @@ class User extends Controller
             if (!empty($existingUser)) {
                 echo "<script>
                     alert('Email already exists. Please use a different one.');
-                    window.location.href = '/Scholar/User/register';
+                    window.location.href = '/Scholar/register';
                 </script>";
                 exit;
             }
@@ -44,14 +44,14 @@ class User extends Controller
             } else {
                 echo "<script>
                     alert('Failed to register. Please try again later.');
-                    window.location.href = '/Scholar/User/register';
+                    window.location.href = '/Scholar/register';
                 </script>";
                 exit;
             }
         }
 
-        $this->view("user/authentication", [
-            "Page" => "auth/register"
+        $this->view("authentication", [
+            "Page" => "user/register"
         ]);
     }
 
@@ -82,8 +82,8 @@ class User extends Controller
             }
         }
 
-        $this->view("user/authentication", [
-            "Page" => "auth/login"
+        $this->view("authentication", [
+            "Page" => "user/login"
         ]);
     }
 
@@ -105,8 +105,8 @@ class User extends Controller
         $usersModel = $this->model("UsersModel");
         $userData = $usersModel->getUserById($userId);
 
-        $this->view("user/main", [
-            "Page" => "auth/profile",
+        $this->view("authentication", [
+            "Page" => "user/profile",
             "userData" => $userData
         ]);
     }
@@ -123,7 +123,7 @@ class User extends Controller
             $email = $_POST['email'] ?? $userData['email'];
             $address = $_POST['address'] ?? $userData['address'];
 
-            $avatar = $userData['avatar'];  
+            $avatar = $userData['avatar'];
             if (isset($_FILES['avatar']) && $_FILES['avatar']['error'] === UPLOAD_ERR_OK) {
                 $avatar = $_FILES['avatar']['name'];
                 $targetDir = $_SERVER['DOCUMENT_ROOT'] . '/public/assets/images/';
@@ -137,7 +137,7 @@ class User extends Controller
                 echo "<script>
                         alert('Profile updated successfully!');
                         window.location.href = '/Scholar/User/profile';
-                    </script>";
+                      </script>";
                 exit;
             } else {
                 echo "<script>
@@ -147,10 +147,8 @@ class User extends Controller
         }
 
         $this->view("user/main", [
-            "Page" => "auth/profile",
+            "Page" => "user/pages/auth/profile",
             "userData" => $userData
         ]);
     }
-
-
 }

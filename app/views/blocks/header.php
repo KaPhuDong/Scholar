@@ -6,13 +6,13 @@
         </a>
 
         <div class="search">
-            <form action="/Scholar/Search/searchProductbyName" method="get">
+            <form action="/Scholar/Search/searchProductbyName" method="get" class="form-search">
                 <input name="keyword" class="search-input" placeholder="Search product">
             </form>
             <div class="search-icon">
                 <img src="./public/assets/icons/search.svg" alt="icon-search" class="search-icon-img">
             </div>
-            
+
         </div>
     </div>
 
@@ -23,7 +23,7 @@
         <div class="category-item"><a href="/Scholar/Gears" class="link">Gears</a></div>
     </div>
     <div class="right-header">
-        <a href="/Scholar/Cart" class="cart"><img src="./public/assets/icons/Cart.svg" alt="cart"></a>
+        <a href="/Scholar/Orders/viewCart" class="cart"><img src="./public/assets/icons/Cart.svg" alt="cart"></a>
 
         <?php if (isset($_SESSION['user'])): ?>
             <div class="account" id="account">
