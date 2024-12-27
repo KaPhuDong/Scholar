@@ -6,13 +6,13 @@
         </a>
 
         <div class="search">
-            <form action="/Scholar/Search/searchProductbyName" method="get">
+            <form action="/Scholar/Search/searchProductbyName" method="get" class="form-search">
                 <input name="keyword" class="search-input" placeholder="Search product">
             </form>
             <div class="search-icon">
                 <img src="./public/assets/icons/search.svg" alt="icon-search" class="search-icon-img">
             </div>
-            
+
         </div>
     </div>
 
