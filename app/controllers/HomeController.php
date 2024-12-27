@@ -108,7 +108,7 @@ class Home extends Controller
 
         // Truyền dữ liệu vào view
         $this->view("main", [
-            "Page" => "products/search",
+            "Page" => "search",
             "Products" => $matchingProducts,
             "SearchKeyword" => $searchKeyword,
             "SortOrder" => $sortOrder
