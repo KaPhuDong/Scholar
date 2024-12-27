@@ -5,7 +5,7 @@
     </div>
 
     <div class="sort-container">
-        <form action="/Scholar/Products/searchProductByName" method="get">
+        <form action="/Scholar/Home/searchProductByName" method="get">
             <label for="sort">Sort by</label>
             <select id="sort" name="sort" onchange="this.form.submit()">
                 <option value="">Price</option>
