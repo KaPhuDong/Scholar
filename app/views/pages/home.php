@@ -5,15 +5,15 @@
 
 <!-- Category -->
 <div class="category-cards">
-    <a href="/Scholar/Writes" class="category-card">
+    <a href="/Scholar/Home/getWrites" class="category-card">
         <img src="./public/assets/images/Write.jpg" alt="Writes" class="img-item">
         <div class="text">Writes</div>
     </a>
-    <a href="/Scholar/Notes" class="category-card">
+    <a href="/Scholar/Home/getNotes" class="category-card">
         <img src="./public/assets/images/Note.jpg" alt="Notes" class="img-item">
         <div class="text">Notes</div>
     </a>
-    <a href="/Scholar/Gears" class="category-card">
+    <a href="/Scholar/Home/getGears" class="category-card">
         <img src="./public/assets/images/Gear.jpg" alt="Gears" class="img-item">
         <div class="text">Gears</div>
     </a>
