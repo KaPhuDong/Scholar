@@ -6,7 +6,7 @@
         </a>
 
         <div class="search">
-            <form action="/Scholar/Search/searchProductbyName" method="get" class="form-search">
+            <form action="/Scholar/Search/searchProductbyName" method="get" class="search-input">
                 <input name="keyword" class="search-input" placeholder="Search product">
             </form>
             <div class="search-icon">
