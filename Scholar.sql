@@ -241,19 +241,6 @@ INSERT INTO product_images (product_id, image_url) VALUES
 (44,'https://down-vn.img.susercontent.com/file/sg-11134201-7qvcq-lhrxo4is52rb70.webp'),
 (44,'https://down-vn.img.susercontent.com/file/sg-11134201-7qvec-lhrxo3q7cat45b.webp');
 
--- Insert data into orders
-INSERT INTO orders (user_id, total_amount, status) VALUES
-(1, 150.00, 'Pending'),
-(2, 300.50, 'Processing'),
-(3, 450.75, 'Completed');
-
--- Insert data into order_detail
-INSERT INTO order_detail (order_id, product_id, quantity) VALUES
-(1, 1, 2), 
-(1, 2, 1),
-(2, 1, 3), 
-(2, 3, 1), 
-(3, 2, 4);
 
 
 
