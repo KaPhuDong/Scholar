@@ -43,7 +43,6 @@ class Orders extends Controller
         ]);
     }
 
-
     public function addToCart()
     {
         $product_id = $_POST['product_id'];
