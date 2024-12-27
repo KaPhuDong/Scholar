@@ -101,7 +101,7 @@ class User extends Controller
 
     public function profile()
     {
-        $userId =  $_SESSION['user']['id'];
+        $userId = $_SESSION['user']['id'];
         $usersModel = $this->model("UsersModel");
         $userData = $usersModel->getUserById($userId);
 
@@ -115,33 +115,39 @@ class User extends Controller
     {
         $userId = $_SESSION['user']['id'];
         $usersModel = $this->model("UsersModel");
-        return $usersModel->getUserById($userId);
+        $userData = $usersModel->getUserById($userId);
 
         if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-            $name = $_POST['username'] ?? '';
-            $phone_number = $_POST['phonenumber'] ?? '';
-            $email = $_POST['email'] ?? '';
-            $address = $_POST['address'] ?? '';
+            $name = $_POST['username'] ?? $userData['name'];
+            $phone_number = $_POST['phonenumber'] ?? $userData['phone_number'];
+            $email = $_POST['email'] ?? $userData['email'];
+            $address = $_POST['address'] ?? $userData['address'];
 
-            $usersModel = $this->model("UsersModel");
+            $avatar = $userData['avatar'];
+            if (isset($_FILES['avatar']) && $_FILES['avatar']['error'] === UPLOAD_ERR_OK) {
+                $avatar = $_FILES['avatar']['name'];
+                $targetDir = $_SERVER['DOCUMENT_ROOT'] . '/public/assets/images/';
+                $targetFilePath = $targetDir . basename($avatar);
+                move_uploaded_file($_FILES['avatar']['tmp_name'], $targetFilePath);
+            }
 
-            $updateSuccess = $usersModel->updateUser($userData['user_id'], $name, $phone_number, $email, $address);
+            $updateSuccess = $usersModel->updateUser($userId, $name, $phone_number, $email, $address, $avatar);
 
             if ($updateSuccess) {
                 echo "<script>
                         alert('Profile updated successfully!');
-                        window.location.href = '/Scholar/profile';
+                        window.location.href = '/Scholar/User/profile';
                       </script>";
                 exit;
             } else {
                 echo "<script>
-                        alert('Failed to update profile. Please try again later.');
-                      </script>";
+                        alert('Failed to update profile.');
+                    </script>";
             }
         }
 
-        $this->view("main", [
-            "Page" => "pages/user/profile",
+        $this->view("user/main", [
+            "Page" => "user/pages/auth/profile",
             "userData" => $userData
         ]);
     }

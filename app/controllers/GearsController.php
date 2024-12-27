@@ -4,7 +4,7 @@ class Gears extends Controller
     function default()
     {
         $categoryID = 3;
-        //Model    
+        // Model
         $productsModel = $this->model("ProductsModel");
         $imagesModel = $this->model("ImagesModel");
 
@@ -16,7 +16,7 @@ class Gears extends Controller
             $images = $imagesModel->getImagesByProduct($productId);
             $products[$index]['images'] = $images;
         }
-        //View
+
         $this->view("main", [
             "Page" => "products/gears",
             "Products" => $products
