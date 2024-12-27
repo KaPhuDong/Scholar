@@ -6,7 +6,7 @@
         </a>
 
         <div class="search">
-            <form action="/Scholar/Search/searchProductbyName" method="get" class="search-input">
+            <form action="/Scholar/Home/searchProductByName" method="get" class="search-input">
                 <input name="keyword" class="search-input" placeholder="Search product">
             </form>
             <div class="search-icon">
@@ -18,9 +18,9 @@
 
     <div class="category">
         <div class="category-item"><a href="/Scholar/Home" class="link">Home</a></div>
-        <div class="category-item"><a href="/Scholar/Writes" class="link">Writes</a></div>
-        <div class="category-item"><a href="/Scholar/Notes" class="link">Notes</a></div>
-        <div class="category-item"><a href="/Scholar/Gears" class="link">Gears</a></div>
+        <div class="category-item"><a href="/Scholar/Home/getWrites" class="link">Writes</a></div>
+        <div class="category-item"><a href="/Scholar/Home/getNotes" class="link">Notes</a></div>
+        <div class="category-item"><a href="/Scholar/Home/getGears" class="link">Gears</a></div>
     </div>
     <div class="right-header">
         <a href="/Scholar/Orders/viewCart" class="cart"><img src="./public/assets/icons/Cart.svg" alt="cart"></a>
