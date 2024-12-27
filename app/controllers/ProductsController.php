@@ -22,7 +22,7 @@ class Products extends Controller
             $relatedProducts[$index]['images'] = $images;
         }
 
-        $this->view("user/main", [
+        $this->view("main", [
             "Page" => "products/detail",
             "Product" => $product,
             "relatedProducts" => $relatedProducts

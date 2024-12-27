@@ -1,0 +1,26 @@
+.order-item {
+    display: flex;
+    gap: 15px;
+    align-items: center;
+    min-height: 100px;
+    padding: 20px;
+    box-sizing: border-box;
+    border: 2px solid var(--secondary);
+}
+
+.order-item .product-img {
+    min-width: 110px;
+    height: 100%;
+    object-fit: cover;
+}
+
+.order-item .product-information {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.product-information .description {
+    flex: 1;
+}

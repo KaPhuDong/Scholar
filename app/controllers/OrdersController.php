@@ -6,7 +6,7 @@ class Orders extends Controller
         if (!isset($_SESSION['user'])) {
             echo "<script>
                 alert('Please log in to view your cart.');
-                window.location.href = '/Scholar/User/login';
+                window.location.href = '/Scholar/login';
             </script>";
             exit;
         }
@@ -37,7 +37,7 @@ class Orders extends Controller
             }
         }
 
-        $this->view("user/main", [
+        $this->view("main", [
             "Page" => "order/cart",
             "CartItems" => $cartItems
         ]);
@@ -109,5 +109,12 @@ class Orders extends Controller
             window.location.href = '/Scholar/Orders/viewCart';
             </script>";
         }
+    }
+
+    public function payMent()
+    {
+        $this->view("authentication", [
+            "Page" => "order/payment"
+        ]);
     }
 }

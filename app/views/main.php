@@ -11,15 +11,15 @@
 
 <body>
     <div id="header">
-        <?php require_once "./app/views/user/blocks/header.php" ?>
+        <?php require_once "./app/views/blocks/header.php" ?>
     </div>
 
     <div id="body">
-        <?php require_once "./app/views/user/pages/" . $data["Page"] . ".php" ?>
+        <?php require_once "./app/views/pages/" . $data["Page"] . ".php" ?>
     </div>
 
     <div id="footer">
-        <?php require_once "./app/views/user/blocks/footer.php" ?>
+        <?php require_once "./app/views/blocks/footer.php" ?>
     </div>
 
     <script>

@@ -17,7 +17,7 @@ class Gears extends Controller
             $products[$index]['images'] = $images;
         }
         //View
-        $this->view("user/main", [
+        $this->view("main", [
             "Page" => "products/gears",
             "Products" => $products
         ]);

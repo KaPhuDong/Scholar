@@ -43,7 +43,9 @@ $totalAmount = 0;
             <div class="total-title">Cart Totals</div>
             <div class="quantity">Quantity:</div>
             <div class="total">Total: <span class="price">$<?= number_format($totalAmount, 2) ?></span></div>
-            <button class="btn-checkout">Checkout</button>
+            <button class="btn-checkout">
+                <a href="/Scholar/Orders/payMent">Checkout</a>
+            </button>
         </div>
     </div>
 </div>

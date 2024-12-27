@@ -17,7 +17,7 @@ class Notes extends Controller
             $products[$index]['images'] = $images;
         }
 
-        $this->view("user/main", [
+        $this->view("main", [
             "Page" => "products/notes",
             "Products" => $products
         ]);
