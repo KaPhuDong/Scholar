@@ -2,8 +2,8 @@
     display: flex;
     gap: 15px;
     align-items: center;
-    min-height: 100px;
-    padding: 20px;
+    max-height: 90px;
+    padding: 10px;
     box-sizing: border-box;
     border: 2px solid var(--secondary);
 }
