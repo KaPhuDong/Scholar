@@ -4,7 +4,7 @@ $userData = $data["userData"];
 <div class="container-profile">
     <div class="user-infor">
         <div class="box">
-            <img class="avatar-user" alt="Profile image" src="/public/assets/images/avatar/<?php echo $userData["avatar"] ?>">
+            <img class="avatar-user" alt="Profile image" src="./public/assets/images/avatar/<?php echo $userData["avatar"] ?>">
             <div class="user-content">
                 <h2 class="user-name"><?php echo $userData['name']; ?></h2>
                 <p class="user-email"><?php echo $userData['email']; ?></p>
@@ -40,15 +40,15 @@ $userData = $data["userData"];
                     <input type="text" name="address" value="<?php echo $userData['address']; ?>" placeholder="enter address">
                 </div>
                 <div class="form-group-btn">
-                    <button class="save-changes" name="update">Save Changes</button>
+                    <button class="save-changes" type="submit" name="update">Save Changes</button>
                 </div>
             </div>
 
             <div class="form-user-avatar">
                 <label class="upload-image" for="chooseImage">Choose image</label>
-                <img class="avatar-preview" alt="Profile image" src="/public/assets/images/avatar/<?php echo $userData["avatar"] ?>">
+                <img class="avatar-preview" alt="Profile image" src="./public/assets/images/avatar/<?php echo $userData["avatar"] ?>">
                 <input id="choose-image" name="avatar" type="file" class="update-image" accept="image/*" onchange="Avatar(event)">
-                <button class="save-changes" type="button" name="update" onclick="cancelChanges()">Cancel</button>
+                <button class="save-changes" type="reset" name="update" onclick="cancelChanges()">Cancel</button>
             </div>
         </form>
     </div>
