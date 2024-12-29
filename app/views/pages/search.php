@@ -4,16 +4,28 @@
         <div class="title">Search results for "<?php echo $data['SearchKeyword']; ?>"</div>
     </div>
 
-    <div class="sort-container">
-        <form action="/Scholar/Home/searchProductByName" method="get">
-            <label for="sort">Sort by</label>
-            <select id="sort" name="sort" onchange="this.form.submit()">
-                <option value="">Price</option>
-                <option value="high-to-low" <?php echo $data['SortOrder'] === 'high-to-low' ? 'selected' : ''; ?>>High to Low</option>
-                <option value="low-to-high" <?php echo $data['SortOrder'] === 'low-to-high' ? 'selected' : ''; ?>>Low to High</option>
+    <div class="filter-sort-container">
+        <div class="filter-container">
+            <label for="category">Filter by Category</label>
+            <select id="category" name="category">
+                <option value="all">All</option>
+                <option value="write">Write</option>
+                <option value="gear">Gear</option>
+                <option value="note">Note</option>
             </select>
-            <input type="hidden" name="keyword" value="<?php echo $data['SearchKeyword']; ?>">
-        </form>
+        </div>
+
+        <div class="sort-container">
+            <form action="/Scholar/Home/searchProductByName" method="get">
+                <label for="sort">Sort by</label>
+                <select id="sort" name="sort" onchange="this.form.submit()">
+                    <option value="">Price</option>
+                    <option value="high-to-low" <?php echo $data['SortOrder'] === 'high-to-low' ? 'selected' : ''; ?>>High to Low</option>
+                    <option value="low-to-high" <?php echo $data['SortOrder'] === 'low-to-high' ? 'selected' : ''; ?>>Low to High</option>
+                </select>
+                <input type="hidden" name="keyword" value="<?php echo $data['SearchKeyword']; ?>">
+            </form>
+        </div>
     </div>
 
     <?php if (empty($data['Products'])): ?>
