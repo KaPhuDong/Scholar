@@ -1,0 +1,23 @@
+.payment-container {
+    display: flex;
+    align-items: center;
+    gap: 100px;
+    height: 100vh;
+    margin-inline: 100px;
+}
+
+.payment-container .left-content {
+    background-color: var(--light);
+    min-width: 450px;
+    min-height: 70%;
+    margin-inline: 0;
+    display: flex;
+    justify-content: center;
+}
+
+.payment-container .right-content {
+    background-color: var(--light);
+    width: 100%;
+    height: 100vh;
+}
+

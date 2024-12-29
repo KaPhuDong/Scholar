@@ -1,7 +1,6 @@
 .cards {
-    max-width: 1297px;
     display: flex;
     row-gap: 40px;
-    column-gap: 29px;
+    column-gap: 35px;
     flex-wrap: wrap;
 }

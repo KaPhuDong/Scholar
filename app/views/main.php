@@ -5,21 +5,27 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Main</title>
-    <link rel="stylesheet" href="./public/styles/main.css">
+    <base href="http://localhost:8080/Scholar/">
+    <link rel="stylesheet" href="public/styles/main.css">
 </head>
 
 <body>
-    <div class="container">
-        <div>
-            <?php require_once "./app/views/layout/header.php" ?>
-        </div>
-        <div class="body">
-            <?php require_once "./app/views/pages/" . $data["Page"] . ".php" ?>
-        </div>
-        <div>
-            <?php require_once "./app/views/layout/footer.php" ?>
-        </div>
+    <div id="header">
+        <?php require_once "./app/views/blocks/header.php" ?>
     </div>
+
+    <div id="body">
+        <?php require_once "./app/views/pages/" . $data["Page"] . ".php" ?>
+    </div>
+
+    <div id="footer">
+        <?php require_once "./app/views/blocks/footer.php" ?>
+    </div>
+
+    <script>
+        const currentPage = "<?php echo $data['Page']; ?>";
+    </script>
+    <script src="./public/script/main.js" type="module"></script>
 </body>
 
 </html>

@@ -1,3 +1,8 @@
-.body {
-    margin-inline: 60px;
-}
+@import "./home.css";
+@import "./authentication.css";
+@import "./cart.css";
+@import "./detail.css";
+@import "./search.css";
+@import "./profile.css";
+@import "./payment.css";
+

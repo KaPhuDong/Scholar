@@ -1,4 +1,4 @@
 @import "./card.css";
-@import "./extra-card.css";
-@import "./hero-home.css";
-@import "./category.css";
+@import "./input-form.css";
+@import"./cart-item.css";
+@import"./order-item.css"
