@@ -126,7 +126,7 @@ class User extends Controller
             $avatar = $userData['avatar'];
             if (isset($_FILES['avatar']) && $_FILES['avatar']['error'] === UPLOAD_ERR_OK) {
                 $avatar = $_FILES['avatar']['name'];
-                $targetDir = $_SERVER['DOCUMENT_ROOT'] . '/public/assets/images/';
+                $targetDir = $_SERVER['DOCUMENT_ROOT'] . '/public/assets/images/avatar/';
                 $targetFilePath = $targetDir . basename($avatar);
                 move_uploaded_file($_FILES['avatar']['tmp_name'], $targetFilePath);
             }

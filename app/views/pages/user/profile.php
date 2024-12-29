@@ -4,7 +4,7 @@ $userData = $data["userData"];
 <div class="container-profile">
     <div class="user-infor">
         <div class="box">
-            <img class="avatar-user" alt="Profile image" src="/public/assets/images/<?php echo $userData["avatar"] ?>">
+            <img class="avatar-user" alt="Profile image" src="/public/assets/images/avatar/<?php echo $userData["avatar"] ?>">
             <div class="user-content">
                 <h2 class="user-name"><?php echo $userData['name']; ?></h2>
                 <p class="user-email"><?php echo $userData['email']; ?></p>
@@ -46,7 +46,7 @@ $userData = $data["userData"];
 
             <div class="form-user-avatar">
                 <label class="upload-image" for="chooseImage">Choose image</label>
-                <img class="avatar-preview" alt="Profile image" src="/public/assets/images/<?php echo $userData["avatar"] ?>">
+                <img class="avatar-preview" alt="Profile image" src="/public/assets/images/avatar/<?php echo $userData["avatar"] ?>">
                 <input id="choose-image" name="avatar" type="file" class="update-image" accept="image/*" onchange="Avatar(event)">
                 <button class="save-changes" type="button" name="update" onclick="cancelChanges()">Cancel</button>
             </div>
@@ -75,7 +75,7 @@ $userData = $data["userData"];
 
     function cancelChanges() {
 
-        var originalAvatar = "/public/assets/images/<?php echo $userData["avatar"] ?>";
+        var originalAvatar = "/public/assets/images/avatar/<?php echo $userData["avatar"] ?>";
         document.querySelector('.avatar-preview').src = originalAvatar;
         document.querySelector('.avatar-user').src = originalAvatar;
 
