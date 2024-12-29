@@ -90,17 +90,15 @@ class Home extends Controller
 
     public function searchProductByName()
     {
-        // Lấy từ khóa tìm kiếm và tham số sắp xếp (mặc định giá trị rỗng)
+        // Lấy từ khóa tìm kiếm và tham số sắp xếp 
         $searchKeyword = trim($_GET['keyword'] ?? '');
         $sortOrder = $_GET['sort'] ?? '';
+        $categoryId = $_GET['category'] ?? 'all';
 
-        // Tải model sản phẩm
         $productsModel = $this->model("ProductsModel");
 
-        // Tìm kiếm sản phẩm theo từ khóa và sắp xếp 
-        $matchingProducts = $productsModel->searchProductsByKeyword($searchKeyword, $sortOrder);
+        $matchingProducts = $productsModel->searchProductsByKeyword($searchKeyword, $sortOrder, ($categoryId !== 'all' ? $categoryId : null));
 
-        // Thêm hình ảnh vào từng sản phẩm
         $imagesModel = $this->model("ImagesModel");
         foreach ($matchingProducts as &$product) {
             $product['images'] = $imagesModel->getImagesByProduct($product['product_id']);
@@ -111,7 +109,8 @@ class Home extends Controller
             "Page" => "search",
             "Products" => $matchingProducts,
             "SearchKeyword" => $searchKeyword,
-            "SortOrder" => $sortOrder
+            "SortOrder" => $sortOrder,
+            "Category" => $categoryId
         ]);
     }
 }
