@@ -30,11 +30,10 @@
 
 .search-results .filter-sort-container {
     display: flex;
-    flex-wrap: wrap;
     justify-content: space-between;
     align-items: center;
     margin-bottom: 20px;
-    gap: 10px;
+    width: 100%;
 }
 
 .filter-container,
@@ -42,6 +41,7 @@
     display: flex;
     align-items: center;
     gap: 10px;
+    min-width: 0;
 }
 
 .filter-container label,
@@ -51,6 +51,7 @@
     font-weight: var(--font-weight-bold);
     margin-right: 10px;
 }
+
 
 .filter-container select,
 .sort-container select {
