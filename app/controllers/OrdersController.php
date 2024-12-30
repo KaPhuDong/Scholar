@@ -102,7 +102,17 @@ class Orders extends Controller
             $order_detail_id = $_POST['order_detail_id'];
 
             $orderDetailModel = $this->model("OrderDetailModel");
+            $ordersModel = $this->model("OrdersModel");
+
+            // Lấy thông tin chi tiết đơn hàng từ order_detail_id
+            $orderDetail = $orderDetailModel->getOrderDetailById($order_detail_id);
+            $order_id = $orderDetail['order_id'];
             $orderDetailModel->deleteOrderDetail($order_detail_id);
+
+            $remainingItems = $orderDetailModel->getOrderDetailsByOrderId($order_id);
+            if (empty($remainingItems)) {
+                $ordersModel->deleteOrder($order_id);
+            }
 
             echo "<script>
             window.location.href = '/Scholar/Orders/viewCart';
@@ -110,10 +120,70 @@ class Orders extends Controller
         }
     }
 
+
     public function payMent()
     {
         $this->view("authentication", [
             "Page" => "order/payment"
         ]);
+    }
+
+    public function checkout()
+    {
+        if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+            $selectedItems = isset($_POST['selected_items']) ? (array) $_POST['selected_items'] : [];
+
+            if (empty($selectedItems)) {
+                echo "<script>
+            alert('No items selected for checkout.');
+            window.location.href = '/Scholar/Cart';
+            </script>";
+                return;
+            }
+
+            $order_ids = [];
+            $ordersModel = $this->model("OrdersModel");
+            $orderDetailModel = $this->model("OrderDetailModel");
+            $totalAmountPerOrder = []; // Lưu tổng tiền cho từng order_id
+
+            foreach ($selectedItems as $order_detail_id) {
+                // Lấy thông tin chi tiết đơn hàng từ order_detail_id
+                $orderDetail = $orderDetailModel->getOrderDetailById($order_detail_id);
+                $order_id = $orderDetail['order_id'];
+                $product_id = $orderDetail['product_id']; // Lấy product_id từ orderDetail
+
+                // Lấy số lượng mới từ form
+                $newQuantity = isset($_POST["quantity_{$order_detail_id}"]) ? (int)$_POST["quantity_{$order_detail_id}"] : $orderDetail['quantity'];
+
+                // Cập nhật số lượng trong order_detail
+                $orderDetailModel->updateOrderDetailQuantity($order_id, $product_id, $newQuantity);
+
+                // Tính toán tổng số tiền cho từng order
+                $product = $this->model("ProductsModel")->getProductById($product_id);
+                $totalAmountPerOrder[$order_id] = isset($totalAmountPerOrder[$order_id]) ? $totalAmountPerOrder[$order_id] : 0;
+                $totalAmountPerOrder[$order_id] += $product['price'] * $newQuantity;
+
+                if (!in_array($order_id, $order_ids)) {
+                    $order_ids[] = $order_id;
+                }
+            }
+
+            // Cập nhật lại tổng tiền và trạng thái cho từng đơn hàng
+            foreach ($order_ids as $order_id) {
+                $totalAmount = $totalAmountPerOrder[$order_id];
+
+                // Cập nhật tổng tiền
+                $ordersModel->updateOrderTotalAmount($order_id, $totalAmount);
+
+                // Cập nhật trạng thái đơn hàng thành 'Processing'
+                $ordersModel->updateOrderStatus($order_id, 'Processing');
+            }
+
+            // Chuyển hướng về trang thanh toán hoặc thông báo thành công
+            echo "<script>
+        alert('Checkout successful. Your orders are now processing.');
+        window.location.href = '/Scholar/Orders/payMent';
+        </script>";
+        }
     }
 }

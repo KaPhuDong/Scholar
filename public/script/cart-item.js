@@ -1,8 +1,11 @@
+// Selectors
 const quantityDetail = document.querySelectorAll('#quantity-detail-cart');
 const checkBoxes = document.querySelectorAll('.check-box');
 const totalPriceElement = document.querySelector('.total .price');
+const checkoutForm = document.querySelector('#checkout-form'); // Form for Checkout
+const checkoutButton = document.querySelector('#checkout-button');
 
-
+// Calculate total price based on selected products
 function calculateTotal() {
     let total = 0;
 
@@ -18,6 +21,7 @@ function calculateTotal() {
     totalPriceElement.textContent = `$${total.toFixed(2)}`;
 }
 
+// Handle quantity changes
 quantityDetail.forEach((quantity) => {
     const decreaseBtn = quantity.querySelector('#decrease-in-cart');
     const increaseBtn = quantity.querySelector('#increase-in-cart');
@@ -50,15 +54,17 @@ quantityDetail.forEach((quantity) => {
     });
 });
 
+// Handle checkbox selection
 checkBoxes.forEach((checkbox) => {
     checkbox.addEventListener('change', calculateTotal);
 });
 
+// Handle product deletion
 const deleteButtons = document.querySelectorAll('.delete-product');
 
 deleteButtons.forEach((button) => {
     button.addEventListener('click', () => {
-        const orderDetailId = button.getAttribute('data-order-detail-id'); // ID sản phẩm cần xóa
+        const orderDetailId = button.getAttribute('data-order-detail-id');
         if (confirm('Are you sure you want to remove this product from your cart?')) {
             const form = document.createElement('form');
             form.method = 'POST';
@@ -76,3 +82,31 @@ deleteButtons.forEach((button) => {
     });
 });
 
+// Handle checkout form submission
+checkoutButton.addEventListener('click', (e) => {
+    e.preventDefault();
+
+    const selectedItems = [];
+    checkBoxes.forEach((checkbox) => {
+        if (checkbox.checked) {
+            const orderDetailId = checkbox.getAttribute('data-order-detail-id');
+            const quantityInput = checkbox.closest('.cart-item').querySelector('#quantity-in-cart #number-in-cart');
+            const quantity = parseInt(quantityInput.value);
+
+            selectedItems.push({ order_detail_id: orderDetailId, quantity: quantity });
+        }
+    });
+
+    if (selectedItems.length === 0) {
+        alert('Please select at least one product to checkout.');
+        return;
+    }
+
+    const input = document.createElement('input');
+    input.type = 'hidden';
+    input.name = 'selected_items';
+    input.value = JSON.stringify(selectedItems);
+
+    checkoutForm.appendChild(input);
+    checkoutForm.submit();
+});
