@@ -28,6 +28,7 @@
     background: var(--light);
     margin-left: 115px;
     margin-top: 20px;
+    object-fit: cover;
 }
 
 .user-content {
@@ -145,6 +146,7 @@ h1.my-profile {
     width: 250px;
     height: 250px;
     border: 2px solid var(--primary);
+    object-fit: cover;
 }
 
 .form-user-avatar .update-image {

@@ -118,21 +118,20 @@ class User extends Controller
         $userData = $usersModel->getUserById($userId);
 
         if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+           
             $name = $_POST['username'] ?? $userData['name'];
             $phone_number = $_POST['phonenumber'] ?? $userData['phone_number'];
             $email = $_POST['email'] ?? $userData['email'];
             $address = $_POST['address'] ?? $userData['address'];
-
+        
             $avatar = $userData['avatar'];
             if (isset($_FILES['avatar']) && $_FILES['avatar']['error'] === UPLOAD_ERR_OK) {
-                $avatar = $_FILES['avatar']['name'];
-                $targetDir = $_SERVER['DOCUMENT_ROOT'] . '/public/assets/images/';
-                $targetFilePath = $targetDir . basename($avatar);
-                move_uploaded_file($_FILES['avatar']['tmp_name'], $targetFilePath);
+                move_uploaded_file($_FILES['avatar']['tmp_name'], './public/assets/images/avatar/' . $_FILES['avatar']['name']);
+                $avatar = $_FILES['avatar']['name'];  
             }
-
+            
             $updateSuccess = $usersModel->updateUser($userId, $name, $phone_number, $email, $address, $avatar);
-
+            
             if ($updateSuccess) {
                 echo "<script>
                         alert('Profile updated successfully!');
@@ -142,9 +141,10 @@ class User extends Controller
             } else {
                 echo "<script>
                         alert('Failed to update profile.');
-                    </script>";
+                      </script>";
             }
         }
+        
 
         $this->view("main", [
             "Page" => "user/profile",
