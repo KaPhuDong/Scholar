@@ -1,0 +1,49 @@
+.admin-logo {
+    display: flex;
+    gap: 10px;
+    align-items: center;
+    margin-left: 470px;
+
+}
+.admin-logo .logo {
+    line-height: 15px;
+}
+
+.logo-img {
+    width: 35px;
+    height: 35px;
+}
+
+.admin {
+    font-size: 60px;
+}
+
+.admin-sidebar {
+    width: 275px;
+    height:450px;
+    background-color: var(--primary);
+    padding: 0px 10px;
+}
+
+.sidebar-menu {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+}
+
+.menu-item {
+    background-color: #C6E8F6;
+    padding: 10px;
+    margin-bottom: 5px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.menu-item:hover {
+    background-color:var(--primary);
+}
+
+/* .menu-item.active {
+    background-color:var(--primary);
+} */
+
