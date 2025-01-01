@@ -35,7 +35,7 @@
         <div class="admin-sidebar">
             <ul class="sidebar-menu">
                 <li class="menu-item"><a href="#">User management</a></li>
-                <li class="menu-item"><a href="#">Product management</a></li>
+                <li class="menu-item"><a href="../controllers/AdminController.php/">Product management</a></li>
                 <li class="menu-item"><a href="#">Order management</a></li>
             </ul>
         </div>
