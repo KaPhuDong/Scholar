@@ -27,19 +27,19 @@ class ProductsModel extends Database
     }
 
     // ProductsModel.php
-    public function searchProductsByKeyword($searchKeyword, $sortOrder = '',$categoryId = null)
+    public function searchProductsByKeyword($searchKeyword, $sortOrder = '', $categoryId = null)
     {
         // từ khóa tìm kiếm
         $searchKeyword = mysqli_real_escape_string($this->con, $searchKeyword);
         $searchTerm = "%$searchKeyword%";
-        
-    
+
+
         $sortQuery = match ($sortOrder) {
             'high-to-low' => 'ORDER BY price DESC',
             'low-to-high' => 'ORDER BY price ASC',
             default => ''
         };
-    
+
         $categoryQuery = '';
         if ($categoryId && $categoryId !== 'all') {
             $categoryId = mysqli_real_escape_string($this->con, $categoryId);
@@ -47,17 +47,11 @@ class ProductsModel extends Database
         }
         // Tạo câu truy vấn
         $query = "SELECT * FROM products WHERE name LIKE '$searchTerm'  $categoryQuery  $sortQuery";
-    
-        // Thực hiện truy vấn và trả về kết quả
-        $result = mysqli_query($this->con, $query) 
-            or die('MySQL Error: ' . mysqli_error($this->con));
-    
-        return mysqli_fetch_all($result, MYSQLI_ASSOC);
 
+        // Thực hiện truy vấn và trả về kết quả
+        $result = mysqli_query($this->con, $query)
+            or die('MySQL Error: ' . mysqli_error($this->con));
+
+        return mysqli_fetch_all($result, MYSQLI_ASSOC);
     }
 }
-
-
-    
-    
-

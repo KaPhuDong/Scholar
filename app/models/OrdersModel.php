@@ -12,6 +12,16 @@ class OrdersModel extends Database
         return mysqli_fetch_all($result, MYSQLI_ASSOC);
     }
 
+    public function getOrderByStatus($user_id, $status)
+    {
+        $qr = "SELECT * FROM orders 
+        WHERE user_id = $user_id AND status = '$status'
+        ORDER BY order_date DESC";
+        $result = mysqli_query($this->con, $qr);
+
+        return mysqli_fetch_all($result, MYSQLI_ASSOC);
+    }
+
     public function getNewOrder($user_id)
     {
         $qr = "SELECT * FROM orders 
@@ -23,7 +33,6 @@ class OrdersModel extends Database
         return mysqli_fetch_assoc($result);
     }
 
-    // Tạo một đơn hàng mới
     public function createOrder($user_id, $totalAmount)
     {
         $qr = "INSERT INTO orders (user_id, total_amount, status) 
@@ -40,6 +49,18 @@ class OrdersModel extends Database
             WHERE od.order_id = $order_id
         ) WHERE order_id = $order_id";
 
+        return mysqli_query($this->con, $qr);
+    }
+
+    public function updateOrderStatus($order_id, $status)
+    {
+        $qr = "UPDATE orders SET status = '$status' WHERE order_id = $order_id";
+        return mysqli_query($this->con, $qr);
+    }
+
+    public function deleteOrder($order_id)
+    {
+        $qr = "DELETE FROM orders WHERE order_id = $order_id";
         return mysqli_query($this->con, $qr);
     }
 }

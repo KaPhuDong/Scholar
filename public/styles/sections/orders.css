@@ -1,6 +1,12 @@
 .orders {
+    max-height: 355px;
+    width: 100%;
     display: flex;
     flex-direction: column;
     gap: 10px;
-    margin-inline: 25px;
+    overflow-y: auto;
+}
+
+.orders::-webkit-scrollbar {
+    scrollbar-width: none;
 }

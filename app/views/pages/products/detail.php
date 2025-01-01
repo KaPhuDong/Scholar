@@ -33,7 +33,6 @@ $product = $data["Product"];
                             <button class="increase">+</button>
                         </div> -->
                 </div>
-
                 <div class="button-detail">
                     <form action="/Scholar/Orders/addToCart" method="POST" class="form">
                         <input type="hidden" name="product_id" value="<?php echo $product['product_id']; ?>">
@@ -48,8 +47,14 @@ $product = $data["Product"];
                             <button type="submit" class="btn-add-to-cart">Add to cart</button>
                         </div>
                     </form>
-                    <a href="#" type="button" class="btn-buy-now">Buy now</a>
+                    <!-- Nút Buy Now -->
+                    <form action="/Scholar/Orders/buyNow" method="POST" class="form">
+                        <input type="hidden" name="product_id" value="<?php echo $product['product_id']; ?>">
+                        <input type="hidden" name="quantity" value="1" id="buy-now-quantity">
+                        <button type="submit" class="btn-buy-now">Buy now</button>
+                    </form>
                 </div>
+
             </div>
         </div>
     </div>
