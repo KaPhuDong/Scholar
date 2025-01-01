@@ -85,33 +85,33 @@
 }
 
 .product-table .column-id {
-    width: 45px;
+    min-width: 20px;
 }
 
 .product-table .column-productname {
-    width: 175px;
+    max-width: 100px;
 }
 
 .product-table .column-category {
-    width: 170px;
+    max-width: 100px;
 }
 
-.user-table .column-productimage {
-    width: 100px;
+.product-table .column-productimage {
+    max-width: 120px;
 }
 
-.user-table .column-description {
-    width: 100px;
+.product-table .column-description {
+    max-width: 60px;
 }
 
-.user-table .column-price {
-    width: 100px;
+.product-table .column-price {
+    max-width: 60px;
 }
 
-.user-table .column-stock {
-    width: 100px;
+.product-table .column-stock {
+   mã-width: 60px;
 }
 
 .product-table .column-action {
-    width: 100px;
+    max-width: 60px;
 }
