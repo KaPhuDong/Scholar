@@ -50,15 +50,19 @@ class UsersModel extends Database
         }
     }
     public function getAllUsers() {
-        // Câu truy vấn lấy tất cả người dùng
         $qr = "SELECT * FROM users";
         $result = $this->con->query($qr);
     
-        if ($result === false) {
-            die("Lỗi truy vấn: " . $this->con->error); // Hiển thị lỗi nếu có
+        $users = [];
+        if ($result->num_rows > 0) {
+            while ($row = $result->fetch_assoc()) {
+                $users[] = $row;
+            }
         }
-        return $result->fetch_all(MYSQLI_ASSOC); // Trả về mảng dữ liệu hoặc mảng rỗng
+    
+        return $users;
     }
+    
 }
     
      
