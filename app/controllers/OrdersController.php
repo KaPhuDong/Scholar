@@ -331,9 +331,8 @@ class Orders extends Controller
         unset($_SESSION['buy_now_item']);
         unset($_SESSION['selected_items']);
 
-        echo "<script>
-                alert('Payment successful. Orders are now marked as processing.');
-                window.location.href = '/Scholar/Home';
-            </script>";
+        $this->view("authentication", [
+            "Page" => "orders/paymentSuccessful"
+        ]);
     }
 }
