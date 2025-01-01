@@ -1,62 +1,64 @@
+<?php
+$cartItems = $data["CartItems"];
+$totalQuantity = array_sum(array_column($cartItems, 'quantity'));
+$totalPrice = array_reduce($cartItems, function ($sum, $item) {
+    return $sum + ($item['product']['price'] * $item['quantity']);
+}, 0);
+?>
+
 <div class="payment-container">
+    <!-- Right Content: Order Summary -->
     <div class="right-content">
-        <p class="order-heading">Your order</p>
+        <p class="order-heading">Your Order</p>
         <div class="orders">
-            <div class="order-item">
-                <img src="" alt="product" class="product-img">
-                <div class="product-information">
-                    <p class="title">Name</p>
-                    <p class="description">Lorem, ipsum dolor sit amet consectetur adipisicing elit.</p>
+            <?php foreach ($cartItems as $item): ?>
+                <div class="order-item">
+                    <img src="<?= $item['images'][0]['image_url'] ?>" alt="Product Image" class="product-img">
+                    <div class="product-information">
+                        <p class="title"><?= ($item['product']['name']) ?></p>
+                        <p class="description"><?= ($item['product']['description']) ?></p>
+                    </div>
+                    <div class="quantity-price">
+                        <p class="quantity">X<?= $item['quantity'] ?>:
+                            $<?= number_format($item['product']['price'] * $item['quantity'], 2) ?>
+                        </p>
+                    </div>
                 </div>
-            </div>
-            <div class="order-item">
-                <img src="" alt="product" class="product-img">
-                <div class="product-information">
-                    <p class="title">Name</p>
-                    <p class="description">Lorem, ipsum dolor sit amet consectetur adipisicing elit.</p>
-                </div>
-            </div>
-            <div class="order-item">
-                <img src="" alt="product" class="product-img">
-                <div class="product-information">
-                    <p class="title">Name</p>
-                    <p class="description">Lorem, ipsum dolor sit amet.</p>
-                </div>
-            </div>
+            <?php endforeach; ?>
         </div>
         <div class="summary">
-            <p class="totalProducts">Quantity: 4</p>
-            <p class="totalPrice">TotalPrice: $23.00</p>
+            <p class="totalProducts">Total Items: <?= $totalQuantity ?></p>
+            <p class="totalPrice">Total Price: $<?= number_format($totalPrice, 2) ?></p>
         </div>
     </div>
+
+    <!-- Left Content: Payment Form -->
     <div class="left-content">
         <div class="form-container form-container-payment">
             <p class="payment-heading">Confirmation</p>
-            <form action="/Scholar/User/payment" method="post" class="form-register form-payment">
+            <form action="/Scholar/Orders/payMentSuccessful" method="post" class="form-register form-payment">
                 <!-- Full Name -->
-                <div class="name form-field">
-                    <p class="title">Full name</p>
+                <div class="form-field">
+                    <label for="full-name" class="title">Full Name</label>
                     <input name="full-name" id="full-name" class="input-form" placeholder="Enter your full name" required>
-                    <span class="error-message"><?= $errors['full-name'] ?? '' ?></span>
                 </div>
 
                 <!-- Phone Number -->
-                <div class="phone-number form-field">
-                    <p class="title">Phone number</p>
+                <div class="form-field">
+                    <label for="phone-number" class="title">Phone Number</label>
                     <input name="phone-number" type="tel" id="phone-number" class="input-form"
-                        placeholder="Enter your phone number" pattern="[0-9]{10}" title="Phone number should be 10 digits" required>
-                    <span class="error-message"><?= $errors['phone-number'] ?? '' ?></span>
+                        placeholder="Enter your phone number" pattern="[0-9]{10}"
+                        title="Phone number should be 10 digits" required>
                 </div>
 
                 <!-- Address -->
-                <div class="address form-field">
-                    <p class="title">Address</p>
+                <div class="form-field">
+                    <label for="address" class="title">Address</label>
                     <input name="address" id="address" class="input-form" placeholder="Enter your address" required>
-                    <span class="error-message"><?= $errors['address'] ?? '' ?></span>
                 </div>
 
                 <!-- Submit Button -->
-                <button type="submit" class="btn btn-signin-submit" name="signin-submit">PAYMENT</button>
+                <button type="submit" class="btn btn-signin-submit" name="payment-submit">PAYMENT</button>
             </form>
         </div>
     </div>

@@ -32,27 +32,21 @@ class ProductsModel extends Database
         // Làm sạch từ khóa tìm kiếm
         $searchKeyword = mysqli_real_escape_string($this->con, $searchKeyword);
         $searchTerm = "%$searchKeyword%";
-    
+
         // Xử lý tham số sắp xếp
         $sortQuery = match ($sortOrder) {
             'high-to-low' => 'ORDER BY price DESC',
             'low-to-high' => 'ORDER BY price ASC',
             default => ''
         };
-    
+
         // Tạo câu truy vấn
         $query = "SELECT * FROM products WHERE name LIKE '$searchTerm' $sortQuery";
-    
-        // Thực hiện truy vấn và trả về kết quả
-        $result = mysqli_query($this->con, $query) 
-            or die('MySQL Error: ' . mysqli_error($this->con));
-    
-        return mysqli_fetch_all($result, MYSQLI_ASSOC);
 
+        // Thực hiện truy vấn và trả về kết quả
+        $result = mysqli_query($this->con, $query)
+            or die('MySQL Error: ' . mysqli_error($this->con));
+
+        return mysqli_fetch_all($result, MYSQLI_ASSOC);
     }
 }
-
-
-    
-    
-

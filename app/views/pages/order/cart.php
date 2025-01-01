@@ -2,12 +2,13 @@
 $cartItems = $data["CartItems"];
 $totalAmount = 0;
 
-foreach ($cartItems as $item) {
-    $totalAmount += $item['product']['price'] * $item['quantity'];
-}
+// foreach ($cartItems as $item) {
+//     $totalAmount += $item['product']['price'] * $item['quantity'];
+// }
+// 
 ?>
 
-<form id="checkout-form" action="/Scholar/Orders/checkout" method="POST">
+<form id="cart-checkout-form" action="/Scholar/Orders/checkout" method="POST">
     <div class="shopping-cart">
         <div class="cart-title">Shopping Cart</div>
         <div class="content-cart">
@@ -28,16 +29,22 @@ foreach ($cartItems as $item) {
                             </div>
                             <div class="content-right-item">
                                 <div class="price">$<?= number_format($item['product']['price'], 2) ?></div>
-                                <div class="quantity-detail" id="quantity-detail-cart">
+
+                                <form action="/Scholar/Orders/updateQuantity" method="POST" class="quantity-form">
+                                    <input type="hidden" name="order_detail_id" value="<?= $item['order_detail_id'] ?>">
                                     <div class="quantity" id="quantity-in-cart">
-                                        <div class="decrease" id="decrease-in-cart">-</div>
-                                        <input class="number" id="number-in-cart" name="quantity_<?= $item['order_detail_id'] ?>" type="number" value="<?= $item['quantity'] ?>" min="1" max="<?= $item['product']['stock']; ?>">
-                                        <div class="increase" id="increase-in-cart">+</div>
+                                        <button type="submit" name="action" value="decrease" class="decrease">-</button>
+                                        <input class="number" name="quantity" type="number" value="<?= $item['quantity'] ?>" min="1" max="<?= $item['product']['stock']; ?>">
+                                        <button type="submit" name="action" value="increase" class="increase">+</button>
                                     </div>
-                                </div>
-                                <div class="delete-product" data-order-detail-id="<?= $item['order_detail_id'] ?>">
-                                    <img src="./public/assets/icons/remove.svg" alt="Delete" class="remove">
-                                </div>
+                                </form>
+
+                                <form action="/Scholar/Orders/removeFromCart" method="POST" class="delete-product-form">
+                                    <input type="hidden" name="order_id" value="<?= $item['order_id'] ?>">
+                                    <button type="submit" class="delete-product-btn">
+                                        <img src="./public/assets/icons/remove.svg" alt="Delete" class="remove">
+                                    </button>
+                                </form>
                             </div>
                         </div>
                     <?php endforeach; ?>
@@ -45,8 +52,8 @@ foreach ($cartItems as $item) {
             </div>
             <div class="right-cart">
                 <div class="total-title">Cart Totals</div>
-                <div class="quantity">Quantity:</div>
-                <div class="total">Total: <span class="price">$<?= number_format($totalAmount, 2) ?></span></div>
+                <div class="quantity">Quantity: <span id="total-quantity">0</span></div>
+                <div class="total">Total: <span id="total-price">$0.00</span></div>
                 <button type="submit" class="btn-checkout">Checkout</button>
             </div>
         </div>

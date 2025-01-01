@@ -52,6 +52,16 @@ CREATE TABLE order_detail (
     FOREIGN KEY (product_id) REFERENCES products(product_id) ON DELETE CASCADE
 );
 
+CREATE TABLE delivery_information (
+    delivery_id INT AUTO_INCREMENT PRIMARY KEY,
+    order_id INT NOT NULL,
+    recipient_name VARCHAR(100) NOT NULL,
+    phone_number VARCHAR(15) NOT NULL,
+    delivery_address TEXT NOT NULL,
+    delivery_date TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    FOREIGN KEY (order_id) REFERENCES orders(order_id) ON DELETE CASCADE
+);
+
 -- Insert data into categories
 INSERT INTO categories (name) VALUES
 ('Note'),
