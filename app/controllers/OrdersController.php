@@ -38,7 +38,7 @@ class Orders extends Controller
         }
 
         $this->view("main", [
-            "Page" => "order/cart",
+            "Page" => "orders/cart",
             "CartItems" => $cartItems
         ]);
     }
@@ -103,30 +103,38 @@ class Orders extends Controller
 
         if (!isset($_SESSION['user'])) {
             echo "<script>
-                alert('Please log in to pay item.');
+                alert('Please log in to buy this item.');
                 window.location.href = '/Scholar/Products/getProductInformation/$product_id';
             </script>";
             exit;
         }
 
         $user_id = $_SESSION['user']['id'];
-
         $orderDetailModel = $this->model("OrderDetailModel");
         $ordersModel = $this->model("OrdersModel");
         $productModel = $this->model("ProductsModel");
         $product = $productModel->getProductById($product_id);
         $totalAmount = $product['price'] * $quantity;
+
         $ordersModel->createOrder($user_id, $totalAmount);
         $newOrder = $ordersModel->getNewOrder($user_id);
-        $newOrderId = $newOrder['order_id'];
-        $order_id = $newOrderId;
+        $order_id = $newOrder['order_id'];
+        $ordersModel->updateOrderStatus($order_id, 'Processing');
+
         $orderDetailModel->createOrderDetail($order_id, $product_id, $quantity);
-        $ordersModel->updateOrderTotalAmount($order_id);
+        $orderDetail = $orderDetailModel->getOrderDetail($order_id, $product_id);
+
+        $_SESSION['buy_now_item'] = [
+            'order_id' => $order_id,
+            'order_detail_id' => $orderDetail['order_detail_id'],
+            'product_id' => $product_id,
+            'quantity' => $quantity
+        ];
 
         echo "<script>
-            alert('Redirecting to payment page...');
-            window.location.href = '/Scholar/Orders/payMent';
-        </script>";
+                alert('Redirecting to payment page...');
+                window.location.href = '/Scholar/Orders/payMent';
+            </script>";
     }
 
     public function removeFromCart()
@@ -257,7 +265,6 @@ class Orders extends Controller
         }
 
         $cartItems = [];
-
         foreach ($selectedItems as $order_detail_id) {
             $orderDetail = $orderDetailModel->getOrderDetailById($order_detail_id);
             $product = $productsModel->getProductById($orderDetail['product_id']);
@@ -279,14 +286,13 @@ class Orders extends Controller
             $cartItems[] = [
                 'product' => $product,
                 'quantity' => $buyNowItem['quantity'],
-                'order_id' => null, // No order yet for "Buy Now"
-                'order_detail_id' => null,
+                'order_id' => $buyNowItem['order_id'],
+                'order_detail_id' => $buyNowItem['order_detail_id'],
                 'images' => $images
             ];
         }
-
         $this->view("authentication", [
-            "Page" => "order/payment",
+            "Page" => "orders/payment",
             "CartItems" => $cartItems
         ]);
     }
@@ -301,7 +307,6 @@ class Orders extends Controller
         $buyNowItem = isset($_SESSION['buy_now_item']) ? $_SESSION['buy_now_item'] : null;
 
         $orderIds = [];
-
         foreach ($selectedItems as $order_detail_id) {
             $orderDetail = $orderDetailModel->getOrderDetailById($order_detail_id);
             $orderIds[] = $orderDetail['order_id'];
@@ -324,8 +329,8 @@ class Orders extends Controller
             }
         }
 
-        unset($_SESSION['selected_items']);
         unset($_SESSION['buy_now_item']);
+        unset($_SESSION['selected_items']);
 
         echo "<script>
                 alert('Payment successful. Orders are now marked as processing.');

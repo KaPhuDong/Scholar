@@ -32,13 +32,6 @@ class OrderDetailModel extends Database
         return $result;
     }
 
-    public function updateMultipleOrderDetailQuantity($order_id, $products)
-    {
-        foreach ($products as $product_id => $newQuantity) {
-            $this->updateOrderDetailQuantity($order_id, $product_id, $newQuantity);
-        }
-    }
-
     public function getOrderDetailByOrderId($order_id)
     {
         $qr = "SELECT od.*, p.name, p.price, p.stock 

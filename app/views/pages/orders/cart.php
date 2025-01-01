@@ -52,8 +52,8 @@ $totalAmount = 0;
             </div>
             <div class="right-cart">
                 <div class="total-title">Cart Totals</div>
-                <div class="quantity">Quantity: <span id="total-quantity">0</span></div>
-                <div class="total">Total: <span id="total-price">$0.00</span></div>
+                <!-- <div class="quantity">Quantity: <span id="total-quantity">0</span></div>
+                <div class="total">Total: <span id="total-price">$0.00</span></div> -->
                 <button type="submit" class="btn-checkout">Checkout</button>
             </div>
         </div>
