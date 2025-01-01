@@ -56,18 +56,18 @@
 
 
 <!-- Note Products -->
-<a href="/Scholar/Products/getProductInformation/<?php echo $product['product_id']; ?>" class="cards">
+<div class="cards">
     <?php
-    $products = array_slice($data["Products"], 0, 8);
+    $products = array_slice($data["Products"], 0,8);
     ?>
 
     <?php foreach ($products as $product): ?>
-        <div class="card">
+        <a href="/Scholar/Products/getProductInformation/<?php echo $product['product_id']; ?>" class="card">
             <img src="<?php echo $product['images'][0]['image_url'] ?>" alt="product" class="img">
             <div class="content">
                 <div class="product-name"><?php echo $product['name']; ?></div>
                 <div class="product-price">$<?php echo number_format($product['price'], 2); ?></div>
             </div>
-        </div>
+        </a>
     <?php endforeach; ?>
-</a>
+</div>
