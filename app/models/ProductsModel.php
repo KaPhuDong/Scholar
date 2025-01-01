@@ -33,8 +33,6 @@ class ProductsModel extends Database
         $searchKeyword = mysqli_real_escape_string($this->con, $searchKeyword);
         $searchTerm = "%$searchKeyword%";
 
-        // Xử lý tham số sắp xếp
-
 
         $sortQuery = match ($sortOrder) {
             'high-to-low' => 'ORDER BY price DESC',
@@ -42,14 +40,13 @@ class ProductsModel extends Database
             default => ''
         };
 
-
         $categoryQuery = '';
         if ($categoryId && $categoryId !== 'all') {
             $categoryId = mysqli_real_escape_string($this->con, $categoryId);
             $categoryQuery = "AND category_id = '$categoryId'";
         }
         // Tạo câu truy vấn
-        $query = "SELECT * FROM products WHERE name LIKE '$searchTerm' $sortQuery";
+        $query = "SELECT * FROM products WHERE name LIKE '$searchTerm'  $categoryQuery  $sortQuery";
 
         // Thực hiện truy vấn và trả về kết quả
         $result = mysqli_query($this->con, $query)
