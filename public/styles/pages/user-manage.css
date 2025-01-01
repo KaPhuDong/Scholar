@@ -1,10 +1,10 @@
 .user-management {
-    max-width: 900px;
+    width: 92%;
     padding: 20px;
     background-color: #fff;
     border-radius: 12px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    margin-left: 250px;
+    margin-left: 20px;
 }
 
 .user-management .title {
@@ -37,11 +37,14 @@
 
 .user-table th,
 .user-table td {
-    text-align: left;
+    text-align: center;
+    vertical-align: middle; /* Căn giữa dọc */
     padding: 10px;
     border-right: 1px solid #ddd;
     border-bottom: 1px solid #ddd;
-    word-wrap: break-word;
+    word-wrap: break-word; /* Cho phép ngắt dòng khi từ quá dài */
+    overflow-wrap: anywhere; /* Đảm bảo ngắt dòng email dài */
+
 }
 
 .user-table th {
@@ -82,33 +85,33 @@
 }
 
 .user-table .column-id {
-    width: 5%;
+    width: 45px;
 }
 
 .user-table .column-username {
-    width: 15%;
+    width: 175px;
 }
 
 .user-table .column-avatar {
-    width: 10%;
+    width: 170px;
 }
 
 .user-table .column-email {
-    width: 25%;
+    width: 100px;
 }
 
 .user-table .column-phone {
-    width: 15%;
+    width: 100px;
 }
 
 .user-table .column-address {
-    width: 20%;
+    width: 100px;
 }
 
 .user-table .column-password {
-    width: 10%;
+    width: 100px;
 }
 
 .user-table .column-action {
-    width: 10%;
+    width: 100px;
 }

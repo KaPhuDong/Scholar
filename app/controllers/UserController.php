@@ -60,32 +60,45 @@ class User extends Controller
         if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             $email = $_POST['email'] ?? '';
             $password = $_POST['password'] ?? '';
-
-            // Model
+    
+            // Gọi model để kiểm tra thông tin đăng nhập
             $usersModel = $this->model("UsersModel");
             $user = $usersModel->checkLogin($email, $password);
-
+    
             if ($user) {
+                // Lưu thông tin người dùng vào session
                 $_SESSION['user'] = [
                     'id' => $user['user_id'],
                     'name' => $user['name'],
-                    'email' => $user['email']
+                    'email' => $user['email'],
+                    'role' => $user['role'] // Lưu vai trò vào session
                 ];
-
-                echo "<script>
-                    alert('Login successful!');
-                    window.location.href = '/Scholar/Home';
-                </script>";
-                exit;
+    
+                // Thay đổi logic kiểm tra tài khoản admin
+                if ($email === "admin@gmail.com" && $password === "admin@123") {
+                    echo "<script>alert('Đăng nhập thành công với tài khoản admin');</script>";
+                    header("Location: /Scholar/Admin");
+                    exit;
+                } else {
+                    echo "<script>
+                        alert('Login successful!');
+                        window.location.href = '/Scholar/Home';
+                    </script>";
+                    exit;
+                }
             } else {
-                echo "<script>alert('Invalid email or password.');</script>";
+                // Thông báo nếu email hoặc mật khẩu không hợp lệ
+                echo "<script>alert('Tên đăng nhập hoặc mật khẩu không đúng');</script>";
             }
         }
-
+    
+        // Hiển thị giao diện đăng nhập
         $this->view("authentication", [
             "Page" => "user/login"
         ]);
     }
+    
+    
 
     public function logout()
     {

@@ -32,8 +32,6 @@ class UsersModel extends Database
         return mysqli_fetch_assoc($result);
     }
 
-
-
     public function updateUser($userId, $name, $phone_number, $email, $address, $avatar) {
         if ($avatar) {
             $qr = "
@@ -51,4 +49,17 @@ class UsersModel extends Database
             return mysqli_query($this->con, $qr);
         }
     }
+    public function getAllUsers() {
+        // Câu truy vấn lấy tất cả người dùng
+        $qr = "SELECT * FROM users";
+        $result = $this->con->query($qr);
+    
+        if ($result === false) {
+            die("Lỗi truy vấn: " . $this->con->error); // Hiển thị lỗi nếu có
+        }
+        return $result->fetch_all(MYSQLI_ASSOC); // Trả về mảng dữ liệu hoặc mảng rỗng
+    }
 }
+    
+     
+   
