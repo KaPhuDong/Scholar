@@ -15,7 +15,7 @@
 }
 
 .admin {
-    font-size: 60px;
+    font-size: 50px;
 }
 
 .admin-sidebar {
@@ -46,4 +46,18 @@
 /* .menu-item.active {
     background-color:var(--primary);
 } */
+
+.admin-container {
+    display: flex;
+    
+}
+
+.admin-container .admin-sidebar {
+    max-width: 275px;
+}
+
+.admin-container .main-content {
+    flex: 1;
+    
+}
 

@@ -36,7 +36,6 @@ class Orders extends Controller
                 ];
             }
         }
-
         $this->view("main", [
             "Page" => "orders/cart",
             "CartItems" => $cartItems
