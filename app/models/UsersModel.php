@@ -26,15 +26,15 @@ class UsersModel extends Database
         return mysqli_fetch_assoc($result);
     }
 
-    public function getUserById($userId) {
+    public function getUserById($userId)
+    {
         $qr = "SELECT * FROM users WHERE user_id = '$userId'";
         $result = mysqli_query($this->con, $qr);
         return mysqli_fetch_assoc($result);
     }
 
-
-
-    public function updateUser($userId, $name, $phone_number, $email, $address, $avatar) {
+    public function updateUser($userId, $name, $phone_number, $email, $address, $avatar)
+    {
         if ($avatar) {
             $qr = "
                 UPDATE users 

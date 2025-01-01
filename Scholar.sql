@@ -52,6 +52,16 @@ CREATE TABLE order_detail (
     FOREIGN KEY (product_id) REFERENCES products(product_id) ON DELETE CASCADE
 );
 
+CREATE TABLE delivery_information (
+    delivery_id INT AUTO_INCREMENT PRIMARY KEY,
+    order_id INT NOT NULL,
+    recipient_name VARCHAR(100) NOT NULL,
+    phone_number VARCHAR(15) NOT NULL,
+    delivery_address TEXT NOT NULL,
+    delivery_date TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    FOREIGN KEY (order_id) REFERENCES orders(order_id) ON DELETE CASCADE
+);
+
 -- Insert data into categories
 INSERT INTO categories (name) VALUES
 ('Note'),
@@ -85,7 +95,6 @@ INSERT INTO products (name, description, price, stock, category_id) VALUES
 ('Hardcover Notebook', 'Hardcover notebook, A6 size, premium paper quality', 12.00, 140, 1),
 ('Creative Sticky Notes', 'Sticky notes with creative designs, perfect for decoration', 7.50, 180, 1),
 ('Business Notebook', 'Elegant notebook for professionals, with soft leather cover', 60.00, 40, 1),
-('Bordered Sticky Notes', 'Sticky notes with beautiful decorative borders', 6.00, 250, 1),
 ('Plastic Cover Notebook', 'Notebook with transparent plastic cover, waterproof and durable', 22.00, 90, 3),
 ('Backpack', 'A spacious backpack for carrying books and supplies', 45.00, 100, 3),
 ('Scissors', 'Durable scissors for cutting paper and crafts', 10.00, 200, 3),
