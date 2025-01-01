@@ -18,24 +18,30 @@
                 </tr>
             </thead>
             <tbody>
-                <?php if (!empty($userData) && is_array($userData)): ?>
-                    <?php foreach ($userData as $row): ?>
-                        <tr>
-                            <td><?= $row['product_id'] ?></td>
-                            <td><?= $row['name'] ?></td>
-                            <td><?= $row['category_id'] ?></td>
-                            <!-- <td><img src="<?= $row['avatar'] ?>" alt="Avatar" class="avatar"></td> -->
-                            <td><?= $row['description'] ?></td>
-                            <td><?= $row['price'] ?></td>
-                            <td><?= $row['stock'] ?></td>
-                            <td>**********</td>
-                        </tr>
-                    <?php endforeach; ?>
-                <?php else: ?>
-                    <tr>
-                        <td colspan="7">Không có sản phẩm  nào trong Database</td>
+                <?php foreach($products as $product): ?>
+                    <tr class="product_content">
+                        <td><?php echo $product['product_id'] ?></td>
+                        <td><?php echo $product['name'] ?></td>
+                        <td><?php echo $product['category_id'] ?></td>
+                        <td><?php echo $product['productimage'] ?></td>
+                        <td><?php echo $product['description'] ?></td>
+                        <td><?php echo $product['price'] ?></td>
+                        <td><?php echo $product['stock'] ?></td>
+                        <td class="description"><?php echo $product['description'] ?></td>
+                        <!-- <td class="img"><img src="" alt="product_image" class="product_image"></td> -->
+                        <td class="action">
+                            <form action="/Scholar/Admin/deleteProduct" method="POST" onsubmit="return confirm('Are you sure you want to delete this product?');">
+                                <input type="hidden" name="product_id" value="<?php echo $product['product_id']; ?>">
+                                <button class="delete-btn" type="submit"><i class="fa fa-trash-o" style="font-size:20px"></i></button>
+                            </form>
+                            <a href="/Scholar/Admin/editProduct?id=<?php echo $product['product_id'] ?>">
+                                <button type="button" class="edit-btn">
+                                    <i class="fa fa-pencil-square-o" style="font-size:20px"></i>
+                                </button>
+                            </a>
+                        </td>
                     </tr>
-                <?php endif; ?>
+                <?php endforeach; ?>
             </tbody>
         </table>
     </div>
