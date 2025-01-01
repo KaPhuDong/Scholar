@@ -62,6 +62,10 @@ CREATE TABLE delivery_information (
     FOREIGN KEY (order_id) REFERENCES orders(order_id) ON DELETE CASCADE
 );
 
+-- Insert data into users
+INSERT INTO users (name, email, password, role) 
+VALUES ('Admin', 'admin@gmail.com', MD5('admin@123'), 'admin');
+
 -- Insert data into categories
 INSERT INTO categories (name) VALUES
 ('Note'),
