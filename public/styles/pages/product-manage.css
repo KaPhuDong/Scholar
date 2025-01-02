@@ -120,7 +120,7 @@
 }
 
 .product-table .column-stock {
-   mã-width: 60px;
+   max-width: 60px;
 }
 
 .product-table .column-action {
