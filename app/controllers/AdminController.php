@@ -25,7 +25,7 @@ class Admin extends Controller
         ]);
     }
 
-    public function OrderManager()
+    public function orderManage()
     {
         $usersModel = $this->model("UsersModel");
 
@@ -39,6 +39,27 @@ class Admin extends Controller
         // Truyền dữ liệu sang View
         $this->view("admin", [
             "Page" => "admin/orderManage",
+        ]);
+    }
+
+    public function productManage()
+    {
+        $productsModel = $this->model("ProductsModel");
+        $imagesModel = $this->model("ImagesModel");
+
+        $products = $productsModel->getProducts();
+
+        // Lấy ảnh cho từng sản phẩm
+        foreach ($products as $index => $product) {
+            $productId = $product['product_id'];
+            $images = $imagesModel->getImagesByProduct($productId);
+            $products[$index]['images'] = $images;
+        }
+
+        // Truyền dữ liệu sang View
+        $this->view("admin", [
+            "Page" => "admin/productManage",
+            "Products" => $products
         ]);
     }
 }
