@@ -1,4 +1,6 @@
-
+<?php
+$users = $data["userData"];
+?>
 <div class="user-management">
     <p class="title">User Management</p>
     <div class="filter">
@@ -19,15 +21,15 @@
                 </tr>
             </thead>
             <tbody>
-                <?php if (!empty($userData) && is_array($userData)): ?>
-                    <?php foreach ($userData as $row): ?>
+                <?php if (!empty($users) && is_array($users)): ?>
+                    <?php foreach ($users as $user): ?>
                         <tr>
-                            <td><?php echo $row['user_id'] ?></td>
-                            <td><?php echo $row['name'] ?></td>
-                            <td><img src="<?php echo $row['avatar'] ?>" alt="Avatar" class="avatar"></td>
-                            <td><?php echo $row['email'] ?></td>
-                            <td><?php echo $row['phone_number'] ?></td>
-                            <td><?php echo $row['address'] ?></td>
+                            <td><?php echo $user['user_id'] ?></td>
+                            <td><?php echo $user['name'] ?></td>
+                            <td><img src="<?php echo $user['avatar'] ?>" alt="Avatar" class="avatar"></td>
+                            <td><?php echo $user['email'] ?></td>
+                            <td><?php echo $user['phone_number'] ?></td>
+                            <td><?php echo $user['address'] ?></td>
                             <td>**********</td>
                         </tr>
                     <?php endforeach; ?>

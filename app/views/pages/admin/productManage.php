@@ -1,3 +1,6 @@
+<?php
+$products = $data["Products"];
+?>
 <div class="product-management">
     <p class="title">Product Management</p>
     <div class="filter">
@@ -18,12 +21,12 @@
                 </tr>
             </thead>
             <tbody>
-                <?php foreach($products as $product): ?>
+                <?php foreach ($products as $product): ?>
                     <tr class="product_content">
                         <td><?php echo $product['product_id'] ?></td>
                         <td><?php echo $product['name'] ?></td>
                         <td><?php echo $product['category_id'] ?></td>
-                        <td><?php echo $product['productimage'] ?></td>
+                        <td><img src="<?php echo $product['images'][0]['image_url'] ?>" alt="product-img"></td>
                         <td><?php echo $product['description'] ?></td>
                         <td><?php echo $product['price'] ?></td>
                         <td><?php echo $product['stock'] ?></td>
