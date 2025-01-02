@@ -27,15 +27,6 @@ class Admin extends Controller
 
     public function orderManage()
     {
-        $usersModel = $this->model("UsersModel");
-
-        // Lấy danh sách người dùng
-        $getUser = $usersModel->getAllUsers();
-
-        if (empty($getUser)) {
-            echo "Không có dữ liệu từ cơ sở dữ liệu.";
-        }
-
         // Truyền dữ liệu sang View
         $this->view("admin", [
             "Page" => "admin/orderManage",
