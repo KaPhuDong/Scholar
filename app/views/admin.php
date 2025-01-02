@@ -34,12 +34,12 @@
     <div class="admin-container">
         <div class="admin-sidebar">
             <ul class="sidebar-menu">
-                <li class="menu-item"><a href="#">User management</a></li>
-                <li class="menu-item"><a href="#">Product management</a></li>
-                <li class="menu-item"><a href="#">Order management</a></li>
+                <li class="menu-item"><a href="/Scholar/Admin/userManage">User management</a></li>
+                <li class="menu-item"><a href="/Scholar/Admin/productManage">Product management</a></li>
+                <li class="menu-item"><a href="/Scholar/Admin/orderManage">Order management</a></li>
             </ul>
         </div>
-    
+
         <div class="main-content">
             <?php require_once "./app/views/pages/" . $data["Page"] . ".php" ?>
         </div>
