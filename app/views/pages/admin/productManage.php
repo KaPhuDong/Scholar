@@ -26,11 +26,10 @@ $products = $data["Products"];
                         <td><?php echo $product['product_id'] ?></td>
                         <td><?php echo $product['name'] ?></td>
                         <td><?php echo $product['category_id'] ?></td>
-                        <td><img src="<?php echo $product['images'][0]['image_url'] ?>" alt="product-img"></td>
-                        <td><?php echo $product['description'] ?></td>
+                        <td><img src="<?php echo $product['images'][0]['image_url'] ?>" alt="product-img" class="product-img"></td>
+                        <td class="product-description"><?php echo $product['description'] ?></td>
                         <td><?php echo $product['price'] ?></td>
                         <td><?php echo $product['stock'] ?></td>
-                        <td class="description"><?php echo $product['description'] ?></td>
                         <!-- <td class="img"><img src="" alt="product_image" class="product_image"></td> -->
                         <td class="action">
                             <form action="/Scholar/Admin/deleteProduct" method="POST" onsubmit="return confirm('Are you sure you want to delete this product?');">
