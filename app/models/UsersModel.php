@@ -33,7 +33,8 @@ class UsersModel extends Database
         return mysqli_fetch_assoc($result);
     }
 
-    public function updateUser($userId, $name, $phone_number, $email, $address, $avatar) {
+    public function updateUser($userId, $name, $phone_number, $email, $address, $avatar)
+    {
         if ($avatar) {
             $qr = "
                 UPDATE users 
@@ -50,21 +51,26 @@ class UsersModel extends Database
             return mysqli_query($this->con, $qr);
         }
     }
-    public function getAllUsers() {
+
+    public function getUsers()
+    {
         $qr = "SELECT * FROM users";
-        $result = $this->con->query($qr);
-    
-        $users = [];
-        if ($result->num_rows > 0) {
-            while ($row = $result->fetch_assoc()) {
-                $users[] = $row;
-            }
-        }
-    
-        return $users;
+        $result = mysqli_query($this->con, $qr);
+
+        return mysqli_fetch_all($result, MYSQLI_ASSOC);
     }
-    
+    // public function getAllUsers() {
+    //     $qr = "SELECT * FROM users";
+    //     $result = $this->con->query($qr);
+
+    //     $users = [];
+    //     if ($result->num_rows > 0) {
+    //         while ($row = $result->fetch_assoc()) {
+    //             $users[] = $row;
+    //         }
+    //     }
+
+    //     return $users;
+    // }
+
 }
-    
-     
-   
