@@ -131,7 +131,6 @@ class Orders extends Controller
         ];
 
         echo "<script>
-                alert('Redirecting to payment page...');
                 window.location.href = '/Scholar/Orders/payMent';
             </script>";
     }

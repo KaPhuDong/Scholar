@@ -26,7 +26,7 @@ $users = $data["userData"];
                         <tr>
                             <td><?php echo $user['user_id'] ?></td>
                             <td><?php echo $user['name'] ?></td>
-                            <td><img src="<?php echo $user['avatar'] ?>" alt="Avatar" class="avatar"></td>
+                            <td><img src="./public/assets/images/avatar/<?php echo $user["avatar"] ?>" alt="Avatar" class="avatar"></td>
                             <td><?php echo $user['email'] ?></td>
                             <td><?php echo $user['phone_number'] ?></td>
                             <td><?php echo $user['address'] ?></td>
