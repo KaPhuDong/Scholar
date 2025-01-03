@@ -34,9 +34,9 @@
     <div class="admin-container">
         <div class="admin-sidebar">
             <ul class="sidebar-menu">
-                <li class="menu-item"><a href="/Scholar/Admin/userManage">User management</a></li>
-                <li class="menu-item"><a href="/Scholar/Admin/productManage">Product management</a></li>
-                <li class="menu-item"><a href="/Scholar/Admin/orderManage">Order management</a></li>
+                <li class="menu-item"><a href="/Scholar/Admin/userManagement">User management</a></li>
+                <li class="menu-item"><a href="/Scholar/Admin/productManagement">Product management</a></li>
+                <li class="menu-item"><a href="/Scholar/Admin/orderManagement">Order management</a></li>
             </ul>
         </div>
 
