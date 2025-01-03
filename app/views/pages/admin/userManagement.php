@@ -1,11 +1,31 @@
 <?php
-$users = $data["userData"];
+$users = $data["Users"];
+$totalPages = $data["TotalPages"];
+$currentPage = $data["CurrentPage"];
+$totalUsers = $data["TotalUsers"];
 ?>
 <div class="user-management">
     <p class="title">User Management</p>
     <div class="filter">
-        <div class="filter-button">All (5)</div>
+        <div class="filter-button">All (<?php echo $totalUsers; ?>)</div>
+
+        <?php if ($totalPages > 1): ?>
+            <div class="pagination">
+                <?php if ($currentPage > 1): ?>
+                    <a href="/Scholar/Admin/userManagement?page=<?php echo $currentPage - 1; ?>" class="prev">Previous</a>
+                <?php endif; ?>
+
+                <?php for ($i = 1; $i <= $totalPages; $i++): ?>
+                    <a href="/Scholar/Admin/userManagement?page=<?php echo $i; ?>" class="<?php echo ($i == $currentPage) ? 'active' : ''; ?>"><?php echo $i; ?></a>
+                <?php endfor; ?>
+
+                <?php if ($currentPage < $totalPages): ?>
+                    <a href="/Scholar/Admin/userManagement?page=<?php echo $currentPage + 1; ?>" class="next">Next</a>
+                <?php endif; ?>
+            </div>
+        <?php endif; ?>
     </div>
+
     <div class="table-container">
         <table class="user-table">
             <thead>
@@ -25,13 +45,12 @@ $users = $data["userData"];
                         <tr>
                             <td><?php echo $user['user_id'] ?></td>
                             <td><?php echo $user['name'] ?></td>
-                            <td><img class="avatar" alt="Avatar" src="./public/assets/images/avatar/<?php echo $user["avatar"] ?>"></td>
+                            <td><img src="./public/assets/images/avatar/<?php echo $user["avatar"] ?>" alt="Avatar" class="avatar-user"></td>
                             <td><?php echo $user['email'] ?></td>
                             <td><?php echo $user['phone_number'] ?></td>
                             <td><?php echo $user['address'] ?></td>
                             <td>
-                                <!-- Delete Icon with Form -->
-                                <form method="POST" action="/Scholar/admin/handleDeleteUser" style="display: inline;">
+                            <form method="POST" action="/Scholar/admin/handleDeleteUser" style="display: inline;">
                                     <input type="hidden" name="user_Id" value="<?php echo $user['user_id']; ?>">
                                     <button type="submit" name="deleteUser" onclick="return confirm('Are you sure you want to delete this user?');" style="background: none; border: none; cursor: pointer;">
                                         <img src="./public/assets/icons/remove.svg" alt="Remove Icon">

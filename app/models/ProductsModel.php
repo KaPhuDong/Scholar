@@ -4,7 +4,22 @@ class ProductsModel extends Database
 {
     public function getProducts()
     {
-        $qr = "SELECT * FROM products";
+        $qr = "
+        SELECT 
+            products.product_id, 
+            products.name AS name, 
+            products.description, 
+            products.price, 
+            products.stock, 
+            categories.category_id, 
+            categories.name AS category_name
+        FROM 
+            products
+        LEFT JOIN 
+            categories 
+        ON 
+            products.category_id = categories.category_id";
+
         $result = mysqli_query($this->con, $qr);
 
         return mysqli_fetch_all($result, MYSQLI_ASSOC);
