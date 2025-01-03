@@ -1,11 +1,6 @@
 <?php
 $cartItems = $data["CartItems"];
 $totalAmount = 0;
-
-// foreach ($cartItems as $item) {
-//     $totalAmount += $item['product']['price'] * $item['quantity'];
-// }
-// 
 ?>
 
 <form id="cart-checkout-form" action="/Scholar/Orders/checkout" method="POST">
@@ -52,8 +47,6 @@ $totalAmount = 0;
             </div>
             <div class="right-cart">
                 <div class="total-title">Cart Totals</div>
-                <!-- <div class="quantity">Quantity: <span id="total-quantity">0</span></div>
-                <div class="total">Total: <span id="total-price">$0.00</span></div> -->
                 <button type="submit" class="btn-checkout">Checkout</button>
             </div>
         </div>

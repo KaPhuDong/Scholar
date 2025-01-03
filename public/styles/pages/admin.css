@@ -53,6 +53,7 @@
 
 .admin-container .admin-sidebar {
     max-width: 275px;
+    height: 100vh;
 }
 
 .admin-container .main-content {
