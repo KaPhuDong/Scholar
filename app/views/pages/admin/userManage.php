@@ -16,7 +16,6 @@ $users = $data["userData"];
                     <th class="column-email">Email</th>
                     <th class="column-phone">Phone</th>
                     <th class="column-address">Address</th>
-                    <th class="column-password">Password</th>
                     <th class="column-action">Action</th>
                 </tr>
             </thead>
@@ -26,11 +25,19 @@ $users = $data["userData"];
                         <tr>
                             <td><?php echo $user['user_id'] ?></td>
                             <td><?php echo $user['name'] ?></td>
-                            <td><img src="<?php echo $user['avatar'] ?>" alt="Avatar" class="avatar"></td>
+                            <td><img class="avatar" alt="Avatar" src="./public/assets/images/avatar/<?php echo $user["avatar"] ?>"></td>
                             <td><?php echo $user['email'] ?></td>
                             <td><?php echo $user['phone_number'] ?></td>
                             <td><?php echo $user['address'] ?></td>
-                            <td>**********</td>
+                            <td>
+                                <!-- Delete Icon with Form -->
+                                <form method="POST" action="/Scholar/admin/handleDeleteUser" style="display: inline;">
+                                    <input type="hidden" name="user_Id" value="<?php echo $user['user_id']; ?>">
+                                    <button type="submit" name="deleteUser" onclick="return confirm('Are you sure you want to delete this user?');" style="background: none; border: none; cursor: pointer;">
+                                        <img src="./public/assets/icons/remove.svg" alt="Remove Icon">
+                                    </button>
+                                </form>
+                            </td>
                         </tr>
                     <?php endforeach; ?>
                 <?php else: ?>

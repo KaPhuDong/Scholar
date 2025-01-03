@@ -25,6 +25,22 @@ class Admin extends Controller
         ]);
     }
 
+    public function handleDeleteUser()
+    {
+        if (isset($_POST['deleteUser'])) {
+            
+            $usersModel = $this->model("UsersModel"); 
+            $userId = (int)$_POST['user_Id'];
+
+            $usersModel->deleteUser($userId);
+            echo "<script>
+                    alert('User deleted successfully!');
+                    window.location.href = '/Scholar/Admin/userManage';
+                </script>";
+            exit;
+        }
+    }
+
     public function orderManage()
     {
         // Truyền dữ liệu sang View

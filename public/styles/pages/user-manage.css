@@ -2,13 +2,13 @@
     width: 92%;
     padding: 20px;
     background-color: #fff;
-    border-radius: 12px;
+    border-radius: var(--border-radius-lg);
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     margin-left: 20px;
 }
 
 .user-management .title {
-    font-size: 28px;
+    font-size: var(--font-size-md);
     margin-bottom: 20px;
 }   
 
@@ -17,18 +17,18 @@
 }
 
 .filter .filter-button {
-    background-color: #007bff;
+    background-color: var(--primary);
     color: white;
     border: none;
     padding: 10px 20px;
     font-size: 14px;
-    border-radius: 5px;
+    border-radius: var(--border-radius-sm);
     transition: all 0.3s ease-in-out;
     width: 100px;
     text-align: center;
 }
 
-.user-table {
+.user-management .user-table {
     width: 100%;
     border-collapse: collapse;
     background-color: #fff;
@@ -50,7 +50,7 @@
 .user-table th {
     background-color: #f1f4f9;
     font-weight: bold;
-    text-transform: uppercase;
+    /* text-transform: uppercase; */
     font-size: 14px;
     border-bottom: 2px solid #ddd;
 }
@@ -64,24 +64,12 @@
     border-right: none;
 }
 
-.avatar {
-    width: 60px;
-    height: 60px;
-    border-radius: 10px;
+.avatar img{
+    width: 100px;
+    height: 100px;
+    border-radius: 5px;
     object-fit: cover;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-}
-
-.details-link {
-    text-decoration: none;
-    color: #007bff;
-    font-weight: bold;
-    transition: all 0.3s ease-in-out;
-}
-
-.details-link:hover {
-    color: #0056b3;
-    text-decoration: underline;
 }
 
 .user-table .column-id {
@@ -89,29 +77,25 @@
 }
 
 .user-table .column-username {
-    width: 175px;
+    width: 150px;
 }
 
 .user-table .column-avatar {
-    width: 170px;
+    width: 120px;
 }
 
 .user-table .column-email {
-    width: 100px;
+    width: 180px;
 }
 
 .user-table .column-phone {
-    width: 100px;
+    width: 110px;
 }
 
 .user-table .column-address {
-    width: 100px;
-}
-
-.user-table .column-password {
-    width: 100px;
+    width: 120px;
 }
 
 .user-table .column-action {
-    width: 100px;
+    width: 80px;
 }
