@@ -59,18 +59,4 @@ class UsersModel extends Database
 
         return mysqli_fetch_all($result, MYSQLI_ASSOC);
     }
-    // public function getAllUsers() {
-    //     $qr = "SELECT * FROM users";
-    //     $result = $this->con->query($qr);
-
-    //     $users = [];
-    //     if ($result->num_rows > 0) {
-    //         while ($row = $result->fetch_assoc()) {
-    //             $users[] = $row;
-    //         }
-    //     }
-
-    //     return $users;
-    // }
-
 }
