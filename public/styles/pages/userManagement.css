@@ -118,13 +118,3 @@
 .user-table .column-action {
     width: 100px;
 }
-
-.product-management .pagination {
-    padding-top: 20px;
-    text-align: center;
-}
-
-.pagination a:hover {
- color: var(--text-color-primary);
- font-weight: var(--font-weight-bold);
-}

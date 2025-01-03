@@ -60,21 +60,18 @@ class User extends Controller
         if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             $email = $_POST['email'] ?? '';
             $password = $_POST['password'] ?? '';
-    
-            // Gọi model để kiểm tra thông tin đăng nhập
+
             $usersModel = $this->model("UsersModel");
             $user = $usersModel->checkLogin($email, $password);
-    
+
             if ($user) {
-                // Lưu thông tin người dùng vào session
                 $_SESSION['user'] = [
                     'id' => $user['user_id'],
                     'name' => $user['name'],
                     'email' => $user['email'],
-                    'role' => $user['role'] // Lưu vai trò vào session
+                    'role' => $user['role']
                 ];
-    
-                // Thay đổi logic kiểm tra tài khoản admin
+
                 if ($email === "admin@gmail.com" && $password === "admin@123") {
                     echo "<script>alert('Đăng nhập thành công với tài khoản admin');</script>";
                     header("Location: /Scholar/Admin");
@@ -87,18 +84,15 @@ class User extends Controller
                     exit;
                 }
             } else {
-                // Thông báo nếu email hoặc mật khẩu không hợp lệ
                 echo "<script>alert('Tên đăng nhập hoặc mật khẩu không đúng');</script>";
             }
         }
-    
-        // Hiển thị giao diện đăng nhập
+
         $this->view("authentication", [
             "Page" => "user/login"
         ]);
     }
-    
-    
+
 
     public function logout()
     {
@@ -131,20 +125,20 @@ class User extends Controller
         $userData = $usersModel->getUserById($userId);
 
         if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-           
+
             $name = $_POST['username'] ?? $userData['name'];
             $phone_number = $_POST['phonenumber'] ?? $userData['phone_number'];
             $email = $_POST['email'] ?? $userData['email'];
             $address = $_POST['address'] ?? $userData['address'];
-        
+
             $avatar = $userData['avatar'];
             if (isset($_FILES['avatar']) && $_FILES['avatar']['error'] === UPLOAD_ERR_OK) {
                 move_uploaded_file($_FILES['avatar']['tmp_name'], './public/assets/images/avatar/' . $_FILES['avatar']['name']);
-                $avatar = $_FILES['avatar']['name'];  
+                $avatar = $_FILES['avatar']['name'];
             }
-            
+
             $updateSuccess = $usersModel->updateUser($userId, $name, $phone_number, $email, $address, $avatar);
-            
+
             if ($updateSuccess) {
                 echo "<script>
                         alert('Profile updated successfully!');
@@ -157,12 +151,10 @@ class User extends Controller
                       </script>";
             }
         }
-        
 
         $this->view("main", [
             "Page" => "user/profile",
             "userData" => $userData
         ]);
     }
-    
 }
