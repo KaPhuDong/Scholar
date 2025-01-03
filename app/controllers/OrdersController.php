@@ -239,7 +239,6 @@ class Orders extends Controller
             }
 
             echo "<script>
-                alert('Checkout successful. Your orders are now processing.');
                 window.location.href = '/Scholar/Orders/payMent';
             </script>";
         }
@@ -247,10 +246,14 @@ class Orders extends Controller
 
     public function payMent()
     {
+        $user_id = $_SESSION['user']['id'];
+
         $orderDetailModel = $this->model("OrderDetailModel");
         $imagesModel = $this->model("ImagesModel");
         $productsModel = $this->model("ProductsModel");
+        $UsersModel = $this->model("UsersModel");
 
+        $userInfo = $UsersModel->getUserById($user_id);
         $selectedItems = isset($_SESSION['selected_items']) ? $_SESSION['selected_items'] : [];
         $buyNowItem = isset($_SESSION['buy_now_item']) ? $_SESSION['buy_now_item'] : null;
 
@@ -289,9 +292,11 @@ class Orders extends Controller
                 'images' => $images
             ];
         }
+
         $this->view("authentication", [
             "Page" => "orders/payment",
-            "CartItems" => $cartItems
+            "CartItems" => $cartItems,
+            "UserInfo" => $userInfo
         ]);
     }
 
