@@ -6,7 +6,7 @@ class Orders extends Controller
         if (!isset($_SESSION['user'])) {
             echo "<script>
                 alert('Please log in to view your cart.');
-                window.location.href = '/Scholar/login';
+                window.location.href = '/Scholar/User/login';
             </script>";
             exit;
         }

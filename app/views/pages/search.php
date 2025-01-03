@@ -5,31 +5,29 @@
     </div>
 
     <div class="filter-sort-container">
-    <form action="/Scholar/Home/searchProductByName" method="get" class="filter-sort-container">
+        <form action="/Scholar/Home/searchProductByName" method="get" class="filter-sort-container">
+            <div class="filter-container">
+                <label for="category">Filter</label>
+                <select id="category" name="category" onchange="this.form.submit()">
+                    <option value="all" <?php echo $data['Category'] === 'all' ? 'selected' : ''; ?>>All</option>
+                    <option value="1" <?php echo $data['Category'] === '1' ? 'selected' : ''; ?>>Note</option>
+                    <option value="2" <?php echo $data['Category'] === '2' ? 'selected' : ''; ?>>Write</option>
+                    <option value="3" <?php echo $data['Category'] === '3' ? 'selected' : ''; ?>>Gear</option>
+                </select>
+            </div>
 
-        <div class="filter-container">
-            <label for="category">Filter</label>
-            <select id="category" name="category" onchange="this.form.submit()">
-                <option value="all" <?php echo $data['Category'] === 'all' ? 'selected' : ''; ?>>All</option>
-                <option value="1" <?php echo $data['Category'] === '1' ? 'selected' : ''; ?>>Note</option>
-                <option value="2" <?php echo $data['Category'] === '2' ? 'selected' : ''; ?>>Write</option>
-                <option value="3" <?php echo $data['Category'] === '3' ? 'selected' : ''; ?>>Gear</option>
-            </select>
-        </div>
+            <div class="sort-container">
+                <label for="sort">Sort by</label>
+                <select id="sort" name="sort" onchange="this.form.submit()">
+                    <option value="" <?php echo $data['SortOrder'] === '' ? 'selected' : ''; ?>>Price</option>
+                    <option value="high-to-low" <?php echo $data['SortOrder'] === 'high-to-low' ? 'selected' : ''; ?>>High to Low</option>
+                    <option value="low-to-high" <?php echo $data['SortOrder'] === 'low-to-high' ? 'selected' : ''; ?>>Low to High</option>
+                </select>
+            </div>
 
-        <div class="sort-container">
-            <label for="sort">Sort by</label>
-            <select id="sort" name="sort" onchange="this.form.submit()">
-                <option value="" <?php echo $data['SortOrder'] === '' ? 'selected' : ''; ?>>Price</option>
-                <option value="high-to-low" <?php echo $data['SortOrder'] === 'high-to-low' ? 'selected' : ''; ?>>High to Low</option>
-                <option value="low-to-high" <?php echo $data['SortOrder'] === 'low-to-high' ? 'selected' : ''; ?>>Low to High</option>
-            </select>
-        </div>
-
-        <input type="hidden" name="keyword" value="<?php echo $data['SearchKeyword']; ?>">
-    </form>
-</div>
-
+            <input type="hidden" name="keyword" value="<?php echo $data['SearchKeyword']; ?>">
+        </form>
+    </div>
 
     <?php if (empty($data['Products'])): ?>
         <div class="no-search-result">
@@ -56,3 +54,19 @@
     <?php endif; ?>
 </div>
 
+<?php if ($data['TotalPages'] > 1): ?>
+    <div class="pagination">
+        <?php if ($data['CurrentPage'] > 1): ?>
+            <a href="/Scholar/Home/searchProductByName?keyword=<?php echo $data['SearchKeyword']; ?>&category=<?php echo $data['Category']; ?>&page=<?php echo $data['CurrentPage'] - 1; ?>" class="prev">Previous</a>
+        <?php endif; ?>
+
+        <?php for ($i = 1; $i <= $data['TotalPages']; $i++): ?>
+            <a href="/Scholar/Home/searchProductByName?keyword=<?php echo $data['SearchKeyword']; ?>&category=<?php echo $data['Category']; ?>&page=<?php echo $i; ?>" class="<?php echo ($i == $data['CurrentPage']) ? 'active' : ''; ?>"><?php echo $i; ?></a>
+        <?php endfor; ?>
+
+        <?php if ($data['CurrentPage'] < $data['TotalPages']): ?>
+            <a href="/Scholar/Home/searchProductByName?keyword=<?php echo $data['SearchKeyword']; ?>&category=<?php echo $data['Category']; ?>&page=<?php echo $data['CurrentPage'] + 1; ?>" class="next">Next</a>
+        <?php endif; ?>
+    </div>
+
+<?php endif; ?>

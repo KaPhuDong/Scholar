@@ -38,6 +38,15 @@
     border: 1px solid #ddd;
 }
 
+.product-table .products {
+    max-height: 320px;
+    overflow-y: auto;
+}
+
+.product-table .products::-webkit-scrollbar {
+    scrollbar-width: none;
+}
+
 .product-table th,
 .product-table td {
     text-align: center;
@@ -130,12 +139,4 @@
     max-width: 60px;
 }
 
-.product-management .pagination {
-    padding-top: 20px;
-    text-align: center;
-}
 
-.pagination a:hover {
- color: var(--text-color-primary);
- font-weight: var(--font-weight-bold);
-}

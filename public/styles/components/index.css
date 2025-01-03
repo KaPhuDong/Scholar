@@ -1,4 +1,5 @@
 @import "./card.css";
 @import "./input-form.css";
 @import"./cart-item.css";
-@import"./order-item.css"
+@import"./order-item.css";
+@import"./pagination.css"
