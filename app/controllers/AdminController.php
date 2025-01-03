@@ -8,49 +8,85 @@ class Admin extends Controller
 
         // Truyền dữ liệu sang View
         $this->view("admin", [
-            "Page" => "admin/userManage",
+            "Page" => "admin/userManagement",
             "userData" => $users
         ]);
     }
 
-    public function userManage()
+    public function userManagement()
     {
         $usersModel = $this->model("UsersModel");
         $users = $usersModel->getUsers();
 
-        // Truyền dữ liệu sang View
+        $perPage = 10;
+        $totalUsers = count($users);
+        $totalPages = ceil($totalUsers / $perPage);
+        $page = isset($_GET['page']) ? (int)$_GET['page'] : 1;
+        $startIndex = ($page - 1) * $perPage;
+        $currentUsers = array_slice($users, $startIndex, $perPage);
+
         $this->view("admin", [
-            "Page" => "admin/userManage",
-            "userData" => $users
+            "Page" => "admin/userManagement",
+            "Users" => $currentUsers,
+            "TotalPages" => $totalPages,
+            "CurrentPage" => $page,
+            "TotalUsers" => $totalUsers
         ]);
     }
 
-    public function orderManage()
+    public function orderManagement()
     {
-        // Truyền dữ liệu sang View
+        $orderDetailsModel = $this->model("OrderDetailModel");
+        $orderDetails = $orderDetailsModel->getOrderDetails();
+
+        $perPage = 10;
+        $totalOrders = count($orderDetails);
+        $totalPages = ceil($totalOrders / $perPage);
+        $page = isset($_GET['page']) ? (int)$_GET['page'] : 1;
+        $startIndex = ($page - 1) * $perPage;
+        $currentOrders = array_slice($orderDetails, $startIndex, $perPage);
+
         $this->view("admin", [
-            "Page" => "admin/orderManage",
+            "Page" => "admin/orderManagement",
+            "Orders" => $currentOrders,
+            "TotalPages" => $totalPages,
+            "CurrentPage" => $page,
+            "TotalOrders" => $totalOrders
         ]);
     }
 
-    public function productManage()
+    public function productManagement()
     {
         $productsModel = $this->model("ProductsModel");
         $imagesModel = $this->model("ImagesModel");
 
         $products = $productsModel->getProducts();
-
-        // Lấy ảnh cho từng sản phẩm
         foreach ($products as $index => $product) {
             $productId = $product['product_id'];
             $images = $imagesModel->getImagesByProduct($productId);
             $products[$index]['images'] = $images;
         }
 
-        // Truyền dữ liệu sang View
+        $perPage = 10;
+        $totalProducts = count($products);
+        $totalPages = ceil($totalProducts / $perPage);
+        $page = isset($_GET['page']) ? (int)$_GET['page'] : 1;
+        if ($page < 1) $page = 1;
+        if ($page > $totalPages) $page = $totalPages;
+        $startIndex = ($page - 1) * $perPage;
+
+        if ($startIndex >= $totalProducts) {
+            $currentProducts = [];
+        } else {
+            $currentProducts = array_slice($products, $startIndex, $perPage); // Lấy sản phẩm của trang hiện tại
+        }
+
         $this->view("admin", [
-            "Page" => "admin/productManage",
-            "Products" => $products
+            "Page" => "admin/productManagement",
+            "Products" => $currentProducts,
+            "TotalPages" => $totalPages,
+            "CurrentPage" => $page,
+            "TotalProducts" => $totalProducts
         ]);
     }
 }

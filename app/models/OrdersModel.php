@@ -63,4 +63,22 @@ class OrdersModel extends Database
         $qr = "DELETE FROM orders WHERE order_id = $order_id";
         return mysqli_query($this->con, $qr);
     }
+
+    public function getOrders()
+    {
+        $qr = "SELECT 
+            o.order_id AS ID, 
+            d.recipient_name AS Recipient, 
+            d.phone_number AS Phone, 
+            d.delivery_address AS Delivery_Address,
+            o.status AS Status
+        FROM 
+            orders o
+        JOIN 
+            delivery_information d ON o.order_id = d.order_id;";
+
+        $result = mysqli_query($this->con, $qr);
+
+        return mysqli_fetch_all($result, MYSQLI_ASSOC);
+    }
 }

@@ -6,7 +6,8 @@
 @import "./profile.css";
 @import "./payment.css";
 @import "./admin.css";
-@import "./user-manage.css";
-@import "./product-manage.css";
+@import "./userManagement.css";
+@import "./productManagement.css";
+@import "./orderManagement.css";
 @import "./paymentSuccessful.css";
 

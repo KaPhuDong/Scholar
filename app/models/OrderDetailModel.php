@@ -11,6 +11,35 @@ class OrderDetailModel extends Database
         return mysqli_fetch_assoc($result);
     }
 
+    public function getOrderDetails()
+    {
+        $qr = "SELECT 
+                o.order_id AS ID, 
+                d.recipient_name AS Recipient, 
+                d.phone_number AS Phone, 
+                d.delivery_address AS Delivery_Address,
+                od.product_id AS Product_ID,
+                p.name AS Product_Name,
+                pi.image_url AS Product_Image,
+                o.status AS Status
+            FROM 
+                orders o
+            JOIN 
+                delivery_information d ON o.order_id = d.order_id
+            JOIN 
+                order_detail od ON o.order_id = od.order_id
+            JOIN 
+                products p ON od.product_id = p.product_id
+            LEFT JOIN 
+                product_images pi ON p.product_id = pi.product_id
+            GROUP BY 
+                o.order_id, od.product_id"; // Đảm bảo lấy 1 ảnh đại diện cho mỗi sản phẩm
+
+        $result = mysqli_query($this->con, $qr);
+
+        return mysqli_fetch_all($result, MYSQLI_ASSOC);
+    }
+
     public function createOrderDetail($order_id, $product_id, $quantity)
     {
         $qr = "INSERT INTO order_detail (order_id, product_id, quantity) 

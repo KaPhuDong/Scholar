@@ -1,11 +1,31 @@
 <?php
-$users = $data["userData"];
+$users = $data["Users"];
+$totalPages = $data["TotalPages"];
+$currentPage = $data["CurrentPage"];
+$totalUsers = $data["TotalUsers"];
 ?>
 <div class="user-management">
     <p class="title">User Management</p>
     <div class="filter">
-        <div class="filter-button">All (5)</div>
+        <div class="filter-button">All (<?php echo $totalUsers; ?>)</div>
+
+        <?php if ($totalPages > 1): ?>
+            <div class="pagination">
+                <?php if ($currentPage > 1): ?>
+                    <a href="/Scholar/Admin/userManagement?page=<?php echo $currentPage - 1; ?>" class="prev">Previous</a>
+                <?php endif; ?>
+
+                <?php for ($i = 1; $i <= $totalPages; $i++): ?>
+                    <a href="/Scholar/Admin/userManagement?page=<?php echo $i; ?>" class="<?php echo ($i == $currentPage) ? 'active' : ''; ?>"><?php echo $i; ?></a>
+                <?php endfor; ?>
+
+                <?php if ($currentPage < $totalPages): ?>
+                    <a href="/Scholar/Admin/userManagement?page=<?php echo $currentPage + 1; ?>" class="next">Next</a>
+                <?php endif; ?>
+            </div>
+        <?php endif; ?>
     </div>
+
     <div class="table-container">
         <table class="user-table">
             <thead>
@@ -35,7 +55,7 @@ $users = $data["userData"];
                     <?php endforeach; ?>
                 <?php else: ?>
                     <tr>
-                        <td colspan="7">Không có tài khoản nào trong Database</td>
+                        <td colspan="8">Không có tài khoản nào trong Database</td>
                     </tr>
                 <?php endif; ?>
             </tbody>
