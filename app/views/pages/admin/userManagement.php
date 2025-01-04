@@ -5,7 +5,24 @@ $currentPage = $data["CurrentPage"];
 $totalUsers = $data["TotalUsers"];
 ?>
 <div class="user-management">
-    <p class="title">User Management</p>
+    <div class="header-user">
+        <p class="title">User Management</p>
+        <div class="search-user">
+            <form action="/Scholar/admin/userManagement" method="GET">
+                <input 
+                    type="text" 
+                    name="keyword" 
+                    class="input-user" 
+                    placeholder="Search for users..." 
+                    value="<?php echo $data['SearchKeyword'] ?? ''; ?>" />
+                <button type="submit" class="button-user">
+                    <img src="./public/assets/icons/search.svg" alt="Search Icon">
+                </button>
+            </form>
+        </div>
+    </div>
+
+
     <div class="filter">
         <div class="filter-button">All (<?php echo $totalUsers; ?>)</div>
 

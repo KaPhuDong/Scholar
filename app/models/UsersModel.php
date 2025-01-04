@@ -59,6 +59,7 @@ class UsersModel extends Database
 
         return mysqli_fetch_all($result, MYSQLI_ASSOC);
     }
+
     public function deleteUserById($user_Id)
     {
         $qr = "
@@ -67,4 +68,19 @@ class UsersModel extends Database
         ";
         return mysqli_query($this->con, $qr);
     }
+
+    public function searchUsersByName($searchKeyword)
+    {
+        $searchTerm = !empty($searchKeyword) ? "%$searchKeyword%" : '%';
+
+        $query = "SELECT * FROM users WHERE role = 'customer' AND name LIKE '%$searchTerm%'";
+
+        $result = mysqli_query($this->con, $query);
+
+        if (!$result) {
+            die('MySQL Error: ' . mysqli_error($this->con));
+        }
+        return mysqli_fetch_all($result, MYSQLI_ASSOC);
+    }
+
 }

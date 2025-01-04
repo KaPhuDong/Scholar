@@ -6,14 +6,26 @@
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     margin-left: 20px;
 }
+.order-management .header-user {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
 
-.order-management .title {
-    font-size: 28px;
-    margin-bottom: 20px;
+.header-user .title {
+    font-size: var(--font-size-md);
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }   
-
+.header-user .search-user {
+    display: flex;
+    justify-content: flex-end; 
+    align-items: center;
+    gap: 10px;
+}
 .order-management .filter {
-    margin-bottom: 20px;
+    margin-block: 20px;
     display: flex;
     align-items: center;
     justify-content: space-between;

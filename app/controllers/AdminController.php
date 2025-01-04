@@ -16,7 +16,13 @@ class Admin extends Controller
     public function userManagement()
     {
         $usersModel = $this->model("UsersModel");
-        $users = $usersModel->getUsers();
+        $searchKeyword = $_GET['keyword'] ?? '';
+        
+        if ($searchKeyword) {
+            $users = $usersModel->searchUsersByName($searchKeyword);
+        } else {
+            $users = $usersModel->getUsers();
+        }
 
         $perPage = 10;
         $totalUsers = count($users);
@@ -105,4 +111,34 @@ class Admin extends Controller
             "TotalProducts" => $totalProducts
         ]);
     }
+
+    public function searchUserByName()
+    {
+        $searchKeyword = trim($_GET['keyword'] ?? '');
+    
+        if (empty($searchKeyword)) {
+            $this->userManagement(); 
+            return;
+        }
+    
+        $userModel = $this->model("UserModel");
+        $matchingUsers = $userModel->searchUsersByName($searchKeyword);
+    
+        $perPage = 10;
+        $totalUsers = count($matchingUsers);
+        $totalPages = ceil($totalUsers / $perPage);
+        $page = isset($_GET['page']) ? max(1, (int)$_GET['page']) : 1;
+        $startIndex = ($page - 1) * $perPage;
+        $currentUsers = array_slice($matchingUsers, $startIndex, $perPage);
+    
+        $this->view("admin", [
+            "Page" => "admin/userManagement",
+            "Page" => "admin/orderManagement",
+            "Users" => $currentUsers,
+            "SearchKeyword" => $searchKeyword,
+            "TotalPages" => $totalPages,
+            "CurrentPage" => $page,
+            "TotalUsers" => $totalUsers,
+        ]);
+    }  
 }
