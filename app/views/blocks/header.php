@@ -30,8 +30,8 @@
                 <button class="account-icon" id="account-icon"><img src="./public/assets/icons/Account.svg" alt="icon-account"></button>
                 <div class="dropdown-menu" id="dropdownMenu" style="display: none;">
                     <ul>
-                        <li onclick="window.location.href = '/Scholar/User/profile'">View Profile</li>
-                        <!-- <li onclick="window.location.href = '/order'">History Order</li> -->
+                        <li><a href="/Scholar/User/profile">Your profile</a></li>
+                        <li><a href="/Scholar/Orders/historyOrders">Your orders</a></li>
                         <li><a href="/Scholar/User/logout">Log out</a></li>
                     </ul>
                 </div>

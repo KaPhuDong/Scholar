@@ -21,6 +21,7 @@ class OrderDetailModel extends Database
                 od.product_id AS Product_ID,
                 p.name AS Product_Name,
                 pi.image_url AS Product_Image,
+                o.order_date AS Order_Date,
                 o.status AS Status
             FROM 
                 orders o
@@ -113,11 +114,34 @@ class OrderDetailModel extends Database
     public function searchOrdersByTime($searchKeyword)
     {
         $searchTerm = !empty($searchKeyword) ? "%$searchKeyword%" : '%';
-
-        $query = "SELECT * FROM orders WHERE order_date LIKE '%$searchTerm%'";
-
+    
+        $query = "SELECT 
+                    o.order_id AS ID, 
+                    d.recipient_name AS Recipient, 
+                    d.phone_number AS Phone, 
+                    d.delivery_address AS Delivery_Address,
+                    od.product_id AS Product_ID,
+                    p.name AS Product_Name,
+                    pi.image_url AS Product_Image,
+                    o.order_date AS Order_Date,
+                    o.status AS Status
+                FROM 
+                    orders o
+                JOIN 
+                    delivery_information d ON o.order_id = d.order_id
+                JOIN 
+                    order_detail od ON o.order_id = od.order_id
+                JOIN 
+                    products p ON od.product_id = p.product_id
+                LEFT JOIN 
+                    product_images pi ON p.product_id = pi.product_id
+                WHERE 
+                    o.order_date LIKE '%$searchTerm%'
+                GROUP BY 
+                    o.order_id, od.product_id"; 
+    
         $result = mysqli_query($this->con, $query);
-
+    
         if (!$result) {
             die('MySQL Error: ' . mysqli_error($this->con));
         }

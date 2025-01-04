@@ -60,7 +60,7 @@ class User extends Controller
         if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             $email = $_POST['email'] ?? '';
             $password = $_POST['password'] ?? '';
-    
+
             $usersModel = $this->model("UsersModel");
             $user = $usersModel->checkLogin($email, $password);
 
@@ -85,17 +85,15 @@ class User extends Controller
                     </script>";
                     exit;
                 }
-                } else {
-                    echo "<script>alert('Incorrect username or password');</script>";
+            } else {
+                echo "<script>alert('Incorrect username or password');</script>";
             }
-                
         }
-    
+
         $this->view("authentication", [
             "Page" => "user/login"
         ]);
     }
-
 
     public function logout()
     {

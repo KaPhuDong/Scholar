@@ -43,27 +43,25 @@ class ProductsModel extends Database
 
     public function searchProductsByKeyword($searchKeyword, $sortOrder = '', $categoryId = null)
     {
-        $searchKeyword = mysqli_real_escape_string($this->con, $searchKeyword);
         $searchTerm = "%$searchKeyword%";
-
+    
         $sortQuery = match ($sortOrder) {
             'high-to-low' => 'ORDER BY price DESC',
             'low-to-high' => 'ORDER BY price ASC',
             default => ''
         };
-
+    
         $categoryQuery = '';
         if ($categoryId && $categoryId !== 'all') {
-            $categoryId = mysqli_real_escape_string($this->con, $categoryId);
             $categoryQuery = "AND category_id = '$categoryId'";
         }
-
+    
         $query = "SELECT * FROM products WHERE name LIKE '$searchTerm'  $categoryQuery  $sortQuery";
         $result = mysqli_query($this->con, $query);
-
+    
         return mysqli_fetch_all($result, MYSQLI_ASSOC);
     }
-
+    
     public function countProductsByKeyword($searchKeyword, $categoryId = null)
     {
 

@@ -8,13 +8,14 @@ $totalOrders = $data["TotalOrders"];
     <div class="header-user">
         <p class="title">Order Management</p>
         <div class="search-user">
-            <form action="/Scholar/admin/orderManagement/searchOrderByTime" method="GET">
+            <form action="/Scholar/admin/orderManagement" method="GET">
                 <input 
                     type="text" 
                     name="keyword" 
                     class="input-user" 
                     placeholder="Search for date..." 
-                    value="<?php echo $data['SearchKeyword'] ?? ''; ?>" />
+                    value=""<?php echo isset($data['SearchKeyword']) ? '' : ''; ?> />
+
                 <button type="submit" class="button-user">
                     <img src="./public/assets/icons/search.svg" alt="Search Icon">
                 </button>
@@ -51,6 +52,7 @@ $totalOrders = $data["TotalOrders"];
                     <th class="column-phone">Phone</th>
                     <th class="column-delivery-address">Delivery Address</th>
                     <th class="column-product">Product</th>
+                    <th class="column-order-date">Order Date</th>
                     <th class="column-status">Status</th>
                 </tr>
             </thead>
@@ -66,6 +68,7 @@ $totalOrders = $data["TotalOrders"];
                                 <img src="<?php echo $order['Product_Image']; ?>" alt="Product Image" class="product-img">
                                 <p><?php echo $order['Product_Name']; ?></p>
                             </td>
+                            <td><?php echo $order['Order_Date']; ?></td>
                             <td><?php echo $order['Status']; ?></td>
                         </tr>
                     <?php endforeach; ?>
