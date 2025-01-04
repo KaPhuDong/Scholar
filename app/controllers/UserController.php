@@ -65,6 +65,7 @@ class User extends Controller
             $user = $usersModel->checkLogin($email, $password);
 
             if ($user) {
+
                 $_SESSION['user'] = [
                     'id' => $user['user_id'],
                     'name' => $user['name'],
@@ -72,8 +73,9 @@ class User extends Controller
                     'role' => $user['role']
                 ];
 
+
                 if ($email === "admin@gmail.com" && $password === "admin@123") {
-                    echo "<script>alert('Đăng nhập thành công với tài khoản admin');</script>";
+                    echo "<script>alert('Login successful with admin account');</script>";
                     header("Location: /Scholar/Admin");
                     exit;
                 } else {
@@ -84,7 +86,7 @@ class User extends Controller
                     exit;
                 }
             } else {
-                echo "<script>alert('Tên đăng nhập hoặc mật khẩu không đúng');</script>";
+                echo "<script>alert('Incorrect username or password');</script>";
             }
         }
 
@@ -92,7 +94,6 @@ class User extends Controller
             "Page" => "user/login"
         ]);
     }
-
 
     public function logout()
     {

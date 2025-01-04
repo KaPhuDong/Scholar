@@ -6,7 +6,7 @@
     display: flex;
     flex-direction: column;
     justify-content: center;
-    max-width: 539px;
+    width: 539px;
 }
 .order-item-history .above-content {
     padding-right: 20px;
