@@ -6,9 +6,10 @@
     display: flex;
     flex-direction: column;
     justify-content: center;
-    width: 100%;
+    max-width: 539px;
 }
 .order-item-history .above-content {
+    padding-right: 20px;
     max-height: 200px;
     display: flex;
     gap: 20px;
@@ -16,8 +17,8 @@
 
 .above-content .product-img {
     border-radius: var(--border-radius-sm);
-    max-height: 200px;
-    max-width: 255px;
+    height: 200px;
+    width: 255px;
     object-fit: cover;
 }
 
@@ -35,6 +36,7 @@
 }
 
 .order-item-history .below-content {
+    padding-inline: 20px;
     background-color: var(--bg-color-secondary);
     min-height: 50px;
     display: flex;
@@ -43,7 +45,7 @@
 }
 
 .below-content .total-price {
-    min-width: 200px;
+    min-width: 180px;
 }
 
 .product-information .product-title,

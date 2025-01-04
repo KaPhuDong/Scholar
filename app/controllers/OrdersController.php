@@ -342,35 +342,16 @@ class Orders extends Controller
 
     public function historyOrders()
     {
-
+        $status = isset($_GET['status']) ? $_GET['status'] : 'Pending';
         $user_id = $_SESSION['user']['id'];
 
         $ordersModel = $this->model("OrdersModel");
-        $orderDetailModel = $this->model("OrderDetailModel");
-        $imagesModel = $this->model("ImagesModel");
+        $orders = $ordersModel->getOrdersByStatus($user_id, $status);
 
-        $orders = $ordersModel->getPendingOrders($user_id);
-
-        $cartItems = [];
-        foreach ($orders as $order) {
-            $orderDetails = $orderDetailModel->getOrderDetailByOrderId($order['order_id']);
-
-            foreach ($orderDetails as $orderDetail) {
-                $product = $this->model("ProductsModel")->getProductById($orderDetail['product_id']);
-                $images = $imagesModel->getImagesByProduct($orderDetail['product_id']);
-
-                $cartItems[] = [
-                    'product' => $product,
-                    'quantity' => $orderDetail['quantity'],
-                    'order_id' => $order['order_id'],
-                    'order_detail_id' => $orderDetail['order_detail_id'],
-                    'images' => $images
-                ];
-            }
-        }
         $this->view("main", [
             "Page" => "orders/historyOrders",
-            "CartItems" => $cartItems
+            'Orders' => $orders,
+            'Status' => $status
         ]);
     }
 }

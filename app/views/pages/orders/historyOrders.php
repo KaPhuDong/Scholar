@@ -1,64 +1,41 @@
-<div class="order-histories">
-    <div class="order-item-history">
-        <div class="above-content">
-            <img
-                src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSQjW18OanQFe2ZKxfa8t1IKQB0GviWwD80nA&s"
-                alt="Image of a pen"
-                class="product-img">
-            <div class="product-information">
-                <h2 class="product-title">Pen</h2>
-                <p class="product-description">A high-quality writing tool for your tasks.</p>
-            </div>
-        </div>
-        <div class="below-content">
-            <p class="total-price">
-                <strong>Total Price:</strong> <span class="title">$2.5</span>
-            </p>
-            <p class="order-date">
-                <strong>Order Date:</strong> <span class="title">2025-01-04 10:25:00</span>
-            </p>
-        </div>
+<?php
+$orders = $data["Orders"];
+$status = $data["Status"];
+?>
+<div class="history-order-container">
+    <h1 class="main-title">Your orders</h1>
+    <div class="status">
+        <a class="status-item <?php echo ($status == 'Pending') ? 'active' : ''; ?>" href="/Scholar/Orders/historyOrders?status=Pending">Pending</a>
+        <a class="status-item <?php echo ($status == 'Processing') ? 'active' : ''; ?>" href="/Scholar/Orders/historyOrders?status=Processing">Processing</a>
+        <a class="status-item <?php echo ($status == 'Completed') ? 'active' : ''; ?>" href="/Scholar/Orders/historyOrders?status=Completed">Completed</a>
     </div>
 
-    <div class="order-item-history">
-        <div class="above-content">
-            <img
-                src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSQjW18OanQFe2ZKxfa8t1IKQB0GviWwD80nA&s"
-                alt="Image of a pen"
-                class="product-img">
-            <div class="product-information">
-                <h2 class="product-title">Pen</h2>
-                <p class="product-description">A high-quality writing tool for your tasks.</p>
-            </div>
-        </div>
-        <div class="below-content">
-            <p class="total-price">
-                <strong>Total Price:</strong> $2.5
-            </p>
-            <p class="order-date">
-                <strong>Order Date:</strong> 2025-01-04 10:25:00
-            </p>
-        </div>
-    </div>
-
-    <div class="order-item-history">
-        <div class="above-content">
-            <img
-                src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSQjW18OanQFe2ZKxfa8t1IKQB0GviWwD80nA&s"
-                alt="Image of a pen"
-                class="product-img">
-            <div class="product-information">
-                <h2 class="product-title">Pen</h2>
-                <p class="product-description">A high-quality writing tool for your tasks.</p>
-            </div>
-        </div>
-        <div class="below-content">
-            <p class="total-price">
-                <strong>Total Price:</strong> $2.5
-            </p>
-            <p class="order-date">
-                <strong>Order Date:</strong> 2025-01-04 10:25:00
-            </p>
-        </div>
+    <div class="order-histories">
+        <?php if (!empty($orders) && is_array($orders)): ?>
+            <?php foreach ($orders as $order): ?>
+                <div class="order-item-history">
+                    <div class="above-content">
+                        <img
+                            src="<?php echo $order['Product_Image']; ?>"
+                            alt="Image of <?php echo $order['Product_Name']; ?>"
+                            class="product-img">
+                        <div class="product-information">
+                            <h2 class="product-title"><?php echo $order['Product_Name']; ?></h2>
+                            <p class="product-description"><?php echo $order['Product_Description']; ?></p>
+                        </div>
+                    </div>
+                    <div class="below-content">
+                        <p class="total-price">
+                            <strong>Total Price:</strong> $<?php echo $order['Total_Price']; ?>
+                        </p>
+                        <p class="order-date">
+                            <strong>Order Date:</strong> <?php echo $order['Order_Date']; ?>
+                        </p>
+                    </div>
+                </div>
+            <?php endforeach; ?>
+        <?php else: ?>
+            <p>No orders found for this status.</p>
+        <?php endif; ?>
     </div>
 </div>
