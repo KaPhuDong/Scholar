@@ -22,6 +22,35 @@ class OrdersModel extends Database
         return mysqli_fetch_all($result, MYSQLI_ASSOC);
     }
 
+    public function getOrdersByStatus($user_id, $status)
+    {
+        $qr = "SELECT 
+                o.order_id AS ID, 
+                o.total_amount AS Total_Price, 
+                o.order_date AS Order_Date, 
+                p.name AS Product_Name, 
+                p.description AS Product_Description, 
+                pi.image_url AS Product_Image
+            FROM 
+                orders o
+            JOIN 
+                order_detail od ON o.order_id = od.order_id
+            JOIN 
+                products p ON od.product_id = p.product_id
+            LEFT JOIN 
+                product_images pi ON p.product_id = pi.product_id
+            WHERE 
+                o.user_id = $user_id AND o.status = '$status'
+            GROUP BY 
+                o.order_id
+            ORDER BY 
+                o.order_date DESC";
+
+        $result = mysqli_query($this->con, $qr);
+
+        return mysqli_fetch_all($result, MYSQLI_ASSOC);
+    }
+
     public function getNewOrder($user_id)
     {
         $qr = "SELECT * FROM orders 
