@@ -123,4 +123,59 @@ class Admin extends Controller
             }
         }
     }
-}
+
+    // public function addProduct() {
+    //     $productsModel = $this->model("ProductsModel");
+    //     $imagesModel = $this->model("ImagesModel");
+
+    //     $products = $productsModel->getProducts();
+
+    //     $this->view("admin", [
+    //         "Page" => "admin/addProduct",
+    //         "Products" => $products,
+    //     ]);
+    // }
+
+    public function addProduct() {
+        $productsModel = $this->model("ProductsModel");
+        // $imagesModel = $this->model("ImagesModel");
+    
+        if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+            $product_name = $_POST['productname'];
+            $category_id = $_POST['category'];
+            $description = $_POST['description'];
+            $price = $_POST['price'];
+            $stock = $_POST['stock'];
+            
+            if (isset($_FILES['productimage']) && $_FILES['productimage']['error'] === 0) {
+                $image = $_FILES['productimage'];
+                $upload_dir = 'path/to/upload/';
+                $image_path = $upload_dir . basename($image['name']);
+                move_uploaded_file($image['tmp_name'], $image_path);
+            } else {
+                $image_path = ''; 
+            }
+    
+            $result = $productsModel->addProduct($product_name, $price, $description, $stock, $image_path, $category_id);
+    
+            if ($result) {
+                echo "Product added successfully!";
+                header("Location: /Scholar/Admin/productManagement");  
+            } else {
+                echo "Failed to add product.";
+            }
+        }
+    
+        $this->view("admin", [
+            "Page" => "admin/addProduct",
+        ]);
+    }
+    
+    }
+
+
+
+    
+
+
+

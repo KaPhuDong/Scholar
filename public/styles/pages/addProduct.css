@@ -1,0 +1,62 @@
+
+.update-product {
+    margin-top: 30px;
+    margin-left: 75px;
+    width: 720px;
+    height: 500px;
+    border: 2px solid var(--primary);
+    border-radius: var(--border-radius-lg);
+}
+
+.infor-product {
+    margin: 20px;
+    display: flex;
+    gap: 100px;
+}
+.form-update-product {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+h1.update-infor-product {
+    font-size: var(--font-size-lg);
+}
+
+.form-group {
+    margin-bottom: 5px;
+    display: flex;
+    gap: 30px;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 5px;
+    font-size: var(--font-size-sm);
+}
+
+.form-group input {
+    min-width: 350px;
+    padding: 5px;
+    border: 1px solid var(--primary);
+    border-radius: var(--border-radius-sm);
+    font-size: 16px;
+}
+.form-group-btn {
+    display: flex;
+    gap: 20px;
+}
+.product-btn {
+    min-width: 185px;
+    padding: 5px;
+    font-size: var(--font-size-sm);
+    border: 2px solid var(--primary);
+    border-radius: var(--border-radius-md);
+    background-color: var(--primary);
+    color: var(--light);
+    font-weight: var(--font-weight-bold);
+    cursor: pointer;
+}
+
+
+
+

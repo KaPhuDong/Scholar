@@ -88,4 +88,25 @@ class ProductsModel extends Database
         $qr = "DELETE FROM products WHERE product_id = $product_id";
         return mysqli_query($this->con, $qr);
     }
+
+    public function addProduct($product_id) {
+        $qr = "
+            SELECT 
+                p.product_id,
+                p.name,
+                p.description,
+                p.price,
+                p.stock,
+                p.category_id,
+                pi.image_url
+            FROM 
+                products p
+            LEFT JOIN 
+                product_images pi ON p.product_id = pi.product_id
+            WHERE 
+                p.product_id = $product_id;
+        ";
+        return mysqli_query($this->con, $qr);
+    }
+    
 }
