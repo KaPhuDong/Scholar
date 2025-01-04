@@ -339,4 +339,19 @@ class Orders extends Controller
             "Page" => "orders/paymentSuccessful"
         ]);
     }
+
+    public function historyOrders()
+    {
+        $status = isset($_GET['status']) ? $_GET['status'] : 'Pending';
+        $user_id = $_SESSION['user']['id'];
+
+        $ordersModel = $this->model("OrdersModel");
+        $orders = $ordersModel->getOrdersByStatus($user_id, $status);
+
+        $this->view("main", [
+            "Page" => "orders/historyOrders",
+            'Orders' => $orders,
+            'Status' => $status
+        ]);
+    }
 }

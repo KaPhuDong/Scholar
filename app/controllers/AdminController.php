@@ -6,10 +6,19 @@ class Admin extends Controller
         $usersModel = $this->model("UsersModel");
         $users = $usersModel->getUsers();
 
-        // Truyền dữ liệu sang View
+        $perPage = 10;
+        $totalUsers = count($users);
+        $totalPages = ceil($totalUsers / $perPage);
+        $page = isset($_GET['page']) ? (int)$_GET['page'] : 1;
+        $startIndex = ($page - 1) * $perPage;
+        $currentUsers = array_slice($users, $startIndex, $perPage);
+
         $this->view("admin", [
             "Page" => "admin/userManagement",
-            "userData" => $users
+            "Users" => $currentUsers,
+            "TotalPages" => $totalPages,
+            "CurrentPage" => $page,
+            "TotalUsers" => $totalUsers
         ]);
     }
 

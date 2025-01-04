@@ -1,4 +1,8 @@
-.shopping-cart{
+.cart-checkout-form {
+    width: 100%;
+}
+
+.cart-checkout-form .shopping-cart{
     display:flex;
     flex-direction:column;
     position: relative; 

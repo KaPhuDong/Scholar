@@ -36,6 +36,7 @@
     border-radius: var(--border-radius-lg);
     background-color: var(--primary);
     font-weight: var(--font-weight-bold);
+    font-size: var(--font-size-xsm);
     height: 45px;
     width: 200px;
     margin-top:10px;
@@ -45,4 +46,12 @@
 .form-register .btn-signin-submit:hover {
     cursor: pointer;
     background-color: var();
+}
+
+.form-container .btn-register,
+.form-container .btn-login {
+    align-self: flex-start;
+    color: var(--text-color-primary);
+    font-weight: var(--font-weight-bold);
+    font-size: 14px;
 }
