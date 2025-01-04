@@ -8,12 +8,12 @@ $totalOrders = $data["TotalOrders"];
     <div class="header-user">
         <p class="title">Order Management</p>
         <div class="search-user">
-            <form action="/Scholar/admin/userManagement/searchUserByName" method="GET">
+            <form action="/Scholar/admin/orderManagement/searchOrderByTime" method="GET">
                 <input 
                     type="text" 
                     name="keyword" 
                     class="input-user" 
-                    placeholder="Search for users..." 
+                    placeholder="Search for date..." 
                     value="<?php echo $data['SearchKeyword'] ?? ''; ?>" />
                 <button type="submit" class="button-user">
                     <img src="./public/assets/icons/search.svg" alt="Search Icon">

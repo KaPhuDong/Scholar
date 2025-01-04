@@ -81,4 +81,18 @@ class OrdersModel extends Database
 
         return mysqli_fetch_all($result, MYSQLI_ASSOC);
     }
+
+    public function searchOrdersByTime($searchKeyword)
+    {
+        $searchTerm = !empty($searchKeyword) ? "%$searchKeyword%" : '%';
+
+        $query = "SELECT * FROM orders WHERE order_date LIKE '%$searchTerm%'";
+
+        $result = mysqli_query($this->con, $query);
+
+        if (!$result) {
+            die('MySQL Error: ' . mysqli_error($this->con));
+        }
+        return mysqli_fetch_all($result, MYSQLI_ASSOC);
+    }
 }

@@ -59,23 +59,31 @@ class Admin extends Controller
     public function orderManagement()
     {
         $orderDetailsModel = $this->model("OrderDetailModel");
-        $orderDetails = $orderDetailsModel->getOrderDetails();
-
+        $searchKeyword = $_GET['keyword'] ?? '';
+    
+        if ($searchKeyword) {
+            $orderDetails = $orderDetailsModel->searchOrdersByTime($searchKeyword);
+        } else {
+            $orderDetails = $orderDetailsModel->getOrderDetails();
+        }
+    
         $perPage = 10;
         $totalOrders = count($orderDetails);
         $totalPages = ceil($totalOrders / $perPage);
         $page = isset($_GET['page']) ? (int)$_GET['page'] : 1;
         $startIndex = ($page - 1) * $perPage;
         $currentOrders = array_slice($orderDetails, $startIndex, $perPage);
-
+    
         $this->view("admin", [
             "Page" => "admin/orderManagement",
             "Orders" => $currentOrders,
             "TotalPages" => $totalPages,
             "CurrentPage" => $page,
-            "TotalOrders" => $totalOrders
+            "TotalOrders" => $totalOrders,
+            "SearchKeyword" => $searchKeyword
         ]);
     }
+    
 
     public function productManagement()
     {
@@ -133,7 +141,6 @@ class Admin extends Controller
     
         $this->view("admin", [
             "Page" => "admin/userManagement",
-            "Page" => "admin/orderManagement",
             "Users" => $currentUsers,
             "SearchKeyword" => $searchKeyword,
             "TotalPages" => $totalPages,
@@ -141,4 +148,33 @@ class Admin extends Controller
             "TotalUsers" => $totalUsers,
         ]);
     }  
+    public function searchOrdersByTime()
+    {
+        $searchKeyword = trim($_GET['keyword'] ?? '');
+        
+        if (empty($searchKeyword)) {
+            $this->orderManagement();
+            return;
+        }
+        
+        $orderDetailsModel = $this->model("OrderDetailModel");
+        $matchingOrders = $orderDetailsModel->searchOrdersByTime($searchKeyword);
+        
+        $perPage = 10;
+        $totalOrders = count($matchingOrders);
+        $totalPages = ceil($totalOrders / $perPage);
+        $page = isset($_GET['page']) ? max(1, (int)$_GET['page']) : 1;
+        $startIndex = ($page - 1) * $perPage;
+        $currentOrders = array_slice($matchingOrders, $startIndex, $perPage);
+        
+        $this->view("admin", [
+            "Page" => "admin/orderManagement",
+            "Orders" => $currentOrders,
+            "SearchKeyword" => $searchKeyword,
+            "TotalPages" => $totalPages,
+            "CurrentPage" => $page,
+            "TotalOrders" => $totalOrders,
+        ]);
+    }
+    
 }

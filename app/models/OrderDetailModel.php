@@ -110,4 +110,17 @@ class OrderDetailModel extends Database
         $qr = "DELETE FROM order_detail WHERE order_detail_id = $order_detail_id";
         return mysqli_query($this->con, $qr);
     }
+    public function searchOrdersByTime($searchKeyword)
+    {
+        $searchTerm = !empty($searchKeyword) ? "%$searchKeyword%" : '%';
+
+        $query = "SELECT * FROM orders WHERE order_date LIKE '%$searchTerm%'";
+
+        $result = mysqli_query($this->con, $query);
+
+        if (!$result) {
+            die('MySQL Error: ' . mysqli_error($this->con));
+        }
+        return mysqli_fetch_all($result, MYSQLI_ASSOC);
+    }
 }
