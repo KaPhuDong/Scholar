@@ -105,4 +105,22 @@ class Admin extends Controller
             "TotalProducts" => $totalProducts
         ]);
     }
+
+    public function deleteProduct(){
+        $productsModel = $this->model("ProductsModel");
+
+        if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['product_id'])) {
+            $product_id = intval($_POST['product_id']); 
+
+            $deleteProduct = $productsModel->deleteProduct($product_id);
+
+            if ($deleteProduct) {
+                echo "<script>
+                    alert('Product deleted successfully!');
+                    window.location.href = '/Scholar/Admin/productManagement';
+                </script>";
+            exit;
+            }
+        }
+    }
 }

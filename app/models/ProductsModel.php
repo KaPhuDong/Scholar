@@ -83,4 +83,9 @@ class ProductsModel extends Database
         $row = mysqli_fetch_assoc($result);
         return $row['total'];
     }
+
+    public function deleteProduct($product_id){
+        $qr = "DELETE FROM products WHERE product_id = $product_id";
+        return mysqli_query($this->con, $qr);
+    }
 }
