@@ -1,0 +1,13 @@
+.pagination a {
+    padding: 10px;
+}
+
+.pagination a:hover {
+    color: var(--text-color-primary);
+    font-weight: var(--font-weight-bold);
+}
+
+.pagination a.active {
+    font-weight: var(--font-weight-bold);
+    color: var(--text-color-primary);
+}

@@ -50,10 +50,10 @@ $totalUsers = $data["TotalUsers"];
                             <td><?php echo $user['phone_number'] ?></td>
                             <td><?php echo $user['address'] ?></td>
                             <td>
-                            <form method="POST" action="/Scholar/admin/deleteUser">
+                                <form method="POST" action="/Scholar/admin/deleteUser">
                                     <input type="hidden" name="user_Id" value="<?php echo $user['user_id']; ?>">
-                                    <button type="submit" name="deleteUserById" onclick="return confirm('Are you sure you want to delete this user?');">
-                                        <img src="./public/assets/icons/remove.svg" alt="Remove Icon">
+                                    <button type="submit" name="deleteUserById"  style="cursor: pointer"; onclick="return confirm('Are you sure you want to delete this user?');">
+                                        <img src="./public/assets/icons/remove.svg" alt="Remove Icon" class="btn-icon">
                                     </button>
                                 </form>
                             </td>

@@ -40,7 +40,7 @@ $totalProducts = $data["TotalProducts"];
                     <th class="column-action">Action</th>
                 </tr>
             </thead>
-            <tbody>
+            <tbody class="products">
                 <?php if (empty($products)): ?>
                     <tr>
                         <td colspan="8">No products found.</td>

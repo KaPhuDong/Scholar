@@ -91,23 +91,35 @@ class Home extends Controller
         $searchKeyword = trim($_GET['keyword'] ?? '');
         $sortOrder = $_GET['sort'] ?? '';
         $categoryId = $_GET['category'] ?? 'all';
+        $currentPage = $_GET['page'] ?? 1;
+        $productsPerPage = 8;
 
         $productsModel = $this->model("ProductsModel");
 
+        // Tính tổng số sản phẩm phù hợp với từ khóa và thể loại
         $matchingProducts = $productsModel->searchProductsByKeyword($searchKeyword, $sortOrder, ($categoryId !== 'all' ? $categoryId : null));
+        $totalProducts = count($matchingProducts);
 
+        // Phân trang
+        $totalPages = ceil($totalProducts / $productsPerPage);
+        $offset = ($currentPage - 1) * $productsPerPage;
+        $paginatedProducts = array_slice($matchingProducts, $offset, $productsPerPage);
+
+        // Lấy ảnh cho sản phẩm
         $imagesModel = $this->model("ImagesModel");
-        foreach ($matchingProducts as &$product) {
+        foreach ($paginatedProducts as &$product) {
             $product['images'] = $imagesModel->getImagesByProduct($product['product_id']);
         }
 
         $this->view("main", [
             "Page" => "search",
-            "Products" => $matchingProducts,
+            "Products" => $paginatedProducts,
             "SearchKeyword" => $searchKeyword,
             "SortOrder" => $sortOrder,
-            "Category" => $categoryId
+            "Category" => $categoryId,
+            "CurrentPage" => $currentPage,
+            "TotalPages" => $totalPages,
+            "TotalProducts" => $totalProducts
         ]);
     }
 }
-
