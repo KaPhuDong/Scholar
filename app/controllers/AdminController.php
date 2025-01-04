@@ -37,8 +37,8 @@ class Admin extends Controller
     public function deleteUser()
     {
         if (isset($_POST['deleteUserById'])) {
-            
-            $usersModel = $this->model("UsersModel"); 
+
+            $usersModel = $this->model("UsersModel");
             $userId = $_POST['user_Id'];
 
             $usersModel->deleteUserById($userId);
@@ -106,11 +106,12 @@ class Admin extends Controller
         ]);
     }
 
-    public function deleteProduct(){
+    public function deleteProduct()
+    {
         $productsModel = $this->model("ProductsModel");
 
         if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['product_id'])) {
-            $product_id = intval($_POST['product_id']); 
+            $product_id = intval($_POST['product_id']);
 
             $deleteProduct = $productsModel->deleteProduct($product_id);
 
@@ -119,7 +120,7 @@ class Admin extends Controller
                     alert('Product deleted successfully!');
                     window.location.href = '/Scholar/Admin/productManagement';
                 </script>";
-            exit;
+                exit;
             }
         }
     }
@@ -136,46 +137,52 @@ class Admin extends Controller
     //     ]);
     // }
 
-    public function addProduct() {
+    public function updateProduct($product_id)
+    {
         $productsModel = $this->model("ProductsModel");
-        // $imagesModel = $this->model("ImagesModel");
-    
-        if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-            $product_name = $_POST['productname'];
-            $category_id = $_POST['category'];
-            $description = $_POST['description'];
-            $price = $_POST['price'];
-            $stock = $_POST['stock'];
-            
-            if (isset($_FILES['productimage']) && $_FILES['productimage']['error'] === 0) {
-                $image = $_FILES['productimage'];
-                $upload_dir = 'path/to/upload/';
-                $image_path = $upload_dir . basename($image['name']);
-                move_uploaded_file($image['tmp_name'], $image_path);
-            } else {
-                $image_path = ''; 
-            }
-    
-            $result = $productsModel->addProduct($product_name, $price, $description, $stock, $image_path, $category_id);
-    
-            if ($result) {
-                echo "Product added successfully!";
-                header("Location: /Scholar/Admin/productManagement");  
-            } else {
-                echo "Failed to add product.";
-            }
-        }
-    
+        $imagesModel = $this->model("ImagesModel");
+
+        $product = $productsModel->getProductById($product_id);
+
+        // Lấy ảnh cho sản phẩm
+        $images = $imagesModel->getImagesByProduct($product_id);
+        $product['images'] = $images;
+
         $this->view("admin", [
-            "Page" => "admin/addProduct",
+            "Page" => "admin/handleProduct",
+            "Product" => $product,
         ]);
     }
-    
+
+    public function addProduct()
+    {
+        $this->view("admin", [
+            "Page" => "admin/handleProduct",
+        ]);
     }
 
+    public function saveProduct()
+    {
+        $product_id = $_POST['product_id'];
+        $product_name = $_POST['productname'];
+        $category_id = $_POST['category'];
+        $description = $_POST['description'];
+        $price = $_POST['price'];
+        $stock = $_POST['stock'];
+        $product_image = $_FILES['productimage'];
 
+        $productsModel = $this->model("ProductsModel");
 
-    
+        if ($product_id) {
 
+            $productsModel->updateProduct($product_id, $product_name, $category_id, $description, $price, $stock, $product_image);
+        } else {
+            $productsModel->addProduct($product_name, $category_id, $description, $price, $stock, $product_image);
+        }
 
-
+        echo "<script>
+                    alert('Save product successfully!');
+                    window.location.href = '/Scholar/Admin/productManagement';
+                </script>";
+    }
+}

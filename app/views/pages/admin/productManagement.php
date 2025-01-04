@@ -66,7 +66,7 @@ $totalProducts = $data["TotalProducts"];
                                     </button>
                                 </form>
 
-                                <form action="/Scholar/Admin/addProduct" method="POST" onsubmit="return confirm('Are you sure you want to edit this product?');">
+                                <form action="/Scholar/Admin/updateProduct/<?php echo $product['product_id'] ?>" method="POST" onsubmit="return confirm('Are you sure you want to edit this product?');">
                                     <input type="hidden" name="product_id" value="<?php echo $product['product_id']; ?>">
                                     <button type="submit" class="edit-button">
                                         <img src="./public/assets/icons/Edit.svg" alt="Edit" class="edit-icon">
