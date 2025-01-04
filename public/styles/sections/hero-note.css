@@ -14,13 +14,13 @@
     box-sizing: border-box;
 }
 
-.left-content .title-hero {
+.left-content .hero-title {
     font-size: var(--font-size-xxl);
     font-weight: var(--font-weight-bold);
     color: var(--primary);
     line-height: 1.2;
 }
-.left-content .description {
+.left-content .hero-description {
     font-size: var(--font-size-md);
     text-align: justify;
     line-height: 1.2;

@@ -9,7 +9,6 @@ class Home extends Controller
 
         $products = $productsModel->getProducts();
 
-        // Lấy ảnh cho từng sản phẩm
         foreach ($products as $index => $product) {
             $productId = $product['product_id'];
             $images = $imagesModel->getImagesByProduct($productId);
@@ -31,7 +30,6 @@ class Home extends Controller
 
         $products = $productsModel->getProductsByCategory($categoryID);
 
-        // Lấy ảnh cho từng sản phẩm
         foreach ($products as $index => $product) {
             $productId = $product['product_id'];
             $images = $imagesModel->getImagesByProduct($productId);
@@ -113,7 +111,6 @@ class Home extends Controller
             $product['images'] = $imagesModel->getImagesByProduct($product['product_id']);
         }
 
-        // Truyền dữ liệu vào view
         $this->view("main", [
             "Page" => "search",
             "Products" => $paginatedProducts,

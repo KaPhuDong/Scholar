@@ -54,23 +54,17 @@ class UsersModel extends Database
 
     public function getUsers()
     {
-        $qr = "SELECT * FROM users";
+        $qr = "SELECT * FROM users WHERE role = 'customer'";
         $result = mysqli_query($this->con, $qr);
 
         return mysqli_fetch_all($result, MYSQLI_ASSOC);
     }
-    // public function getAllUsers() {
-    //     $qr = "SELECT * FROM users";
-    //     $result = $this->con->query($qr);
-
-    //     $users = [];
-    //     if ($result->num_rows > 0) {
-    //         while ($row = $result->fetch_assoc()) {
-    //             $users[] = $row;
-    //         }
-    //     }
-
-    //     return $users;
-    // }
-
+    public function deleteUserById($user_Id)
+    {
+        $qr = "
+            DELETE FROM users 
+            WHERE user_id = $user_Id
+        ";
+        return mysqli_query($this->con, $qr);
+    }
 }

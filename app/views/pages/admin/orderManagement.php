@@ -35,6 +35,7 @@ $totalOrders = $data["TotalOrders"];
                     <th class="column-phone">Phone</th>
                     <th class="column-delivery-address">Delivery Address</th>
                     <th class="column-product">Product</th>
+                    <th class="column-order-date">Order Date</th>
                     <th class="column-status">Status</th>
                 </tr>
             </thead>
@@ -50,6 +51,7 @@ $totalOrders = $data["TotalOrders"];
                                 <img src="<?php echo $order['Product_Image']; ?>" alt="Product Image" class="product-img">
                                 <p><?php echo $order['Product_Name']; ?></p>
                             </td>
+                            <td><?php echo $order['Order_Date']; ?></td>
                             <td><?php echo $order['Status']; ?></td>
                         </tr>
                     <?php endforeach; ?>

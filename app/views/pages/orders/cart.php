@@ -3,7 +3,7 @@ $cartItems = $data["CartItems"];
 $totalAmount = 0;
 ?>
 
-<form id="cart-checkout-form" action="/Scholar/Orders/checkout" method="POST">
+<form class="cart-checkout-form" id="cart-checkout-form" action="/Scholar/Orders/checkout" method="POST">
     <div class="shopping-cart">
         <div class="cart-title">Shopping Cart</div>
         <div class="content-cart">
