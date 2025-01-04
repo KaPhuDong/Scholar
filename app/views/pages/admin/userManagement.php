@@ -50,9 +50,9 @@ $totalUsers = $data["TotalUsers"];
                             <td><?php echo $user['phone_number'] ?></td>
                             <td><?php echo $user['address'] ?></td>
                             <td>
-                            <form method="POST" action="/Scholar/admin/handleDeleteUser" style="display: inline;">
+                            <form method="POST" action="/Scholar/admin/deleteUser">
                                     <input type="hidden" name="user_Id" value="<?php echo $user['user_id']; ?>">
-                                    <button type="submit" name="deleteUser" onclick="return confirm('Are you sure you want to delete this user?');" style="background: none; border: none; cursor: pointer;">
+                                    <button type="submit" name="deleteUserById" onclick="return confirm('Are you sure you want to delete this user?');">
                                         <img src="./public/assets/icons/remove.svg" alt="Remove Icon">
                                     </button>
                                 </form>
@@ -61,7 +61,7 @@ $totalUsers = $data["TotalUsers"];
                     <?php endforeach; ?>
                 <?php else: ?>
                     <tr>
-                        <td colspan="7">Không có tài khoản nào trong Database</td>
+                        <td colspan="7">No account exists in the database.</td>
                     </tr>
                 <?php endif; ?>
             </tbody>

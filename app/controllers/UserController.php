@@ -61,22 +61,20 @@ class User extends Controller
             $email = $_POST['email'] ?? '';
             $password = $_POST['password'] ?? '';
     
-            // Gọi model để kiểm tra thông tin đăng nhập
             $usersModel = $this->model("UsersModel");
             $user = $usersModel->checkLogin($email, $password);
     
             if ($user) {
-                // Lưu thông tin người dùng vào session
+
                 $_SESSION['user'] = [
                     'id' => $user['user_id'],
                     'name' => $user['name'],
                     'email' => $user['email'],
-                    'role' => $user['role'] // Lưu vai trò vào session
+                    'role' => $user['role']
                 ];
-    
-                // Thay đổi logic kiểm tra tài khoản admin
+
                 if ($email === "admin@gmail.com" && $password === "admin@123") {
-                    echo "<script>alert('Đăng nhập thành công với tài khoản admin');</script>";
+                    echo "<script>alert('Login successful with admin account');</script>";
                     header("Location: /Scholar/Admin");
                     exit;
                 } else {
@@ -86,13 +84,12 @@ class User extends Controller
                     </script>";
                     exit;
                 }
-            } else {
-                // Thông báo nếu email hoặc mật khẩu không hợp lệ
-                echo "<script>alert('Tên đăng nhập hoặc mật khẩu không đúng');</script>";
+                } else {
+                    echo "<script>alert('Incorrect username or password');</script>";
             }
+                
         }
     
-        // Hiển thị giao diện đăng nhập
         $this->view("authentication", [
             "Page" => "user/login"
         ]);

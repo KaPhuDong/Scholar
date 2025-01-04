@@ -59,7 +59,7 @@ class UsersModel extends Database
 
         return mysqli_fetch_all($result, MYSQLI_ASSOC);
     }
-    public function deleteUser($user_Id)
+    public function deleteUserById($user_Id)
     {
         $qr = "
             DELETE FROM users 
