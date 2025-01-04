@@ -34,6 +34,22 @@ class Admin extends Controller
         ]);
     }
 
+    public function deleteUser()
+    {
+        if (isset($_POST['deleteUserById'])) {
+            
+            $usersModel = $this->model("UsersModel"); 
+            $userId = $_POST['user_Id'];
+
+            $usersModel->deleteUserById($userId);
+            echo "<script>
+                    alert('User deleted successfully!');
+                    window.location.href = '/Scholar/Admin/userManagement';
+                </script>";
+            exit;
+        }
+    }
+
     public function orderManagement()
     {
         $orderDetailsModel = $this->model("OrderDetailModel");

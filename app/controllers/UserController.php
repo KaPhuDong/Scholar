@@ -60,11 +60,12 @@ class User extends Controller
         if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             $email = $_POST['email'] ?? '';
             $password = $_POST['password'] ?? '';
-
+    
             $usersModel = $this->model("UsersModel");
             $user = $usersModel->checkLogin($email, $password);
 
             if ($user) {
+
                 $_SESSION['user'] = [
                     'id' => $user['user_id'],
                     'name' => $user['name'],
@@ -72,8 +73,9 @@ class User extends Controller
                     'role' => $user['role']
                 ];
 
+
                 if ($email === "admin@gmail.com" && $password === "admin@123") {
-                    echo "<script>alert('Đăng nhập thành công với tài khoản admin');</script>";
+                    echo "<script>alert('Login successful with admin account');</script>";
                     header("Location: /Scholar/Admin");
                     exit;
                 } else {
@@ -83,11 +85,12 @@ class User extends Controller
                     </script>";
                     exit;
                 }
-            } else {
-                echo "<script>alert('Tên đăng nhập hoặc mật khẩu không đúng');</script>";
+                } else {
+                    echo "<script>alert('Incorrect username or password');</script>";
             }
+                
         }
-
+    
         $this->view("authentication", [
             "Page" => "user/login"
         ]);
