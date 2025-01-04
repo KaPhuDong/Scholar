@@ -21,6 +21,7 @@ class OrderDetailModel extends Database
                 od.product_id AS Product_ID,
                 p.name AS Product_Name,
                 pi.image_url AS Product_Image,
+                o.order_date AS Order_Date,
                 o.status AS Status
             FROM 
                 orders o

@@ -100,6 +100,7 @@ class OrdersModel extends Database
             d.recipient_name AS Recipient, 
             d.phone_number AS Phone, 
             d.delivery_address AS Delivery_Address,
+            o.order_date AS Order_Date, 
             o.status AS Status
         FROM 
             orders o

@@ -26,10 +26,10 @@ $status = $data["Status"];
                     </div>
                     <div class="below-content">
                         <p class="total-price">
-                            <strong>Total Price:</strong> $<?php echo $order['Total_Price']; ?>
+                            <span class="title">Total Price:</span> $<?php echo $order['Total_Price']; ?>
                         </p>
                         <p class="order-date">
-                            <strong>Order Date:</strong> <?php echo $order['Order_Date']; ?>
+                            <span class="title">Order Date:</span> <?php echo $order['Order_Date']; ?>
                         </p>
                     </div>
                 </div>

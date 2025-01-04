@@ -151,3 +151,7 @@
 .product-benefits {
     list-style-type: none;
 }
+
+.product-details {
+    align-self: flex-start;
+}
