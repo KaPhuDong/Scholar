@@ -20,4 +20,5 @@
         <!-- Submit Button -->
         <button type="submit" class="btn btn-signin-submit" name="signin-submit">LOG IN</button>
     </form>
+    <p><a class="btn-register" href="/Scholar/User/register">Register</a> if you don't have account yet.</p>
 </div>
