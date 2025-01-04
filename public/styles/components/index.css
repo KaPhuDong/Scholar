@@ -2,4 +2,5 @@
 @import "./input-form.css";
 @import"./cart-item.css";
 @import"./order-item.css";
-@import"./pagination.css"
+@import"./pagination.css";
+@import"./order-item-history.css";
