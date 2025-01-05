@@ -135,3 +135,12 @@
 .product-table .column-action {
     max-width: 60px;
 }
+
+.delete-button:hover, 
+.edit-button:hover {
+    cursor: pointer;
+    transform: scale(1.1);
+    background-color: #f0f0f0;
+    border-radius: 50%;
+}
+
