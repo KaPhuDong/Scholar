@@ -19,7 +19,7 @@
     justify-content: space-between;
 }
 
-.filter-product .filter-button,
+.filter-product .filter-quantity,
 .filter-product .add-product button {
     background-color: var(--primary);
     color: white;
@@ -32,13 +32,13 @@
     text-align: center;
 }
 
-.add-product button {
-    margin-left: -315px;
+.add-product {
+    margin-left: -340px;
 }
 
 .add-product button:hover {
     cursor: pointer;
-    transform: scale(1.1);  
+    transform: scale(1);  
     background-color: #2980b9;  
 }
 

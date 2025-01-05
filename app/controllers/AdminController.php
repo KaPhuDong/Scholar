@@ -169,6 +169,14 @@ class Admin extends Controller
         $price = $_POST['price'] ?? 0;
         $stock = $_POST['stock'] ?? 0;
         $product_image = null;
+
+        if (empty($product_name) || empty($category_id) || empty($description) || empty($price) || empty($stock)) {
+            echo "<script>
+                    alert('Please fill in all required fields.');
+                    window.history.back();
+                </script>";
+            return;
+        }    
   
         if (isset($_FILES['productimage']) && $_FILES['productimage']['error'] === UPLOAD_ERR_OK) {
             $uploadDir = './public/assets/images/products/';
