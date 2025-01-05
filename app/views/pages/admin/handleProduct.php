@@ -1,11 +1,16 @@
 <?php
 $product = $data["Product"] ?? null;
+$action = $data["Action"] ?? 'add';
 ?>
 
 <div class="update-product">
     <form action="/Scholar/Admin/saveProduct/" method="POST" enctype="multipart/form-data" class="infor-product">
         <div class="form-update-product">
-            <h1 class="update-infor-product">Update Product</h1>
+            <?php if ($action === "update"): ?>
+                <h1 class="update-infor-product">Update Product</h1>
+            <?php else: ?>
+                <h1 class="add-infor-product">Add Product</h1>
+            <?php endif; ?>
 
             <!-- Hidden field to store product ID -->
             <input type="hidden" name="product_id" value="<?php echo $product['product_id'] ?? ''; ?>">
@@ -22,9 +27,6 @@ $product = $data["Product"] ?? null;
                 <label for="productimage">Choose image:</label>
                 <input type="file" id="productimage" name="productimage" class="update-image">
             </div>
-
-
-
             <div class="form-product">
                 <label for="description">Description:</label>
                 <input type="text" name="description" value="<?php echo $product['description'] ?? ''; ?>" placeholder="Enter description">
