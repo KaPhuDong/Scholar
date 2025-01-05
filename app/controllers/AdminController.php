@@ -142,34 +142,45 @@ class Admin extends Controller
     }
     
 
-    public function searchUserByName()
-    {
+    public function searchUserByName() {
+        // Lấy từ khóa tìm kiếm và trang hiện tại từ GET
         $searchKeyword = trim($_GET['keyword'] ?? '');
+        $currentPage = $_GET['page'] ?? 1;
+        $usersPerPage = 8; // Số người dùng mỗi trang
     
+        // Nếu không có từ khóa tìm kiếm, quay lại trang quản lý người dùng
         if (empty($searchKeyword)) {
-            $this->userManagement(); 
+            $this->userManagement();
             return;
         }
     
+        // Gọi model người dùng
         $userModel = $this->model("UserModel");
+    
+        // Tìm kiếm người dùng phù hợp với từ khóa
         $matchingUsers = $userModel->searchUsersByName($searchKeyword);
+        $totalUsers = count($matchingUsers); // Tổng số người dùng phù hợp
     
-        $perPage = 10;
-        $totalUsers = count($matchingUsers);
-        $totalPages = ceil($totalUsers / $perPage);
-        $page = isset($_GET['page']) ? max(1, (int)$_GET['page']) : 1;
-        $startIndex = ($page - 1) * $perPage;
-        $currentUsers = array_slice($matchingUsers, $startIndex, $perPage);
+        // Tính toán phân trang
+        $totalPages = ceil($totalUsers / $usersPerPage);
+        $offset = ($currentPage - 1) * $usersPerPage;
     
+        // Lấy danh sách người dùng theo trang
+        $paginatedUsers = array_slice($matchingUsers, $offset, $usersPerPage);
+    
+        // Trả dữ liệu cho view
         $this->view("admin", [
             "Page" => "admin/userManagement",
-            "Users" => $currentUsers,
-            "SearchKeyword" => $searchKeyword,
-            "TotalPages" => $totalPages,
-            "CurrentPage" => $page,
-            "TotalUsers" => $totalUsers,
+            "Users" => $paginatedUsers, // Người dùng trong trang hiện tại
+            "SearchKeyword" => $searchKeyword, // Từ khóa tìm kiếm
+            "CurrentPage" => $currentPage, // Trang hiện tại
+            "TotalPages" => $totalPages, // Tổng số trang
+            "TotalUsers" => $totalUsers, // Tổng số người dùng phù hợp
         ]);
-    }  
+
+    }
+    
+
     public function searchOrdersByTime()
     {
         $searchKeyword = trim($_GET['keyword'] ?? '');

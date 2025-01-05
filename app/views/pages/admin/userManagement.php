@@ -3,18 +3,21 @@ $users = $data["Users"];
 $totalPages = $data["TotalPages"];
 $currentPage = $data["CurrentPage"];
 $totalUsers = $data["TotalUsers"];
+$searchKeyword = $data["SearchKeyword"] ?? '';
 ?>
+
 <div class="user-management">
     <div class="header-user">
         <p class="title">User Management</p>
         <div class="search-user">
-            <form action="/Scholar/admin/userManagement" method="GET">
+            <form action="/Scholar/admin/userManagement/searchUserByName" method="GET">
                 <input 
                     type="text" 
                     name="keyword" 
                     class="input-user" 
                     placeholder="Search for users..." 
-                    value="<?php echo $data['SearchKeyword'] ?? ''; ?>" />
+                    value="<?php echo htmlspecialchars($searchKeyword); ?>" />
+                <input type="hidden" name="page" value="<?php echo $currentPage; ?>" />
                 <button type="submit" class="button-user">
                     <img src="./public/assets/icons/search.svg" alt="Search Icon">
                 </button>
@@ -24,23 +27,33 @@ $totalUsers = $data["TotalUsers"];
 
 
     <div class="filter">
-        <div class="filter-button">All (<?php echo $totalUsers; ?>)</div>
+        <div class="filter-button">All <?php echo $totalUsers; ?></div>
 
         <?php if ($totalPages > 1): ?>
             <div class="pagination">
-                <?php if ($currentPage > 1): ?>
-                    <a href="/Scholar/Admin/userManagement?page=<?php echo $currentPage - 1; ?>" class="prev">Previous</a>
-                <?php endif; ?>
+    <!-- Previous Button -->
+    <?php if ($currentPage > 1): ?>
+        <a href="/Scholar/admin/userManagement/searchUserByName?keyword=<?php echo urlencode($searchKeyword); ?>&page=<?php echo $currentPage - 1; ?>" class="prev">Previous</a>
+    <?php endif; ?>
 
-                <?php for ($i = 1; $i <= $totalPages; $i++): ?>
-                    <a href="/Scholar/Admin/userManagement?page=<?php echo $i; ?>" class="<?php echo ($i == $currentPage) ? 'active' : ''; ?>"><?php echo $i; ?></a>
-                <?php endfor; ?>
+    <!-- Page Numbers -->
+    <?php for ($i = 1; $i <= $totalPages; $i++): ?>
+        <a href="/Scholar/admin/userManagement/searchUserByName?keyword=<?php echo urlencode($searchKeyword); ?>&page=<?php echo $i; ?>" 
+           class="<?php echo ($i == $currentPage) ? 'active' : ''; ?>">
+           <?php echo $i; ?>
+        </a>
+    <?php endfor; ?>
 
-                <?php if ($currentPage < $totalPages): ?>
-                    <a href="/Scholar/Admin/userManagement?page=<?php echo $currentPage + 1; ?>" class="next">Next</a>
-                <?php endif; ?>
-            </div>
-        <?php endif; ?>
+    <!-- Next Button -->
+    <?php if ($currentPage < $totalPages): ?>
+        <a href="/Scholar/admin/userManagement/searchUserByName?keyword=<?php echo urlencode($searchKeyword); ?>&page=<?php echo $currentPage + 1; ?>" class="next">Next</a>
+    <?php endif; ?>
+</div>
+
+<?php endif; ?>
+
+
+
     </div>
 
     <div class="table-container">
