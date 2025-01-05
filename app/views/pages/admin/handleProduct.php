@@ -10,37 +10,37 @@ $product = $data["Product"] ?? null;
             <!-- Hidden field to store product ID -->
             <input type="hidden" name="product_id" value="<?php echo $product['product_id'] ?? ''; ?>">
 
-            <div class="form-group">
+            <div class="form-product">
                 <label for="productname">Product name:</label>
                 <input type="text" name="productname" value="<?php echo $product['name'] ?? ''; ?>" placeholder="Enter product name">
             </div>
-            <div class="form-group">
+            <div class="form-product">
                 <label for="category">Category:</label>
                 <input type="text" name="category" value="<?php echo $product['category_id'] ?? ''; ?>" placeholder="Enter category">
             </div>
-            <div class="form-group">
-                <label for="productimage">Image URL:</label>
-                <input type="text" id="productimage" name="productimage" class="update-image" placeholder="Enter image URL">
+            <div class="form-product">
+                <label for="productimage">Choose image:</label>
+                <input type="file" id="productimage" name="productimage" class="update-image">
             </div>
 
 
 
-            <div class="form-group">
+            <div class="form-product">
                 <label for="description">Description:</label>
                 <input type="text" name="description" value="<?php echo $product['description'] ?? ''; ?>" placeholder="Enter description">
             </div>
-            <div class="form-group">
+            <div class="form-product">
                 <label for="price">Price:</label>
                 <input type="text" name="price" value="<?php echo $product['price'] ?? ''; ?>" placeholder="Enter price">
             </div>
-            <div class="form-group">
+            <div class="form-product">
                 <label for="stock">Stock:</label>
                 <input type="text" name="stock" value="<?php echo $product['stock'] ?? ''; ?>" placeholder="Enter stock">
             </div>
 
-            <div class="form-group-btn">
-                <button class="product-btn" type="submit" name="update">Save</button>
-                <button class="product-btn" type="reset" name="cancel" onclick="cancelChanges()">Cancel</button>
+            <div class="form-product-btn">
+                <button class="btn" type="submit" name="update">Save</button>
+                <button class="btn" type="reset" name="cancel" onclick="cancelChanges()">Cancel</button>
             </div>
         </div>
     </form>

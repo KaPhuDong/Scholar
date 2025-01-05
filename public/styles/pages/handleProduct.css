@@ -23,17 +23,18 @@ h1.update-infor-product {
     font-size: var(--font-size-lg);
 }
 
-.form-group {
+.form-product {
     margin-bottom: 5px;
     display: flex;
     gap: 30px;
 }
 
-.form-group label {
+.form-product label {
     min-width: 150px; 
+    font-size: var(--font-size-xsm);
 }
 
-.form-group input {
+.form-product input {
     min-width: 350px;
     padding: 5px;
     border: 1px solid var(--primary);
@@ -41,11 +42,11 @@ h1.update-infor-product {
     font-size: 16px;
 }
 
-.form-group-btn {
+.form-product-btn {
     display: flex;
     gap: 175px;
 }
-.product-btn {
+.btn {
     min-width: 185px;
     padding: 5px;
     font-size: var(--font-size-sm);
