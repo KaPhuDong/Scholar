@@ -6,7 +6,7 @@ $totalProducts = $data["TotalProducts"];
 ?>
 <div class="product-management">
     <p class="title">Product Management</p>
-    <div class="filter">
+    <div class="filter-product">
         <div class="filter-button">All (<?php echo $totalProducts; ?>)</div>
         <div class="add-product">
             <a href="/Scholar/Admin/addProduct"><button type="submit">+ Add new product</button></a>
