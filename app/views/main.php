@@ -26,6 +26,11 @@
         const currentPage = "<?php echo $data['Page']; ?>";
     </script>
     <script src="./public/script/main.js" type="module"></script>
+
+    <?php
+    unset($_SESSION['buy_now_item']);
+    unset($_SESSION['selected_items']);
+    ?>
 </body>
 
 </html>

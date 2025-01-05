@@ -40,9 +40,16 @@
     width: 200px;
     margin-top:10px;
     margin-inline: auto;
+    cursor: pointer;
 }
 
-.form-register .btn-signin-submit:hover {
-    cursor: pointer;
-    background-color: var();
+.form-container .form-footer {
+    align-self: flex-start;
+    font-size: 14px;
+}
+
+.form-footer .btn-register,
+.form-footer .btn-login {
+    color: var(--text-color-primary);
+    font-weight: var(--font-weight-bold);
 }
