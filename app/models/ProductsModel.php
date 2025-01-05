@@ -44,23 +44,48 @@ class ProductsModel extends Database
     public function searchProductsByKeyword($searchKeyword, $sortOrder = '', $categoryId = null)
     {
         $searchTerm = "%$searchKeyword%";
-    
+        
+        // Xử lý sắp xếp theo giá
         $sortQuery = match ($sortOrder) {
-            'high-to-low' => 'ORDER BY price DESC',
-            'low-to-high' => 'ORDER BY price ASC',
+            'high-to-low' => 'ORDER BY products.price DESC',
+            'low-to-high' => 'ORDER BY products.price ASC',
             default => ''
         };
-    
+        
+        // Xử lý lọc theo danh mục
         $categoryQuery = '';
         if ($categoryId && $categoryId !== 'all') {
-            $categoryQuery = "AND category_id = '$categoryId'";
+            $categoryQuery = "AND products.category_id = '$categoryId'";
         }
     
-        $query = "SELECT * FROM products WHERE name LIKE '$searchTerm'  $categoryQuery  $sortQuery";
-        $result = mysqli_query($this->con, $query);
+        $query = "
+            SELECT 
+                products.product_id, 
+                products.name AS name, 
+                products.description, 
+                products.price, 
+                products.stock, 
+                categories.category_id, 
+                categories.name AS category_name
+            FROM 
+                products
+            LEFT JOIN 
+                categories 
+            ON 
+                products.category_id = categories.category_id
+            WHERE 
+                products.name LIKE '$searchTerm' 
+            $categoryQuery
+            $sortQuery
+        ";
     
+        // Thực thi truy vấn
+        $result = mysqli_query($this->con, $query);
+        
+        // Trả về kết quả dưới dạng mảng
         return mysqli_fetch_all($result, MYSQLI_ASSOC);
     }
+    
     
     public function countProductsByKeyword($searchKeyword, $categoryId = null)
     {
@@ -80,5 +105,5 @@ class ProductsModel extends Database
 
         $row = mysqli_fetch_assoc($result);
         return $row['total'];
-    }
+    }  
 }

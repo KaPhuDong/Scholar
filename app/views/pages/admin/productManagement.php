@@ -4,8 +4,53 @@ $totalPages = $data["TotalPages"];
 $currentPage = $data["CurrentPage"];
 $totalProducts = $data["TotalProducts"];
 ?>
-<div class="product-management">
-    <p class="title">Product Management</p>
+<div class="product-management">  
+    <form action="/Scholar/admin/productManagement" method="GET">
+        <div class="header-user">
+            <p class="title">Product Management</p>
+            <div class="search-user">
+                <input 
+                    type="text" 
+                    name="keyword" 
+                    class="input-user" 
+                    placeholder="Search for products..." 
+                    value="<?php echo $data['SearchKeyword'] ?? ''; ?>" />
+                <button type="submit" class="button-user">
+                    <img src="./public/assets/icons/search.svg" alt="Search Icon">
+                </button>
+            </div>
+        </div>
+
+        <!-- Sort block -->
+        <div class="sort-filter">
+            <div class="sort-block">
+                <label for="sortOrder">Sort By</label>
+                <select id="sortOrder" name="sortOrder" class="input-user" onchange="this.form.submit()">
+                    <option value="" <?php echo isset($data['SortOrder']) && $data['SortOrder'] === '' ? 'selected' : ''; ?>>Price</option>
+                    <option value="high-to-low" <?php echo isset($data['SortOrder']) && $data['SortOrder'] === 'high-to-low' ? 'selected' : ''; ?>>High to Low</option>
+                    <option value="low-to-high" <?php echo isset($data['SortOrder']) && $data['SortOrder'] === 'low-to-high' ? 'selected' : ''; ?>>Low to High</option>
+                </select>
+            </div>
+
+            <!-- Category filter dropdown -->
+            <div class="category-block">
+                <label for="category">Category</label>
+                <select id="category" name="category" class="input-user" onchange="this.form.submit()">
+                    <option value="all" <?php echo isset($data['Category']) && $data['Category'] === 'all' ? 'selected' : ''; ?>>All</option>
+                    <option value="1" <?php echo isset($data['Category']) && $data['Category'] === '1' ? 'selected' : ''; ?>>Note</option>
+                    <option value="2" <?php echo isset($data['Category']) && $data['Category'] === '2' ? 'selected' : ''; ?>>Write</option>
+                    <option value="3" <?php echo isset($data['Category']) && $data['Category'] === '3' ? 'selected' : ''; ?>>Gear</option>
+                </select>
+            </div>
+        </div>
+        <!-- Hidden input to preserve keyword -->
+        <input type="hidden" name="keyword" value="<?php echo $data['SearchKeyword'] ?? ''; ?>">
+
+        <button type="submit" class="button-user" style="display:none;"></button>
+
+    </form>
+
+
     <div class="filter">
         <div class="filter-button">All (<?php echo $totalProducts; ?>)</div>
 

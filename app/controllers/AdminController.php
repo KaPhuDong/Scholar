@@ -98,14 +98,25 @@ class Admin extends Controller
     {
         $productsModel = $this->model("ProductsModel");
         $imagesModel = $this->model("ImagesModel");
-
-        $products = $productsModel->getProducts();
+    
+        // Lấy từ khóa tìm kiếm từ GET
+        $searchKeyword = $_GET['keyword'] ?? '';
+    
+        // Nếu có từ khóa, tìm kiếm sản phẩm theo tên
+        if ($searchKeyword) {
+            $products = $productsModel->searchProductsByKeyword($searchKeyword);  // Tạo hàm searchProductsByName trong ProductsModel
+        } else {
+            $products = $productsModel->getProducts();  // Lấy tất cả sản phẩm nếu không có từ khóa
+        }
+    
+        // Thêm hình ảnh vào mỗi sản phẩm
         foreach ($products as $index => $product) {
             $productId = $product['product_id'];
             $images = $imagesModel->getImagesByProduct($productId);
             $products[$index]['images'] = $images;
         }
-
+    
+        // Phân trang
         $perPage = 10;
         $totalProducts = count($products);
         $totalPages = ceil($totalProducts / $perPage);
@@ -113,13 +124,14 @@ class Admin extends Controller
         if ($page < 1) $page = 1;
         if ($page > $totalPages) $page = $totalPages;
         $startIndex = ($page - 1) * $perPage;
-
+    
         if ($startIndex >= $totalProducts) {
             $currentProducts = [];
         } else {
-            $currentProducts = array_slice($products, $startIndex, $perPage); // Lấy sản phẩm của trang hiện tại
+            $currentProducts = array_slice($products, $startIndex, $perPage);  // Lấy sản phẩm của trang hiện tại
         }
-
+    
+        // Trả dữ liệu cho view
         $this->view("admin", [
             "Page" => "admin/productManagement",
             "Products" => $currentProducts,
@@ -128,6 +140,7 @@ class Admin extends Controller
             "TotalProducts" => $totalProducts
         ]);
     }
+    
 
     public function searchUserByName()
     {
@@ -185,5 +198,65 @@ class Admin extends Controller
             "TotalOrders" => $totalOrders,
         ]);
     }
+    public function searchProductByName()
+    {
+        // Lấy từ khóa tìm kiếm, thể loại và sắp xếp từ GET
+        $searchKeyword = trim($_GET['keyword'] ?? '');
+        $sortOrder = $_GET['sortOrder'] ?? '';
+        $categoryId = $_GET['category'] ?? 'all';
+        $currentPage = isset($_GET['page']) ? (int)$_GET['page'] : 1;
+        $productsPerPage = 10;  // Số sản phẩm mỗi trang
+    
+        // Nếu không có từ khóa tìm kiếm, quay lại trang quản lý sản phẩm
+        if (empty($searchKeyword)) {
+            $this->productManagement();
+            return;
+        }
+    
+        // Lấy model sản phẩm và hình ảnh
+        $productsModel = $this->model("ProductsModel");
+        $imagesModel = $this->model("ImagesModel");
+    
+        // Tìm kiếm sản phẩm theo từ khóa, thể loại, và sắp xếp (nếu có)
+        $matchingProducts = $productsModel->searchProductsByKeyword(
+            $searchKeyword,
+            $sortOrder,
+            ($categoryId !== 'all' ? $categoryId : null)
+        );
+    
+        // Tổng số sản phẩm tìm được
+        $totalProducts = count($matchingProducts);
+    
+        // Tính phân trang
+        $totalPages = ceil($totalProducts / $productsPerPage);
+        $startIndex = ($currentPage - 1) * $productsPerPage;
+    
+        // Lấy sản phẩm của trang hiện tại
+        if ($startIndex >= $totalProducts) {
+            $currentProducts = [];
+        } else {
+            $currentProducts = array_slice($matchingProducts, $startIndex, $productsPerPage);
+        }
+    
+        // Thêm hình ảnh cho từng sản phẩm
+        foreach ($currentProducts as &$product) {
+            $product['images'] = $imagesModel->getImagesByProduct($product['product_id']);
+        }
+    
+        // Trả dữ liệu cho view
+        $this->view("admin", [
+            "Page" => "admin/productManagement",
+            "Products" => $currentProducts,
+            "SearchKeyword" => $searchKeyword,
+            "SortOrder" => $sortOrder,
+            "Category" => $categoryId,
+            "CurrentPage" => $currentPage,
+            "TotalPages" => $totalPages,
+            "TotalProducts" => $totalProducts
+        ]);
+    }
+    
+
+    
     
 }

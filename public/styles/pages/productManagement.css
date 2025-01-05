@@ -2,18 +2,102 @@
     width: 92%;
     padding: 20px;
     background-color: #fff;
-    border-radius: 12px;
+    border-radius: var(--border-radius-lg);
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     margin-left: 20px;
 }
 
-.product-management .title {
-    font-size: 28px;
-    margin-bottom: 20px;
-}   
+.product-management .header-user {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 20px; /* Ensure spacing between elements */
+}
+
+.header-user .title {
+    font-size: var(--font-size-md);
+}
+
+.header-user .search-user {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    gap: 15px; 
+    border: 1px solid #ccc;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+}
+
+.search-user .input-user {
+    width: 200px; 
+    padding: 8px 12px;
+    border: none;
+    outline: none;
+    font-size: 14px;
+    background-color: transparent; 
+}
+
+.search-user .input-user::placeholder {
+    font-style: italic;
+}
+
+.search-user .button-user {
+    padding: 8px 12px;
+    background-color: var(--primary);
+    border: none;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: background-color 0.3s ease; /* Smooth hover effect */
+}
+
+.product-management .sort-filter {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-block: 20px;
+}
+
+.product-management .sort-block,
+.product-management .category-block {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.product-management .sort-block label,
+.product-management .category-block label {
+    font-size: 14px;
+    font-weight: bold;
+    color: #333;
+}
+
+.product-management .sort-block select,
+.product-management .category-block select {
+    width: 120px;
+    padding: 8px 12px;
+    border-radius: 8px;
+    border: 1px solid #ddd;
+    font-size: 14px;
+    background-color: transparent;
+    transition: border-color 0.3s ease;
+}
+
+.product-management .sort-block select:focus,
+.product-management .category-block select:focus {
+    border-color: var(--primary);
+    outline: none;
+}
+
+.product-management .sort-block select option,
+.product-management .category-block select option {
+    font-size: 14px;
+}
 
 .product-management .filter {
-    margin-bottom: 20px;
+    margin-block: 20px;
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -30,6 +114,11 @@
     width: 100px;
     text-align: center;
 }
+
+.filter .filter-button:hover {
+    background-color: var(--primary); /* Hover effect for filter button */
+}
+
 
 .product-table {
     width: 100%;

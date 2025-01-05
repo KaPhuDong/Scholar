@@ -15,9 +15,6 @@
 
 .header-user .title {
     font-size: var(--font-size-md);
-    display: flex;
-    align-items: center;
-    justify-content: center;
 }
 
 .header-user .search-user {
