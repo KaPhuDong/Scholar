@@ -51,5 +51,8 @@
         <!-- Submit Button -->
         <button type="submit" class="btn btn-signin-submit" name="signin-submit">SIGN IN</button>
     </form>
-    <p><a class="btn-login" href="/Scholar/User/login">Login</a> if you already have account.</p>
+    <p class="form-footer">
+        <a class="btn-login" href="/Scholar/User/login">Login</a>
+        if you already have account.
+    </p>
 </div>
