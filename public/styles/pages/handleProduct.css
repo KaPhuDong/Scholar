@@ -19,8 +19,11 @@
     flex-direction: column;
     gap: 15px;
 }
-h1.update-infor-product {
+h1.update-infor-product,
+h1.add-infor-product {
     font-size: var(--font-size-lg);
+    text-align: center;
+    margin-bottom: 15px;
 }
 
 .form-product {

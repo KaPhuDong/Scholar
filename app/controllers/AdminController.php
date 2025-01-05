@@ -148,6 +148,7 @@ class Admin extends Controller
         $this->view("admin", [
             "Page" => "admin/handleProduct",
             "Product" => $product,
+            "Action" => "update", 
         ]);
     }
 
@@ -155,6 +156,7 @@ class Admin extends Controller
     {
         $this->view("admin", [
             "Page" => "admin/handleProduct",
+            "Action" => "add", 
         ]);
     }
 
