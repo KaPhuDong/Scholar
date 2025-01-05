@@ -168,8 +168,27 @@ class Admin extends Controller
         $stock = $_POST['stock'] ?? 0;
         $product_image = null;
 
-        // Xử lý upload ảnh
-        if (isset($_FILES['productimage']) && $_FILES['productimage']['error'] === UPLOAD_ERR_OK) {
+        if (isset($_POST['productimage']) && !empty($_POST['productimage'])) {
+            $image_url = $_POST['productimage'];  
+
+            $image_name = basename($image_url);
+            $uploadDir = './public/assets/images/products/';
+            
+            $image_path = $uploadDir . $image_name;
+
+            if (!is_dir($uploadDir)) {
+                mkdir($uploadDir, 0777, true);
+            }
+
+            if (file_put_contents($image_path, file_get_contents($image_url))) {
+                $product_image = $image_path;  
+            } else {
+                echo "Unable to load image from URL.";
+                return;
+            }
+        }
+    
+        elseif (isset($_FILES['productimage']) && $_FILES['productimage']['error'] === UPLOAD_ERR_OK) {
             $uploadDir = './public/assets/images/products/';
             if (!is_dir($uploadDir)) {
                 mkdir($uploadDir, 0777, true);

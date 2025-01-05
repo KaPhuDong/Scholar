@@ -19,9 +19,10 @@ $product = $data["Product"] ?? null;
                 <input type="text" name="category" value="<?php echo $product['category_id'] ?? ''; ?>" placeholder="Enter category">
             </div>
             <div class="form-group">
-                <label class="upload-image" for="productimage">Choose image:</label>
-                <input type="file" id="productimage" name="productimage" class="update-image" accept="image/*">
+                <label for="productimage">Image URL:</label>
+                <input type="text" id="productimage" name="productimage" class="update-image" placeholder="Enter image URL">
             </div>
+
 
 
             <div class="form-group">
