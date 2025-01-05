@@ -25,21 +25,15 @@ $totalAmount = 0;
                             <div class="content-right-item">
                                 <div class="price">$<?= number_format($item['product']['price'], 2) ?></div>
 
-                                <form action="/Scholar/Orders/updateQuantity" method="POST" class="quantity-form">
-                                    <input type="hidden" name="order_detail_id" value="<?= $item['order_detail_id'] ?>">
-                                    <div class="quantity" id="quantity-in-cart">
-                                        <button type="submit" name="action" value="decrease" class="decrease">-</button>
-                                        <input class="number" name="quantity" type="number" value="<?= $item['quantity'] ?>" min="1" max="<?= $item['product']['stock']; ?>">
-                                        <button type="submit" name="action" value="increase" class="increase">+</button>
-                                    </div>
-                                </form>
+                                <div class="quantity" id="quantity-in-cart">
+                                    <a href="/Scholar/Orders/updateQuantity?order_detail_id=<?= $item['order_detail_id'] ?>&action=decrease&quantity=<?= $item['quantity'] ?>" class="decrease">-</a>
+                                    <input class="number" name="quantity" type="number" value="<?= $item['quantity'] ?>" min="1" max="<?= $item['product']['stock']; ?>" readonly>
+                                    <a href="/Scholar/Orders/updateQuantity?order_detail_id=<?= $item['order_detail_id'] ?>&action=increase&quantity=<?= $item['quantity'] ?>" class="increase">+</a>
+                                </div>
 
-                                <form action="/Scholar/Orders/removeFromCart" method="POST" class="delete-product-form">
-                                    <input type="hidden" name="order_id" value="<?= $item['order_id'] ?>">
-                                    <button type="submit" class="delete-product-btn">
-                                        <img src="./public/assets/icons/remove.svg" alt="Delete" class="remove">
-                                    </button>
-                                </form>
+                                <a href="/Scholar/Orders/removeFromCart?order_id=<?= $item['order_id'] ?>" class="delete-product-btn">
+                                    <img src="./public/assets/icons/remove.svg" alt="Delete" class="remove">
+                                </a>
                             </div>
                         </div>
                     <?php endforeach; ?>
