@@ -21,8 +21,9 @@ $product = $data["Product"] ?? null;
             <div class="form-group">
                 <label class="upload-image" for="productimage">Choose image:</label>
                 <input type="file" id="productimage" name="productimage" class="update-image" accept="image/*">
-                <img src="<?php echo $product['images'][0]['image_url'] ?? '/path/to/default/image.jpg'; ?>" alt="Current Image" class="current-product-image" />
             </div>
+
+
             <div class="form-group">
                 <label for="description">Description:</label>
                 <input type="text" name="description" value="<?php echo $product['description'] ?? ''; ?>" placeholder="Enter description">

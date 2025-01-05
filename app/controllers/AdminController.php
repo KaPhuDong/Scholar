@@ -134,18 +134,6 @@ class Admin extends Controller
         }
     }
 
-    // public function addProduct() {
-    //     $productsModel = $this->model("ProductsModel");
-    //     $imagesModel = $this->model("ImagesModel");
-
-    //     $products = $productsModel->getProducts();
-
-    //     $this->view("admin", [
-    //         "Page" => "admin/addProduct",
-    //         "Products" => $products,
-    //     ]);
-    // }
-
     public function updateProduct($product_id)
     {
         $productsModel = $this->model("ProductsModel");
@@ -172,26 +160,41 @@ class Admin extends Controller
 
     public function saveProduct()
     {
-        $product_id = $_POST['product_id'];
-        $product_name = $_POST['productname'];
-        $category_id = $_POST['category'];
-        $description = $_POST['description'];
-        $price = $_POST['price'];
-        $stock = $_POST['stock'];
-        $product_image = $_FILES['productimage'];
+        $product_id = $_POST['product_id'] ?? null;
+        $product_name = $_POST['productname'] ?? '';
+        $category_id = $_POST['category'] ?? '';
+        $description = $_POST['description'] ?? '';
+        $price = $_POST['price'] ?? 0;
+        $stock = $_POST['stock'] ?? 0;
+        $product_image = null;
+
+        // Xử lý upload ảnh
+        if (isset($_FILES['productimage']) && $_FILES['productimage']['error'] === UPLOAD_ERR_OK) {
+            $uploadDir = './public/assets/images/products/';
+            if (!is_dir($uploadDir)) {
+                mkdir($uploadDir, 0777, true);
+            }
+
+            $imageName = $_FILES['productimage']['name'];
+            $imagePath = $uploadDir . $imageName;
+
+            if (move_uploaded_file($_FILES['productimage']['tmp_name'], $imagePath)) {
+                $product_image = './public/assets/images/products/' . $imageName;
+            }
+        }
 
         $productsModel = $this->model("ProductsModel");
 
         if ($product_id) {
-
             $productsModel->updateProduct($product_id, $product_name, $category_id, $description, $price, $stock, $product_image);
         } else {
             $productsModel->addProduct($product_name, $category_id, $description, $price, $stock, $product_image);
         }
 
         echo "<script>
-                    alert('Save product successfully!');
-                    window.location.href = '/Scholar/Admin/productManagement';
-                </script>";
+                alert('Save product successfully!');
+                window.location.href = '/Scholar/Admin/productManagement';
+            </script>";
     }
+
 }
