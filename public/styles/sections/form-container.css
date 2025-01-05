@@ -48,10 +48,13 @@
     background-color: var();
 }
 
-.form-container .btn-register,
-.form-container .btn-login {
+.form-container .form-footer {
     align-self: flex-start;
+    font-size: 14px;
+}
+
+.form-footer .btn-register,
+.form-footer .btn-login {
     color: var(--text-color-primary);
     font-weight: var(--font-weight-bold);
-    font-size: 14px;
 }

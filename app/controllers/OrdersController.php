@@ -137,51 +137,55 @@ class Orders extends Controller
 
     public function removeFromCart()
     {
-        if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-            $order_id = $_POST['order_id'];
+        if ($_SERVER['REQUEST_METHOD'] === 'GET') {
+            $order_id = $_GET['order_id'];
 
-            $ordersModel = $this->model("OrdersModel");
-            $ordersModel->deleteOrder($order_id);
+            if ($order_id) {
+                $ordersModel = $this->model("OrdersModel");
+                $ordersModel->deleteOrder($order_id);
+            }
 
             echo "<script>
-            window.location.href = '/Scholar/Orders/viewCart';
-            </script>";
+                window.location.href = '/Scholar/Orders/viewCart';
+                </script>";
+            exit;
         }
     }
 
     public function updateQuantity()
     {
-        if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-            $orderDetailId = $_POST['order_detail_id'];
-            $action = $_POST['action'];
+        if ($_SERVER['REQUEST_METHOD'] === 'GET') {
+            $orderDetailId = $_GET['order_detail_id'];
+            $action = $_GET['action'];
+            $currentQuantity = $_GET['quantity'];
 
             $orderDetailModel = $this->model("OrderDetailModel");
             $productModel = $this->model("ProductsModel");
 
-            if ($orderDetailId && $action) {
+            if ($orderDetailId && $action && $currentQuantity !== null) {
                 $orderDetail = $orderDetailModel->getOrderDetailById($orderDetailId);
 
                 if ($orderDetail) {
                     $productId = $orderDetail['product_id'];
                     $orderId = $orderDetail['order_id'];
-                    $currentQuantity = $orderDetail['quantity'];
 
                     $product = $productModel->getProductById($productId);
-                    $newQuantity = $currentQuantity;
+                    $newQuantity = (int)$currentQuantity;
 
                     if ($action === 'increase') {
-                        if ($currentQuantity < $product['stock']) {
+                        if ($newQuantity < $product['stock']) {
                             $newQuantity++;
                         } else {
                             echo "<script>alert('Cannot increase quantity. Stock limit reached.');</script>";
                         }
                     } elseif ($action === 'decrease') {
-                        if ($currentQuantity > 1) {
+                        if ($newQuantity > 1) {
                             $newQuantity--;
                         } else {
                             echo "<script>alert('Cannot decrease quantity below 1.');</script>";
                         }
                     }
+
                     $orderDetailModel->updateOrderDetailQuantity($orderId, $productId, $newQuantity);
                 }
             }
