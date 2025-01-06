@@ -41,8 +41,8 @@ $action = $data["Action"] ?? 'add';
             </div>
 
             <div class="form-product-btn">
-                <button class="btn" type="submit" name="update">Save</button>
-                <button class="btn" type="reset" name="cancel" onclick="cancelChanges()">Cancel</button>
+                <button class="btn-add-product" type="submit" name="update">Save</button>
+                <button class="btn-add-product" type="reset" name="cancel" onclick="cancelChanges()">Cancel</button>
             </div>
         </div>
     </form>
