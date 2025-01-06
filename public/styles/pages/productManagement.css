@@ -25,7 +25,7 @@
 }
 
 .filter-product .filter-quantity,
-.filter-product .add-product button {
+.filter-product .add-product {
     background-color: var(--primary);
     color: white;
     border: none;
@@ -36,11 +36,15 @@
     min-width: 100px;
     text-align: center;
 }
+.add-product button {
+    color: white;
+    font-size: 14px;
+}
 
-.add-product button:hover {
+.add-product:hover {
     cursor: pointer;
-    transform: scale(1);  
-    background-color: #2980b9;  
+    transform: scale(1.02);  
+    background-color:rgb(117, 180, 223);  
 }
 
 .product-table {
@@ -147,7 +151,5 @@
 .edit-button:hover {
     cursor: pointer;
     transform: scale(1.1);
-    background-color: #f0f0f0;
-    border-radius: 50%;
 }
 
