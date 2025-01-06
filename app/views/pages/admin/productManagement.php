@@ -6,8 +6,13 @@ $totalProducts = $data["TotalProducts"];
 ?>
 <div class="product-management">
     <p class="title">Product Management</p>
-    <div class="filter">
-        <div class="filter-button">All (<?php echo $totalProducts; ?>)</div>
+    <div class="filter-product">
+        <div class="left-content">
+            <div class="filter-quantity">All (<?php echo $totalProducts; ?>)</div>
+            <div class="add-product">
+                <a href="/Scholar/Admin/addProduct"><button type="submit">+ Add new product</button></a>
+            </div>
+        </div>
 
         <?php if ($totalPages > 1): ?>
             <div class="pagination">
@@ -40,7 +45,7 @@ $totalProducts = $data["TotalProducts"];
                     <th class="column-action">Action</th>
                 </tr>
             </thead>
-            <tbody class="products">
+            <tbody>
                 <?php if (empty($products)): ?>
                     <tr>
                         <td colspan="8">No products found.</td>
@@ -58,13 +63,18 @@ $totalProducts = $data["TotalProducts"];
                             <td class="action">
                                 <form action="/Scholar/Admin/deleteProduct" method="POST" onsubmit="return confirm('Are you sure you want to delete this product?');">
                                     <input type="hidden" name="product_id" value="<?php echo $product['product_id']; ?>">
-                                    <button class="delete-btn" type="submit"><i class="fa fa-trash-o" style="font-size:20px"></i></button>
-                                </form>
-                                <a href="/Scholar/Admin/editProduct?id=<?php echo $product['product_id'] ?>">
-                                    <button type="button" class="edit-btn">
-                                        <i class="fa fa-pencil-square-o" style="font-size:20px"></i>
+                                    <button type="submit" class="delete-button">
+                                        <img src="./public/assets/icons/remove.svg" alt="Delete" class="delete-icon">
                                     </button>
-                                </a>
+                                </form>
+
+                                <form action="/Scholar/Admin/updateProduct/<?php echo $product['product_id'] ?>" method="POST" onsubmit="return confirm('Are you sure you want to edit this product?');">
+                                    <input type="hidden" name="product_id" value="<?php echo $product['product_id']; ?>">
+                                    <button type="submit" class="edit-button">
+                                        <img src="./public/assets/icons/Edit.svg" alt="Edit" class="edit-icon">
+                                    </button>
+                                </form>
+
                             </td>
                         </tr>
                     <?php endforeach; ?>
