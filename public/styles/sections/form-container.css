@@ -48,8 +48,14 @@
     font-size: 14px;
 }
 
-.form-footer .btn-register,
+.form-footer .btn-register, 
 .form-footer .btn-login {
     color: var(--text-color-primary);
     font-weight: var(--font-weight-bold);
+}
+
+.form-register .btn-signin-submit:hover {
+    cursor: pointer;
+    transform: scale(1.05);  
+    background-color:rgb(166, 205, 231); 
 }

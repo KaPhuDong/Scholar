@@ -96,14 +96,20 @@
     font-size: 14px;
 }
 
-.product-management .filter {
-    margin-block: 20px;
+.product-management .filter-product {
+    margin-bottom: 20px;
     display: flex;
     align-items: center;
     justify-content: space-between;
 }
 
-.filter .filter-button {
+.product-management .left-content {
+    display: flex;
+    gap: 25px;
+}
+
+.filter-product .filter-quantity,
+.filter-product .add-product {
     background-color: var(--primary);
     color: white;
     border: none;
@@ -111,14 +117,20 @@
     font-size: 14px;
     border-radius: 5px;
     transition: all 0.3s ease-in-out;
-    width: 100px;
+    min-width: 100px;
     text-align: center;
 }
-
-.filter .filter-button:hover {
-    background-color: var(--primary); /* Hover effect for filter button */
+.add-product button {
+    color: white;
+    font-size: 14px;
+    cursor: pointer;
 }
 
+.add-product:hover {
+    cursor: pointer;
+    transform: scale(1.02);  
+    background-color:rgb(117, 180, 223);  
+}
 
 .product-table {
     width: 100%;
@@ -139,12 +151,12 @@
 .product-table th,
 .product-table td {
     text-align: center;
-    vertical-align: middle; /* Căn giữa dọc */
+    vertical-align: middle;
     padding: 10px;
     border-right: 1px solid #ddd;
     border-bottom: 1px solid #ddd;
-    word-wrap: break-word; /* Cho phép ngắt dòng khi từ quá dài */
-    overflow-wrap: anywhere; /* Đảm bảo ngắt dòng email dài */
+    word-wrap: break-word; 
+    overflow-wrap: anywhere; 
     max-width: 50px;
 }
 
@@ -220,4 +232,9 @@
     max-width: 60px;
 }
 
+.delete-button:hover, 
+.edit-button:hover {
+    cursor: pointer;
+    transform: scale(1.1);
+}
 

@@ -277,4 +277,96 @@ class Admin extends Controller
             "TotalProducts" => $totalProducts
         ]);
     }
+
+    public function deleteProduct()
+    {
+        $productsModel = $this->model("ProductsModel");
+
+        if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['product_id'])) {
+            $product_id = intval($_POST['product_id']);
+
+            $deleteProduct = $productsModel->deleteProduct($product_id);
+
+            if ($deleteProduct) {
+                echo "<script>
+                    alert('Product deleted successfully!');
+                    window.location.href = '/Scholar/Admin/productManagement';
+                </script>";
+                exit;
+            }
+        }
+    }
+
+    public function updateProduct($product_id)
+    {
+        $productsModel = $this->model("ProductsModel");
+        $imagesModel = $this->model("ImagesModel");
+
+        $product = $productsModel->getProductById($product_id);
+
+        // Lấy ảnh cho sản phẩm
+        $images = $imagesModel->getImagesByProduct($product_id);
+        $product['images'] = $images;
+
+        $this->view("admin", [
+            "Page" => "admin/handleProduct",
+            "Product" => $product,
+            "Action" => "update", 
+        ]);
+    }
+
+    public function addProduct()
+    {
+        $this->view("admin", [
+            "Page" => "admin/handleProduct",
+            "Action" => "add", 
+        ]);
+    }
+
+    public function saveProduct()
+    {
+        $product_id = $_POST['product_id'] ?? null;
+        $product_name = $_POST['productname'] ?? '';
+        $category_id = $_POST['category'] ?? '';
+        $description = $_POST['description'] ?? '';
+        $price = $_POST['price'] ?? 0;
+        $stock = $_POST['stock'] ?? 0;
+        $product_image = null;
+
+        if (empty($product_name) || empty($category_id) || empty($description) || empty($price) || empty($stock)) {
+            echo "<script>
+                    alert('Please fill in all required fields.');
+                    window.history.back();
+                </script>";
+            return;
+        }    
+  
+        if (isset($_FILES['productimage']) && $_FILES['productimage']['error'] === UPLOAD_ERR_OK) {
+            $uploadDir = './public/assets/images/products/';
+            if (!is_dir($uploadDir)) {
+                mkdir($uploadDir, 0777, true);
+            }
+
+            $imageName = $_FILES['productimage']['name'];
+            $imagePath = $uploadDir . $imageName;
+
+            if (move_uploaded_file($_FILES['productimage']['tmp_name'], $imagePath)) {
+                $product_image = './public/assets/images/products/' . $imageName;
+            }
+        }
+
+        $productsModel = $this->model("ProductsModel");
+
+        if ($product_id) {
+            $productsModel->updateProduct($product_id, $product_name, $category_id, $description, $price, $stock, $product_image);
+        } else {
+            $productsModel->addProduct($product_name, $category_id, $description, $price, $stock, $product_image);
+        }
+
+        echo "<script>
+                alert('Save product successfully!');
+                window.location.href = '/Scholar/Admin/productManagement';
+            </script>";
+    }
+
 }
