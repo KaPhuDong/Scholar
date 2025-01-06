@@ -147,4 +147,26 @@ class OrderDetailModel extends Database
         }
         return mysqli_fetch_all($result, MYSQLI_ASSOC);
     }
+    public function countOrdersByTime($searchKeyword)
+    {
+        $searchTerm = !empty($searchKeyword) ? "%$searchKeyword%" : '%';
+        
+        $query = "SELECT COUNT(DISTINCT o.order_id) AS order_count
+                FROM orders o
+                JOIN delivery_information d ON o.order_id = d.order_id
+                JOIN order_detail od ON o.order_id = od.order_id
+                JOIN products p ON od.product_id = p.product_id
+                LEFT JOIN product_images pi ON p.product_id = pi.product_id
+                WHERE o.order_date LIKE '$searchTerm'";
+
+        $result = mysqli_query($this->con, $query);
+
+        if (!$result) {
+            die('MySQL Error: ' . mysqli_error($this->con));
+        }
+
+        $row = mysqli_fetch_assoc($result);
+        return $row['order_count'];
+    }
+
 }

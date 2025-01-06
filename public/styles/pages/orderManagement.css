@@ -2,28 +2,53 @@
     width: 92%;
     padding: 20px;
     background-color: #fff;
-    border-radius: 12px;
+    border-radius: var(--border-radius-lg);
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     margin-left: 20px;
 }
-.order-management .header-user {
+
+.order-management .header-order {
     display: flex;
     justify-content: space-between;
     align-items: center;
 }
 
-.header-user .title {
+.header-order .title {
     font-size: var(--font-size-md);
+}   
+
+.header-order .search-order form {
+    display: flex;
+    align-items: center;
+    border: 1px solid #ccc;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+}
+
+.search-order .input-order {
+    width: 200px; 
+    padding: 5px 5px;
+    border: none;
+    outline: none;
+    font-size: 14px;
+    background-color: transparent; 
+}
+
+.search-order .input-order::placeholder {
+    font-style: italic;
+}
+
+.search-order .button-order {
+    padding: 8px 8px;
+    background-color: var(--primary);
+    border: none;
+    cursor: pointer;
     display: flex;
     align-items: center;
     justify-content: center;
-}   
-.header-user .search-user {
-    display: flex;
-    justify-content: flex-end; 
-    align-items: center;
-    gap: 10px;
 }
+
 .order-management .filter {
     margin-block: 20px;
     display: flex;

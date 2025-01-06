@@ -82,5 +82,18 @@ class UsersModel extends Database
         }
         return mysqli_fetch_all($result, MYSQLI_ASSOC);
     }
+    public function countUsersByName($searchKeyword)
+    {
+        $searchKeyword = mysqli_real_escape_string($this->con, $searchKeyword);
+        $searchTerm = "%$searchKeyword%";
+
+        $query = "SELECT COUNT(*) AS total FROM users WHERE role = 'customer' AND name LIKE '$searchTerm'";
+
+        $result = mysqli_query($this->con, $query);
+
+        $row = mysqli_fetch_assoc($result);
+        return $row['total'];
+    }
+
 
 }

@@ -44,20 +44,18 @@ class ProductsModel extends Database
     public function searchProductsByKeyword($searchKeyword, $sortOrder = '', $categoryId = null)
     {
         $searchTerm = "%$searchKeyword%";
-        
-        // Xử lý sắp xếp theo giá
+
         $sortQuery = match ($sortOrder) {
             'high-to-low' => 'ORDER BY products.price DESC',
             'low-to-high' => 'ORDER BY products.price ASC',
             default => ''
         };
-        
-        // Xử lý lọc theo danh mục
+
         $categoryQuery = '';
         if ($categoryId && $categoryId !== 'all') {
             $categoryQuery = "AND products.category_id = '$categoryId'";
         }
-    
+
         $query = "
             SELECT 
                 products.product_id, 
@@ -78,22 +76,17 @@ class ProductsModel extends Database
             $categoryQuery
             $sortQuery
         ";
-    
-        // Thực thi truy vấn
+
         $result = mysqli_query($this->con, $query);
-        
-        // Trả về kết quả dưới dạng mảng
         return mysqli_fetch_all($result, MYSQLI_ASSOC);
     }
-    
-    
+
     public function countProductsByKeyword($searchKeyword, $categoryId = null)
     {
 
         $searchKeyword = mysqli_real_escape_string($this->con, $searchKeyword);
         $searchTerm = "%$searchKeyword%";
 
-        // Xử lý lọc theo danh mục
         $categoryQuery = '';
         if ($categoryId && $categoryId !== 'all') {
             $categoryId = mysqli_real_escape_string($this->con, $categoryId);
@@ -105,5 +98,5 @@ class ProductsModel extends Database
 
         $row = mysqli_fetch_assoc($result);
         return $row['total'];
-    }  
+    }
 }

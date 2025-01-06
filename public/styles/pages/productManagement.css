@@ -7,18 +7,18 @@
     margin-left: 20px;
 }
 
-.product-management .header-user {
+.product-management .header-product {
     display: flex;
     justify-content: space-between;
     align-items: center;
     gap: 20px; /* Ensure spacing between elements */
 }
 
-.header-user .title {
+.header-product .title {
     font-size: var(--font-size-md);
 }
 
-.header-user .search-user {
+.header-product .search-product {
     display: flex;
     justify-content: flex-end;
     align-items: center;
@@ -29,21 +29,21 @@
     box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
 }
 
-.search-user .input-user {
+.search-product .input-product {
     width: 200px; 
-    padding: 8px 12px;
+    padding: 5px 5px;
     border: none;
     outline: none;
     font-size: 14px;
     background-color: transparent; 
 }
 
-.search-user .input-user::placeholder {
+.search-product .input-product::placeholder {
     font-style: italic;
 }
 
-.search-user .button-user {
-    padding: 8px 12px;
+.search-product .button-product {
+    padding: 8px 8px;
     background-color: var(--primary);
     border: none;
     cursor: pointer;
