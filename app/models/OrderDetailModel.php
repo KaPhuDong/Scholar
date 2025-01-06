@@ -111,4 +111,62 @@ class OrderDetailModel extends Database
         $qr = "DELETE FROM order_detail WHERE order_detail_id = $order_detail_id";
         return mysqli_query($this->con, $qr);
     }
+    public function searchOrdersByTime($searchKeyword)
+    {
+        $searchTerm = !empty($searchKeyword) ? "%$searchKeyword%" : '%';
+    
+        $query = "SELECT 
+                    o.order_id AS ID, 
+                    d.recipient_name AS Recipient, 
+                    d.phone_number AS Phone, 
+                    d.delivery_address AS Delivery_Address,
+                    od.product_id AS Product_ID,
+                    p.name AS Product_Name,
+                    pi.image_url AS Product_Image,
+                    o.order_date AS Order_Date,
+                    o.status AS Status
+                FROM 
+                    orders o
+                JOIN 
+                    delivery_information d ON o.order_id = d.order_id
+                JOIN 
+                    order_detail od ON o.order_id = od.order_id
+                JOIN 
+                    products p ON od.product_id = p.product_id
+                LEFT JOIN 
+                    product_images pi ON p.product_id = pi.product_id
+                WHERE 
+                    o.order_date LIKE '%$searchTerm%'
+                GROUP BY 
+                    o.order_id, od.product_id"; 
+    
+        $result = mysqli_query($this->con, $query);
+    
+        if (!$result) {
+            die('MySQL Error: ' . mysqli_error($this->con));
+        }
+        return mysqli_fetch_all($result, MYSQLI_ASSOC);
+    }
+    public function countOrdersByTime($searchKeyword)
+    {
+        $searchTerm = !empty($searchKeyword) ? "%$searchKeyword%" : '%';
+        
+        $query = "SELECT COUNT(DISTINCT o.order_id) AS order_count
+                FROM orders o
+                JOIN delivery_information d ON o.order_id = d.order_id
+                JOIN order_detail od ON o.order_id = od.order_id
+                JOIN products p ON od.product_id = p.product_id
+                LEFT JOIN product_images pi ON p.product_id = pi.product_id
+                WHERE o.order_date LIKE '$searchTerm'";
+
+        $result = mysqli_query($this->con, $query);
+
+        if (!$result) {
+            die('MySQL Error: ' . mysqli_error($this->con));
+        }
+
+        $row = mysqli_fetch_assoc($result);
+        return $row['order_count'];
+    }
+
 }

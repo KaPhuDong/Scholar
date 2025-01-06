@@ -26,6 +26,7 @@
             </div>
 
             <input type="hidden" name="keyword" value="<?php echo $data['SearchKeyword']; ?>">
+            <input type="hidden" name="page" value="<?php echo $data['CurrentPage']; ?>">
         </form>
     </div>
 
@@ -54,19 +55,19 @@
     <?php endif; ?>
 </div>
 
+<!-- Pagination -->
 <?php if ($data['TotalPages'] > 1): ?>
     <div class="pagination">
         <?php if ($data['CurrentPage'] > 1): ?>
-            <a href="/Scholar/Home/searchProductByName?keyword=<?php echo $data['SearchKeyword']; ?>&category=<?php echo $data['Category']; ?>&page=<?php echo $data['CurrentPage'] - 1; ?>" class="prev">Previous</a>
+            <a href="/Scholar/Home/searchProductByName?keyword=<?php echo $data['SearchKeyword']; ?>&category=<?php echo $data['Category']; ?>&sort=<?php echo $data['SortOrder']; ?>&page=<?php echo $data['CurrentPage'] - 1; ?>" class="prev">Previous</a>
         <?php endif; ?>
 
         <?php for ($i = 1; $i <= $data['TotalPages']; $i++): ?>
-            <a href="/Scholar/Home/searchProductByName?keyword=<?php echo $data['SearchKeyword']; ?>&category=<?php echo $data['Category']; ?>&page=<?php echo $i; ?>" class="<?php echo ($i == $data['CurrentPage']) ? 'active' : ''; ?>"><?php echo $i; ?></a>
+            <a href="/Scholar/Home/searchProductByName?keyword=<?php echo $data['SearchKeyword']; ?>&category=<?php echo $data['Category']; ?>&sort=<?php echo $data['SortOrder']; ?>&page=<?php echo $i; ?>" class="<?php echo ($i == $data['CurrentPage']) ? 'active' : ''; ?>"><?php echo $i; ?></a>
         <?php endfor; ?>
 
         <?php if ($data['CurrentPage'] < $data['TotalPages']): ?>
-            <a href="/Scholar/Home/searchProductByName?keyword=<?php echo $data['SearchKeyword']; ?>&category=<?php echo $data['Category']; ?>&page=<?php echo $data['CurrentPage'] + 1; ?>" class="next">Next</a>
+            <a href="/Scholar/Home/searchProductByName?keyword=<?php echo $data['SearchKeyword']; ?>&category=<?php echo $data['Category']; ?>&sort=<?php echo $data['SortOrder']; ?>&page=<?php echo $data['CurrentPage'] + 1; ?>" class="next">Next</a>
         <?php endif; ?>
     </div>
-
 <?php endif; ?>

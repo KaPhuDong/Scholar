@@ -43,24 +43,41 @@ class ProductsModel extends Database
 
     public function searchProductsByKeyword($searchKeyword, $sortOrder = '', $categoryId = null)
     {
-        $searchKeyword = mysqli_real_escape_string($this->con, $searchKeyword);
         $searchTerm = "%$searchKeyword%";
 
         $sortQuery = match ($sortOrder) {
-            'high-to-low' => 'ORDER BY price DESC',
-            'low-to-high' => 'ORDER BY price ASC',
+            'high-to-low' => 'ORDER BY products.price DESC',
+            'low-to-high' => 'ORDER BY products.price ASC',
             default => ''
         };
 
         $categoryQuery = '';
         if ($categoryId && $categoryId !== 'all') {
-            $categoryId = mysqli_real_escape_string($this->con, $categoryId);
-            $categoryQuery = "AND category_id = '$categoryId'";
+            $categoryQuery = "AND products.category_id = '$categoryId'";
         }
 
-        $query = "SELECT * FROM products WHERE name LIKE '$searchTerm'  $categoryQuery  $sortQuery";
-        $result = mysqli_query($this->con, $query);
+        $query = "
+            SELECT 
+                products.product_id, 
+                products.name AS name, 
+                products.description, 
+                products.price, 
+                products.stock, 
+                categories.category_id, 
+                categories.name AS category_name
+            FROM 
+                products
+            LEFT JOIN 
+                categories 
+            ON 
+                products.category_id = categories.category_id
+            WHERE 
+                products.name LIKE '$searchTerm' 
+            $categoryQuery
+            $sortQuery
+        ";
 
+        $result = mysqli_query($this->con, $query);
         return mysqli_fetch_all($result, MYSQLI_ASSOC);
     }
 
@@ -70,7 +87,6 @@ class ProductsModel extends Database
         $searchKeyword = mysqli_real_escape_string($this->con, $searchKeyword);
         $searchTerm = "%$searchKeyword%";
 
-        // Xử lý lọc theo danh mục
         $categoryQuery = '';
         if ($categoryId && $categoryId !== 'all') {
             $categoryId = mysqli_real_escape_string($this->con, $categoryId);
