@@ -19,6 +19,11 @@
     justify-content: space-between;
 }
 
+.product-management .left-content {
+    display: flex;
+    gap: 25px;
+}
+
 .filter-product .filter-quantity,
 .filter-product .add-product button {
     background-color: var(--primary);
@@ -30,10 +35,6 @@
     transition: all 0.3s ease-in-out;
     min-width: 100px;
     text-align: center;
-}
-
-.add-product {
-    margin-left: -340px;
 }
 
 .add-product button:hover {
