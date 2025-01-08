@@ -1,5 +1,5 @@
 .order-histories {
-    width: 90%;
+    margin-inline: 65px;
     display: flex;
     gap: 20px;
     flex-wrap: wrap;
