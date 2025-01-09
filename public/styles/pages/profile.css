@@ -88,6 +88,7 @@ img.icon {
 }
 h1.my-profile {
     font-size: var(--font-size-lg);
+    color: var(--primary);
 }
 
 .form-group {
