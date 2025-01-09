@@ -309,6 +309,7 @@ class Orders extends Controller
         $ordersModel = $this->model("OrdersModel");
         $deliveryModel = $this->model("DeliveryModel");
         $orderDetailModel = $this->model("OrderDetailModel");
+        $productsModel = $this->model("ProductsModel");
 
         $selectedItems = isset($_SESSION['selected_items']) ? $_SESSION['selected_items'] : [];
         $buyNowItem = isset($_SESSION['buy_now_item']) ? $_SESSION['buy_now_item'] : null;
@@ -328,6 +329,19 @@ class Orders extends Controller
         $address = $_POST['address'];
 
         foreach ($orderIds as $orderId) {
+            $orderDetails = $orderDetailModel->getOrderDetailsByOrderId($orderId);
+
+            foreach ($orderDetails as $orderDetail) {
+                $productId = $orderDetail['product_id'];
+                $quantity = $orderDetail['quantity'];
+
+                $updateStockResult = $productsModel->updateProductStock($productId, $quantity);
+                if (!$updateStockResult) {
+                    echo "<script>alert('An error occurred while updating product stock.');</script>";
+                    return;
+                }
+            }
+
             $ordersModel->updateOrderStatus($orderId, 'Completed');
             $insertResult = $deliveryModel->insertDelivery($orderId, $full_name, $phone_number, $address);
             if (!$insertResult) {
