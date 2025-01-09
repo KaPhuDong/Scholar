@@ -1,4 +1,4 @@
-# E-commerce Website for Study Supplies
+# Scholar - E-commerce Website for Study Supplies
 
 This project is an e-commerce website designed to sell study supplies for students, office workers, and professionals. The website offers a variety of products such as writing tools, notebooks & stationery, and study & office accessories. The website is built using PHP, JavaScript, HTML, and CSS, and follows the MVC (Model-View-Controller) design pattern for scalable and maintainable code.
 
