@@ -102,6 +102,7 @@
 .order-table td:last-child,
 .order-table th:last-child {
     border-right: none;
+    min-width: 100px;
 }
 
 td .product-img {
