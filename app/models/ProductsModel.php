@@ -111,14 +111,14 @@ class ProductsModel extends Database
         $qr = "INSERT INTO products (name, category_id, description, price, stock) 
                VALUES ('$name', $category_id, '$description', $price, $stock)";
         $result = mysqli_query($this->con, $qr);
-    
+
         if ($result && $image_url) {
             $product_id = mysqli_insert_id($this->con);
             $qr_image = "INSERT INTO product_images (product_id, image_url) 
                          VALUES ($product_id, '$image_url')";
             mysqli_query($this->con, $qr_image);
         }
-    
+
         return $result;
     }
 
@@ -149,4 +149,14 @@ class ProductsModel extends Database
         return $result;
     }
 
+    public function updateProductStock($product_id, $quantity_sold)
+    {
+        $qr = "UPDATE products 
+           SET stock = stock - $quantity_sold 
+           WHERE product_id = $product_id AND stock >= $quantity_sold";
+
+        $result = mysqli_query($this->con, $qr);
+
+        return $result;
+    }
 }
