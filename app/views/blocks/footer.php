@@ -8,9 +8,9 @@
             <p>Sell school supplies of Scholar website</p>
         </a>
         <div class="social">
-            <img src="./Facebook.svg" alt="">
-            <img src="./Twitter.svg" alt="">
-            <img src="./LinkedIn.svg" alt="">
+            <img src="./public/assets/icons/Facebook.svg" alt="">
+            <img src="./public/assets/icons/Twitter.svg" alt="">
+            <img src="./public/assets/icons/LinkedIn.svg" alt="">
         </div>
     </div>
     <div class="writes">
