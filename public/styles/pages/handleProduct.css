@@ -1,0 +1,70 @@
+
+.update-product {
+    margin-top: 30px;
+    margin-left: 160px;
+    width: 720px;
+    height: 500px;
+    border: 2px solid var(--primary);
+    border-radius: var(--border-radius-lg);
+}
+
+.infor-product {
+    margin: 20px;
+    display: flex;
+    gap: 100px;
+    justify-content: center;
+}
+.form-update-product {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+h1.update-infor-product,
+h1.add-infor-product {
+    font-size: var(--font-size-lg);
+    text-align: center;
+    margin-bottom: 15px;
+}
+
+.form-product {
+    margin-bottom: 5px;
+    display: flex;
+    gap: 30px;
+}
+
+.form-product label {
+    min-width: 150px; 
+    font-size: var(--font-size-xsm);
+}
+
+.form-product input {
+    min-width: 350px;
+    padding: 5px;
+    border: 1px solid var(--primary);
+    border-radius: var(--border-radius-sm);
+    font-size: 16px;
+}
+
+.form-product-btn {
+    display: flex;
+    gap: 175px;
+}
+.btn-add-product {
+    min-width: 185px;
+    padding: 5px;
+    font-size: var(--font-size-sm);
+    border: 2px solid var(--primary);
+    border-radius: var(--border-radius-md);
+    background-color: var(--primary);
+    color: var(--light);
+    font-weight: var(--font-weight-bold);
+    transition: all 0.3s ease;
+}
+
+.btn-add-product:hover {
+    cursor: pointer;
+    transform: scale(1.02);  
+    background-color:rgb(117, 180, 223);
+}
+
+

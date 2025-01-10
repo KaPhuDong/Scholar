@@ -1,0 +1,46 @@
+/* Custom variables, Custom properties */
+:root {
+  /* Colors */
+  --primary: #76c1e1;
+  --secondary: #f0efef;
+  --light: #fff;
+  --dark: #000000;
+
+  --text-color-primary: var(--primary);
+  --text-color-light: var(--light);
+  --text-color-dark: var(--dark);
+
+  --bg-color-primary: var(--primary);
+  --bg-color-secondary: var(--secondary);
+  --border-color: var(--primary);
+
+  --hover-color: #4194b8;
+  --shadow-color: #d0cfcf;
+
+  /* Radii */
+  --border-radius-sm: 5px;
+  --border-radius-md: 7px;
+  --border-radius-lg: 10px;
+  --border-radius-xl: 20px;
+  --border-radius-full: 100%;
+
+  /* font-family */
+  --font-family: "Poppins", sans-serif;
+
+  /* font-size */
+  --font-size-xsm: 18px;
+  --font-size-sm: 20px;
+  --font-size-md: 24px;
+  --font-size-lg: 30px;
+  --font-size-xl: 40px;
+  --font-size-xxl: 50px;
+
+  /* font-weight*/
+  --font-weight-light: 400; 
+  --font-weight-normal: 500;
+  --font-weight-bold: 600;
+
+  /* line-height */
+  --line-height: 140%;
+   
+}

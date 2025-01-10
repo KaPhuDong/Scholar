@@ -1,0 +1,21 @@
+.footer {
+    max-height: 250px;
+    background-color: var(--bg-color-primary);
+    display: flex;
+    gap: 20px;
+    padding: 58px 70px;  
+}
+
+.footer .scholar, 
+.footer .writes,
+.footer .notes,
+.footer .gears,
+.footer .more {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.footer a:hover {
+    cursor: pointer;
+}

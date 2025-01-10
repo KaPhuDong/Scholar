@@ -1,0 +1,126 @@
+.order-management {
+    width: 92%;
+    padding: 20px;
+    background-color: #fff;
+    border-radius: var(--border-radius-lg);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    margin-left: 20px;
+}
+
+.order-management .header-order {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.header-order .title {
+    font-size: var(--font-size-md);
+}   
+
+.header-order .search-order form {
+    display: flex;
+    align-items: center;
+    border: 1px solid #ccc;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+}
+
+.search-order .input-order {
+    width: 200px; 
+    padding: 5px 5px;
+    border: none;
+    outline: none;
+    font-size: 14px;
+    background-color: transparent; 
+}
+
+.search-order .input-order::placeholder {
+    font-style: italic;
+}
+
+.search-order .button-order {
+    padding: 8px 8px;
+    background-color: var(--primary);
+    border: none;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.order-management .filter {
+    margin-block: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.filter .filter-button {
+    background-color:var(--primary);
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    font-size: 14px;
+    border-radius: 5px;
+    transition: all 0.3s ease-in-out;
+    width: 100px;
+    text-align: center;
+}
+
+.order-table {
+    width: 100%;
+    border-collapse: collapse;
+    background-color: #fff;
+    border: 1px solid #ddd;
+}
+
+.order-table th,
+.order-table td {
+    text-align: center;
+    vertical-align: middle; /* Căn giữa dọc */
+    padding: 10px;
+    border-right: 1px solid #ddd;
+    border-bottom: 1px solid #ddd;
+    word-wrap: break-word; /* Cho phép ngắt dòng khi từ quá dài */
+    overflow-wrap: anywhere; /* Đảm bảo ngắt dòng email dài */
+
+}
+
+.order-table th {
+    background-color: #f1f4f9;
+    font-weight: bold;
+    text-transform: uppercase;
+    font-size: 14px;
+    border-bottom: 2px solid #ddd;
+}
+
+.order-table tbody tr:hover {
+    background-color: #f9f9f9;
+}
+
+.order-table td:last-child,
+.order-table th:last-child {
+    border-right: none;
+    min-width: 100px;
+}
+
+td .product-img {
+    width: 85%;
+    height: 90px;
+    object-fit: cover;
+}
+
+.details-link {
+    text-decoration: none;
+    color: #007bff;
+    font-weight: bold;
+    transition: all 0.3s ease-in-out;
+}
+
+.details-link:hover {
+    color: #0056b3;
+    text-decoration: underline;
+}
+
+

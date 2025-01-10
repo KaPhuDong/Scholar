@@ -1,0 +1,61 @@
+.form-container {
+    border-radius: var( --border-radius-xl);
+    background-color: var(--light);
+    max-width: 400px;
+    padding: 40px 50px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    align-items: center;
+    margin: 20px auto;
+}
+
+.form-container {
+    display: flex;
+    flex-direction: column;
+    gap: 25px;
+}
+
+.form-container .form-header {
+    text-align: center;
+}
+
+.form-header .heading {
+    font-size: var(--font-size-xl);
+    color: var(--text-color-primary);
+}
+
+.form-container .form-register {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    width: 100%;
+}
+
+.form-register .btn-signin-submit {
+    border-radius: var(--border-radius-lg);
+    background-color: var(--primary);
+    font-weight: var(--font-weight-bold);
+    height: 45px;
+    width: 200px;
+    margin-top:10px;
+    margin-inline: auto;
+    cursor: pointer;
+}
+
+.form-container .form-footer {
+    align-self: flex-start;
+    font-size: 14px;
+}
+
+.form-footer .btn-register, 
+.form-footer .btn-login {
+    color: var(--text-color-primary);
+    font-weight: var(--font-weight-bold);
+}
+
+.form-register .btn-signin-submit:hover {
+    cursor: pointer;
+    transform: scale(1.05);  
+    background-color:rgb(166, 205, 231); 
+}

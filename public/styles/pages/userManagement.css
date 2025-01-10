@@ -1,0 +1,156 @@
+.user-management {
+    width: 92%;
+    padding: 20px;
+    background-color: #fff;
+    border-radius: var(--border-radius-lg);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    margin-left: 20px;
+}
+
+.user-management .header-user {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.header-user .title {
+    font-size: var(--font-size-md);
+}
+
+.header-user .search-user {
+    display: flex;
+    justify-content: flex-end; 
+    align-items: center;
+    gap: 10px;
+}
+
+.header-user .search-user form {
+    display: flex;
+    align-items: center;
+    border: 1px solid #ccc;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+}
+
+.search-user .input-user {
+    width: 200px; 
+    padding: 5px 5px;
+    border: none;
+    outline: none;
+    font-size: 14px;
+    background-color: transparent; 
+}
+
+.search-user .input-user::placeholder {
+    font-style: italic;
+}
+
+.search-user .button-user {
+    padding: 8px 8px;
+    background-color: var(--primary);
+    border: none;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.user-management .filter {
+    margin-block: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.filter .filter-button {
+    background-color: var(--primary);
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    font-size: 14px;
+    border-radius: var(--border-radius-sm);
+    transition: all 0.3s ease-in-out;
+    width: 100px;
+    text-align: center;
+}
+
+.user-management .user-table {
+    width: 100%;
+    border-collapse: collapse;
+    background-color: #fff;
+    border: 1px solid #ddd;
+}
+
+.user-table th,
+.user-table td {
+    text-align: center;
+    vertical-align: middle;
+    padding: 10px;
+    border-right: 1px solid #ddd;
+    border-bottom: 1px solid #ddd;
+    word-wrap: break-word;
+    overflow-wrap: anywhere;
+}
+
+.user-table th {
+    background-color: #f1f4f9;
+    font-weight: bold;
+    font-size: 14px;
+    border-bottom: 2px solid #ddd;
+}
+
+.user-table tbody tr:hover {
+    background-color: #f9f9f9;
+}
+
+.user-table td:last-child,
+.user-table th:last-child {
+    border-right: none;
+}
+
+.avatar-user {
+    width: 100px;
+    height: 100px;
+    object-fit: cover;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.user-table .column-id {
+    width: 45px;
+}
+
+.user-table .column-username {
+    width: 100px;
+}
+
+.user-table .column-avatar {
+    width: 120px;
+}
+
+.user-table .column-email {
+    width: 180px;
+}
+
+.user-table .column-phone {
+    width: 110px;
+}
+
+.user-table .column-address {
+    width: 120px;
+}
+
+.user-table .column-action {
+    width: 80px;
+}
+
+.product-management .pagination {
+    padding-top: 20px;
+    text-align: center;
+    transition: all 0.3s ease-in-out;
+}
+
+.pagination a:hover {
+    color: var(--text-color-primary);
+    font-weight: var(--font-weight-bold);
+}

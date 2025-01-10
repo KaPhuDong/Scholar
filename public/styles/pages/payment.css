@@ -1,0 +1,59 @@
+.payment-container {
+    border-radius: var( --border-radius-xl);
+    background-color: var(--light);
+    padding: 40px;
+    margin: 20px auto;
+    display: flex;
+    gap: 50px;
+    max-width: 1000px;
+}
+
+.payment-container .left-content {
+    width: 54%;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    justify-content: center;
+    align-items: center;
+}
+
+.left-content .summary {
+    font-weight: var(--font-weight-bold);
+    width: 100%;
+    align-self: flex-start;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    margin-top: 10px;
+    padding-block: 10px;
+    border-top: 1px solid var(--dark);
+}
+
+.payment-container .right-content {
+    padding-left: 50px;
+    border-left: 1px solid var(--dark);
+    width: 100%;
+}
+
+.right-content .form-container-payment {
+    border-radius: 0px;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    padding: 0;
+    margin: 0;
+}
+
+.form-container-payment .form-payment {
+    flex: 1;
+}
+
+.left-content .order-heading,
+.right-content .payment-heading {
+    font-size: var(--font-size-lg);
+    font-weight: var(--font-weight-bold);
+}
+
+
+
