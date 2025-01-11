@@ -83,7 +83,3 @@
 .no-search-result .title, .content{
     font-size: var(--font-size-sm);
 }
-
-.cards {
-    align-self: flex-start;
-}
