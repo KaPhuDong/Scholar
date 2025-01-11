@@ -5,9 +5,11 @@
     width: 100%;
 }
 #body {
+    max-width: 1229px;
     padding-top: 120px;
-    margin-inline: 60px;
+    padding-inline: 55px;
     margin-bottom: 70px;
+    margin-inline: auto;
     display: flex;
     flex-direction: column;
     gap: 100px;

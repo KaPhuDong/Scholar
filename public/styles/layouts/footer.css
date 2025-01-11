@@ -1,9 +1,11 @@
 .footer {
-    max-height: 250px;
     background-color: var(--bg-color-primary);
+    max-height: 250px;
+    max-width: 1286px;
     display: flex;
     gap: 20px;
-    padding: 58px 70px;  
+    padding: 58px 40px;  
+    margin-inline: auto;
 }
 
 .footer .scholar, 
