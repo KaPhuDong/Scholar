@@ -10,7 +10,7 @@
 </head>
 
 <body class="container">
-    <div>
+    <div class="authentication-container">
         <?php require_once "./app/views/pages/" . $data["Page"] . ".php" ?>
     </div>
 </body>

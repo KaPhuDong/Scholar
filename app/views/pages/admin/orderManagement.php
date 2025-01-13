@@ -11,11 +11,11 @@ $searchKeyword = $data["SearchKeyword"] ?? '';
         <p class="title">Order Management</p>
         <div class="search-order">
             <form action="/Scholar/admin/orderManagement" method="GET">
-                <input 
-                    type="text" 
-                    name="keyword" 
-                    class="input-order" 
-                    placeholder="Search for date..." 
+                <input
+                    type="text"
+                    name="keyword"
+                    class="input-order"
+                    placeholder="Search for date..."
                     value="<?php echo $searchKeyword; ?>" />
 
                 <button type="submit" class="button-order">
@@ -37,9 +37,9 @@ $searchKeyword = $data["SearchKeyword"] ?? '';
 
                 <!-- Page Numbers -->
                 <?php for ($i = 1; $i <= $totalPages; $i++): ?>
-                    <a href="/Scholar/admin/orderManagement?keyword=<?php echo $searchKeyword; ?>&page=<?php echo $i; ?>" 
-                       class="<?php echo ($i == $currentPage) ? 'active' : ''; ?>">
-                       <?php echo $i; ?>
+                    <a href="/Scholar/admin/orderManagement?keyword=<?php echo $searchKeyword; ?>&page=<?php echo $i; ?>"
+                        class="<?php echo ($i == $currentPage) ? 'active' : ''; ?>">
+                        <?php echo $i; ?>
                     </a>
                 <?php endfor; ?>
 
@@ -70,7 +70,7 @@ $searchKeyword = $data["SearchKeyword"] ?? '';
                         <tr>
                             <td><?php echo $order['ID']; ?></td>
                             <td><?php echo $order['Recipient']; ?></td>
-                            <td><?php echo$order['Phone']; ?></td>
+                            <td class="phone-number"><?php echo $order['Phone']; ?></td>
                             <td><?php echo $order['Delivery_Address']; ?></td>
                             <td>
                                 <img src="<?php echo $order['Product_Image']; ?>" alt="Product Image" class="product-img">

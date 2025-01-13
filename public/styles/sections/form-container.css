@@ -1,7 +1,7 @@
 .form-container {
     border-radius: var( --border-radius-xl);
     background-color: var(--light);
-    max-width: 400px;
+    min-width: 400px;
     padding: 40px 50px;
     display: flex;
     flex-direction: column;
@@ -10,10 +10,8 @@
     margin: 20px auto;
 }
 
-.form-container {
-    display: flex;
-    flex-direction: column;
-    gap: 25px;
+.form-container-register {
+    min-width: 500px;
 }
 
 .form-container .form-header {

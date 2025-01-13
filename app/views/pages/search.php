@@ -39,7 +39,7 @@
     <?php endif; ?>
 </div>
 
-<div class="cards">
+<div class="cards cards-in-search">
     <?php if (!empty($data['Products'])): ?>
         <?php foreach ($data['Products'] as $product): ?>
             <a href="/Scholar/Products/getProductInformation/<?php echo $product['product_id']; ?>">

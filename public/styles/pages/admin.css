@@ -48,8 +48,9 @@
 } */
 
 .admin-container {
+    max-width: 1367px;
+    margin-inline: auto; 
     display: flex;
-    
 }
 
 .admin-container .admin-sidebar {

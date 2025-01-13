@@ -1,6 +1,11 @@
 .cards {
+    width: 100%;
     display: flex;
     row-gap: 40px;
-    column-gap: 35px;
+    justify-content: space-between;
     flex-wrap: wrap;
+}
+
+.cards-in-search {
+    justify-content: flex-start; 
 }
