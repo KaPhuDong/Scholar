@@ -10,12 +10,6 @@
     margin: 20px auto;
 }
 
-.form-container {
-    display: flex;
-    flex-direction: column;
-    gap: 25px;
-}
-
 .form-container .form-header {
     text-align: center;
 }
