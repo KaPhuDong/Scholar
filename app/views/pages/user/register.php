@@ -1,4 +1,4 @@
-<div class="form-container">
+<div class="form-container form-container-register">
     <div class="form-header">
         <h1 class="heading">Register Yourself</h1>
         <p class="description">Begin your journey with us today</p>
