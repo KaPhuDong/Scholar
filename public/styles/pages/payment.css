@@ -4,17 +4,18 @@
     padding: 40px;
     margin: 20px auto;
     display: flex;
-    gap: 50px;
     max-width: 1000px;
 }
 
 .payment-container .left-content {
-    width: 54%;
+    max-width: 540px;
     display: flex;
     flex-direction: column;
     gap: 10px;
     justify-content: center;
     align-items: center;
+    padding-right: 40px;
+    box-sizing: border-box;
 }
 
 .left-content .summary {
@@ -30,7 +31,7 @@
 }
 
 .payment-container .right-content {
-    padding-left: 50px;
+    padding-left: 40px;
     border-left: 1px solid var(--dark);
     width: 100%;
 }
