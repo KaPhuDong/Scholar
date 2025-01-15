@@ -18,7 +18,7 @@ class Admin extends Controller
 
 
         $this->view("admin", [
-            "Page" => "admin/dashBoard", 
+            "Page" => "admin/dashBoard",
             "TotalUsers" => $totalUsers,
             "TotalOrders" => $totalOrders,
             "TotalProducts" => $totalProducts
@@ -28,26 +28,26 @@ class Admin extends Controller
     public function userManagement()
     {
         $usersModel = $this->model("UsersModel");
-    
+
         $searchKeyword = $_GET['keyword'] ?? '';
-    
+
         if ($searchKeyword) {
             $users = $usersModel->searchUsersByName($searchKeyword);
         } else {
             $users = $usersModel->getUsers();
         }
-    
+
         $usersPerPage = 10;
         $totalUsers = count($users);
-    
+
         $totalPages = ceil($totalUsers / $usersPerPage);
-    
+
         $currentPage = $_GET['page'] ?? 1;
-    
+
         $offset = ($currentPage - 1) * $usersPerPage;
-    
+
         $paginatedUsers = array_slice($users, $offset, $usersPerPage);
-    
+
         $this->view("admin", [
             "Page" => "admin/userManagement",
             "Users" => $paginatedUsers,
@@ -57,8 +57,6 @@ class Admin extends Controller
             "TotalUsers" => $totalUsers
         ]);
     }
-    
-    
 
     public function deleteUser()
     {
@@ -69,7 +67,6 @@ class Admin extends Controller
 
             $usersModel->deleteUserById($userId);
             echo "<script>
-                    alert('User deleted successfully!');
                     window.location.href = '/Scholar/Admin/userManagement';
                 </script>";
             exit;
@@ -77,41 +74,39 @@ class Admin extends Controller
     }
 
     public function orderManagement()
-{
-    $orderDetailsModel = $this->model("OrderDetailModel");
+    {
+        $orderDetailsModel = $this->model("OrderDetailModel");
 
-    $searchKeyword = $_GET['keyword'] ?? '';
+        $searchKeyword = $_GET['keyword'] ?? '';
 
-    if ($searchKeyword) {
-        $orderDetails = $orderDetailsModel->searchOrdersByTime($searchKeyword);
-    } else {
-        $orderDetails = $orderDetailsModel->getOrderDetails();
+        if ($searchKeyword) {
+            $orderDetails = $orderDetailsModel->searchOrdersByTime($searchKeyword);
+        } else {
+            $orderDetails = $orderDetailsModel->getOrderDetails();
+        }
+
+        $perPage = 10;
+        $totalOrders = count($orderDetails);
+        $totalPages = ceil($totalOrders / $perPage);
+
+        $page = isset($_GET['page']) && ($_GET['page']) ? (int)$_GET['page'] : 1;
+
+        if ($page < 1) $page = 1;
+        if ($page > $totalPages) $page = $totalPages;
+
+        $startIndex = ($page - 1) * $perPage;
+
+        $currentOrders = array_slice($orderDetails, $startIndex, $perPage);
+
+        $this->view("admin", [
+            "Page" => "admin/orderManagement",
+            "Orders" => $currentOrders,
+            "TotalPages" => $totalPages,
+            "CurrentPage" => $page,
+            "TotalOrders" => $totalOrders,
+            "SearchKeyword" => $searchKeyword
+        ]);
     }
-
-    $perPage = 10;
-    $totalOrders = count($orderDetails);
-    $totalPages = ceil($totalOrders / $perPage);
-
-    $page = isset($_GET['page']) && ($_GET['page']) ? (int)$_GET['page'] : 1;
-
-    if ($page < 1) $page = 1;
-    if ($page > $totalPages) $page = $totalPages;
-
-    $startIndex = ($page - 1) * $perPage;
-
-    $currentOrders = array_slice($orderDetails, $startIndex, $perPage);
-
-    $this->view("admin", [
-        "Page" => "admin/orderManagement",
-        "Orders" => $currentOrders,
-        "TotalPages" => $totalPages,
-        "CurrentPage" => $page,
-        "TotalOrders" => $totalOrders,
-        "SearchKeyword" => $searchKeyword
-    ]);
-}
-
-    
 
     public function productManagement()
     {
@@ -157,33 +152,34 @@ class Admin extends Controller
         ]);
     }
 
-    public function searchUserByName() {
+    public function searchUserByName()
+    {
         $searchKeyword = trim($_GET['keyword'] ?? '');
         $currentPage = isset($_GET['page']) ? (int)$_GET['page'] : 1;
         $usersPerPage = 8;
-        
+
         if (empty($searchKeyword)) {
             $this->userManagement();
             return;
         }
-    
+
         $userModel = $this->model("UserModel");
-    
+
         $matchingUsers = $userModel->searchUsersByName($searchKeyword);
         $totalUsers = count($matchingUsers);
-        
+
         $totalPages = ceil($totalUsers / $usersPerPage);
-    
+
         if ($currentPage > $totalPages) {
             $currentPage = $totalPages;
         } elseif ($currentPage < 1) {
             $currentPage = 1;
         }
-    
+
         $offset = ($currentPage - 1) * $usersPerPage;
-    
+
         $paginatedUsers = array_slice($matchingUsers, $offset, $usersPerPage);
-    
+
         $this->view("admin", [
             "Page" => "admin/userManagement",
             "Users" => $paginatedUsers,
@@ -193,34 +189,33 @@ class Admin extends Controller
             "TotalUsers" => $totalUsers,
         ]);
     }
-    
-    
+
     public function searchOrdersByTime()
     {
         $searchKeyword = trim($_GET['keyword'] ?? '');
-    
+
         if (empty($searchKeyword)) {
             $this->orderManagement();
             return;
         }
-    
+
         $orderDetailsModel = $this->model("OrderDetailModel");
-    
+
         $matchingOrders = $orderDetailsModel->searchOrdersByTime($searchKeyword);
-    
+
         $perPage = 10;
         $totalOrders = count($matchingOrders);
         $totalPages = ceil($totalOrders / $perPage);
-    
+
         $page = isset($_GET['page']) && ($_GET['page']) ? (int)$_GET['page'] : 1;
-    
+
         if ($page < 1) $page = 1;
         if ($page > $totalPages) $page = $totalPages;
-    
+
         $startIndex = ($page - 1) * $perPage;
-    
+
         $currentOrders = array_slice($matchingOrders, $startIndex, $perPage);
-    
+
         $this->view("admin", [
             "Page" => "admin/orderManagement",
             "Orders" => $currentOrders,
@@ -230,7 +225,6 @@ class Admin extends Controller
             "TotalOrders" => $totalOrders,
         ]);
     }
-    
 
     public function searchProductByName()
     {
@@ -292,7 +286,6 @@ class Admin extends Controller
 
             if ($deleteProduct) {
                 echo "<script>
-                    alert('Product deleted successfully!');
                     window.location.href = '/Scholar/Admin/productManagement';
                 </script>";
                 exit;
@@ -314,7 +307,7 @@ class Admin extends Controller
         $this->view("admin", [
             "Page" => "admin/handleProduct",
             "Product" => $product,
-            "Action" => "update", 
+            "Action" => "update",
         ]);
     }
 
@@ -322,7 +315,7 @@ class Admin extends Controller
     {
         $this->view("admin", [
             "Page" => "admin/handleProduct",
-            "Action" => "add", 
+            "Action" => "add",
         ]);
     }
 
@@ -342,8 +335,8 @@ class Admin extends Controller
                     window.history.back();
                 </script>";
             return;
-        }    
-  
+        }
+
         if (isset($_FILES['productimage']) && $_FILES['productimage']['error'] === UPLOAD_ERR_OK) {
             $uploadDir = './public/assets/images/products/';
             if (!is_dir($uploadDir)) {
@@ -388,7 +381,7 @@ class Admin extends Controller
 
 
         $this->view("admin", [
-            "Page" => "admin/dashBoard", 
+            "Page" => "admin/dashBoard",
             "TotalUsers" => $totalUsers,
             "TotalOrders" => $totalOrders,
             "TotalProducts" => $totalProducts

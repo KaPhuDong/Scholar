@@ -11,11 +11,11 @@ $searchKeyword = $data["SearchKeyword"] ?? '';
         <p class="title">User Management</p>
         <div class="search-user">
             <form action="/Scholar/admin/userManagement/searchUserByName" method="GET">
-                <input 
-                    type="text" 
-                    name="keyword" 
-                    class="input-user" 
-                    placeholder="Search for users..." 
+                <input
+                    type="text"
+                    name="keyword"
+                    class="input-user"
+                    placeholder="Search for users..."
                     value="<?php echo $searchKeyword; ?>" />
                 <input type="hidden" name="page" value="<?php echo $currentPage; ?>" />
                 <button type="submit" class="button-user">
@@ -37,9 +37,9 @@ $searchKeyword = $data["SearchKeyword"] ?? '';
 
                 <!-- Page Numbers -->
                 <?php for ($i = 1; $i <= $totalPages; $i++): ?>
-                    <a href="/Scholar/admin/userManagement/searchUserByName?keyword=<?php echo $searchKeyword; ?>&page=<?php echo $i; ?>" 
-                       class="<?php echo ($i == $currentPage) ? 'active' : ''; ?>">
-                       <?php echo $i; ?>
+                    <a href="/Scholar/admin/userManagement/searchUserByName?keyword=<?php echo $searchKeyword; ?>&page=<?php echo $i; ?>"
+                        class="<?php echo ($i == $currentPage) ? 'active' : ''; ?>">
+                        <?php echo $i; ?>
                     </a>
                 <?php endfor; ?>
 
