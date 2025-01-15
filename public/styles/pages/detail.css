@@ -37,7 +37,7 @@
 .recommend-product-detail .recommend-product {
     width: 180px;
     height: 140px;
-    /* border: 2px solid var(--border-color); */
+    object-fit: cover;
     border-radius: var(--border-radius-md);
 }
 
