@@ -1,8 +1,8 @@
 <?php
 $totalUsers = $data["TotalUsers"];
 $totalOrders = $data["TotalOrders"];
+$totalProducts = $data["TotalProducts"];
 ?>
-
 
 <div class="dashboard">
     <div class="dashboard-header">
@@ -16,7 +16,7 @@ $totalOrders = $data["TotalOrders"];
         </div>
         <div class="stat-card">
             <h3>Total Products</h3>
-            <p><?php echo $data['TotalProducts'];; ?></p>
+            <p><?php echo $totalProducts; ?></p>
         </div>
         <div class="stat-card">
             <h3>Total Orders</h3>
