@@ -146,6 +146,7 @@ class Orders extends Controller
             }
 
             echo "<script>
+                alert('Are you sure you want to delete this product?');
                 window.location.href = '/Scholar/Orders/viewCart';
                 </script>";
             exit;
