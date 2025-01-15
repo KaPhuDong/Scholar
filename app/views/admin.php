@@ -7,6 +7,7 @@
     <title>Admin</title>
     <base href="http://localhost:8080/Scholar/">
     <link rel="stylesheet" href="public/styles/main.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 </head>
 
 <body>
@@ -34,6 +35,7 @@
     <div class="admin-container">
         <div class="admin-sidebar">
             <ul class="sidebar-menu">
+                <li class="menu-item"><a href="/Scholar/Admin/dashBoard">Dash Board</a></li>
                 <li class="menu-item"><a href="/Scholar/Admin/userManagement">User management</a></li>
                 <li class="menu-item"><a href="/Scholar/Admin/productManagement">Product management</a></li>
                 <li class="menu-item"><a href="/Scholar/Admin/orderManagement">Order management</a></li>

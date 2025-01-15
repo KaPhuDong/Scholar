@@ -3,22 +3,25 @@ class Admin extends Controller
 {
     public function index()
     {
+
         $usersModel = $this->model("UsersModel");
         $users = $usersModel->getUsers();
-
-        $perPage = 10;
         $totalUsers = count($users);
-        $totalPages = ceil($totalUsers / $perPage);
-        $page = isset($_GET['page']) ? (int)$_GET['page'] : 1;
-        $startIndex = ($page - 1) * $perPage;
-        $currentUsers = array_slice($users, $startIndex, $perPage);
+
+        $orderDetailsModel = $this->model("OrderDetailModel");
+        $orderDetails = $orderDetailsModel->getOrderDetails();
+        $totalOrders = count($orderDetails);
+
+        $productsModel = $this->model("ProductsModel");
+        $products = $productsModel->getProducts();
+        $totalProducts = count($products);
+
 
         $this->view("admin", [
-            "Page" => "admin/userManagement",
-            "Users" => $currentUsers,
-            "TotalPages" => $totalPages,
-            "CurrentPage" => $page,
-            "TotalUsers" => $totalUsers
+            "Page" => "admin/dashBoard", 
+            "TotalUsers" => $totalUsers,
+            "TotalOrders" => $totalOrders,
+            "TotalProducts" => $totalProducts
         ]);
     }
 
@@ -369,4 +372,26 @@ class Admin extends Controller
             </script>";
     }
 
+    public function dashBoard()
+    {
+        $usersModel = $this->model("UsersModel");
+        $users = $usersModel->getUsers();
+        $totalUsers = count($users);
+
+        $orderDetailsModel = $this->model("OrderDetailModel");
+        $orderDetails = $orderDetailsModel->getOrderDetails();
+        $totalOrders = count($orderDetails);
+
+        $productsModel = $this->model("ProductsModel");
+        $products = $productsModel->getProducts();
+        $totalProducts = count($products);
+
+
+        $this->view("admin", [
+            "Page" => "admin/dashBoard", 
+            "TotalUsers" => $totalUsers,
+            "TotalOrders" => $totalOrders,
+            "TotalProducts" => $totalProducts
+        ]);
+    }
 }
