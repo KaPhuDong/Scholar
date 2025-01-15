@@ -104,6 +104,10 @@
     min-width: 100px;
 }
 
+.order-table .column-recipient {
+    min-width: 100px;
+}
+
 .order-table td:last-child,
 .order-table th:last-child {
     border-right: none;
