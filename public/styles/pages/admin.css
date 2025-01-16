@@ -43,10 +43,6 @@
     background-color:var(--primary);
 }
 
-/* .menu-item.active {
-    background-color:var(--primary);
-} */
-
 .admin-container {
     max-width: 1367px;
     margin-inline: auto; 
@@ -55,7 +51,7 @@
 
 .admin-container .admin-sidebar {
     max-width: 275px;
-    height: 100vh;
+    min-height: 555px;
 }
 
 .admin-container .main-content {
