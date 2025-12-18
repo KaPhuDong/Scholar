@@ -5,9 +5,9 @@ $status = $data["Status"];
 <div class="history-order-container">
     <h1 class="main-title">My orders</h1>
     <div class="status">
-        <a class="status-item <?php echo ($status == 'Pending') ? 'active' : ''; ?>" href="/Scholar/Orders/historyOrders?status=Pending">Pending</a>
-        <a class="status-item <?php echo ($status == 'Processing') ? 'active' : ''; ?>" href="/Scholar/Orders/historyOrders?status=Processing">Processing</a>
-        <a class="status-item <?php echo ($status == 'Completed') ? 'active' : ''; ?>" href="/Scholar/Orders/historyOrders?status=Completed">Completed</a>
+        <a class="status-item <?php echo ($status == 'Pending') ? 'active' : ''; ?>" href="/Orders/historyOrders?status=Pending">Pending</a>
+        <a class="status-item <?php echo ($status == 'Processing') ? 'active' : ''; ?>" href="/Orders/historyOrders?status=Processing">Processing</a>
+        <a class="status-item <?php echo ($status == 'Completed') ? 'active' : ''; ?>" href="/Orders/historyOrders?status=Completed">Completed</a>
     </div>
 
     <div class="order-histories">

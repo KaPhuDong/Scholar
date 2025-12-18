@@ -3,7 +3,7 @@
         <h1 class="heading">Register Yourself</h1>
         <p class="description">Begin your journey with us today</p>
     </div>
-    <form action="/Scholar/User/register" method="post" class="form-register">
+    <form action="/User/register" method="post" class="form-register">
         <!-- Full Name -->
         <div class="name form-field">
             <p class="title">Full name</p>
@@ -52,7 +52,7 @@
         <button type="submit" class="btn btn-signin-submit" name="signin-submit">SIGN IN</button>
     </form>
     <p class="form-footer">
-        <a class="btn-login" href="/Scholar/User/login">Login</a>
+        <a class="btn-login" href="/User/login">Login</a>
         if you already have account.
     </p>
 </div>

@@ -34,7 +34,7 @@
     $products = array_slice($data["Products"], 0, 4);
     ?>
     <?php foreach ($products as $product): ?>
-        <a href="/Scholar/Products/getProductInformation/<?php echo $product['product_id']; ?>">
+        <a href="/Products/getProductInformation/<?php echo $product['product_id']; ?>">
             <div class="card">
                 <img src="<?php echo $product['images'][0]['image_url']; ?>" alt="product" class="img">
                 <div class="content">
@@ -66,7 +66,7 @@
     $products = array_slice($data["Products"], 4, 4);
     ?>
     <?php foreach ($products as $product): ?>
-        <a href="/Scholar/Products/getProductInformation/<?php echo $product['product_id']; ?>">
+        <a href="/Products/getProductInformation/<?php echo $product['product_id']; ?>">
             <div class="card">
                 <img src="<?php echo $product['images'][0]['image_url']; ?>" alt="product" class="img">
                 <div class="content">

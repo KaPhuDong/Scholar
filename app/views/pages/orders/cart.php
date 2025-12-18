@@ -3,7 +3,7 @@ $cartItems = $data["CartItems"];
 $totalAmount = 0;
 ?>
 
-<form class="cart-checkout-form" id="cart-checkout-form" action="/Scholar/Orders/checkout" method="POST">
+<form class="cart-checkout-form" id="cart-checkout-form" action="/Orders/checkout" method="POST">
     <div class="shopping-cart">
         <div class="cart-title">Shopping Cart</div>
         <div class="content-cart">
@@ -26,12 +26,12 @@ $totalAmount = 0;
                                 <div class="price">$<?= number_format($item['product']['price'], 2) ?></div>
 
                                 <div class="quantity" id="quantity-in-cart">
-                                    <a href="/Scholar/Orders/updateQuantity?order_detail_id=<?= $item['order_detail_id'] ?>&action=decrease&quantity=<?= $item['quantity'] ?>" class="decrease">-</a>
+                                    <a href="/Orders/updateQuantity?order_detail_id=<?= $item['order_detail_id'] ?>&action=decrease&quantity=<?= $item['quantity'] ?>" class="decrease">-</a>
                                     <input class="number" name="quantity" type="number" value="<?= $item['quantity'] ?>" min="1" max="<?= $item['product']['stock']; ?>" readonly>
-                                    <a href="/Scholar/Orders/updateQuantity?order_detail_id=<?= $item['order_detail_id'] ?>&action=increase&quantity=<?= $item['quantity'] ?>" class="increase">+</a>
+                                    <a href="/Orders/updateQuantity?order_detail_id=<?= $item['order_detail_id'] ?>&action=increase&quantity=<?= $item['quantity'] ?>" class="increase">+</a>
                                 </div>
 
-                                <a href="/Scholar/Orders/removeFromCart?order_id=<?= $item['order_id'] ?>" class="delete-product-btn">
+                                <a href="/Orders/removeFromCart?order_id=<?= $item['order_id'] ?>" class="delete-product-btn">
                                     <img src="./public/assets/icons/remove.svg" alt="Delete" class="remove">
                                 </a>
                             </div>

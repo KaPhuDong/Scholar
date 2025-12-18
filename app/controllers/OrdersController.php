@@ -6,7 +6,7 @@ class Orders extends Controller
         if (!isset($_SESSION['user'])) {
             echo "<script>
                 alert('Please log in to view your cart.');
-                window.location.href = '/Scholar/User/login';
+                window.location.href = '/User/login';
             </script>";
             exit;
         }
@@ -50,7 +50,7 @@ class Orders extends Controller
         if (!isset($_SESSION['user'])) {
             echo "<script>
                 alert('Please log in to add items to your cart.');
-                window.location.href = '/Scholar/Products/getProductInformation/$product_id';
+                window.location.href = '/Products/getProductInformation/$product_id';
             </script>";
             exit;
         }
@@ -91,7 +91,7 @@ class Orders extends Controller
 
         echo "<script>
             alert('Product added to cart successfully!');
-            window.location.href = '/Scholar/Products/getProductInformation/$product_id';
+            window.location.href = '/Products/getProductInformation/$product_id';
         </script>";
     }
 
@@ -103,7 +103,7 @@ class Orders extends Controller
         if (!isset($_SESSION['user'])) {
             echo "<script>
                 alert('Please log in to buy this item.');
-                window.location.href = '/Scholar/Products/getProductInformation/$product_id';
+                window.location.href = '/Products/getProductInformation/$product_id';
             </script>";
             exit;
         }
@@ -131,7 +131,7 @@ class Orders extends Controller
         ];
 
         echo "<script>
-                window.location.href = '/Scholar/Orders/payMent';
+                window.location.href = '/Orders/payMent';
             </script>";
     }
 
@@ -146,7 +146,7 @@ class Orders extends Controller
             }
 
             echo "<script>
-                window.location.href = '/Scholar/Orders/viewCart';
+                window.location.href = '/Orders/viewCart';
                 </script>";
             exit;
         }
@@ -191,7 +191,7 @@ class Orders extends Controller
             }
 
             echo "<script>
-                window.location.href = '/Scholar/Orders/viewCart';
+                window.location.href = '/Orders/viewCart';
             </script>";
             exit;
         }
@@ -205,7 +205,7 @@ class Orders extends Controller
             if (empty($selectedItems)) {
                 echo "<script>
                 alert('No items selected for checkout.');
-                window.location.href = '/Scholar/Orders/viewCart';
+                window.location.href = '/Orders/viewCart';
                 </script>";
                 return;
             }
@@ -243,7 +243,7 @@ class Orders extends Controller
             }
 
             echo "<script>
-                window.location.href = '/Scholar/Orders/payMent';
+                window.location.href = '/Orders/payMent';
             </script>";
         }
     }
@@ -264,7 +264,7 @@ class Orders extends Controller
         if (empty($selectedItems) && !$buyNowItem) {
             echo "<script>
                 alert('No items selected for payment.');
-                window.location.href = '/Scholar/Orders/viewCart';
+                window.location.href = '/Orders/viewCart';
             </script>";
             return;
         }

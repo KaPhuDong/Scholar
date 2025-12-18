@@ -34,7 +34,7 @@ $product = $data["Product"];
                         </div> -->
                 </div>
                 <div class="button-detail">
-                    <form action="/Scholar/Orders/addToCart" method="POST" class="form">
+                    <form action="/Orders/addToCart" method="POST" class="form">
                         <input type="hidden" name="product_id" value="<?php echo $product['product_id']; ?>">
                         <div class="quantity-detail" id="quantity-detail">
                             <div class="underline-detail"></div>
@@ -48,7 +48,7 @@ $product = $data["Product"];
                         </div>
                     </form>
                     <!-- Nút Buy Now -->
-                    <form action="/Scholar/Orders/buyNow" method="POST" class="form">
+                    <form action="/Orders/buyNow" method="POST" class="form">
                         <input type="hidden" name="product_id" value="<?php echo $product['product_id']; ?>">
                         <input type="hidden" name="quantity" value="1" id="buy-now-quantity">
                         <button type="submit" class="btn-buy-now">Buy now</button>
@@ -74,7 +74,7 @@ $product = $data["Product"];
     $relatedProducts = array_slice($data["relatedProducts"], 1, 4);
     ?>
     <?php foreach ($relatedProducts as $relatedProduct): ?>
-        <a href="/Scholar/Products/getProductInformation/<?php echo $relatedProduct['product_id']; ?>" class="card">
+        <a href="/Products/getProductInformation/<?php echo $relatedProduct['product_id']; ?>" class="card">
             <img src="<?php echo $relatedProduct['images'][0]['image_url'] ?>" alt="product" class="img">
             <div class="content">
                 <div class="product-name"><?php echo ($relatedProduct['name']); ?></div>
@@ -87,7 +87,7 @@ $product = $data["Product"];
     $relatedProducts = array_slice($data["relatedProducts"], 5, 4);
     ?>
     <?php foreach ($relatedProducts as $relatedProduct): ?>
-        <a href="/Scholar/Products/getProductInformation/<?php echo $relatedProduct['product_id']; ?>" class="card">
+        <a href="/Products/getProductInformation/<?php echo $relatedProduct['product_id']; ?>" class="card">
             <img src="<?php echo $relatedProduct['images'][0]['image_url'] ?>" alt="product" class="img">
             <div class="content">
                 <div class="product-name"><?php echo ($relatedProduct['name']); ?></div>

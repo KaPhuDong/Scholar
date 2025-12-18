@@ -15,7 +15,7 @@ class User extends Controller
             if ($password !== $confirm_password) {
                 echo "<script>
                     alert('Passwords do not match!');
-                    window.location.href = '/Scholar/register';
+                    window.location.href = '/register';
                 </script>";
                 exit;
             }
@@ -27,7 +27,7 @@ class User extends Controller
             if (!empty($existingUser)) {
                 echo "<script>
                     alert('Email already exists. Please use a different one.');
-                    window.location.href = '/Scholar/register';
+                    window.location.href = '/register';
                 </script>";
                 exit;
             }
@@ -38,13 +38,13 @@ class User extends Controller
             if ($insertSuccess) {
                 echo "<script>
                     alert('Registration successful!');
-                    window.location.href = '/Scholar/Home';
+                    window.location.href = '/Home';
                 </script>";
                 exit;
             } else {
                 echo "<script>
                     alert('Failed to register. Please try again later.');
-                    window.location.href = '/Scholar/register';
+                    window.location.href = '/register';
                 </script>";
                 exit;
             }
@@ -76,12 +76,12 @@ class User extends Controller
 
                 if ($email === "admin@gmail.com" && $password === "admin@123") {
                     echo "<script>alert('Login successful with admin account');</script>";
-                    header("Location: /Scholar/Admin");
+                    header("Location: /Admin");
                     exit;
                 } else {
                     echo "<script>
                         alert('Login successful!');
-                        window.location.href = '/Scholar/Home';
+                        window.location.href = '/Home';
                     </script>";
                     exit;
                 }
@@ -102,7 +102,7 @@ class User extends Controller
 
         echo "<script>
             alert('You have been logged out successfully.');
-            window.location.href = '/Scholar/Home';
+            window.location.href = '/Home';
         </script>";
         exit;
     }
@@ -143,7 +143,7 @@ class User extends Controller
             if ($updateSuccess) {
                 echo "<script>
                         alert('Profile updated successfully!');
-                        window.location.href = '/Scholar/User/profile';
+                        window.location.href = '/User/profile';
                       </script>";
                 exit;
             } else {

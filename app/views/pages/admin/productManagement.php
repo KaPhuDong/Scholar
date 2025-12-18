@@ -1,5 +1,5 @@
 <div class="product-management">
-    <form action="/Scholar/Admin/productManagement" method="GET">
+    <form action="/Admin/productManagement" method="GET">
         <div class="header-product">
             <p class="title">Product Management</p>
             <div class="search-product">
@@ -47,22 +47,22 @@
         <div class="left-content">
             <div class="filter-quantity">All (<?php echo $data['TotalProducts'];; ?>)</div>
             <div class="add-product">
-                <a href="/Scholar/Admin/addProduct"><button type="submit">+ Add new product</button></a>
+                <a href="/Admin/addProduct"><button type="submit">+ Add new product</button></a>
             </div>
         </div>
 
         <?php if ($data['TotalPages'] > 1): ?>
             <div class="pagination">
                 <?php if ($data['CurrentPage'] > 1): ?>
-                    <a href="/Scholar/Admin/productManagement?keyword=<?php echo $data['SearchKeyword']; ?>&category=<?php echo $data['Category']; ?>&sort=<?php echo $data['SortOrder']; ?>&page=<?php echo $data['CurrentPage'] - 1; ?>" class="prev">Previous</a>
+                    <a href="/Admin/productManagement?keyword=<?php echo $data['SearchKeyword']; ?>&category=<?php echo $data['Category']; ?>&sort=<?php echo $data['SortOrder']; ?>&page=<?php echo $data['CurrentPage'] - 1; ?>" class="prev">Previous</a>
                 <?php endif; ?>
 
                 <?php for ($i = 1; $i <= $data['TotalPages']; $i++): ?>
-                    <a href="/Scholar/Admin/productManagement?keyword=<?php echo $data['SearchKeyword']; ?>&category=<?php echo $data['Category']; ?>&sort=<?php echo $data['SortOrder']; ?>&page=<?php echo $i; ?>" class="<?php echo ($i == $data['CurrentPage']) ? 'active' : ''; ?>"><?php echo $i; ?></a>
+                    <a href="/Admin/productManagement?keyword=<?php echo $data['SearchKeyword']; ?>&category=<?php echo $data['Category']; ?>&sort=<?php echo $data['SortOrder']; ?>&page=<?php echo $i; ?>" class="<?php echo ($i == $data['CurrentPage']) ? 'active' : ''; ?>"><?php echo $i; ?></a>
                 <?php endfor; ?>
 
                 <?php if ($data['CurrentPage'] < $data['TotalPages']): ?>
-                    <a href="/Scholar/Admin/productManagement?keyword=<?php echo $data['SearchKeyword']; ?>&category=<?php echo $data['Category']; ?>&sort=<?php echo $data['SortOrder']; ?>&page=<?php echo $data['CurrentPage'] + 1; ?>" class="next">Next</a>
+                    <a href="/Admin/productManagement?keyword=<?php echo $data['SearchKeyword']; ?>&category=<?php echo $data['Category']; ?>&sort=<?php echo $data['SortOrder']; ?>&page=<?php echo $data['CurrentPage'] + 1; ?>" class="next">Next</a>
                 <?php endif; ?>
             </div>
         <?php endif; ?>
@@ -98,14 +98,14 @@
                             <td><?php echo ($product['price']); ?></td>
                             <td><?php echo ($product['stock']); ?></td>
                             <td class="action">
-                                <form action="/Scholar/Admin/deleteProduct" method="POST" onsubmit="return confirm('Are you sure you want to delete this product?');">
+                                <form action="/Admin/deleteProduct" method="POST" onsubmit="return confirm('Are you sure you want to delete this product?');">
                                     <input type="hidden" name="product_id" value="<?php echo $product['product_id']; ?>">
                                     <button type="submit" class="delete-button">
                                         <img src="./public/assets/icons/remove.svg" alt="Delete" class="delete-icon">
                                     </button>
                                 </form>
 
-                                <form action="/Scholar/Admin/updateProduct/<?php echo $product['product_id'] ?>" method="POST" onsubmit="return confirm('Are you sure you want to edit this product?');">
+                                <form action="/Admin/updateProduct/<?php echo $product['product_id'] ?>" method="POST" onsubmit="return confirm('Are you sure you want to edit this product?');">
                                     <input type="hidden" name="product_id" value="<?php echo $product['product_id']; ?>">
                                     <button type="submit" class="edit-button">
                                         <img src="./public/assets/icons/Edit.svg" alt="Edit" class="edit-icon">

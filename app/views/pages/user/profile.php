@@ -12,15 +12,15 @@ $userData = $data["userData"];
                 <p class="user-address"><?php echo $userData['address']; ?></p>
             </div>
             <div class="menu-profile">
-                <a href="/Scholar/User/profile"><img src="./public/assets/icons/Account.svg" alt="icon-account" class="icon">My profile</a>
-                <a href="/Scholar/Orders/viewCart"><img src="./public/assets/icons/Cart.svg" alt="icon-cart" class="icon">My shopping cart</a>
-                <a href="/Scholar/Orders/historyOrders"><img src="./public/assets/icons/Order.svg" alt="icon-order" class="icon">My order</a>
+                <a href="/User/profile"><img src="./public/assets/icons/Account.svg" alt="icon-account" class="icon">My profile</a>
+                <a href="/Orders/viewCart"><img src="./public/assets/icons/Cart.svg" alt="icon-cart" class="icon">My shopping cart</a>
+                <a href="/Orders/historyOrders"><img src="./public/assets/icons/Order.svg" alt="icon-order" class="icon">My order</a>
             </div>
         </div>
     </div>
 
     <div class="profile-page">
-        <form action="/Scholar/User/updateProfile" method="POST" enctype="multipart/form-data" class="profile">
+        <form action="/User/updateProfile" method="POST" enctype="multipart/form-data" class="profile">
             <div class="form-infor">
                 <h1 class="my-profile">My profile</h1>
                 <div class="form-group">

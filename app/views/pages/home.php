@@ -5,15 +5,15 @@
 
 <!-- Category -->
 <div class="category-cards">
-    <a href="/Scholar/Home/getWrites" class="category-card">
+    <a href="/Home/getWrites" class="category-card">
         <img src="./public/assets/images/Write.jpg" alt="Writes" class="img-item">
         <div class="text">Writes</div>
     </a>
-    <a href="/Scholar/Home/getNotes" class="category-card">
+    <a href="/Home/getNotes" class="category-card">
         <img src="./public/assets/images/Note.jpg" alt="Notes" class="img-item">
         <div class="text">Notes</div>
     </a>
-    <a href="/Scholar/Home/getGears" class="category-card">
+    <a href="/Home/getGears" class="category-card">
         <img src="./public/assets/images/Gear.jpg" alt="Gears" class="img-item">
         <div class="text">Gears</div>
     </a>
@@ -25,7 +25,7 @@
     $products = array_slice($data["Products"], 13, 4);
     ?>
     <?php foreach ($products as $product): ?>
-        <a href="/Scholar/Products/getProductInformation/<?php echo $product['product_id']; ?>">
+        <a href="/Products/getProductInformation/<?php echo $product['product_id']; ?>">
             <div class="card">
                 <img src="<?php echo $product['images'][0]['image_url']; ?>" alt="product" class="img">
                 <div class="content">
@@ -44,7 +44,7 @@
         $products = array_slice($data["Products"], 15, 5);
         ?>
         <?php foreach ($products as $product): ?>
-            <a href="/Scholar/Products/getProductInformation/<?php echo $product['product_id']; ?>" class="slide">
+            <a href="/Products/getProductInformation/<?php echo $product['product_id']; ?>" class="slide">
                 <img src="<?php echo $product['images'][0]['image_url']; ?>" alt="<?php echo $product['name']; ?>">
             </a>
         <?php endforeach; ?>
@@ -57,7 +57,7 @@
     $products = array_slice($data["Products"], 8, 4);
     ?>
     <?php foreach ($products as $product): ?>
-        <a href="/Scholar/Products/getProductInformation/<?php echo $product['product_id']; ?>" class="card">
+        <a href="/Products/getProductInformation/<?php echo $product['product_id']; ?>" class="card">
             <img src="<?php echo $product['images'][0]['image_url'] ?>" alt="product" class="img">
             <div class="content">
                 <div class="product-name"><?php echo htmlspecialchars($product['name']); ?></div>
@@ -70,7 +70,7 @@
     $products = array_slice($data["Products"], 30, 4);
     ?>
     <?php foreach ($products as $product): ?>
-        <a href="/Scholar/Products/getProductInformation/<?php echo $product['product_id']; ?>" class="card">
+        <a href="/Products/getProductInformation/<?php echo $product['product_id']; ?>" class="card">
             <img src="<?php echo $product['images'][0]['image_url'] ?>" alt="product" class="img">
             <div class="content">
                 <div class="product-name"><?php echo ($product['name']); ?></div>

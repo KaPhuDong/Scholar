@@ -9,7 +9,7 @@
         $index = 1;
         ?>
         <?php foreach ($products as $product): ?>
-            <a href="/Scholar/Products/getProductInformation/<?php echo $product['product_id']; ?>" class="hero-link img-hero-<?php echo $index; ?>">
+            <a href="/Products/getProductInformation/<?php echo $product['product_id']; ?>" class="hero-link img-hero-<?php echo $index; ?>">
                 <img src="<?php echo $product['images'][0]['image_url']; ?>" alt="Product">
             </a>
             <?php $index++; ?>
@@ -24,7 +24,7 @@
         $products = array_slice($data["Products"], 5, 4);
         ?>
         <?php foreach ($products as $product): ?>
-            <a href="/Scholar/Products/getProductInformation/<?php echo $product['product_id']; ?>" class="slide">
+            <a href="/Products/getProductInformation/<?php echo $product['product_id']; ?>" class="slide">
                 <img src="<?php echo $product['images'][0]['image_url']; ?>" alt="<?php echo $product['name']; ?>">
             </a>
         <?php endforeach; ?>
@@ -37,7 +37,7 @@
     $products = array_slice($data["Products"], 6, 4);
     ?>
     <?php foreach ($products as $product): ?>
-        <a href="/Scholar/Products/getProductInformation/<?php echo $product['product_id']; ?>" class="card">
+        <a href="/Products/getProductInformation/<?php echo $product['product_id']; ?>" class="card">
             <img src="<?php echo $product['images'][0]['image_url'] ?>" alt="product" class="img">
             <div class="content">
                 <div class="product-name"><?php echo ($product['name']); ?></div>
@@ -50,7 +50,7 @@
     $products = array_slice($data["Products"], 11, 4);
     ?>
     <?php foreach ($products as $product): ?>
-        <a href="/Scholar/Products/getProductInformation/<?php echo $product['product_id']; ?>" class="card">
+        <a href="/Products/getProductInformation/<?php echo $product['product_id']; ?>" class="card">
             <img src="<?php echo $product['images'][0]['image_url'] ?>" alt="product" class="img">
             <div class="content">
                 <div class="product-name"><?php echo ($product['name']); ?></div>

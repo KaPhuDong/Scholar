@@ -5,7 +5,7 @@
     </div>
 
     <div class="filter-sort-container">
-        <form action="/Scholar/Home/searchProductByName" method="get" class="filter-sort-container">
+        <form action="/Home/searchProductByName" method="get" class="filter-sort-container">
             <div class="filter-container">
                 <label for="category">Filter</label>
                 <select id="category" name="category" onchange="this.form.submit()">
@@ -42,7 +42,7 @@
 <div class="cards">
     <?php if (!empty($data['Products'])): ?>
         <?php foreach ($data['Products'] as $product): ?>
-            <a href="/Scholar/Products/getProductInformation/<?php echo $product['product_id']; ?>">
+            <a href="/Products/getProductInformation/<?php echo $product['product_id']; ?>">
                 <div class="card">
                     <img src="<?php echo $product['images'][0]['image_url']; ?>" alt="product" class="img">
                     <div class="content">
@@ -59,15 +59,15 @@
 <?php if ($data['TotalPages'] > 1): ?>
     <div class="pagination">
         <?php if ($data['CurrentPage'] > 1): ?>
-            <a href="/Scholar/Home/searchProductByName?keyword=<?php echo $data['SearchKeyword']; ?>&category=<?php echo $data['Category']; ?>&sort=<?php echo $data['SortOrder']; ?>&page=<?php echo $data['CurrentPage'] - 1; ?>" class="prev">Previous</a>
+            <a href="/Home/searchProductByName?keyword=<?php echo $data['SearchKeyword']; ?>&category=<?php echo $data['Category']; ?>&sort=<?php echo $data['SortOrder']; ?>&page=<?php echo $data['CurrentPage'] - 1; ?>" class="prev">Previous</a>
         <?php endif; ?>
 
         <?php for ($i = 1; $i <= $data['TotalPages']; $i++): ?>
-            <a href="/Scholar/Home/searchProductByName?keyword=<?php echo $data['SearchKeyword']; ?>&category=<?php echo $data['Category']; ?>&sort=<?php echo $data['SortOrder']; ?>&page=<?php echo $i; ?>" class="<?php echo ($i == $data['CurrentPage']) ? 'active' : ''; ?>"><?php echo $i; ?></a>
+            <a href="/Home/searchProductByName?keyword=<?php echo $data['SearchKeyword']; ?>&category=<?php echo $data['Category']; ?>&sort=<?php echo $data['SortOrder']; ?>&page=<?php echo $i; ?>" class="<?php echo ($i == $data['CurrentPage']) ? 'active' : ''; ?>"><?php echo $i; ?></a>
         <?php endfor; ?>
 
         <?php if ($data['CurrentPage'] < $data['TotalPages']): ?>
-            <a href="/Scholar/Home/searchProductByName?keyword=<?php echo $data['SearchKeyword']; ?>&category=<?php echo $data['Category']; ?>&sort=<?php echo $data['SortOrder']; ?>&page=<?php echo $data['CurrentPage'] + 1; ?>" class="next">Next</a>
+            <a href="/Home/searchProductByName?keyword=<?php echo $data['SearchKeyword']; ?>&category=<?php echo $data['Category']; ?>&sort=<?php echo $data['SortOrder']; ?>&page=<?php echo $data['CurrentPage'] + 1; ?>" class="next">Next</a>
         <?php endif; ?>
     </div>
 <?php endif; ?>

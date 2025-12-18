@@ -34,7 +34,7 @@ $totalPrice = array_reduce($cartItems, function ($sum, $item) {
     <div class="right-content">
         <div class="form-container form-container-payment">
             <p class="payment-heading">Confirmation</p>
-            <form action="/Scholar/Orders/payMentSuccessful" method="post" class="form-register form-payment">
+            <form action="/Orders/payMentSuccessful" method="post" class="form-register form-payment">
                 <!-- Full Name -->
                 <div class="form-field">
                     <label for="full-name" class="title">Full Name</label>

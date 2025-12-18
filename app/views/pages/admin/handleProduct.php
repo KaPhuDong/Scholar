@@ -4,7 +4,7 @@ $action = $data["Action"] ?? 'add';
 ?>
 
 <div class="update-product">
-    <form action="/Scholar/Admin/saveProduct/" method="POST" enctype="multipart/form-data" class="infor-product">
+    <form action="/Admin/saveProduct/" method="POST" enctype="multipart/form-data" class="infor-product">
         <div class="form-update-product">
             <?php if ($action === "update"): ?>
                 <h1 class="update-infor-product">Update Product</h1>

@@ -67,7 +67,7 @@ class Admin extends Controller
             $usersModel->deleteUserById($userId);
             echo "<script>
                     alert('User deleted successfully!');
-                    window.location.href = '/Scholar/Admin/userManagement';
+                    window.location.href = '/Admin/userManagement';
                 </script>";
             exit;
         }
@@ -290,7 +290,7 @@ class Admin extends Controller
             if ($deleteProduct) {
                 echo "<script>
                     alert('Product deleted successfully!');
-                    window.location.href = '/Scholar/Admin/productManagement';
+                    window.location.href = '/Admin/productManagement';
                 </script>";
                 exit;
             }
@@ -365,7 +365,7 @@ class Admin extends Controller
 
         echo "<script>
                 alert('Save product successfully!');
-                window.location.href = '/Scholar/Admin/productManagement';
+                window.location.href = '/Admin/productManagement';
             </script>";
     }
 

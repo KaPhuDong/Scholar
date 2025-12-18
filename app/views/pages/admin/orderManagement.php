@@ -10,7 +10,7 @@ $searchKeyword = $data["SearchKeyword"] ?? '';
     <div class="header-order">
         <p class="title">Order Management</p>
         <div class="search-order">
-            <form action="/Scholar/admin/orderManagement" method="GET">
+            <form action="/Admin/orderManagement" method="GET">
                 <input 
                     type="text" 
                     name="keyword" 
@@ -32,12 +32,12 @@ $searchKeyword = $data["SearchKeyword"] ?? '';
             <div class="pagination">
                 <!-- Previous Button -->
                 <?php if ($currentPage > 1): ?>
-                    <a href="/Scholar/admin/orderManagement?keyword=<?php echo $searchKeyword; ?>&page=<?php echo $currentPage - 1; ?>" class="prev">Previous</a>
+                    <a href="/Admin/orderManagement?keyword=<?php echo $searchKeyword; ?>&page=<?php echo $currentPage - 1; ?>" class="prev">Previous</a>
                 <?php endif; ?>
 
                 <!-- Page Numbers -->
                 <?php for ($i = 1; $i <= $totalPages; $i++): ?>
-                    <a href="/Scholar/admin/orderManagement?keyword=<?php echo $searchKeyword; ?>&page=<?php echo $i; ?>" 
+                    <a href="/Admin/orderManagement?keyword=<?php echo $searchKeyword; ?>&page=<?php echo $i; ?>" 
                        class="<?php echo ($i == $currentPage) ? 'active' : ''; ?>">
                        <?php echo $i; ?>
                     </a>
@@ -45,7 +45,7 @@ $searchKeyword = $data["SearchKeyword"] ?? '';
 
                 <!-- Next Button -->
                 <?php if ($currentPage < $totalPages): ?>
-                    <a href="/Scholar/admin/orderManagement?keyword=<?php echo $searchKeyword; ?>&page=<?php echo $currentPage + 1; ?>" class="next">Next</a>
+                    <a href="/Admin/orderManagement?keyword=<?php echo $searchKeyword; ?>&page=<?php echo $currentPage + 1; ?>" class="next">Next</a>
                 <?php endif; ?>
             </div>
         <?php endif; ?>

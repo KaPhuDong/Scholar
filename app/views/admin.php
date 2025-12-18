@@ -24,7 +24,7 @@
                 <button class="account-icon" id="account-icon"><img src="./public/assets/icons/Account.svg" alt="icon-account"></button>
                 <div class="dropdown-menu" id="dropdownMenu" style="display: none;">
                     <ul>
-                        <li><a href="/Scholar/User/logout">Log out</a></li>
+                        <li><a href="/User/logout">Log out</a></li>
                     </ul>
                 </div>
             </div>
@@ -34,9 +34,9 @@
     <div class="admin-container">
         <div class="admin-sidebar">
             <ul class="sidebar-menu">
-                <li class="menu-item"><a href="/Scholar/Admin/userManagement">User management</a></li>
-                <li class="menu-item"><a href="/Scholar/Admin/productManagement">Product management</a></li>
-                <li class="menu-item"><a href="/Scholar/Admin/orderManagement">Order management</a></li>
+                <li class="menu-item"><a href="/Admin/userManagement">User management</a></li>
+                <li class="menu-item"><a href="/Admin/productManagement">Product management</a></li>
+                <li class="menu-item"><a href="/Admin/orderManagement">Order management</a></li>
             </ul>
         </div>
 
